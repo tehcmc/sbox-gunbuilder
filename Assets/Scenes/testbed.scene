@@ -1,0 +1,658 @@
+{
+  "__guid": "dd30a9a3-cc85-435d-ac47-f729d791aa5b",
+  "GameObjects": [
+    {
+      "__guid": "f8c2be37-7076-4b3b-9392-ade8c6bee49f",
+      "Name": "Directional Light",
+      "Position": "0,0,200",
+      "Rotation": "-0.2459842,0.5938582,0.2931525,0.7077327",
+      "Tags": "light_directional,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Sandbox.DirectionalLight",
+          "__guid": "0990d715-33a7-4d47-a1f6-e083fc22add4",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Shadows": true,
+          "SkyColor": "0.05882,0.07451,0.08235,1"
+        }
+      ]
+    },
+    {
+      "__guid": "673f13ca-34f7-4c81-8649-f3bae14ff7d1",
+      "Name": "Player",
+      "Position": "10.50565,0,-1.986465",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Player",
+          "__guid": "938b5add-796b-49d4-95f2-f15ab05ef309"
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "2ae9f54d-f802-44b4-88b2-bfb7e54bbad4",
+          "Name": "Head",
+          "Position": "0,0,20",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "Sandbox.VR.VRTrackedObject",
+              "__guid": "35325a75-cb92-4726-bbb5-66f9b524da10",
+              "PoseSource": "Head",
+              "TrackingType": "All",
+              "UseRelativeTransform": false
+            },
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "fc77eb62-a15e-4daa-bab6-80002b77e8a4",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/editor/camera.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "Sandbox.CameraComponent",
+              "__guid": "815eb536-88d1-4fa7-8277-3ece93e4d931",
+              "BackgroundColor": "0.33333,0.46275,0.52157,1",
+              "ClearFlags": "All",
+              "FieldOfView": 60,
+              "IsMainCamera": false,
+              "Orthographic": false,
+              "OrthographicHeight": 1204,
+              "Priority": 1,
+              "RenderExcludeTags": "",
+              "RenderTags": "",
+              "TargetEye": "Both",
+              "Viewport": "0,0,1,1",
+              "ZFar": 10000,
+              "ZNear": 10
+            }
+          ]
+        },
+        {
+          "__guid": "258598e4-0c86-4f80-ad2f-3800c5e9622f",
+          "Name": "Anchor",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "Sandbox.VR.VRAnchor",
+              "__guid": "c3617538-80d0-4661-a01f-ff7e1e73a362"
+            }
+          ]
+        },
+        {
+          "__guid": "d83012e6-5047-4f66-aa34-277384a55569",
+          "Name": "Left Hand",
+          "Position": "0,12.28422,10.1414",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "Sandbox.VR.VRHand",
+              "__guid": "4ebad983-81aa-4346-a751-3725036d2618",
+              "HandSource": "Left",
+              "SkinnedModelComponent": {
+                "_type": "component",
+                "component_id": "28a33ec5-1ee3-4403-9d4e-cb63a7087f5b",
+                "go": "d02b709c-e856-447f-b17a-3dec27a3bd05",
+                "component_type": "SkinnedModelRenderer"
+              }
+            },
+            {
+              "__type": "Sandbox.VR.VRTrackedObject",
+              "__guid": "514751db-fcda-4cee-8022-e88502dbb598",
+              "PoseSource": "LeftHand",
+              "TrackingType": "All",
+              "UseRelativeTransform": false
+            },
+            {
+              "__type": "Hand",
+              "__guid": "fb96d85a-bc8b-4ff7-840b-a0246190ec3d"
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "d02b709c-e856-447f-b17a-3dec27a3bd05",
+              "Name": "Model",
+              "Position": "-2.3,0,0",
+              "Rotation": "0,0.1305262,0,0.9914449",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "Sandbox.SkinnedModelRenderer",
+                  "__guid": "28a33ec5-1ee3-4403-9d4e-cb63a7087f5b",
+                  "BodyGroups": 18446744073709551615,
+                  "CreateBoneObjects": false,
+                  "Model": "models/hands/alyx_hand_left.vmdl",
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "__guid": "760468cd-a58e-49e2-a702-1e0a4d35494d",
+          "Name": "Right Hand",
+          "Position": "0,-16.74989,10.1414",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "Sandbox.VR.VRHand",
+              "__guid": "d134d09d-a941-4218-8054-0722072fc9c4",
+              "HandSource": "Right",
+              "SkinnedModelComponent": {
+                "_type": "component",
+                "component_id": "71401b68-1747-47e9-a6fe-c09a768eb029",
+                "go": "b968d8df-66eb-419a-9932-8cf54bbdd255",
+                "component_type": "SkinnedModelRenderer"
+              }
+            },
+            {
+              "__type": "Sandbox.VR.VRTrackedObject",
+              "__guid": "fae69bec-0d5f-4566-9afb-1732d8db4d41",
+              "PoseSource": "RightHand",
+              "TrackingType": "All",
+              "UseRelativeTransform": false
+            },
+            {
+              "__type": "Hand",
+              "__guid": "dab78f1a-1ea0-4c2a-82d8-548dcfacb52a"
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "b968d8df-66eb-419a-9932-8cf54bbdd255",
+              "Name": "Model",
+              "Position": "-2.3,0,0",
+              "Rotation": "0,0.1305262,0,0.9914449",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "Sandbox.SkinnedModelRenderer",
+                  "__guid": "71401b68-1747-47e9-a6fe-c09a768eb029",
+                  "BodyGroups": 18446744073709551615,
+                  "CreateBoneObjects": false,
+                  "Model": "models/hands/alyx_hand_right.vmdl",
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "8229d308-5503-4149-b8e1-e04dd16e4700",
+      "Name": "Box",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Sandbox.MeshComponent",
+          "__guid": "063cddcb-c658-445e-864f-6fd214d5111e",
+          "Collision": "Mesh",
+          "Color": "0.12017,0.2367,0.46977,1",
+          "IsTrigger": false,
+          "Mesh": {
+            "Topology": "H4sIAAAAAAAACk2MAQoAIAgDrSz7/4drBwoOjmKbczO7Ygg0hYuTHuB1hXgS/so\u002Bqi4vOdnOrb6NT15bJXy63JDz/\u002Bg6SXigAAAA",
+            "TextureOrigin": "2032.934,1801.73,-0.0008517982",
+            "Positions": [
+              "-3788.789,-4833.878,0",
+              "3788.789,-4833.878,0",
+              "3788.789,4833.878,0",
+              "-3788.789,4833.878,0"
+            ],
+            "TextureUAxis": [
+              "1,0,0"
+            ],
+            "TextureVAxis": [
+              "0,-1,0"
+            ],
+            "TextureScale": [
+              "0.25,0.25"
+            ],
+            "TextureAngle": [
+              0
+            ],
+            "MaterialIndex": [
+              3
+            ],
+            "EdgeFlags": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "Materials": [
+              "materials/dev/reflectivity_30.vmat",
+              "materials/dev/black_grid_8.vmat",
+              "materials/dev/gray_grid_4.vmat",
+              "materials/dev/gray_grid_8.vmat",
+              "materials/editor/black_grid_8_doublesided.vmat",
+              "materials/editor/lightmapgrid.vmat"
+            ]
+          },
+          "SmoothingAngle": 40,
+          "Static": true
+        }
+      ]
+    },
+    {
+      "__guid": "0e28bdd0-678e-4079-9aac-67446d6dc61f",
+      "Name": "Box",
+      "Position": "0,0,4.005005",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Sandbox.MeshComponent",
+          "__guid": "8c041f4b-f2b6-48e5-87a2-45a4d53df15d",
+          "Collision": "Mesh",
+          "Color": "1,1,1,1",
+          "IsTrigger": false,
+          "Mesh": {
+            "Topology": "H4sIAAAAAAAACl2Qiw6CUAxDh1flgg/wAfr/X2pP0iWLJA25W9t16xHxFc4C30E4\u002Bt2FWbgKd2Ew4NTvIZxcb9ZH4b5db\u002Bb9z/oUzVh8m7lPc9FOzjRYQ8ZXyXxxXvrw4e72wvtWdoEPdzMXj8We9OHDXcvO7EqdN396eKaeLHjkLciePeYxi4z0mMFtMisablFvRXZ2Tj158KQOF78f9WSROMQBAAA=",
+            "TextureOrigin": "0,0,4.005005",
+            "Positions": [
+              "-128,-128,4",
+              "128,-128,4",
+              "128,128,4",
+              "-128,128,4",
+              "-128,128,-4",
+              "128,128,-4",
+              "128,-128,-4",
+              "-128,-128,-4"
+            ],
+            "TextureUAxis": [
+              "1,0,0",
+              "1,0,0",
+              "0,-1,0",
+              "0,1,0",
+              "-1,0,0",
+              "1,0,0"
+            ],
+            "TextureVAxis": [
+              "0,-1,0",
+              "0,-1,0",
+              "0,0,-1",
+              "0,0,-1",
+              "0,0,-1",
+              "0,0,-1"
+            ],
+            "TextureScale": [
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25"
+            ],
+            "TextureAngle": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "MaterialIndex": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "EdgeFlags": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "Materials": [
+              "materials/dev/gray_grid_8.vmat"
+            ]
+          },
+          "SmoothingAngle": 40,
+          "Static": true
+        }
+      ]
+    },
+    {
+      "__guid": "28656b31-9450-4209-86f8-29f8f86b5c31",
+      "Name": "Box",
+      "Position": "48,0,38.63159",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Sandbox.MeshComponent",
+          "__guid": "a145bc8a-9dad-4d58-b687-ca8c6174eb64",
+          "Collision": "Mesh",
+          "Color": "1,1,1,1",
+          "IsTrigger": false,
+          "Mesh": {
+            "Topology": "H4sIAAAAAAAACl2Qiw6CUAxDh1flgg/wAfr/X2pP0iWLJA25W9t16xHxFc4C30E4\u002Bt2FWbgKd2Ew4NTvIZxcb9ZH4b5db\u002Bb9z/oUzVh8m7lPc9FOzjRYQ8ZXyXxxXvrw4e72wvtWdoEPdzMXj8We9OHDXcvO7EqdN396eKaeLHjkLciePeYxi4z0mMFtMisablFvRXZ2Tj158KQOF78f9WSROMQBAAA=",
+            "TextureOrigin": "48,0,16.00513",
+            "Positions": [
+              "-16,-32,8.000015",
+              "16,-32,8.000015",
+              "16,32,8.000015",
+              "-16,32,8.000015",
+              "-16,32,1.368408",
+              "16,32,1.368408",
+              "16,-32,1.368408",
+              "-16,-32,1.368408"
+            ],
+            "TextureUAxis": [
+              "1,0,0",
+              "1,0,0",
+              "0,-1,0",
+              "0,1,0",
+              "-1,0,0",
+              "1,0,0"
+            ],
+            "TextureVAxis": [
+              "0,-1,0",
+              "0,-1,0",
+              "0,0,-1",
+              "0,0,-1",
+              "0,0,-1",
+              "0,0,-1"
+            ],
+            "TextureScale": [
+              "0.1,0.1",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25"
+            ],
+            "TextureAngle": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "MaterialIndex": [
+              3,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "EdgeFlags": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "Materials": [
+              "materials/dev/reflectivity_30.vmat",
+              "materials/dev/gray_grid_8.vmat",
+              "materials/dev/black_grid_8.vmat",
+              "materials/editor/black_grid_8_doublesided.vmat"
+            ]
+          },
+          "SmoothingAngle": 40,
+          "Static": true
+        }
+      ]
+    },
+    {
+      "__guid": "7c057873-475e-4e05-b68e-065b2490c904",
+      "Name": "USP",
+      "Position": "48,0.0000001033591,47.20448",
+      "Rotation": "0.7071067,0,0,0.7071068",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Children": [
+        {
+          "__guid": "f86671bd-ff24-4df2-964b-f41a57b9f168",
+          "Name": "Model",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "61c247b9-25ca-480b-82cc-50d1fc94fa96",
+              "BodyGroups": 20773,
+              "CreateBoneObjects": false,
+              "Model": "models/weapons/sbox_pistol_usp/v_usp.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "bc483c44-267e-4357-a5f1-8faa4a01b4eb",
+          "Name": "Grab Point",
+          "Position": "-2.282162,0.2440449,1.768347",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "GrabPoint",
+              "__guid": "2e301247-1fad-4963-9c5e-f87781ad4389",
+              "Collider": {
+                "_type": "component",
+                "component_id": "13783f17-e572-486e-8cf9-c41dc2300435",
+                "go": "bc483c44-267e-4357-a5f1-8faa4a01b4eb",
+                "component_type": "SphereCollider"
+              }
+            },
+            {
+              "__type": "Sandbox.SphereCollider",
+              "__guid": "13783f17-e572-486e-8cf9-c41dc2300435",
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Radius": 4,
+              "Static": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "3090b03c-3601-4a6e-b55e-fdffa71db633",
+      "Name": "Selfie Stick",
+      "Position": "49.61787,-19.35291,47.5405",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Children": [
+        {
+          "__guid": "b5f7bb2b-a06c-4cdf-ab54-7db18c0daf26",
+          "Name": "Base",
+          "Position": "0,0,0",
+          "Scale": "1,0.02,0.02",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "3b85efc9-56cb-464e-bc9d-9b8aeff40619",
+              "BodyGroups": 18446744073709551615,
+              "RenderType": "On",
+              "Tint": "0.17209,0.17209,0.17209,1"
+            }
+          ]
+        },
+        {
+          "__guid": "23256cd8-9c18-4ac4-a1e5-bfe482b2956f",
+          "Name": "Riser",
+          "Position": "24.52301,0,2.919945",
+          "Scale": "0.02,0.02,0.1",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "f94140eb-8ec3-44e5-b909-82e0e4fca95b",
+              "BodyGroups": 18446744073709551615,
+              "CreateBoneObjects": false,
+              "RenderType": "On",
+              "Tint": "0.14884,0.14884,0.14884,1"
+            }
+          ]
+        },
+        {
+          "__guid": "dbf40da7-af8e-4e73-b062-990d3e8c97fc",
+          "Name": "Camera",
+          "Position": "24,-0.000009026607,6.5",
+          "Rotation": "-0.000000000000003996803,0.00000002247899,0.9999999,0.0000001937151",
+          "Scale": "0.4,0.4,0.4",
+          "Tags": "cameras",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "Sandbox.CameraComponent",
+              "__guid": "21840090-29d6-4ca4-94a0-b6d87b83a284",
+              "BackgroundColor": "0.33333,0.46275,0.52157,1",
+              "ClearFlags": "All",
+              "FieldOfView": 80,
+              "IsMainCamera": true,
+              "Orthographic": false,
+              "OrthographicHeight": 1204,
+              "Priority": 8,
+              "RenderExcludeTags": "cameras",
+              "RenderTags": "",
+              "TargetEye": "None",
+              "Viewport": "0,0,1,1",
+              "ZFar": 10000,
+              "ZNear": 10
+            },
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "91b41e2d-f8fd-42b5-9afc-119b5d98b5a8",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/editor/camera.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "6c7b645e-0580-48d6-9a1f-cbaf50801183",
+          "Name": "Grab Point",
+          "Position": "-25.57396,0,0",
+          "Scale": "0.03,0.03,0.03",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "2f9053cf-ecd1-4202-be6f-95d88c6348b1",
+              "BodyGroups": 18446744073709551615,
+              "CreateBoneObjects": false,
+              "RenderType": "On",
+              "Tint": "0.05581,0.05581,0.05581,1"
+            },
+            {
+              "__type": "GrabPoint",
+              "__guid": "14f5b2fc-57f9-4e0b-8356-593b934cf679"
+            },
+            {
+              "__type": "Sandbox.SphereCollider",
+              "__guid": "abb75d68-4cbc-4d81-b88b-ab571674f4e7",
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Radius": 50,
+              "Static": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "testbed",
+  "Description": "",
+  "LastSaved": "2024-04-29T21:03:15.9772754\u002B01:00",
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": [
+    "facepunch.v_usp"
+  ]
+}
