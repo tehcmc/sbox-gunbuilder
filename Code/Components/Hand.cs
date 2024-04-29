@@ -4,20 +4,20 @@ public sealed class Hand : Component
 {
 	[RequireComponent] VRHand VRHand { get; set; }
 
+	GrabPoint LastGrabPoint;
+	GameObject RootObject;
+
 	bool IsTriggerDown()
 	{
 		if ( !Game.IsRunningInVR ) return Input.Down( "Attack1" );
 
-		if ( VRHand.HandSource == VRHand.HandSources.Left)
+		if ( VRHand.HandSource == VRHand.HandSources.Left )
 		{
 			return Input.VR.LeftHand.Grip.Value > 0.25f;
 		}
 
 		return Input.VR.RightHand.Grip.Value > 0.25f;
 	}
-
-	GrabPoint LastGrabPoint { get; set; }
-	GameObject RootObject { get; set; }
 
 	GrabPoint FindGrabPoint()
 	{
@@ -26,11 +26,8 @@ public sealed class Hand : Component
 		foreach ( var obj in objects )
 		{
 			if ( obj.Root.Components.Get<GrabPoint>( FindMode.EnabledInSelfAndDescendants ) is { } grabPoint )
-			{
 				return grabPoint;
-			}
 		}
-
 		return null;
 	}
 
@@ -40,8 +37,7 @@ public sealed class Hand : Component
 
 		LastGrabPoint = grabPoint;
 		RootObject = LastGrabPoint.GameObject.Root;
-
-		RootObject.SetParent( this.GameObject, true );
+		RootObject.SetParent( GameObject, true );
 	}
 
 	void Release()
@@ -51,7 +47,6 @@ public sealed class Hand : Component
 			RootObject.SetParent( null );
 			RootObject = null;
 			LastGrabPoint = null;
-			Log.Info( "Released" );
 		}
 	}
 
@@ -63,9 +58,7 @@ public sealed class Hand : Component
 		{
 			var grabPoint = FindGrabPoint();
 			if ( !grabPoint.IsValid() )
-			{
 				return;
-			}
 
 			Gizmo.Draw.Color = Color.Green;
 			Gizmo.Draw.LineBBox( BBox.FromPositionAndSize( Transform.Position, 2 ) );
