@@ -1,0 +1,181 @@
+{
+  "RootObject": {
+    "__guid": "673f13ca-34f7-4c81-8649-f3bae14ff7d1",
+    "Name": "Player",
+    "Position": "10.50565,0,-1.986465",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "Components": [
+      {
+        "__type": "Player",
+        "__guid": "938b5add-796b-49d4-95f2-f15ab05ef309"
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "2ae9f54d-f802-44b4-88b2-bfb7e54bbad4",
+        "Name": "Head",
+        "Position": "0,0,20",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "Sandbox.VR.VRTrackedObject",
+            "__guid": "35325a75-cb92-4726-bbb5-66f9b524da10",
+            "PoseSource": "Head",
+            "TrackingType": "All",
+            "UseRelativeTransform": false
+          },
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "fc77eb62-a15e-4daa-bab6-80002b77e8a4",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/editor/camera.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          },
+          {
+            "__type": "Sandbox.CameraComponent",
+            "__guid": "815eb536-88d1-4fa7-8277-3ece93e4d931",
+            "BackgroundColor": "0.33333,0.46275,0.52157,1",
+            "ClearFlags": "All",
+            "FieldOfView": 60,
+            "IsMainCamera": false,
+            "Orthographic": false,
+            "OrthographicHeight": 1204,
+            "Priority": 1,
+            "RenderExcludeTags": "",
+            "RenderTags": "",
+            "TargetEye": "Both",
+            "Viewport": "0,0,1,1",
+            "ZFar": 10000,
+            "ZNear": 10
+          }
+        ]
+      },
+      {
+        "__guid": "258598e4-0c86-4f80-ad2f-3800c5e9622f",
+        "Name": "Anchor",
+        "Position": "0,0,0",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "Sandbox.VR.VRAnchor",
+            "__guid": "c3617538-80d0-4661-a01f-ff7e1e73a362"
+          }
+        ]
+      },
+      {
+        "__guid": "d83012e6-5047-4f66-aa34-277384a55569",
+        "Name": "Left Hand",
+        "Position": "0,12.28422,10.1414",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "Sandbox.VR.VRHand",
+            "__guid": "4ebad983-81aa-4346-a751-3725036d2618",
+            "HandSource": "Left",
+            "SkinnedModelComponent": {
+              "_type": "component",
+              "component_id": "28a33ec5-1ee3-4403-9d4e-cb63a7087f5b",
+              "go": "d02b709c-e856-447f-b17a-3dec27a3bd05",
+              "component_type": "SkinnedModelRenderer"
+            }
+          },
+          {
+            "__type": "Sandbox.VR.VRTrackedObject",
+            "__guid": "514751db-fcda-4cee-8022-e88502dbb598",
+            "PoseSource": "LeftHand",
+            "TrackingType": "All",
+            "UseRelativeTransform": false
+          },
+          {
+            "__type": "Hand",
+            "__guid": "fb96d85a-bc8b-4ff7-840b-a0246190ec3d"
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "d02b709c-e856-447f-b17a-3dec27a3bd05",
+            "Name": "Model",
+            "Position": "-2.3,0,0",
+            "Rotation": "0,0.1305262,0,0.9914449",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "Components": [
+              {
+                "__type": "Sandbox.SkinnedModelRenderer",
+                "__guid": "28a33ec5-1ee3-4403-9d4e-cb63a7087f5b",
+                "BodyGroups": 18446744073709551615,
+                "CreateBoneObjects": false,
+                "Model": "models/hands/alyx_hand_left.vmdl",
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "760468cd-a58e-49e2-a702-1e0a4d35494d",
+        "Name": "Right Hand",
+        "Position": "0,-16.74989,10.1414",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "Sandbox.VR.VRHand",
+            "__guid": "d134d09d-a941-4218-8054-0722072fc9c4",
+            "HandSource": "Right",
+            "SkinnedModelComponent": {
+              "_type": "component",
+              "component_id": "71401b68-1747-47e9-a6fe-c09a768eb029",
+              "go": "b968d8df-66eb-419a-9932-8cf54bbdd255",
+              "component_type": "SkinnedModelRenderer"
+            }
+          },
+          {
+            "__type": "Sandbox.VR.VRTrackedObject",
+            "__guid": "fae69bec-0d5f-4566-9afb-1732d8db4d41",
+            "PoseSource": "RightHand",
+            "TrackingType": "All",
+            "UseRelativeTransform": false
+          },
+          {
+            "__type": "Hand",
+            "__guid": "dab78f1a-1ea0-4c2a-82d8-548dcfacb52a"
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "b968d8df-66eb-419a-9932-8cf54bbdd255",
+            "Name": "Model",
+            "Position": "-2.3,0,0",
+            "Rotation": "0,0.1305262,0,0.9914449",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "Components": [
+              {
+                "__type": "Sandbox.SkinnedModelRenderer",
+                "__guid": "71401b68-1747-47e9-a6fe-c09a768eb029",
+                "BodyGroups": 18446744073709551615,
+                "CreateBoneObjects": false,
+                "Model": "models/hands/alyx_hand_right.vmdl",
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": []
+}

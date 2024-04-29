@@ -4,8 +4,10 @@ public sealed class Hand : Component
 {
 	[RequireComponent] VRHand VRHand { get; set; }
 
-	protected bool IsTriggerDown()
+	bool IsTriggerDown()
 	{
+		if ( !Game.IsRunningInVR ) return Input.Down( "Attack1" );
+
 		if ( VRHand.HandSource == VRHand.HandSources.Left)
 		{
 			return Input.VR.LeftHand.Grip.Value > 0.25f;
@@ -17,7 +19,7 @@ public sealed class Hand : Component
 	GrabPoint LastGrabPoint { get; set; }
 	GameObject RootObject { get; set; }
 
-	protected GrabPoint FindGrabPoint()
+	GrabPoint FindGrabPoint()
 	{
 		var objects = Scene.FindInPhysics( BBox.FromPositionAndSize( Transform.Position, 16 ) );
 
