@@ -57,6 +57,8 @@ public sealed class Hand : Component
 
 	protected override void OnUpdate()
 	{
+		if ( IsProxy ) return;
+
 		if ( IsTriggerDown() )
 		{
 			var grabPoint = FindGrabPoint();
