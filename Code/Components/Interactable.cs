@@ -107,7 +107,9 @@ public partial class Interactable : Component
 
 		if ( !CanStopInteract( grabPoint, hand ) ) return false;
 
-		hand.ResetAttachment();
+		Log.Info( $"{this.GameObject} stopping interaction {grabPoint}" );
+
+		hand?.ResetAttachment();
 
 		OnStopInteract( grabPoint, hand );
 
@@ -176,6 +178,15 @@ public partial class Interactable : Component
 		{
 			PositionInteractable();
 			HeldUpdate();
+		}
+	}
+
+	internal void ClearAll()
+	{
+		var copy = new HashSet<GrabPoint>( heldGrabPoints );
+		foreach ( var point in copy )
+		{
+			StopInteract( point );
 		}
 	}
 }

@@ -34,14 +34,9 @@ public partial class AttachmentPoint : Component, Component.ExecuteInEditor, Com
 
 	protected void Attach( Attachable attachable )
 	{
-		var didStop = attachable.Interactable.StopInteract( attachable.Interactable.HeldGrabPoints.First() );
+		attachable.Interactable.ClearAll();
 
-		if ( !didStop )
-		{
-			Log.Info( "can't stop interacting" );
-			return;
-		}
-
+		attachable.OnAttach( this );
 		attachable.Rigidbody.MotionEnabled = false;
 		attachable.Rigidbody.Enabled = false;
 

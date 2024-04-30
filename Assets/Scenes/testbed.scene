@@ -26,8 +26,8 @@
     {
       "__guid": "f8c2be37-7076-4b3b-9392-ade8c6bee49f",
       "Name": "Directional Light",
-      "Position": "0,0,200",
-      "Rotation": "-0.2459842,0.5938582,0.2931525,0.7077327",
+      "Position": "-188.4961,451.4536,224.1935",
+      "Rotation": "0.1354347,0.2125834,-0.5199625,0.8161523",
       "Tags": "light_directional,light",
       "Enabled": true,
       "NetworkMode": 2,
@@ -37,9 +37,9 @@
           "__guid": "0990d715-33a7-4d47-a1f6-e083fc22add4",
           "FogMode": "Enabled",
           "FogStrength": 1,
-          "LightColor": "0.91373,0.98039,1,1",
+          "LightColor": "1,1,1,1",
           "Shadows": true,
-          "SkyColor": "0.05882,0.07451,0.08235,1"
+          "SkyColor": "0.05568,0.05887,0.06047,1"
         }
       ]
     },
@@ -430,9 +430,348 @@
       ]
     },
     {
+      "__guid": "8307f051-93fe-450d-b32a-340266c4e952",
+      "Name": "Box (2)",
+      "Position": "323.2336,64.00002,31.99995",
+      "Rotation": "0.5,-0.5,-0.5,0.5",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Sandbox.MeshComponent",
+          "__guid": "a8510378-56af-40d9-b08f-3ad97bb528ba",
+          "Collision": "Mesh",
+          "Color": "1,1,1,1",
+          "IsTrigger": false,
+          "Mesh": {
+            "Topology": "H4sIAAAAAAAACl2Qiw6CUAxDh1flgg/wAfr/X2pP0iWLJA25W9t16xHxFc4C30E4\u002Bt2FWbgKd2Ew4NTvIZxcb9ZH4b5db\u002Bb9z/oUzVh8m7lPc9FOzjRYQ8ZXyXxxXvrw4e72wvtWdoEPdzMXj8We9OHDXcvO7EqdN396eKaeLHjkLciePeYxi4z0mMFtMisablFvRXZ2Tj158KQOF78f9WSROMQBAAA=",
+            "TextureOrigin": "48,0,16.00513",
+            "Positions": [
+              "-16,-32,8.000015",
+              "16,-32,8.000015",
+              "16,32,8.000015",
+              "-16,32,8.000015",
+              "-16,32,1.368408",
+              "16,32,1.368408",
+              "16,-32,1.368408",
+              "-16,-32,1.368408"
+            ],
+            "TextureUAxis": [
+              "1,0,0",
+              "1,0,0",
+              "0,-1,0",
+              "0,1,0",
+              "-1,0,0",
+              "1,0,0"
+            ],
+            "TextureVAxis": [
+              "0,-1,0",
+              "0,-1,0",
+              "0,0,-1",
+              "0,0,-1",
+              "0,0,-1",
+              "0,0,-1"
+            ],
+            "TextureScale": [
+              "0.1,0.1",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25"
+            ],
+            "TextureAngle": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "MaterialIndex": [
+              3,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "EdgeFlags": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "Materials": [
+              "materials/dev/reflectivity_30.vmat",
+              "materials/dev/gray_grid_8.vmat",
+              "materials/dev/black_grid_8.vmat",
+              "materials/editor/black_grid_8_doublesided.vmat"
+            ]
+          },
+          "SmoothingAngle": 40,
+          "Static": true
+        },
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "f86f0c93-263a-4a74-935d-d0cc37dccad8",
+          "Center": "0,0,4.699998",
+          "IsTrigger": false,
+          "Scale": "31.30009,63.59996,6.499996",
+          "Static": false
+        }
+      ]
+    },
+    {
+      "__guid": "b0f8f02f-8135-4075-a8a9-1b4193afee9e",
+      "Name": "Box (3)",
+      "Position": "392,0,31.99995",
+      "Rotation": "0.5,-0.5,-0.5,0.5",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Sandbox.MeshComponent",
+          "__guid": "724b517f-c683-42f0-b1bd-a356b53b6305",
+          "Collision": "Mesh",
+          "Color": "1,1,1,1",
+          "IsTrigger": false,
+          "Mesh": {
+            "Topology": "H4sIAAAAAAAACl2Qiw6CUAxDh1flgg/wAfr/X2pP0iWLJA25W9t16xHxFc4C30E4\u002Bt2FWbgKd2Ew4NTvIZxcb9ZH4b5db\u002Bb9z/oUzVh8m7lPc9FOzjRYQ8ZXyXxxXvrw4e72wvtWdoEPdzMXj8We9OHDXcvO7EqdN396eKaeLHjkLciePeYxi4z0mMFtMisablFvRXZ2Tj158KQOF78f9WSROMQBAAA=",
+            "TextureOrigin": "48,0,16.00513",
+            "Positions": [
+              "-16,-32,8.000015",
+              "16,-32,8.000015",
+              "16,32,8.000015",
+              "-16,32,8.000015",
+              "-16,32,1.368408",
+              "16,32,1.368408",
+              "16,-32,1.368408",
+              "-16,-32,1.368408"
+            ],
+            "TextureUAxis": [
+              "1,0,0",
+              "1,0,0",
+              "0,-1,0",
+              "0,1,0",
+              "-1,0,0",
+              "1,0,0"
+            ],
+            "TextureVAxis": [
+              "0,-1,0",
+              "0,-1,0",
+              "0,0,-1",
+              "0,0,-1",
+              "0,0,-1",
+              "0,0,-1"
+            ],
+            "TextureScale": [
+              "0.1,0.1",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25"
+            ],
+            "TextureAngle": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "MaterialIndex": [
+              3,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "EdgeFlags": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "Materials": [
+              "materials/dev/reflectivity_30.vmat",
+              "materials/dev/gray_grid_8.vmat",
+              "materials/dev/black_grid_8.vmat",
+              "materials/editor/black_grid_8_doublesided.vmat"
+            ]
+          },
+          "SmoothingAngle": 40,
+          "Static": true
+        },
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "fc83a01c-c491-4d4a-8c8f-f0a9e9e7619b",
+          "Center": "0,0,4.699998",
+          "IsTrigger": false,
+          "Scale": "31.30009,63.59996,6.499996",
+          "Static": false
+        }
+      ]
+    },
+    {
+      "__guid": "53126997-2aa3-4390-ac29-54941723a92a",
+      "Name": "Box (4)",
+      "Position": "616,-64,31.99995",
+      "Rotation": "0.5,-0.5,-0.5,0.5",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Sandbox.MeshComponent",
+          "__guid": "c0a22e3e-34be-4920-bd37-214674c17c7a",
+          "Collision": "Mesh",
+          "Color": "1,1,1,1",
+          "IsTrigger": false,
+          "Mesh": {
+            "Topology": "H4sIAAAAAAAACl2Qiw6CUAxDh1flgg/wAfr/X2pP0iWLJA25W9t16xHxFc4C30E4\u002Bt2FWbgKd2Ew4NTvIZxcb9ZH4b5db\u002Bb9z/oUzVh8m7lPc9FOzjRYQ8ZXyXxxXvrw4e72wvtWdoEPdzMXj8We9OHDXcvO7EqdN396eKaeLHjkLciePeYxi4z0mMFtMisablFvRXZ2Tj158KQOF78f9WSROMQBAAA=",
+            "TextureOrigin": "48,0,16.00513",
+            "Positions": [
+              "-16,-32,8.000015",
+              "16,-32,8.000015",
+              "16,32,8.000015",
+              "-16,32,8.000015",
+              "-16,32,1.368408",
+              "16,32,1.368408",
+              "16,-32,1.368408",
+              "-16,-32,1.368408"
+            ],
+            "TextureUAxis": [
+              "1,0,0",
+              "1,0,0",
+              "0,-1,0",
+              "0,1,0",
+              "-1,0,0",
+              "1,0,0"
+            ],
+            "TextureVAxis": [
+              "0,-1,0",
+              "0,-1,0",
+              "0,0,-1",
+              "0,0,-1",
+              "0,0,-1",
+              "0,0,-1"
+            ],
+            "TextureScale": [
+              "0.1,0.1",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25"
+            ],
+            "TextureAngle": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "MaterialIndex": [
+              3,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "EdgeFlags": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "Materials": [
+              "materials/dev/reflectivity_30.vmat",
+              "materials/dev/gray_grid_8.vmat",
+              "materials/dev/black_grid_8.vmat",
+              "materials/editor/black_grid_8_doublesided.vmat"
+            ]
+          },
+          "SmoothingAngle": 40,
+          "Static": true
+        },
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "68b96870-e296-4198-bf78-5b697028720e",
+          "Center": "0,0,4.699998",
+          "IsTrigger": false,
+          "Scale": "31.30009,63.59996,6.499996",
+          "Static": false
+        }
+      ]
+    },
+    {
       "__guid": "7c057873-475e-4e05-b68e-065b2490c904",
       "Name": "USP",
-      "Position": "35.45029,3.059092,83.31995",
+      "Position": "37.20867,-5.03442,71.82974",
       "Rotation": "0.7071067,0,0,0.7071068",
       "NetworkMode": 2,
       "Components": [
@@ -463,8 +802,20 @@
           "__guid": "50125c4a-33ad-4ce9-a569-78555d36632c",
           "Center": "0.6000025,1.6,2.100001",
           "IsTrigger": false,
-          "Scale": "10,2,5",
+          "Scale": "8.099992,2.6,5",
           "Static": false
+        },
+        {
+          "__type": "Weapon",
+          "__guid": "70205999-ca97-444b-8200-e0c632e8a623",
+          "BulletSize": 4,
+          "MaxRange": 100000,
+          "MuzzleGameObject": {
+            "_type": "gameobject",
+            "go": "3ea987da-e988-47e1-bfff-f92d7cafaed2"
+          },
+          "RPM": 200,
+          "ShootSound": "sounds/weapons/m4a1/m4_shot.sound"
         }
       ],
       "Children": [
@@ -490,30 +841,51 @@
         {
           "__guid": "bc483c44-267e-4357-a5f1-8faa4a01b4eb",
           "Name": "Grab Point",
-          "Position": "-2.282162,0.2440449,1.768347",
+          "Position": "-0.6928711,-0.2208561,2.43325",
           "Enabled": true,
           "NetworkMode": 2,
           "Components": [
             {
               "__type": "GrabPoint",
               "__guid": "2e301247-1fad-4963-9c5e-f87781ad4389",
-              "HoldingPose": "Grip",
+              "Collider": {
+                "_type": "component",
+                "component_id": "14f9bbfd-6d9e-4a5e-b09e-1316b25528ad",
+                "go": "bc483c44-267e-4357-a5f1-8faa4a01b4eb",
+                "component_type": "SphereCollider"
+              },
+              "HoldingPose": "Clamp",
               "Interactable": {
                 "_type": "component",
                 "component_id": "0ec88105-93cb-415a-bc81-d4af715e2b3c",
                 "go": "7c057873-475e-4e05-b68e-065b2490c904",
                 "component_type": "Interactable"
               }
+            },
+            {
+              "__type": "Sandbox.SphereCollider",
+              "__guid": "14f9bbfd-6d9e-4a5e-b09e-1316b25528ad",
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Radius": 2,
+              "Static": false
             }
           ]
+        },
+        {
+          "__guid": "3ea987da-e988-47e1-bfff-f92d7cafaed2",
+          "Name": "Muzzle",
+          "Position": "7.481339,-0.00003134222,4.611771",
+          "Enabled": true,
+          "NetworkMode": 2
         }
       ]
     },
     {
       "__guid": "38133b5a-297f-40d4-8739-bd77c36e09f9",
       "Name": "M4",
-      "Position": "40.87687,-3.241247,71.25919",
-      "Rotation": "0.4304594,0.5609856,0.5609857,0.4304595",
+      "Position": "40.87687,-8.00005,71.25919",
+      "Rotation": "0.707107,-0.00000006705523,0.00000003062741,0.707107",
       "Enabled": true,
       "NetworkMode": 2,
       "Components": [
@@ -576,7 +948,7 @@
             {
               "__type": "Sandbox.SkinnedModelRenderer",
               "__guid": "5bfc64c5-ad3d-4f3c-90d1-e7208fd21484",
-              "BodyGroups": 16033,
+              "BodyGroups": 13985,
               "CreateBoneObjects": false,
               "Model": "models/weapons/sbox_assault_m4a1/v_m4a1.vmdl",
               "RenderType": "On",
@@ -698,6 +1070,363 @@
         },
         {
           "__guid": "11d6672f-95ec-41f8-a9e3-19e962a6699c",
+          "Name": "Muzzle",
+          "Position": "20.06361,-0.000003722113,7.350592",
+          "Enabled": true,
+          "NetworkMode": 2
+        }
+      ]
+    },
+    {
+      "__guid": "602cf9c9-8ab9-4bb7-a122-9d13fe46a223",
+      "Name": "M4 (2)",
+      "Position": "40.87687,7.99996,71.25922",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Interactable",
+          "__guid": "2936da05-e699-4ee9-a47f-c237e7169d3d",
+          "Rigidbody": {
+            "_type": "component",
+            "component_id": "f874e558-187a-4ae9-afbe-865f2a2c63e4",
+            "go": "602cf9c9-8ab9-4bb7-a122-9d13fe46a223",
+            "component_type": "Rigidbody"
+          }
+        },
+        {
+          "__type": "Sandbox.HullCollider",
+          "__guid": "9d26402e-23a6-483d-9000-0f188f235823",
+          "BoxSize": "26.90005,2.100003,5.100002",
+          "Center": "2.5,0,5.7",
+          "Height": 50,
+          "IsTrigger": false,
+          "Radius": 25,
+          "Radius2": 0,
+          "Slices": 16,
+          "Static": false,
+          "Type": "Box"
+        },
+        {
+          "__type": "Sandbox.Rigidbody",
+          "__guid": "f874e558-187a-4ae9-afbe-865f2a2c63e4",
+          "AngularDamping": 0,
+          "Gravity": true,
+          "LinearDamping": 0,
+          "Locking": {},
+          "MassOverride": 0,
+          "MotionEnabled": true,
+          "RigidbodyFlags": 0,
+          "StartAsleep": false
+        },
+        {
+          "__type": "Weapon",
+          "__guid": "d2d1cc8a-0136-4498-9b30-056acdb59d4e",
+          "BulletSize": 4,
+          "MaxRange": 100000,
+          "MuzzleGameObject": {
+            "_type": "gameobject",
+            "go": "c8b3ec7f-e88e-4d81-b3d1-72d5c5597c21"
+          },
+          "RPM": 650,
+          "ShootSound": "sounds/weapons/m4a1/m4_shot.sound"
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "a2da1618-fce7-476c-9e23-a0f557a19361",
+          "Name": "Model",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "d1d51ae2-3f52-406d-827f-dd9268f654ca",
+              "BodyGroups": 7761,
+              "CreateBoneObjects": false,
+              "Model": "models/weapons/sbox_assault_m4a1/v_m4a1.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "229f4398-4cb2-4535-a8ea-e9b451f96450",
+          "Name": "Grab Point",
+          "Position": "-0.687013,-0.01622051,3.932726",
+          "Tags": "trigger",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "GrabPoint",
+              "__guid": "fe3011e6-7d18-452a-8bfc-5eab4cb18ca1",
+              "Collider": {
+                "_type": "component",
+                "component_id": "391bd29a-17f0-4e1c-aaa9-5917e25f5354",
+                "go": "229f4398-4cb2-4535-a8ea-e9b451f96450",
+                "component_type": "SphereCollider"
+              },
+              "HoldingPose": "GripNoIndex",
+              "Interactable": {
+                "_type": "component",
+                "component_id": "2936da05-e699-4ee9-a47f-c237e7169d3d",
+                "go": "602cf9c9-8ab9-4bb7-a122-9d13fe46a223",
+                "component_type": "Interactable"
+              }
+            },
+            {
+              "__type": "Sandbox.SphereCollider",
+              "__guid": "391bd29a-17f0-4e1c-aaa9-5917e25f5354",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Radius": 4,
+              "Static": false
+            }
+          ]
+        },
+        {
+          "__guid": "57d82982-69b8-44b3-9230-3a5309555ee4",
+          "Name": "Secondary Grab Point",
+          "Position": "10.3376,0.5952409,5.903609",
+          "Rotation": "-0.4999999,-0.00000000000001687539,0.00000000000001421085,0.8660255",
+          "Tags": "trigger",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "GrabPoint",
+              "__guid": "1900d328-e8c4-4801-9c2f-ed61e59cb1c4",
+              "Collider": {
+                "_type": "component",
+                "component_id": "d9e0aace-0aa0-4808-84a7-3ebdf8047b61",
+                "go": "57d82982-69b8-44b3-9230-3a5309555ee4",
+                "component_type": "SphereCollider"
+              },
+              "HoldingPose": "Clamp",
+              "Interactable": {
+                "_type": "component",
+                "component_id": "2936da05-e699-4ee9-a47f-c237e7169d3d",
+                "go": "602cf9c9-8ab9-4bb7-a122-9d13fe46a223",
+                "component_type": "Interactable"
+              },
+              "PrimaryGrabPoint": {
+                "_type": "component",
+                "component_id": "fe3011e6-7d18-452a-8bfc-5eab4cb18ca1",
+                "go": "229f4398-4cb2-4535-a8ea-e9b451f96450",
+                "component_type": "GrabPoint"
+              }
+            },
+            {
+              "__type": "Sandbox.SphereCollider",
+              "__guid": "d9e0aace-0aa0-4808-84a7-3ebdf8047b61",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Radius": 4,
+              "Static": false
+            }
+          ]
+        },
+        {
+          "__guid": "5f2d27e0-11c4-418b-b04e-7b640aa3f5bd",
+          "Name": "Magazine Attachment Point",
+          "Position": "2.479351,-0.00009139063,3.599062",
+          "Tags": "trigger",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "AttachmentPoint",
+              "__guid": "9f7e35a6-8f38-42b7-8f89-5beadeaf8de5",
+              "AcceptedTags": "magazine",
+              "GuideModel": "models/weapons/sbox_assault_m4a1/w_m4a1_magazine.vmdl"
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "7ec542fa-19bf-44d1-a1c3-d770c783ae2e",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "1,1,1",
+              "Static": false
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "dc4c1830-f38e-442e-9f82-1dd9829845f9",
+              "AngularDamping": 0,
+              "Gravity": false,
+              "LinearDamping": 0,
+              "Locking": {},
+              "MassOverride": 0,
+              "MotionEnabled": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
+            }
+          ]
+        },
+        {
+          "__guid": "c8b3ec7f-e88e-4d81-b3d1-72d5c5597c21",
+          "Name": "Muzzle",
+          "Position": "20.06361,-0.000003722113,7.350592",
+          "Enabled": true,
+          "NetworkMode": 2
+        }
+      ]
+    },
+    {
+      "__guid": "650be6fb-6703-401b-86dc-7e2257520d9f",
+      "Name": "Spaghelli",
+      "Position": "40.87687,16.00003,71.25917",
+      "Rotation": "-0.7071069,-0.00000003062743,-0.00000006705523,0.7071071",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Interactable",
+          "__guid": "d29a39a2-8be2-4894-bb1f-327f28a0dc62",
+          "Rigidbody": {
+            "_type": "component",
+            "component_id": "2a9e03b8-01f1-45c7-99d5-020f9c47f317",
+            "go": "650be6fb-6703-401b-86dc-7e2257520d9f",
+            "component_type": "Rigidbody"
+          }
+        },
+        {
+          "__type": "Sandbox.HullCollider",
+          "__guid": "6824c9e0-6c9c-445c-a60c-15fa74c06243",
+          "BoxSize": "26.90005,2.100003,5.100002",
+          "Center": "2.5,0,5.7",
+          "Height": 50,
+          "IsTrigger": false,
+          "Radius": 25,
+          "Radius2": 0,
+          "Slices": 16,
+          "Static": false,
+          "Type": "Box"
+        },
+        {
+          "__type": "Sandbox.Rigidbody",
+          "__guid": "2a9e03b8-01f1-45c7-99d5-020f9c47f317",
+          "AngularDamping": 0,
+          "Gravity": true,
+          "LinearDamping": 0,
+          "Locking": {},
+          "MassOverride": 0,
+          "MotionEnabled": true,
+          "RigidbodyFlags": 0,
+          "StartAsleep": false
+        },
+        {
+          "__type": "Weapon",
+          "__guid": "9613ee87-62ae-460b-8e79-e4713889deb8",
+          "BulletSize": 4,
+          "MaxRange": 100000,
+          "MuzzleGameObject": {
+            "_type": "gameobject",
+            "go": "f54fcc5f-6bd9-4c5f-9f02-673fd9c9ef9a"
+          },
+          "RPM": 650,
+          "ShootSound": "sounds/weapons/m4a1/m4_shot.sound"
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "3f7f2588-8bc3-4607-b16c-35f8c7e0d95e",
+          "Name": "Model",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "7ea0ca9a-d25f-4588-aa2c-9b326e40419b",
+              "AnimationGraph": "empty.vanmgrph",
+              "BodyGroups": 11,
+              "CreateBoneObjects": false,
+              "Model": "models/weapons/sbox_shotgun_spaghellim4/v_spaghellim4.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "3941cc89-2fd6-4765-b754-eed78df68320",
+          "Name": "Grab Point",
+          "Position": "-0.6870118,-0.01620264,2.125757",
+          "Tags": "trigger",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "GrabPoint",
+              "__guid": "b79f2c83-f012-4032-955e-0227373794b7",
+              "Collider": {
+                "_type": "component",
+                "component_id": "7318b8b1-fe47-4c75-91ff-3a7ff7564365",
+                "go": "3941cc89-2fd6-4765-b754-eed78df68320",
+                "component_type": "SphereCollider"
+              },
+              "HoldingPose": "GripNoIndex",
+              "Interactable": {
+                "_type": "component",
+                "component_id": "d29a39a2-8be2-4894-bb1f-327f28a0dc62",
+                "go": "650be6fb-6703-401b-86dc-7e2257520d9f",
+                "component_type": "Interactable"
+              }
+            },
+            {
+              "__type": "Sandbox.SphereCollider",
+              "__guid": "7318b8b1-fe47-4c75-91ff-3a7ff7564365",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Radius": 4,
+              "Static": false
+            }
+          ]
+        },
+        {
+          "__guid": "98b81b74-d48a-4694-b28d-39bc783bded6",
+          "Name": "Secondary Grab Point",
+          "Position": "13.50943,-0.00008524535,4.139375",
+          "Tags": "trigger",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "GrabPoint",
+              "__guid": "313a136d-14d8-418b-bb9e-51e15d82df5c",
+              "Collider": {
+                "_type": "component",
+                "component_id": "2e27dc9f-e186-4a1b-b6bd-a88d07448b71",
+                "go": "98b81b74-d48a-4694-b28d-39bc783bded6",
+                "component_type": "SphereCollider"
+              },
+              "HoldingPose": "Grip",
+              "Interactable": {
+                "_type": "component",
+                "component_id": "d29a39a2-8be2-4894-bb1f-327f28a0dc62",
+                "go": "650be6fb-6703-401b-86dc-7e2257520d9f",
+                "component_type": "Interactable"
+              },
+              "PrimaryGrabPoint": {
+                "_type": "component",
+                "component_id": "b79f2c83-f012-4032-955e-0227373794b7",
+                "go": "3941cc89-2fd6-4765-b754-eed78df68320",
+                "component_type": "GrabPoint"
+              }
+            },
+            {
+              "__type": "Sandbox.SphereCollider",
+              "__guid": "2e27dc9f-e186-4a1b-b6bd-a88d07448b71",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Radius": 4,
+              "Static": false
+            }
+          ]
+        },
+        {
+          "__guid": "f54fcc5f-6bd9-4c5f-9f02-673fd9c9ef9a",
           "Name": "Muzzle",
           "Position": "20.06361,-0.000003722113,7.350592",
           "Enabled": true,
@@ -920,7 +1649,7 @@
     {
       "__guid": "cae6bc6e-8191-4200-b616-8342fa66ed44",
       "Name": "M4 Magazine",
-      "Position": "34.60009,-0.000007275214,77.69363",
+      "Position": "34.60008,-23.99995,77.69364",
       "Rotation": "0.4999998,0.5000001,0.4999999,0.5000001",
       "Tags": "magazine",
       "Enabled": true,
@@ -963,6 +1692,7 @@
         {
           "__type": "Attachable",
           "__guid": "523873d6-e435-427c-9ecf-4a209fce95ed",
+          "AttachSound": "sounds/weapons/m4a1/m4_magazine_in.sound",
           "Interactable": {
             "_type": "component",
             "component_id": "57bebbe7-5b45-488d-b33d-05fa679e2817",
@@ -1033,6 +1763,71 @@
           ]
         }
       ]
+    },
+    {
+      "__guid": "f9718452-b09d-48f9-81f9-23acdbbe088a",
+      "Name": "2D Skybox",
+      "Position": "185.7367,44.1757,-141.2182",
+      "Tags": "skybox",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Sandbox.SkyBox2D",
+          "__guid": "4b307dbe-afe7-45f3-b535-0e3b642e4bdb",
+          "SkyMaterial": "materials/skybox/skybox_day_01.vmat",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "257ab571-c5d3-4e4e-bd9d-40a5822cc615",
+      "Name": "Envmap Probe",
+      "Position": "-63.66519,-21.96673,97.83827",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Sandbox.EnvmapProbe",
+          "__guid": "2baefd39-074a-4da5-b7a5-3ff26b60113c",
+          "Texture": "textures/cubemaps/default2.vtex",
+          "Bounds": {
+            "Mins": "-10000,-10000,-10000",
+            "Maxs": "10000,10000,10000"
+          },
+          "DelayBetweenUpdates": 0.1,
+          "Feathering": 0.02,
+          "FrameInterval": 5,
+          "MaxDistance": 512,
+          "Projection": "Box",
+          "RenderDynamically": true,
+          "TintColor": "1,1,1,1",
+          "UpdateStrategy": "OnEnabled",
+          "ZFar": 4096,
+          "ZNear": 16
+        }
+      ]
+    },
+    {
+      "__guid": "bc587d29-9ddc-461d-9d77-9f5168e4e0be",
+      "Name": "Cubemap Fog",
+      "Position": "47.89931,-35.05224,105.3804",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Sandbox.CubemapFog",
+          "__guid": "2b8cd6b9-bc67-4d53-874a-7678184a0455",
+          "Blur": 0.8,
+          "EndDistance": 1600,
+          "FalloffExponent": 3,
+          "HeightExponent": 1,
+          "HeightStart": 1024,
+          "HeightWidth": 1024,
+          "Sky": "materials/skybox/skybox_day_01.vmat",
+          "StartDistance": 512
+        }
+      ]
     }
   ],
   "SceneProperties": {
@@ -1058,11 +1853,12 @@
   },
   "Title": "testbed",
   "Description": "",
-  "LastSaved": "2024-04-30T20:56:31.6569858\u002B01:00",
+  "LastSaved": "2024-04-30T21:51:32.4558876\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
     "facepunch.v_m4a1",
+    "facepunch.v_spaghellim4",
     "facepunch.v_usp",
     "facepunch.w_m4a1_magazine"
   ]

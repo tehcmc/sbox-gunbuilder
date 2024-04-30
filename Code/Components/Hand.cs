@@ -8,7 +8,12 @@ public sealed class Hand : Component, Component.ITriggerListener
 	GrabPoint CurrentGrabPoint { get; set; }
 
 	const float flDeadzone = 0.25f;
-	
+
+	protected override void DrawGizmos()
+	{
+		Gizmo.Draw.WorldText( $"Is Holding: {(CurrentGrabPoint.IsValid())}", new Transform() );
+	}
+
 	/// <summary>
 	/// Is the hand trigger down?
 	/// </summary>
@@ -163,7 +168,8 @@ public sealed class Hand : Component, Component.ITriggerListener
 		None,
 		Grip,
 		GripNoIndex,
-		HoldItem
+		HoldItem,
+		Clamp
 	}
 
 	public void SetPresetPose( PresetPose pose )
@@ -182,10 +188,10 @@ public sealed class Hand : Component, Component.ITriggerListener
 
 			if ( pose == PresetPose.Grip || pose == PresetPose.GripNoIndex )
 			{
-				SkinnedModelComponent.Set( AnimGraphNames[(int)v], 1 );
+				SkinnedModelComponent.Set( AnimGraphNames[(int)v], 1.0f );
 			}
 
-			if ( pose == PresetPose.GripNoIndex && v == FingerValue.IndexCurl )
+			if ( ( pose == PresetPose.GripNoIndex ) && v == FingerValue.IndexCurl )
 			{
 				SkinnedModelComponent.Set( AnimGraphNames[(int)v], source.GetFingerValue( v ) );
 			}
@@ -196,6 +202,16 @@ public sealed class Hand : Component, Component.ITriggerListener
 			}
 
 			x++;
+		}
+
+		if ( pose == PresetPose.Clamp )
+		{
+			SkinnedModelComponent.Set( "FingerCurl_Thumb", 0.5f );
+			SkinnedModelComponent.Set( "FingerCurl_Index", 0.4f );
+			SkinnedModelComponent.Set( "FingerCurl_Middle", 0.4f );
+			SkinnedModelComponent.Set( "FingerCurl_Ring", 0.4f );
+			SkinnedModelComponent.Set( "FingerCurl_Pinky", 0.8f );
+
 		}
 	}
 
