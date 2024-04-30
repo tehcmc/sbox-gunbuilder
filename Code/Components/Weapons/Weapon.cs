@@ -155,9 +155,12 @@ public partial class Weapon : Component
 
 	protected override void OnUpdate()
 	{
-		if ( Input.Pressed( "Attack1" ) )
+		if ( Interactable?.PrimaryGrabPoint?.HeldHand is { } hand )
 		{
-			Shoot();
+			if ( hand.IsTriggerDown() )
+			{
+				Shoot();
+			}
 		}
 	}
 

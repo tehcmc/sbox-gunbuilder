@@ -1,6 +1,6 @@
 using Sandbox.VR;
 
-public sealed class Hand : Component
+public sealed class Hand : Component, Component.ITriggerListener
 {
 	[RequireComponent] VRHand VRHand { get; set; }
 
@@ -12,33 +12,29 @@ public sealed class Hand : Component
 	/// Is the hand trigger down?
 	/// </summary>
 	/// <returns></returns>
-	bool IsTriggerDown()
+	public bool IsGripDown()
 	{
 		// For debugging purposes
-		if ( !Game.IsRunningInVR ) return Input.Down( "Attack1" );
+		if ( !Game.IsRunningInVR ) return Input.Down( "Attack2" );
 
-		var src = VRHand.HandSource == VRHand.HandSources.Left ? Input.VR.LeftHand : Input.VR.RightHand;
+		var src = GetController();
 
 		return src.Grip.Value > flDeadzone;
 	}
 
-	/// <summary>
-	/// Look for a grab point
-	/// </summary>
-	/// <returns></returns>
-	GrabPoint FindGrabPoint()
+	public bool IsTriggerDown()
 	{
-		var objects = Scene.FindInPhysics( BBox.FromPositionAndSize( Transform.Position, 8 ) );
+		// For debugging purposes
+		if ( !Game.IsRunningInVR ) return Input.Down( "Attack1" );
 
-		foreach ( var obj in objects )
-		{
-			var grabPoints = obj.Root.Components.GetAll<GrabPoint>( FindMode.EnabledInSelfAndDescendants );
-			grabPoints = grabPoints.OrderBy( x => x.Transform.Position.Distance( Transform.Position ) );
+		var src = GetController();
 
-			var closest = grabPoints.FirstOrDefault();
-			return closest;
-		}
-		return null;
+		return src.Trigger.Value > flDeadzone;
+	}
+
+	VRController GetController()
+	{
+		return VRHand.HandSource == VRHand.HandSources.Left ? Input.VR.LeftHand : Input.VR.RightHand;
 	}
 
 	void Grab( GrabPoint grabPoint )
@@ -53,7 +49,7 @@ public sealed class Hand : Component
 
 	void Release()
 	{
-		if ( CurrentGrabPoint?.Interactable?.StopInteract( CurrentGrabPoint, this ) ?? false )
+		if ( CurrentGrabPoint?.Interactable?.StopInteract( CurrentGrabPoint ) ?? false )
 		{
 			CurrentGrabPoint = null;
 		}
@@ -63,14 +59,11 @@ public sealed class Hand : Component
 	{
 		if ( IsProxy ) return;
 
-		if ( IsTriggerDown() )
+		if ( IsGripDown() )
 		{
-			var grabPoint = FindGrabPoint();
+			var grabPoint = HoveredGrabPoint;
 			if ( !grabPoint.IsValid() )
 				return;
-
-			Gizmo.Draw.Color = Color.Green;
-			Gizmo.Draw.LineBBox( BBox.FromPositionAndSize( Transform.Position, 2 ) );
 
 			Grab( grabPoint );
 		}
@@ -83,5 +76,25 @@ public sealed class Hand : Component
 	internal bool IsHolding()
 	{
 		return CurrentGrabPoint.IsValid();
+	}
+
+	GrabPoint HoveredGrabPoint { get; set; }
+
+	void ITriggerListener.OnTriggerEnter( Collider other )
+	{
+		if ( other.Components.Get<GrabPoint>( FindMode.EnabledInSelf ) is { } grabPoint )
+		{
+			HoveredGrabPoint = grabPoint;
+
+			GetController().TriggerHapticVibration( 0.1f, 0, 0.2f );
+		}
+	}
+
+	void ITriggerListener.OnTriggerExit( Collider other )
+	{
+		if ( other.Components.Get<GrabPoint>() is { } grabPoint )
+		{
+			HoveredGrabPoint = null;
+		}
 	}
 }

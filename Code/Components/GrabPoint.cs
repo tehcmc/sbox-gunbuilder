@@ -1,5 +1,5 @@
 
-public partial class GrabPoint : Component, Component.ExecuteInEditor
+public partial class GrabPoint : Component
 {
 	/// <summary>
 	/// The collider in question
@@ -40,13 +40,9 @@ public partial class GrabPoint : Component, Component.ExecuteInEditor
 		return true;
 	}
 
-	protected override void OnUpdate()
+	protected override void DrawGizmos()
 	{
-		if ( !IsBeingHeld )
-		{
-			Gizmo.Draw.Color = Color.Cyan.WithAlpha( 0.2f );
-			Gizmo.Draw.LineBBox( BBox.FromPositionAndSize( Transform.Position, 2 ) );
-			Gizmo.Draw.Model( "models/hands/alyx_hand_right.vmdl", Transform.World );
-		}
+		Gizmo.Draw.Color = Color.Cyan.WithAlpha( 0.2f );
+		Gizmo.Draw.Model( "models/hands/alyx_hand_right.vmdl" );
 	}
 }

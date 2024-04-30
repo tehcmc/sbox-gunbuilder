@@ -8,6 +8,9 @@ public partial class Interactable : Component
 	/// </summary>
 	public bool IsHeld => heldGrabPoints.Count( x => x.IsBeingHeld ) > 0;
 
+	public GrabPoint PrimaryGrabPoint => heldGrabPoints.FirstOrDefault();
+	public GrabPoint SecondaryGrabPoint => heldGrabPoints.FirstOrDefault( x => x.IsSecondaryGrabPoint );
+
 	[Property] public Rigidbody Rigidbody { get; set; }
 
 	HashSet<GrabPoint> heldGrabPoints = new();
@@ -17,6 +20,8 @@ public partial class Interactable : Component
 	/// </summary>
 	public ImmutableHashSet<GrabPoint> HeldGrabPoints => ImmutableHashSet.CreateRange( heldGrabPoints );
 
+	TimeSince TimeSinceInteract = 1;
+
 	/// <summary>
 	/// Can we start interacting with this object?
 	/// </summary>
@@ -25,6 +30,7 @@ public partial class Interactable : Component
 	/// <returns></returns>
 	protected virtual bool CanInteract( GrabPoint grabPoint, Hand hand )
 	{
+		if ( TimeSinceInteract < 1 ) return false;
 		if ( hand.IsHolding() ) return false;
 
 		return grabPoint.CanGrab( this, hand );
@@ -38,6 +44,8 @@ public partial class Interactable : Component
 	/// <returns></returns>
 	protected virtual bool CanStopInteract( GrabPoint grabPoint, Hand hand )
 	{
+		if ( TimeSinceInteract < 1 ) return false;
+
 		return grabPoint.CanStopGrab( this, hand );
 	}
 
@@ -49,7 +57,7 @@ public partial class Interactable : Component
 	/// <returns></returns>
 	protected virtual void OnStopInteract( GrabPoint grabPoint, Hand hand )
 	{
-		//
+		TimeSinceInteract = 0;
 	}
 
 	/// <summary>
@@ -59,12 +67,12 @@ public partial class Interactable : Component
 	/// <param name="hand"></param>
 	protected virtual void OnInteract( GrabPoint grabPoint, Hand hand )
 	{
-		//
+		TimeSinceInteract = 0;
 	}
 
 	protected virtual void OnHeldUpdate()
 	{
-
+		//
 	}
 
 	/// <summary>
@@ -87,17 +95,15 @@ public partial class Interactable : Component
 		return true;
 	}
 
-
 	/// <summary>
 	/// Called when a player's hand interacts with a grab point that's on this gameobject.
 	/// </summary>
 	/// <param name="grabPoint"></param>
-	/// <param name="hand"></param>
-	public bool StopInteract( GrabPoint grabPoint, Hand hand )
+	public bool StopInteract( GrabPoint grabPoint )
 	{
-		if ( !CanStopInteract( grabPoint, hand ) ) return false;
+		var hand = grabPoint.HeldHand;
 
-		Log.Info( $"stopped grabbing {this.GameObject} at {grabPoint.GameObject} with {hand.GameObject}" );
+		if ( !CanStopInteract( grabPoint, hand ) ) return false;
 
 		OnStopInteract( grabPoint, hand );
 
@@ -129,7 +135,7 @@ public partial class Interactable : Component
 		var primaryGrabPoint = heldGrabPoints.First();
 
 		var velocity = Rigidbody.Velocity;
-		Vector3.SmoothDamp( Rigidbody.Transform.Position, primaryGrabPoint.HeldHand.Transform.Position, ref velocity, 0.075f, Time.Delta );
+		Vector3.SmoothDamp( Rigidbody.Transform.Position, primaryGrabPoint.HeldHand.Transform.Position, ref velocity, GetTimeToTranslate(), Time.Delta );
 		Rigidbody.Velocity = velocity;
 
 		var secondaryGrabPoint = heldGrabPoints.FirstOrDefault( x => x.IsSecondaryGrabPoint );
@@ -143,17 +149,27 @@ public partial class Interactable : Component
 			targetRotation = Rotation.LookAt( direction, Vector3.Up );
 		}
 
-		if ( secondaryGrabPoint.IsValid() )
-		{
-			Gizmo.Draw.Color = Color.Red;
-			Gizmo.Draw.Line( secondaryGrabPoint.Transform.Position, primaryGrabPoint.Transform.Position );
-			Gizmo.Draw.LineSphere( secondaryGrabPoint.Transform.Position, 2 );
-			Gizmo.Draw.LineSphere( primaryGrabPoint.Transform.Position, 2 );
-		}
+		//if ( secondaryGrabPoint.IsValid() )
+		//{
+		//	Gizmo.Draw.Color = Color.Red;
+		//	Gizmo.Draw.Line( secondaryGrabPoint.Transform.Position, primaryGrabPoint.Transform.Position );
+		//	Gizmo.Draw.LineSphere( secondaryGrabPoint.Transform.Position, 2 );
+		//	Gizmo.Draw.LineSphere( primaryGrabPoint.Transform.Position, 2 );
+		//}
 
 		var angularVelocity = Rigidbody.AngularVelocity;
-		Rotation.SmoothDamp( Rigidbody.Transform.Rotation, targetRotation, ref angularVelocity, 0.075f, Time.Delta );
+		Rotation.SmoothDamp( Rigidbody.Transform.Rotation, targetRotation, ref angularVelocity, GetTimeToRotate(), Time.Delta );
 		Rigidbody.AngularVelocity = angularVelocity;
+	}
+
+	float GetTimeToTranslate()
+	{
+		return 0.025f;
+	}
+
+	float GetTimeToRotate()
+	{
+		return 0.01f;
 	}
 
 	protected override void OnFixedUpdate()

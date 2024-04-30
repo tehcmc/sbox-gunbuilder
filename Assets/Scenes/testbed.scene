@@ -511,7 +511,7 @@
     {
       "__guid": "38133b5a-297f-40d4-8739-bd77c36e09f9",
       "Name": "M4",
-      "Position": "35.10157,25.85759,71.25921",
+      "Position": "40.87687,-3.241247,71.25919",
       "Rotation": "0.4304594,0.5609856,0.5609857,0.4304595",
       "Enabled": true,
       "NetworkMode": 2,
@@ -553,7 +553,7 @@
         },
         {
           "__type": "Weapon",
-          "__guid": "a3d71eb0-62e4-4a9b-a2ac-66abbd4adc8d",
+          "__guid": "cbcb6d64-6745-49a3-89c0-f4028e10a9a4",
           "BulletSize": 4,
           "MaxRange": 100000,
           "MuzzleGameObject": {
@@ -587,6 +587,7 @@
           "__guid": "18004824-4990-4557-8d25-8102837dc2d0",
           "Name": "Grab Point",
           "Position": "-3.296959,-0.01606806,3.113882",
+          "Tags": "trigger",
           "Enabled": true,
           "NetworkMode": 2,
           "Components": [
@@ -620,6 +621,7 @@
           "__guid": "6f3cab13-78af-413b-90d4-292755245826",
           "Name": "Secondary Grab Point",
           "Position": "8.422115,-0.000008506647,4.90595",
+          "Tags": "trigger",
           "Enabled": true,
           "NetworkMode": 2,
           "Components": [
@@ -659,6 +661,7 @@
           "__guid": "a4a4a437-8c8e-41cb-844b-44256dc44a11",
           "Name": "Magazine Attachment Point",
           "Position": "2.479351,-0.00009139063,3.599062",
+          "Tags": "trigger",
           "Enabled": true,
           "NetworkMode": 2,
           "Components": [
@@ -666,7 +669,33 @@
               "__type": "AttachmentPoint",
               "__guid": "c16e4e64-1533-47a0-961f-120ede588a17",
               "AcceptedTags": "magazine",
-              "GuideModel": "models/weapons/sbox_assault_m4a1/w_m4a1_magazine.vmdl"
+              "GuideModel": "models/weapons/sbox_assault_m4a1/w_m4a1_magazine.vmdl",
+              "Trigger": {
+                "_type": "component",
+                "component_id": "ecafe22e-cf24-4994-8984-2992a5d35715",
+                "go": "b0596419-161b-4062-a285-f2aedf0a99d0",
+                "component_type": "BoxCollider"
+              }
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "7acf4505-1ad2-462d-8ca8-68b6f8af7796",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "1,1,1",
+              "Static": false
+            },
+            {
+              "__type": "Sandbox.Rigidbody",
+              "__guid": "59760957-bd00-4e5a-8d47-0759377e0f68",
+              "AngularDamping": 0,
+              "Gravity": false,
+              "LinearDamping": 0,
+              "Locking": {},
+              "MassOverride": 0,
+              "MotionEnabled": false,
+              "RigidbodyFlags": 0,
+              "StartAsleep": false
             }
           ]
         },
@@ -931,6 +960,22 @@
         {
           "__type": "WeaponMagazine",
           "__guid": "234fab9e-498d-42bb-a213-bf8c945255b2"
+        },
+        {
+          "__type": "Attachable",
+          "__guid": "523873d6-e435-427c-9ecf-4a209fce95ed",
+          "Interactable": {
+            "_type": "component",
+            "component_id": "57bebbe7-5b45-488d-b33d-05fa679e2817",
+            "go": "cae6bc6e-8191-4200-b616-8342fa66ed44",
+            "component_type": "Interactable"
+          },
+          "Rigidbody": {
+            "_type": "component",
+            "component_id": "22faea0e-b0c8-4746-8cdb-d8d6be0ae902",
+            "go": "cae6bc6e-8191-4200-b616-8342fa66ed44",
+            "component_type": "Rigidbody"
+          }
         }
       ],
       "Children": [
@@ -956,12 +1001,33 @@
           "__guid": "2f7589f3-0968-4b55-aa44-2dd7ae51335b",
           "Name": "Grab Point",
           "Position": "-0.5433285,-0.05112458,-1.07708",
+          "Tags": "trigger",
           "Enabled": true,
           "NetworkMode": 2,
           "Components": [
             {
               "__type": "GrabPoint",
-              "__guid": "1d5c75a8-9a5d-4be1-9dc3-9fa1b3cc5be8"
+              "__guid": "1d5c75a8-9a5d-4be1-9dc3-9fa1b3cc5be8",
+              "Collider": {
+                "_type": "component",
+                "component_id": "f167a2ca-20e8-457f-a59b-06bacd68081c",
+                "go": "2f7589f3-0968-4b55-aa44-2dd7ae51335b",
+                "component_type": "SphereCollider"
+              },
+              "Interactable": {
+                "_type": "component",
+                "component_id": "57bebbe7-5b45-488d-b33d-05fa679e2817",
+                "go": "cae6bc6e-8191-4200-b616-8342fa66ed44",
+                "component_type": "Interactable"
+              }
+            },
+            {
+              "__type": "Sandbox.SphereCollider",
+              "__guid": "f167a2ca-20e8-457f-a59b-06bacd68081c",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Radius": 1.5,
+              "Static": false
             }
           ]
         }
@@ -991,7 +1057,7 @@
   },
   "Title": "testbed",
   "Description": "",
-  "LastSaved": "2024-04-30T19:00:39.2555125\u002B01:00",
+  "LastSaved": "2024-04-30T20:04:33.1361288\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
