@@ -1,4 +1,5 @@
 
+
 public partial class GrabPoint : Component
 {
 	/// <summary>
@@ -44,5 +45,11 @@ public partial class GrabPoint : Component
 	{
 		Gizmo.Draw.Color = Color.Cyan.WithAlpha( 0.2f );
 		Gizmo.Draw.Model( "models/hands/alyx_hand_right.vmdl" );
+	}
+
+	[Property] public Hand.PresetPose HoldingPose { get; set; } = Hand.PresetPose.Grip;
+	internal void UpdateHandPose( Hand hand )
+	{
+		hand.SetPresetPose( HoldingPose );
 	}
 }

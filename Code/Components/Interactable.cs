@@ -30,7 +30,7 @@ public partial class Interactable : Component
 	/// <returns></returns>
 	protected virtual bool CanInteract( GrabPoint grabPoint, Hand hand )
 	{
-		if ( TimeSinceInteract < 1 ) return false;
+		if ( TimeSinceInteract < 0.4f ) return false;
 		if ( hand.IsHolding() ) return false;
 
 		return grabPoint.CanGrab( this, hand );
@@ -44,7 +44,7 @@ public partial class Interactable : Component
 	/// <returns></returns>
 	protected virtual bool CanStopInteract( GrabPoint grabPoint, Hand hand )
 	{
-		if ( TimeSinceInteract < 1 ) return false;
+		if ( TimeSinceInteract < 0.4f ) return false;
 
 		return grabPoint.CanStopGrab( this, hand );
 	}
@@ -88,6 +88,8 @@ public partial class Interactable : Component
 
 		OnInteract( grabPoint, hand );
 
+		hand.AttachModelTo( grabPoint.GameObject );
+
 		grabPoint.HeldHand = hand;
 		Rigidbody.MotionEnabled = false;
 		heldGrabPoints.Add( grabPoint );
@@ -104,6 +106,8 @@ public partial class Interactable : Component
 		var hand = grabPoint.HeldHand;
 
 		if ( !CanStopInteract( grabPoint, hand ) ) return false;
+
+		hand.ResetAttachment();
 
 		OnStopInteract( grabPoint, hand );
 
@@ -123,24 +127,18 @@ public partial class Interactable : Component
 		OnHeldUpdate();
 	}
 
-	protected override void OnUpdate()
-	{
-		if ( IsHeld )
-		{
-		}
-	}
-
 	protected void PositionInteractable()
 	{
 		var primaryGrabPoint = heldGrabPoints.First();
 
 		var velocity = Rigidbody.Velocity;
-		Vector3.SmoothDamp( Rigidbody.Transform.Position, primaryGrabPoint.HeldHand.Transform.Position, ref velocity, GetTimeToTranslate(), Time.Delta );
+
+		Vector3.SmoothDamp( Rigidbody.Transform.Position, primaryGrabPoint.HeldHand.GetHoldPosition( primaryGrabPoint ), ref velocity, GetTimeToTranslate(), Time.Delta );
 		Rigidbody.Velocity = velocity;
 
 		var secondaryGrabPoint = heldGrabPoints.FirstOrDefault( x => x.IsSecondaryGrabPoint );
 
-		Rotation targetRotation = primaryGrabPoint.HeldHand.Transform.Rotation;
+		Rotation targetRotation = primaryGrabPoint.HeldHand.GetHoldRotation( primaryGrabPoint );
 
 		// Are we holding from a secondary hold point as well?
 		if ( heldGrabPoints.FirstOrDefault( x => x.IsSecondaryGrabPoint ) is { } secondaryGrabPopint )

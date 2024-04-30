@@ -497,6 +497,7 @@
             {
               "__type": "GrabPoint",
               "__guid": "2e301247-1fad-4963-9c5e-f87781ad4389",
+              "HoldingPose": "Grip",
               "Interactable": {
                 "_type": "component",
                 "component_id": "0ec88105-93cb-415a-bc81-d4af715e2b3c",
@@ -586,7 +587,7 @@
         {
           "__guid": "18004824-4990-4557-8d25-8102837dc2d0",
           "Name": "Grab Point",
-          "Position": "-3.296959,-0.01606806,3.113882",
+          "Position": "-0.687013,-0.01622051,3.932726",
           "Tags": "trigger",
           "Enabled": true,
           "NetworkMode": 2,
@@ -600,6 +601,7 @@
                 "go": "18004824-4990-4557-8d25-8102837dc2d0",
                 "component_type": "SphereCollider"
               },
+              "HoldingPose": "GripNoIndex",
               "Interactable": {
                 "_type": "component",
                 "component_id": "d2c3c190-834f-423f-bab4-eaeb5f264439",
@@ -620,7 +622,7 @@
         {
           "__guid": "6f3cab13-78af-413b-90d4-292755245826",
           "Name": "Secondary Grab Point",
-          "Position": "8.422115,-0.000008506647,4.90595",
+          "Position": "11.05787,-0.000124265,4.139275",
           "Tags": "trigger",
           "Enabled": true,
           "NetworkMode": 2,
@@ -634,6 +636,7 @@
                 "go": "6f3cab13-78af-413b-90d4-292755245826",
                 "component_type": "SphereCollider"
               },
+              "HoldingPose": "Grip",
               "Interactable": {
                 "_type": "component",
                 "component_id": "d2c3c190-834f-423f-bab4-eaeb5f264439",
@@ -669,13 +672,7 @@
               "__type": "AttachmentPoint",
               "__guid": "c16e4e64-1533-47a0-961f-120ede588a17",
               "AcceptedTags": "magazine",
-              "GuideModel": "models/weapons/sbox_assault_m4a1/w_m4a1_magazine.vmdl",
-              "Trigger": {
-                "_type": "component",
-                "component_id": "ecafe22e-cf24-4994-8984-2992a5d35715",
-                "go": "b0596419-161b-4062-a285-f2aedf0a99d0",
-                "component_type": "BoxCollider"
-              }
+              "GuideModel": "models/weapons/sbox_assault_m4a1/w_m4a1_magazine.vmdl"
             },
             {
               "__type": "Sandbox.BoxCollider",
@@ -836,6 +833,7 @@
                 "go": "6c7b645e-0580-48d6-9a1f-cbaf50801183",
                 "component_type": "SphereCollider"
               },
+              "HoldingPose": "Grip",
               "Interactable": {
                 "_type": "component",
                 "component_id": "7d04efff-99a0-489e-b9d2-2490ec6fe262",
@@ -909,6 +907,7 @@
             "go": "40e762aa-d56d-479c-9a06-86bdeddd0890",
             "component_type": "BoxCollider"
           },
+          "HoldingPose": "Grip",
           "Interactable": {
             "_type": "component",
             "component_id": "ebc0c16e-7506-42af-be7d-8d45eacdb12d",
@@ -1000,7 +999,8 @@
         {
           "__guid": "2f7589f3-0968-4b55-aa44-2dd7ae51335b",
           "Name": "Grab Point",
-          "Position": "-0.5433285,-0.05112458,-1.07708",
+          "Position": "0.01413896,-0.05143735,-0.2274857",
+          "Rotation": "0.00000006705523,-0.6087677,-0.00000002980232,0.7933571",
           "Tags": "trigger",
           "Enabled": true,
           "NetworkMode": 2,
@@ -1014,6 +1014,7 @@
                 "go": "2f7589f3-0968-4b55-aa44-2dd7ae51335b",
                 "component_type": "SphereCollider"
               },
+              "HoldingPose": "HoldItem",
               "Interactable": {
                 "_type": "component",
                 "component_id": "57bebbe7-5b45-488d-b33d-05fa679e2817",
@@ -1057,7 +1058,7 @@
   },
   "Title": "testbed",
   "Description": "",
-  "LastSaved": "2024-04-30T20:04:33.1361288\u002B01:00",
+  "LastSaved": "2024-04-30T20:56:31.6569858\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [

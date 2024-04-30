@@ -1,8 +1,9 @@
+using Sandbox;
 using Sandbox.VR;
 
 public sealed class Hand : Component, Component.ITriggerListener
 {
-	[RequireComponent] VRHand VRHand { get; set; }
+	[Property] GameObject ModelGameObject { get; set; }
 
 	GrabPoint CurrentGrabPoint { get; set; }
 
@@ -34,7 +35,7 @@ public sealed class Hand : Component, Component.ITriggerListener
 
 	VRController GetController()
 	{
-		return VRHand.HandSource == VRHand.HandSources.Left ? Input.VR.LeftHand : Input.VR.RightHand;
+		return HandSource == HandSources.Left ? Input.VR.LeftHand : Input.VR.RightHand;
 	}
 
 	void Grab( GrabPoint grabPoint )
@@ -57,6 +58,8 @@ public sealed class Hand : Component, Component.ITriggerListener
 
 	protected override void OnUpdate()
 	{
+		UpdatePose();
+
 		if ( IsProxy ) return;
 
 		if ( IsGripDown() )
@@ -95,6 +98,119 @@ public sealed class Hand : Component, Component.ITriggerListener
 		if ( other.Components.Get<GrabPoint>() is { } grabPoint )
 		{
 			HoveredGrabPoint = null;
+		}
+	}
+
+	internal void AttachModelTo( GameObject gameObject )
+	{
+		ModelGameObject.SetParent( gameObject, false );
+	}
+
+	internal void ResetAttachment()
+	{
+		ModelGameObject.SetParent( this.GameObject, false );
+	}
+
+	internal Vector3 GetHoldPosition( GrabPoint grabPoint )
+	{
+		var src = Transform.Position;
+		return src;
+	}
+
+	internal Rotation GetHoldRotation( GrabPoint grabPoint )
+	{
+		return Transform.Rotation;
+	}
+
+
+	// TODO: These should ideally be user-editable, these values only work on the Alyx hands right now
+	private static List<string> AnimGraphNames = new()
+	{
+		"FingerCurl_Thumb",
+		"FingerCurl_Index",
+		"FingerCurl_Middle",
+		"FingerCurl_Ring",
+		"FingerCurl_Pinky"
+	};
+
+	/// <summary>
+	/// Represents a controller to use when fetching skeletal data (finger curl/splay values)
+	/// </summary>
+	public enum HandSources
+	{
+		/// <summary>
+		/// The left controller
+		/// </summary>
+		Left,
+
+		/// <summary>
+		/// The right controller
+		/// </summary>
+		Right
+	}
+
+	/// <summary>
+	/// Which hand should we use to update the parameters?
+	/// </summary>
+	[Property]
+	public HandSources HandSource { get; set; } = HandSources.Left;
+
+	[Property]
+	public SkinnedModelRenderer SkinnedModelComponent { get; set; }
+
+	public enum PresetPose
+	{
+		None,
+		Grip,
+		GripNoIndex,
+		HoldItem
+	}
+
+	public void SetPresetPose( PresetPose pose )
+	{
+		var source = (HandSource == HandSources.Left) ? Sandbox.Input.VR.LeftHand : Sandbox.Input.VR.RightHand;
+
+		SkinnedModelComponent.Set( "BasePose", 1 );
+		SkinnedModelComponent.Set( "bGrab", true );
+		SkinnedModelComponent.Set( "GrabMode", 1 );
+
+		var x = 0;
+
+		for ( FingerValue v = FingerValue.ThumbCurl; v <= FingerValue.PinkyCurl; ++v )
+		{
+			SkinnedModelComponent.Set( AnimGraphNames[(int)v], source.GetFingerValue( v ) );
+
+			if ( pose == PresetPose.Grip || pose == PresetPose.GripNoIndex )
+			{
+				SkinnedModelComponent.Set( AnimGraphNames[(int)v], 1 );
+			}
+
+			if ( pose == PresetPose.GripNoIndex && v == FingerValue.IndexCurl )
+			{
+				SkinnedModelComponent.Set( AnimGraphNames[(int)v], source.GetFingerValue( v ) );
+			}
+
+			if ( pose == PresetPose.HoldItem )
+			{
+				SkinnedModelComponent.Set( AnimGraphNames[(int)v], 0.1f + ( x * 0.1f ) );
+			}
+
+			x++;
+		}
+	}
+
+	private void UpdatePose()
+	{
+		if ( !SkinnedModelComponent.IsValid() )
+			return;
+
+		if ( IsHolding() )
+		{
+			CurrentGrabPoint.UpdateHandPose( this );
+		}
+		else
+		{
+			SetPresetPose( PresetPose.None );
 		}
 	}
 }
