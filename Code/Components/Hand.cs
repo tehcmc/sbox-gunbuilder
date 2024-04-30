@@ -4,49 +4,58 @@ public sealed class Hand : Component
 {
 	[RequireComponent] VRHand VRHand { get; set; }
 
-	GrabPoint LastGrabPoint;
-	GameObject RootObject;
+	GrabPoint CurrentGrabPoint { get; set; }
 
+	const float flDeadzone = 0.25f;
+	
+	/// <summary>
+	/// Is the hand trigger down?
+	/// </summary>
+	/// <returns></returns>
 	bool IsTriggerDown()
 	{
+		// For debugging purposes
 		if ( !Game.IsRunningInVR ) return Input.Down( "Attack1" );
 
-		if ( VRHand.HandSource == VRHand.HandSources.Left )
-		{
-			return Input.VR.LeftHand.Grip.Value > 0.25f;
-		}
+		var src = VRHand.HandSource == VRHand.HandSources.Left ? Input.VR.LeftHand : Input.VR.RightHand;
 
-		return Input.VR.RightHand.Grip.Value > 0.25f;
+		return src.Grip.Value > flDeadzone;
 	}
 
+	/// <summary>
+	/// Look for a grab point
+	/// </summary>
+	/// <returns></returns>
 	GrabPoint FindGrabPoint()
 	{
-		var objects = Scene.FindInPhysics( BBox.FromPositionAndSize( Transform.Position, 16 ) );
+		var objects = Scene.FindInPhysics( BBox.FromPositionAndSize( Transform.Position, 8 ) );
 
 		foreach ( var obj in objects )
 		{
-			if ( obj.Root.Components.Get<GrabPoint>( FindMode.EnabledInSelfAndDescendants ) is { } grabPoint )
-				return grabPoint;
+			var grabPoints = obj.Root.Components.GetAll<GrabPoint>( FindMode.EnabledInSelfAndDescendants );
+			grabPoints = grabPoints.OrderBy( x => x.Transform.Position.Distance( Transform.Position ) );
+
+			var closest = grabPoints.FirstOrDefault();
+			return closest;
 		}
 		return null;
 	}
 
 	void Grab( GrabPoint grabPoint )
 	{
-		if ( LastGrabPoint == grabPoint ) return;
+		if ( CurrentGrabPoint == grabPoint ) return;
 
-		LastGrabPoint = grabPoint;
-		RootObject = LastGrabPoint.GameObject.Root;
-		RootObject.SetParent( GameObject, true );
+		if ( grabPoint.Interactable.Interact( grabPoint, this ) )
+		{
+			CurrentGrabPoint = grabPoint;
+		}
 	}
 
 	void Release()
 	{
-		if ( LastGrabPoint.IsValid() )
+		if ( CurrentGrabPoint?.Interactable?.StopInteract( CurrentGrabPoint, this ) ?? false )
 		{
-			RootObject.SetParent( null );
-			RootObject = null;
-			LastGrabPoint = null;
+			CurrentGrabPoint = null;
 		}
 	}
 
@@ -69,5 +78,10 @@ public sealed class Hand : Component
 		{
 			Release();
 		}
+	}
+
+	internal bool IsHolding()
+	{
+		return CurrentGrabPoint.IsValid();
 	}
 }

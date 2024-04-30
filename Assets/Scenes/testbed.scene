@@ -4,6 +4,7 @@
     {
       "__guid": "41021595-0d1f-4c86-9f74-2addcf6d1a40",
       "Name": "Game",
+      "Position": "19.58845,0,0",
       "Enabled": true,
       "NetworkMode": 2,
       "Components": [
@@ -206,7 +207,7 @@
     {
       "__guid": "28656b31-9450-4209-86f8-29f8f86b5c31",
       "Name": "Box",
-      "Position": "48,0,38.63159",
+      "Position": "48,0,58.52619",
       "Enabled": true,
       "NetworkMode": 2,
       "Components": [
@@ -304,16 +305,55 @@
           },
           "SmoothingAngle": 40,
           "Static": true
+        },
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "2394df1a-b97c-4721-a153-3526a6a15658",
+          "Center": "0,0,4.699998",
+          "IsTrigger": false,
+          "Scale": "31.30009,63.59996,6.499996",
+          "Static": false
         }
       ]
     },
     {
       "__guid": "7c057873-475e-4e05-b68e-065b2490c904",
       "Name": "USP",
-      "Position": "48,0.0000001033591,47.20448",
+      "Position": "35.45029,3.059092,83.31995",
       "Rotation": "0.7071067,0,0,0.7071068",
-      "Enabled": true,
       "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Interactable",
+          "__guid": "0ec88105-93cb-415a-bc81-d4af715e2b3c",
+          "Rigidbody": {
+            "_type": "component",
+            "component_id": "a7f8c369-bea6-44be-8ba8-7d2d91d4ee5b",
+            "go": "7c057873-475e-4e05-b68e-065b2490c904",
+            "component_type": "Rigidbody"
+          }
+        },
+        {
+          "__type": "Sandbox.Rigidbody",
+          "__guid": "a7f8c369-bea6-44be-8ba8-7d2d91d4ee5b",
+          "AngularDamping": 0,
+          "Gravity": true,
+          "LinearDamping": 0,
+          "Locking": {},
+          "MassOverride": 0,
+          "MotionEnabled": true,
+          "RigidbodyFlags": 0,
+          "StartAsleep": false
+        },
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "50125c4a-33ad-4ce9-a569-78555d36632c",
+          "Center": "0.6000025,1.6,2.100001",
+          "IsTrigger": false,
+          "Scale": "10,2,5",
+          "Static": false
+        }
+      ],
       "Children": [
         {
           "__guid": "f86671bd-ff24-4df2-964b-f41a57b9f168",
@@ -325,6 +365,7 @@
             {
               "__type": "Sandbox.SkinnedModelRenderer",
               "__guid": "61c247b9-25ca-480b-82cc-50d1fc94fa96",
+              "AnimationGraph": "empty.vanmgrph",
               "BodyGroups": 20773,
               "CreateBoneObjects": false,
               "Model": "models/weapons/sbox_pistol_usp/v_usp.vmdl",
@@ -343,18 +384,147 @@
             {
               "__type": "GrabPoint",
               "__guid": "2e301247-1fad-4963-9c5e-f87781ad4389",
+              "Interactable": {
+                "_type": "component",
+                "component_id": "0ec88105-93cb-415a-bc81-d4af715e2b3c",
+                "go": "7c057873-475e-4e05-b68e-065b2490c904",
+                "component_type": "Interactable"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "38133b5a-297f-40d4-8739-bd77c36e09f9",
+      "Name": "M4",
+      "Position": "35.10154,-1.942482,82.53918",
+      "Rotation": "0.5000001,0.5,0.5000001,0.5000001",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Interactable",
+          "__guid": "d2c3c190-834f-423f-bab4-eaeb5f264439",
+          "Rigidbody": {
+            "_type": "component",
+            "component_id": "da4b9ea3-83e5-48db-b27f-528d6b780b54",
+            "go": "38133b5a-297f-40d4-8739-bd77c36e09f9",
+            "component_type": "Rigidbody"
+          }
+        },
+        {
+          "__type": "Sandbox.HullCollider",
+          "__guid": "06059ce3-0bc4-420d-9dea-9ad91304aaf8",
+          "BoxSize": "24.40004,2.100003,8.700001",
+          "Center": "2.5,0,5.7",
+          "Height": 50,
+          "IsTrigger": false,
+          "Radius": 25,
+          "Radius2": 0,
+          "Slices": 16,
+          "Static": false,
+          "Type": "Box"
+        },
+        {
+          "__type": "Sandbox.Rigidbody",
+          "__guid": "da4b9ea3-83e5-48db-b27f-528d6b780b54",
+          "AngularDamping": 0,
+          "Gravity": true,
+          "LinearDamping": 0,
+          "Locking": {},
+          "MassOverride": 0,
+          "MotionEnabled": true,
+          "RigidbodyFlags": 0,
+          "StartAsleep": false
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "4311e476-3f43-4310-aba6-8ca49837417a",
+          "Name": "Model",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "5bfc64c5-ad3d-4f3c-90d1-e7208fd21484",
+              "BodyGroups": 16033,
+              "CreateBoneObjects": false,
+              "Model": "models/weapons/sbox_assault_m4a1/v_m4a1.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "18004824-4990-4557-8d25-8102837dc2d0",
+          "Name": "Grab Point",
+          "Position": "-3.296959,-0.01606806,3.113882",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "GrabPoint",
+              "__guid": "9a9393ad-b963-4989-ace0-4aaaabe7cb4c",
               "Collider": {
                 "_type": "component",
-                "component_id": "13783f17-e572-486e-8cf9-c41dc2300435",
-                "go": "bc483c44-267e-4357-a5f1-8faa4a01b4eb",
+                "component_id": "a40ebe86-a90e-4c93-8f67-5d4ef22f91d1",
+                "go": "18004824-4990-4557-8d25-8102837dc2d0",
                 "component_type": "SphereCollider"
+              },
+              "Interactable": {
+                "_type": "component",
+                "component_id": "d2c3c190-834f-423f-bab4-eaeb5f264439",
+                "go": "38133b5a-297f-40d4-8739-bd77c36e09f9",
+                "component_type": "Interactable"
               }
             },
             {
               "__type": "Sandbox.SphereCollider",
-              "__guid": "13783f17-e572-486e-8cf9-c41dc2300435",
+              "__guid": "a40ebe86-a90e-4c93-8f67-5d4ef22f91d1",
               "Center": "0,0,0",
-              "IsTrigger": false,
+              "IsTrigger": true,
+              "Radius": 4,
+              "Static": false
+            }
+          ]
+        },
+        {
+          "__guid": "6f3cab13-78af-413b-90d4-292755245826",
+          "Name": "Secondary Grab Point",
+          "Position": "8.422115,-0.000008506647,4.90595",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "GrabPoint",
+              "__guid": "2bc0b836-6924-4b8d-8a6c-5864f41570b2",
+              "Collider": {
+                "_type": "component",
+                "component_id": "ba15a96e-bdee-4345-9044-76b63364d64d",
+                "go": "6f3cab13-78af-413b-90d4-292755245826",
+                "component_type": "SphereCollider"
+              },
+              "Interactable": {
+                "_type": "component",
+                "component_id": "d2c3c190-834f-423f-bab4-eaeb5f264439",
+                "go": "38133b5a-297f-40d4-8739-bd77c36e09f9",
+                "component_type": "Interactable"
+              },
+              "PrimaryGrabPoint": {
+                "_type": "component",
+                "component_id": "9a9393ad-b963-4989-ace0-4aaaabe7cb4c",
+                "go": "18004824-4990-4557-8d25-8102837dc2d0",
+                "component_type": "GrabPoint"
+              }
+            },
+            {
+              "__type": "Sandbox.SphereCollider",
+              "__guid": "ba15a96e-bdee-4345-9044-76b63364d64d",
+              "Center": "0,0,0",
+              "IsTrigger": true,
               "Radius": 4,
               "Static": false
             }
@@ -365,9 +535,33 @@
     {
       "__guid": "3090b03c-3601-4a6e-b55e-fdffa71db633",
       "Name": "Selfie Stick",
-      "Position": "49.61787,-19.35291,47.5405",
-      "Enabled": true,
+      "Position": "38.01799,-30.95279,77.76908",
+      "Rotation": "0,0,-0.3826834,0.9238796",
       "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Interactable",
+          "__guid": "7d04efff-99a0-489e-b9d2-2490ec6fe262",
+          "Rigidbody": {
+            "_type": "component",
+            "component_id": "b35bf0ab-9bb0-452d-99e0-ec1dbc043839",
+            "go": "3090b03c-3601-4a6e-b55e-fdffa71db633",
+            "component_type": "Rigidbody"
+          }
+        },
+        {
+          "__type": "Sandbox.Rigidbody",
+          "__guid": "b35bf0ab-9bb0-452d-99e0-ec1dbc043839",
+          "AngularDamping": 0,
+          "Gravity": true,
+          "LinearDamping": 0,
+          "Locking": {},
+          "MassOverride": 0,
+          "MotionEnabled": false,
+          "RigidbodyFlags": 0,
+          "StartAsleep": false
+        }
+      ],
       "Children": [
         {
           "__guid": "b5f7bb2b-a06c-4cdf-ab54-7db18c0daf26",
@@ -459,17 +653,92 @@
             },
             {
               "__type": "GrabPoint",
-              "__guid": "14f5b2fc-57f9-4e0b-8356-593b934cf679"
+              "__guid": "14f5b2fc-57f9-4e0b-8356-593b934cf679",
+              "Collider": {
+                "_type": "component",
+                "component_id": "abb75d68-4cbc-4d81-b88b-ab571674f4e7",
+                "go": "6c7b645e-0580-48d6-9a1f-cbaf50801183",
+                "component_type": "SphereCollider"
+              },
+              "Interactable": {
+                "_type": "component",
+                "component_id": "7d04efff-99a0-489e-b9d2-2490ec6fe262",
+                "go": "3090b03c-3601-4a6e-b55e-fdffa71db633",
+                "component_type": "Interactable"
+              }
             },
             {
               "__type": "Sandbox.SphereCollider",
               "__guid": "abb75d68-4cbc-4d81-b88b-ab571674f4e7",
               "Center": "0,0,0",
-              "IsTrigger": false,
+              "IsTrigger": true,
               "Radius": 50,
               "Static": false
             }
           ]
+        }
+      ]
+    },
+    {
+      "__guid": "40e762aa-d56d-479c-9a06-86bdeddd0890",
+      "Name": "Object",
+      "Position": "38.08301,-13.50461,89.47496",
+      "Scale": "0.05,0.05,0.05",
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "04676839-4896-4c90-ac73-c75e4a1539ac",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/dev/sphere.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.Rigidbody",
+          "__guid": "1ec32ac3-23d3-4b91-8a12-ef820fa28457",
+          "AngularDamping": 0,
+          "Gravity": true,
+          "LinearDamping": 0,
+          "Locking": {},
+          "MassOverride": 0,
+          "MotionEnabled": true,
+          "RigidbodyFlags": 0,
+          "StartAsleep": false
+        },
+        {
+          "__type": "Interactable",
+          "__guid": "ebc0c16e-7506-42af-be7d-8d45eacdb12d",
+          "Rigidbody": {
+            "_type": "component",
+            "component_id": "1ec32ac3-23d3-4b91-8a12-ef820fa28457",
+            "go": "40e762aa-d56d-479c-9a06-86bdeddd0890",
+            "component_type": "Rigidbody"
+          }
+        },
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "d8c15a82-50bd-4435-bf62-ff1ab7236fc0",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false
+        },
+        {
+          "__type": "GrabPoint",
+          "__guid": "b4adb25f-4e12-483c-b950-fc70408912af",
+          "Collider": {
+            "_type": "component",
+            "component_id": "d8c15a82-50bd-4435-bf62-ff1ab7236fc0",
+            "go": "40e762aa-d56d-479c-9a06-86bdeddd0890",
+            "component_type": "BoxCollider"
+          },
+          "Interactable": {
+            "_type": "component",
+            "component_id": "ebc0c16e-7506-42af-be7d-8d45eacdb12d",
+            "go": "40e762aa-d56d-479c-9a06-86bdeddd0890",
+            "component_type": "Interactable"
+          }
         }
       ]
     }
@@ -497,10 +766,11 @@
   },
   "Title": "testbed",
   "Description": "",
-  "LastSaved": "2024-04-29T21:45:40.4404656\u002B01:00",
+  "LastSaved": "2024-04-30T12:44:38.7267698\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
+    "facepunch.v_m4a1",
     "facepunch.v_usp"
   ]
 }
