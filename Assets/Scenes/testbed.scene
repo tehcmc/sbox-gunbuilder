@@ -317,6 +317,119 @@
       ]
     },
     {
+      "__guid": "22e852c5-5156-4326-92c9-bf9685cdff22",
+      "Name": "Box (1)",
+      "Position": "48,116.1848,58.52619",
+      "Rotation": "0.6087614,0,0,0.7933534",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Sandbox.MeshComponent",
+          "__guid": "2c9903a9-4e4a-4645-a83a-c49b98e6ca45",
+          "Collision": "Mesh",
+          "Color": "1,1,1,1",
+          "IsTrigger": false,
+          "Mesh": {
+            "Topology": "H4sIAAAAAAAACl2Qiw6CUAxDh1flgg/wAfr/X2pP0iWLJA25W9t16xHxFc4C30E4\u002Bt2FWbgKd2Ew4NTvIZxcb9ZH4b5db\u002Bb9z/oUzVh8m7lPc9FOzjRYQ8ZXyXxxXvrw4e72wvtWdoEPdzMXj8We9OHDXcvO7EqdN396eKaeLHjkLciePeYxi4z0mMFtMisablFvRXZ2Tj158KQOF78f9WSROMQBAAA=",
+            "TextureOrigin": "48,0,16.00513",
+            "Positions": [
+              "-16,-32,8.000015",
+              "16,-32,8.000015",
+              "16,32,8.000015",
+              "-16,32,8.000015",
+              "-16,32,1.368408",
+              "16,32,1.368408",
+              "16,-32,1.368408",
+              "-16,-32,1.368408"
+            ],
+            "TextureUAxis": [
+              "1,0,0",
+              "1,0,0",
+              "0,-1,0",
+              "0,1,0",
+              "-1,0,0",
+              "1,0,0"
+            ],
+            "TextureVAxis": [
+              "0,-1,0",
+              "0,-1,0",
+              "0,0,-1",
+              "0,0,-1",
+              "0,0,-1",
+              "0,0,-1"
+            ],
+            "TextureScale": [
+              "0.1,0.1",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25"
+            ],
+            "TextureAngle": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "MaterialIndex": [
+              3,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "EdgeFlags": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "Materials": [
+              "materials/dev/reflectivity_30.vmat",
+              "materials/dev/gray_grid_8.vmat",
+              "materials/dev/black_grid_8.vmat",
+              "materials/editor/black_grid_8_doublesided.vmat"
+            ]
+          },
+          "SmoothingAngle": 40,
+          "Static": true
+        },
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "04441b73-4dc4-40ae-9b2a-bfe0d7540d00",
+          "Center": "0,0,4.699998",
+          "IsTrigger": false,
+          "Scale": "31.30009,63.59996,6.499996",
+          "Static": false
+        }
+      ]
+    },
+    {
       "__guid": "7c057873-475e-4e05-b68e-065b2490c904",
       "Name": "USP",
       "Position": "35.45029,3.059092,83.31995",
@@ -398,8 +511,8 @@
     {
       "__guid": "38133b5a-297f-40d4-8739-bd77c36e09f9",
       "Name": "M4",
-      "Position": "35.10154,-1.942482,82.53918",
-      "Rotation": "0.5000001,0.5,0.5000001,0.5000001",
+      "Position": "35.10157,25.85759,71.25921",
+      "Rotation": "0.4304594,0.5609856,0.5609857,0.4304595",
       "Enabled": true,
       "NetworkMode": 2,
       "Components": [
@@ -416,7 +529,7 @@
         {
           "__type": "Sandbox.HullCollider",
           "__guid": "06059ce3-0bc4-420d-9dea-9ad91304aaf8",
-          "BoxSize": "24.40004,2.100003,8.700001",
+          "BoxSize": "26.90005,2.100003,5.100002",
           "Center": "2.5,0,5.7",
           "Height": 50,
           "IsTrigger": false,
@@ -437,6 +550,18 @@
           "MotionEnabled": true,
           "RigidbodyFlags": 0,
           "StartAsleep": false
+        },
+        {
+          "__type": "Weapon",
+          "__guid": "a3d71eb0-62e4-4a9b-a2ac-66abbd4adc8d",
+          "BulletSize": 4,
+          "MaxRange": 100000,
+          "MuzzleGameObject": {
+            "_type": "gameobject",
+            "go": "11d6672f-95ec-41f8-a9e3-19e962a6699c"
+          },
+          "RPM": 650,
+          "ShootSound": "sounds/weapons/m4a1/m4_shot.sound"
         }
       ],
       "Children": [
@@ -529,6 +654,28 @@
               "Static": false
             }
           ]
+        },
+        {
+          "__guid": "a4a4a437-8c8e-41cb-844b-44256dc44a11",
+          "Name": "Magazine Attachment Point",
+          "Position": "2.479351,-0.00009139063,3.599062",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "AttachmentPoint",
+              "__guid": "c16e4e64-1533-47a0-961f-120ede588a17",
+              "AcceptedTags": "magazine",
+              "GuideModel": "models/weapons/sbox_assault_m4a1/w_m4a1_magazine.vmdl"
+            }
+          ]
+        },
+        {
+          "__guid": "11d6672f-95ec-41f8-a9e3-19e962a6699c",
+          "Name": "Muzzle",
+          "Position": "20.06361,-0.000003722113,7.350592",
+          "Enabled": true,
+          "NetworkMode": 2
         }
       ]
     },
@@ -741,6 +888,84 @@
           }
         }
       ]
+    },
+    {
+      "__guid": "cae6bc6e-8191-4200-b616-8342fa66ed44",
+      "Name": "M4 Magazine",
+      "Position": "34.60009,-0.000007275214,77.69363",
+      "Rotation": "0.4999998,0.5000001,0.4999999,0.5000001",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Interactable",
+          "__guid": "57bebbe7-5b45-488d-b33d-05fa679e2817",
+          "Rigidbody": {
+            "_type": "component",
+            "component_id": "22faea0e-b0c8-4746-8cdb-d8d6be0ae902",
+            "go": "cae6bc6e-8191-4200-b616-8342fa66ed44",
+            "component_type": "Rigidbody"
+          }
+        },
+        {
+          "__type": "Sandbox.Rigidbody",
+          "__guid": "22faea0e-b0c8-4746-8cdb-d8d6be0ae902",
+          "AngularDamping": 0,
+          "Gravity": true,
+          "LinearDamping": 0,
+          "Locking": {},
+          "MassOverride": 0,
+          "MotionEnabled": true,
+          "RigidbodyFlags": 0,
+          "StartAsleep": false
+        },
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "43239fc7-7eee-4365-91da-57f80135b5bb",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "3,1,6",
+          "Static": false
+        },
+        {
+          "__type": "WeaponMagazine",
+          "__guid": "234fab9e-498d-42bb-a213-bf8c945255b2"
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "30f1a751-7a40-416f-9639-c23c5aa1ea70",
+          "Name": "Model",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "a3f7f4a8-5eb6-4f43-8631-9590687cf350",
+              "BodyGroups": 18446744073709551615,
+              "CreateBoneObjects": false,
+              "Model": "models/weapons/sbox_assault_m4a1/w_m4a1_magazine.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "2f7589f3-0968-4b55-aa44-2dd7ae51335b",
+          "Name": "Grab Point",
+          "Position": "-0.5433285,-0.05112458,-1.07708",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "GrabPoint",
+              "__guid": "1d5c75a8-9a5d-4be1-9dc3-9fa1b3cc5be8"
+            }
+          ]
+        }
+      ]
     }
   ],
   "SceneProperties": {
@@ -766,11 +991,12 @@
   },
   "Title": "testbed",
   "Description": "",
-  "LastSaved": "2024-04-30T12:44:38.7267698\u002B01:00",
+  "LastSaved": "2024-04-30T19:00:39.2555125\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
     "facepunch.v_m4a1",
-    "facepunch.v_usp"
+    "facepunch.v_usp",
+    "facepunch.w_m4a1_magazine"
   ]
 }
