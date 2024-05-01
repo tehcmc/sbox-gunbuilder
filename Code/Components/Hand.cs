@@ -4,15 +4,11 @@ using Sandbox.VR;
 public sealed class Hand : Component, Component.ITriggerListener
 {
 	[Property] GameObject ModelGameObject { get; set; }
+	[Property] GameObject DummyGameObject { get; set; }
 
 	GrabPoint CurrentGrabPoint { get; set; }
 
 	const float flDeadzone = 0.25f;
-
-	protected override void DrawGizmos()
-	{
-		Gizmo.Draw.WorldText( $"Is Holding: {(CurrentGrabPoint.IsValid())}", new Transform() );
-	}
 
 	/// <summary>
 	/// Is the hand trigger down?
@@ -108,23 +104,23 @@ public sealed class Hand : Component, Component.ITriggerListener
 
 	internal void AttachModelTo( GameObject gameObject )
 	{
-		ModelGameObject.SetParent( gameObject, false );
+		DummyGameObject.SetParent( gameObject, false );
 	}
 
 	internal void ResetAttachment()
 	{
-		ModelGameObject.SetParent( this.GameObject, false );
+		DummyGameObject.SetParent( ModelGameObject, false );
 	}
 
 	internal Vector3 GetHoldPosition( GrabPoint grabPoint )
 	{
-		var src = Transform.Position;
+		var src = ModelGameObject.Transform.Position;
 		return src;
 	}
 
 	internal Rotation GetHoldRotation( GrabPoint grabPoint )
 	{
-		return Transform.Rotation;
+		return ModelGameObject.Transform.Rotation;
 	}
 
 

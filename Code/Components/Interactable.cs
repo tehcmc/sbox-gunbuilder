@@ -135,7 +135,11 @@ public partial class Interactable : Component
 
 		var velocity = Rigidbody.Velocity;
 
-		Vector3.SmoothDamp( Rigidbody.Transform.Position, primaryGrabPoint.HeldHand.GetHoldPosition( primaryGrabPoint ), ref velocity, GetTimeToTranslate(), Time.Delta );
+		var holdPos = primaryGrabPoint.HeldHand.GetHoldPosition( primaryGrabPoint );
+		var grabPointPos = PrimaryGrabPoint.Transform.Position;
+		var diff = (holdPos - grabPointPos);
+
+		Vector3.SmoothDamp( Rigidbody.Transform.Position, holdPos + diff, ref velocity, GetTimeToTranslate(), Time.Delta );
 		Rigidbody.Velocity = velocity;
 
 		var secondaryGrabPoint = heldGrabPoints.FirstOrDefault( x => x.IsSecondaryGrabPoint );
