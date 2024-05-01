@@ -12,7 +12,7 @@ public partial class GrabPoint : Component
 	/// <summary>
 	/// The linked interactable
 	/// </summary>
-	[Property] public Interactable Interactable { get; set; }
+	[Property] public BaseInteractable Interactable { get; set; }
 
 	/// <summary>
 	/// The primary grab point
@@ -23,6 +23,20 @@ public partial class GrabPoint : Component
 	/// The hand pose that we'll use when a hand is attached to this grab point.
 	/// </summary>
 	[Property] public Hand.PresetPose HoldingPose { get; set; } = Hand.PresetPose.Grip;
+
+	/// <summary>
+	/// What's our grabbing input type?
+	/// </summary>
+	public enum GrabInputType
+	{
+		Grip,
+		Trigger
+	}
+
+	/// <summary>
+	/// What's our grabbing input type?
+	/// </summary>
+	[Property] public GrabInputType GrabInput { get; set; } = GrabInputType.Grip;
 
 	/// <summary>
 	/// Is this a secondary grab point? Has to be linked to a primary grab point for it to work.
@@ -51,7 +65,7 @@ public partial class GrabPoint : Component
 	/// <param name="interactable"></param>
 	/// <param name="hand"></param>
 	/// <returns></returns>
-	public bool CanStopGrabbing( Interactable interactable, Hand hand )
+	public bool CanStopGrabbing( BaseInteractable interactable, Hand hand )
 	{
 		return true;
 	}
@@ -62,7 +76,7 @@ public partial class GrabPoint : Component
 	/// <param name="interactable"></param>
 	/// <param name="hand"></param>
 	/// <returns></returns>
-	public bool CanStartGrabbing( Interactable interactable, Hand hand )
+	public bool CanStartGrabbing( BaseInteractable interactable, Hand hand )
 	{
 		// TODO: Don't allow holding a secondary grab point if the primary grab point isn't being held already.
 		// if ( IsSecondaryGrabPoint ) return PrimaryGrabPoint.IsBeingHeld;

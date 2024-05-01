@@ -54,6 +54,16 @@ public partial class Hand : Component, Component.ITriggerListener
 		return HandSource == HandSources.Left ? Input.VR.LeftHand : Input.VR.RightHand;
 	}
 
+	public bool IsDown( GrabPoint.GrabInputType inputType )
+	{
+		return inputType switch
+		{
+			GrabPoint.GrabInputType.Grip => IsGripDown(),
+			GrabPoint.GrabInputType.Trigger => IsTriggerDown(),
+			_ => false
+		};
+	}
+
 	/// <summary>
 	/// Try to grab a grab point.
 	/// </summary>
@@ -62,6 +72,9 @@ public partial class Hand : Component, Component.ITriggerListener
 	{
 		// If we're already grabbing this thing, don't bother.
 		if ( CurrentGrabPoint == grabPoint ) return;
+
+		// Input type match
+		if ( !IsDown( grabPoint.GrabInput ) ) return;
 
 		// Only if we succeed to interact with the interactable, take hold of the object.
 		if ( grabPoint.Interactable.Interact( grabPoint, this ) )
@@ -88,7 +101,7 @@ public partial class Hand : Component, Component.ITriggerListener
 
 		if ( IsProxy ) return;
 
-		if ( IsGripDown() )
+		if ( IsGripDown() || IsTriggerDown() )
 		{
 			if ( !HoveredGrabPoint.IsValid() ) return;
 			StartGrabbing( HoveredGrabPoint );
