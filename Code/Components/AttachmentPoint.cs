@@ -50,9 +50,6 @@ public partial class AttachmentPoint : Component, Component.ExecuteInEditor, Com
 	/// <returns></returns>
 	protected bool CanAttach( Attachable attachable )
 	{
-		// If something is already attached, don't bother.
-		if ( CurrentAttachable.IsValid() ) return false;
-
 		// Artificial delay.
 		if ( TimeSinceAttachChanged < AttachmentDelay ) return false;
 
@@ -113,6 +110,9 @@ public partial class AttachmentPoint : Component, Component.ExecuteInEditor, Com
 		Log.Info( $"> Try attaching {this} to {attachable}" );
 
 		if ( !CanAttach( attachable ) ) return false;
+
+		// Try to detach what we have already
+		if ( CurrentAttachable.IsValid() && !TryDetach() ) return false;
 
 		// TODO: make it so the interactable can say no
 		Interactable.Attach( attachable, this );
