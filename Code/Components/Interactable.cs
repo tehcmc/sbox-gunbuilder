@@ -209,12 +209,12 @@ public partial class Interactable : Component
 
 	float GetTimeToTranslate()
 	{
-		return 0.025f;
+		return 0.20f;
 	}
 
 	float GetTimeToRotate()
 	{
-		return 0.01f;
+		return 0.15f;
 	}
 
 	protected override void OnFixedUpdate()
