@@ -34,7 +34,7 @@ public sealed class Hand : Component, Component.ITriggerListener
 		return src.Trigger.Value > flDeadzone;
 	}
 
-	VRController GetController()
+	public VRController GetController()
 	{
 		return HandSource == HandSources.Left ? Input.VR.LeftHand : Input.VR.RightHand;
 	}

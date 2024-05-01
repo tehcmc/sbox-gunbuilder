@@ -2,7 +2,8 @@ using Sandbox;
 
 public sealed class WeaponMagazine : Component
 {
-	[RequireComponent] Interactable Interactable { get; set; }
+	[RequireComponent] public Interactable Interactable { get; set; }
+	[RequireComponent] public Attachable Attachable { get; set; }
 
 	[Property] public int BulletCount { get; set; } = 30;
 	[Property] public int BulletCapacity { get; set; } = 30;

@@ -781,6 +781,7 @@
           "__type": "Weapon",
           "__guid": "cbcb6d64-6745-49a3-89c0-f4028e10a9a4",
           "BulletSize": 4,
+          "DryFireSound": "sounds/weapons/weapon_dryfire.sound",
           "MaxRange": 100000,
           "MuzzleGameObject": {
             "_type": "gameobject",
@@ -798,8 +799,8 @@
         {
           "__type": "Sandbox.HullCollider",
           "__guid": "06059ce3-0bc4-420d-9dea-9ad91304aaf8",
-          "BoxSize": "26.90005,2.100003,5.100002",
-          "Center": "2.5,0,5.7",
+          "BoxSize": "26.90005,2.100003,2.600002",
+          "Center": "2.5,0,6.9",
           "Height": 50,
           "IsTrigger": false,
           "Radius": 25,
@@ -1206,7 +1207,7 @@
           "Gravity": true,
           "LinearDamping": 0,
           "Locking": {},
-          "MassOverride": 0,
+          "MassOverride": 50,
           "MotionEnabled": true,
           "RigidbodyFlags": 0,
           "StartAsleep": false
@@ -1294,6 +1295,252 @@
             {
               "__type": "Sandbox.SphereCollider",
               "__guid": "f167a2ca-20e8-457f-a59b-06bacd68081c",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Radius": 1.5,
+              "Static": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "b7c050e5-6c5c-4569-9595-f78991c3de73",
+      "Name": "M4 Magazine (1)",
+      "Position": "34.60007,-9.718969,77.69366",
+      "Rotation": "0.4999998,0.5000001,0.4999999,0.5000001",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Interactable",
+          "__guid": "20b1189d-1617-4669-8a2f-d9b9985841b1",
+          "Rigidbody": {
+            "_type": "component",
+            "component_id": "5556492e-ea53-4753-941c-c10f7e236757",
+            "go": "b7c050e5-6c5c-4569-9595-f78991c3de73",
+            "component_type": "Rigidbody"
+          }
+        },
+        {
+          "__type": "Sandbox.Rigidbody",
+          "__guid": "5556492e-ea53-4753-941c-c10f7e236757",
+          "AngularDamping": 0,
+          "Gravity": true,
+          "LinearDamping": 0,
+          "Locking": {},
+          "MassOverride": 50,
+          "MotionEnabled": true,
+          "RigidbodyFlags": 0,
+          "StartAsleep": false
+        },
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "e1c33a4b-19c0-4733-be9b-42e661a106cc",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "3,1,6",
+          "Static": false,
+          "Surface": "surfaces/metal.weapon.surface"
+        },
+        {
+          "__type": "WeaponMagazine",
+          "__guid": "22f78b5f-ed6d-4061-9cc4-7df53b0818df",
+          "BulletCapacity": 30,
+          "BulletCount": 30,
+          "IsInfiniteAmmo": false
+        },
+        {
+          "__type": "Attachable",
+          "__guid": "0d930923-d1bf-46b0-a2bd-3b319d0bb082",
+          "AttachSound": "sounds/weapons/m4a1/m4_magazine_in.sound",
+          "DetachSound": "sounds/weapons/m4a1/m4_magazine_in.sound",
+          "Interactable": {
+            "_type": "component",
+            "component_id": "20b1189d-1617-4669-8a2f-d9b9985841b1",
+            "go": "b7c050e5-6c5c-4569-9595-f78991c3de73",
+            "component_type": "Interactable"
+          },
+          "Rigidbody": {
+            "_type": "component",
+            "component_id": "5556492e-ea53-4753-941c-c10f7e236757",
+            "go": "b7c050e5-6c5c-4569-9595-f78991c3de73",
+            "component_type": "Rigidbody"
+          }
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "b2ec54e2-2de7-4dc7-be7e-8c8b7dbfe79d",
+          "Name": "Model",
+          "Position": "0.03938294,0.00000001408443,0.000000004694812",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "786ce367-0b84-485e-a8cd-dbb12a8be40a",
+              "BodyGroups": 18446744073709551615,
+              "CreateBoneObjects": false,
+              "Model": "models/weapons/sbox_assault_m4a1/w_m4a1_magazine.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "0385de71-d402-49b8-8b37-7322a610da5e",
+          "Name": "Magazine Grab Point",
+          "Position": "0.01413896,-0.05143735,-0.2274857",
+          "Rotation": "0.00000006705523,-0.6087677,-0.00000002980232,0.7933571",
+          "Tags": "trigger",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "GrabPoint",
+              "__guid": "29737bc6-dafe-4939-b026-0c62e7579e09",
+              "Collider": {
+                "_type": "component",
+                "component_id": "c70c5d50-66e9-4081-ab6e-dcf15564ad82",
+                "go": "0385de71-d402-49b8-8b37-7322a610da5e",
+                "component_type": "SphereCollider"
+              },
+              "HoldingPose": "HoldItem",
+              "Interactable": {
+                "_type": "component",
+                "component_id": "20b1189d-1617-4669-8a2f-d9b9985841b1",
+                "go": "b7c050e5-6c5c-4569-9595-f78991c3de73",
+                "component_type": "Interactable"
+              }
+            },
+            {
+              "__type": "Sandbox.SphereCollider",
+              "__guid": "c70c5d50-66e9-4081-ab6e-dcf15564ad82",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Radius": 1.5,
+              "Static": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "d4278a0d-4c5c-4ddb-9072-c252b5defb99",
+      "Name": "M4 Magazine (2)",
+      "Position": "34.60006,-14.13228,77.69366",
+      "Rotation": "0.4999998,0.5000001,0.4999999,0.5000001",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Interactable",
+          "__guid": "7b19ff2b-de72-408b-b065-c4cb9c2207be",
+          "Rigidbody": {
+            "_type": "component",
+            "component_id": "bc66bfe7-93f8-465b-846d-97e2b04f5778",
+            "go": "d4278a0d-4c5c-4ddb-9072-c252b5defb99",
+            "component_type": "Rigidbody"
+          }
+        },
+        {
+          "__type": "Sandbox.Rigidbody",
+          "__guid": "bc66bfe7-93f8-465b-846d-97e2b04f5778",
+          "AngularDamping": 0,
+          "Gravity": true,
+          "LinearDamping": 0,
+          "Locking": {},
+          "MassOverride": 50,
+          "MotionEnabled": true,
+          "RigidbodyFlags": 0,
+          "StartAsleep": false
+        },
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "679ef95f-1a65-439a-b090-1970a5d02c2e",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "3,1,6",
+          "Static": false,
+          "Surface": "surfaces/metal.weapon.surface"
+        },
+        {
+          "__type": "WeaponMagazine",
+          "__guid": "66dc2e2e-21ee-41fd-9ff6-6272b3f651d8",
+          "BulletCapacity": 30,
+          "BulletCount": 30,
+          "IsInfiniteAmmo": false
+        },
+        {
+          "__type": "Attachable",
+          "__guid": "5bc9c851-ee35-4500-9dfd-66c0609fc5b8",
+          "AttachSound": "sounds/weapons/m4a1/m4_magazine_in.sound",
+          "DetachSound": "sounds/weapons/m4a1/m4_magazine_in.sound",
+          "Interactable": {
+            "_type": "component",
+            "component_id": "7b19ff2b-de72-408b-b065-c4cb9c2207be",
+            "go": "d4278a0d-4c5c-4ddb-9072-c252b5defb99",
+            "component_type": "Interactable"
+          },
+          "Rigidbody": {
+            "_type": "component",
+            "component_id": "bc66bfe7-93f8-465b-846d-97e2b04f5778",
+            "go": "d4278a0d-4c5c-4ddb-9072-c252b5defb99",
+            "component_type": "Rigidbody"
+          }
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "81db3a19-c260-4da1-821c-45259452f79e",
+          "Name": "Model",
+          "Position": "0.03938294,0.00000001408443,0.000000004694812",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "341c4fc2-7fd7-4524-8cf3-77b7a3c4b47b",
+              "BodyGroups": 18446744073709551615,
+              "CreateBoneObjects": false,
+              "Model": "models/weapons/sbox_assault_m4a1/w_m4a1_magazine.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "de29f144-87ca-475f-92a4-83c64f4364e7",
+          "Name": "Magazine Grab Point",
+          "Position": "0.01413896,-0.05143735,-0.2274857",
+          "Rotation": "0.00000006705523,-0.6087677,-0.00000002980232,0.7933571",
+          "Tags": "trigger",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "GrabPoint",
+              "__guid": "0a2fb395-5952-432e-b726-e0bd34580039",
+              "Collider": {
+                "_type": "component",
+                "component_id": "3778734a-10f4-4fa6-8999-eb64e737a2a3",
+                "go": "de29f144-87ca-475f-92a4-83c64f4364e7",
+                "component_type": "SphereCollider"
+              },
+              "HoldingPose": "HoldItem",
+              "Interactable": {
+                "_type": "component",
+                "component_id": "7b19ff2b-de72-408b-b065-c4cb9c2207be",
+                "go": "d4278a0d-4c5c-4ddb-9072-c252b5defb99",
+                "component_type": "Interactable"
+              }
+            },
+            {
+              "__type": "Sandbox.SphereCollider",
+              "__guid": "3778734a-10f4-4fa6-8999-eb64e737a2a3",
               "Center": "0,0,0",
               "IsTrigger": true,
               "Radius": 1.5,
@@ -1392,7 +1639,7 @@
   },
   "Title": "testbed",
   "Description": "",
-  "LastSaved": "2024-05-01T11:32:59.4728499\u002B01:00",
+  "LastSaved": "2024-05-01T11:54:08.6921492\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [

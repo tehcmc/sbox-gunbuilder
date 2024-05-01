@@ -45,6 +45,15 @@ public partial class Weapon : Interactable
 		}
 	}
 
+	protected void DetachMag()
+	{
+		if ( Magazine.IsValid() )
+		{
+			Magazine.Interactable.AttachmentPoint = null;
+			Magazine.Attachable.Detach();
+		}
+	}
+
 	protected float RPMToSeconds()
 	{
 		return 60 / RPM;
@@ -72,6 +81,11 @@ public partial class Weapon : Interactable
 		}
 
 		return Magazine?.TakeBullet() ?? false;
+	}
+
+	public bool HasAmmo()
+	{
+		return ( Magazine?.BulletCount ?? 0 ) > 0;
 	}
 
 	private LegacyParticleSystem CreateParticleSystem( string particle, Vector3 pos, Rotation rot, List<ParticleControlPoint> cps = null, float decay = 5f )
@@ -181,9 +195,31 @@ public partial class Weapon : Interactable
 		{
 			if ( hand.IsTriggerDown() )
 			{
+				if ( !HasAmmo() )
+				{
+					DryFire();
+					return;
+				}
+
 				Shoot();
 			}
+
+			if ( hand.GetController().ButtonB.IsPressed )
+			{
+				DetachMag();
+			}
 		}
+	}
+
+	[Property] public SoundEvent DryFireSound { get; set; }
+	public TimeUntil TimeUntilNextDryFire { get; set; }
+
+	private void DryFire()
+	{
+		if ( !TimeUntilNextDryFire ) return;
+
+		Sound.Play( DryFireSound, Transform.Position );
+		TimeUntilNextDryFire = 0.5f;
 	}
 
 	public void Shoot()
