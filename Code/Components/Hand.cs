@@ -174,6 +174,8 @@ public sealed class Hand : Component, Component.ITriggerListener
 
 	public void SetPresetPose( PresetPose pose )
 	{
+		if ( !Game.IsRunningInVR ) return;
+
 		var source = (HandSource == HandSources.Left) ? Sandbox.Input.VR.LeftHand : Sandbox.Input.VR.RightHand;
 
 		SkinnedModelComponent.Set( "BasePose", 1 );

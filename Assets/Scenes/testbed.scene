@@ -948,7 +948,7 @@
             {
               "__type": "Sandbox.SkinnedModelRenderer",
               "__guid": "5bfc64c5-ad3d-4f3c-90d1-e7208fd21484",
-              "BodyGroups": 13985,
+              "BodyGroups": 13987,
               "CreateBoneObjects": false,
               "Model": "models/weapons/sbox_assault_m4a1/v_m4a1.vmdl",
               "RenderType": "On",
@@ -1143,7 +1143,7 @@
             {
               "__type": "Sandbox.SkinnedModelRenderer",
               "__guid": "d1d51ae2-3f52-406d-827f-dd9268f654ca",
-              "BodyGroups": 7761,
+              "BodyGroups": 7763,
               "CreateBoneObjects": false,
               "Model": "models/weapons/sbox_assault_m4a1/v_m4a1.vmdl",
               "RenderType": "On",
@@ -1853,7 +1853,7 @@
   },
   "Title": "testbed",
   "Description": "",
-  "LastSaved": "2024-04-30T21:51:32.4558876\u002B01:00",
+  "LastSaved": "2024-04-30T21:56:59.9537756\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
