@@ -74,6 +74,17 @@ public partial class Weapon : Interactable
 		}
 	}
 
+	private Vector2 CurrentRecoilAmount { get; set; }
+
+	protected override Rotation GetHoldRotation()
+	{
+		var original = base.GetHoldRotation();
+
+		original = original * Rotation.From( -CurrentRecoilAmount.y * Time.Delta, CurrentRecoilAmount.x * Time.Delta, 0 );
+
+		return original;
+	}
+
 	/// <summary>
 	/// If there's a magazine, we'll try to detach it from its attachment point.
 	/// </summary>
@@ -138,6 +149,8 @@ public partial class Weapon : Interactable
 
 	protected override void OnUpdate()
 	{
+		CurrentRecoilAmount = CurrentRecoilAmount.LerpTo( 0, Time.Delta * CalcRecoilDecay() );
+
 		if ( PrimaryGrabPoint?.HeldHand is { } hand )
 		{
 			if ( hand.IsTriggerDown() )
@@ -166,11 +179,27 @@ public partial class Weapon : Interactable
 		TimeUntilNextDryFire = 0.5f;
 	}
 
+	private Vector2 CalcRecoil()
+	{
+		return new Vector2()
+		{
+			y = Game.Random.Int( 300, 600 ),
+			x = Game.Random.Int( -200, 200 )
+		};
+	}
+
+	private float CalcRecoilDecay()
+	{
+		return 3f;
+	}
+
 	public void TryShoot()
 	{
 		if ( !CanShoot() ) return;
 
 		TimeSinceShoot = 0;
+
+		CurrentRecoilAmount += CalcRecoil();
 
 		int count = 0;
 		foreach ( var tr in GetShootTrace() )

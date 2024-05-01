@@ -206,30 +206,38 @@ public partial class Interactable : Component
 		OnHeldUpdate();
 	}
 
-	protected void PositionInteractable()
+	/// <summary>
+	/// Calculates the hold rotation for this interactable.
+	/// Can be overriden in child classes.
+	/// </summary>
+	/// <returns></returns>
+	protected virtual Rotation GetHoldRotation()
 	{
-		var primaryGrabPoint = PrimaryGrabPoint;
-		var velocity = Rigidbody.Velocity;
-		var holdPos = PrimaryGrabPoint.HeldHand.GetHoldPosition( PrimaryGrabPoint );
-		var grabPointPos = PrimaryGrabPoint.Transform.Position;
-		var diff = holdPos - grabPointPos;
-
-		Vector3.SmoothDamp( Rigidbody.Transform.Position, holdPos + diff, ref velocity, CalcVelocityWeight(), Time.Delta );
-		Rigidbody.Velocity = velocity;
-
 		var secondaryGrabPoint = heldGrabPoints.FirstOrDefault( x => x.IsSecondaryGrabPoint );
-		var targetRotation = primaryGrabPoint.HeldHand.GetHoldRotation( primaryGrabPoint );
+		var targetRotation = PrimaryGrabPoint.HeldHand.GetHoldRotation( PrimaryGrabPoint );
 
 		// Are we holding from a secondary hold point as well?
 		if ( SecondaryGrabPoint.IsValid() )
 		{
-			var direction = (SecondaryGrabPoint.HeldHand.Transform.Position - primaryGrabPoint.HeldHand.Transform.Position).Normal;
+			var direction = (SecondaryGrabPoint.HeldHand.Transform.Position - PrimaryGrabPoint.HeldHand.Transform.Position).Normal;
 			// TODO: Take into account the real rotation of the secondary grab point, so you can tilt the interactable from there.
 			targetRotation = Rotation.LookAt( direction, Vector3.Up );
 		}
 
+		return targetRotation;
+	}
+
+	protected void PositionInteractable()
+	{
+		var velocity = Rigidbody.Velocity;
+		var holdPos = PrimaryGrabPoint.HeldHand.GetHoldPosition( PrimaryGrabPoint );
+		var grabPointPos = PrimaryGrabPoint.Transform.Position;
+
+		Vector3.SmoothDamp( Rigidbody.Transform.Position, holdPos + ( holdPos - grabPointPos ), ref velocity, CalcVelocityWeight(), Time.Delta );
+		Rigidbody.Velocity = velocity;
+
 		var angularVelocity = Rigidbody.AngularVelocity;
-		Rotation.SmoothDamp( Rigidbody.Transform.Rotation, targetRotation, ref angularVelocity, CalcAngularVelocityWeight(), Time.Delta );
+		Rotation.SmoothDamp( Rigidbody.Transform.Rotation, GetHoldRotation(), ref angularVelocity, CalcAngularVelocityWeight(), Time.Delta );
 		Rigidbody.AngularVelocity = angularVelocity;
 	}
 
