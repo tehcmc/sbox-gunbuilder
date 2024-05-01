@@ -948,7 +948,7 @@
             {
               "__type": "Sandbox.SkinnedModelRenderer",
               "__guid": "5bfc64c5-ad3d-4f3c-90d1-e7208fd21484",
-              "BodyGroups": 13987,
+              "BodyGroups": 13985,
               "CreateBoneObjects": false,
               "Model": "models/weapons/sbox_assault_m4a1/v_m4a1.vmdl",
               "RenderType": "On",
@@ -986,7 +986,7 @@
               "__guid": "a40ebe86-a90e-4c93-8f67-5d4ef22f91d1",
               "Center": "0,0,0",
               "IsTrigger": true,
-              "Radius": 4,
+              "Radius": 2,
               "Static": false
             }
           ]
@@ -994,7 +994,7 @@
         {
           "__guid": "6f3cab13-78af-413b-90d4-292755245826",
           "Name": "Secondary Grab Point",
-          "Position": "11.05787,-0.000124265,4.139275",
+          "Position": "10.64944,-0.0001333913,4.139357",
           "Tags": "trigger",
           "Enabled": true,
           "NetworkMode": 2,
@@ -1027,7 +1027,7 @@
               "__guid": "ba15a96e-bdee-4345-9044-76b63364d64d",
               "Center": "0,0,0",
               "IsTrigger": true,
-              "Radius": 4,
+              "Radius": 2,
               "Static": false
             }
           ]
@@ -1070,202 +1070,6 @@
         },
         {
           "__guid": "11d6672f-95ec-41f8-a9e3-19e962a6699c",
-          "Name": "Muzzle",
-          "Position": "20.06361,-0.000003722113,7.350592",
-          "Enabled": true,
-          "NetworkMode": 2
-        }
-      ]
-    },
-    {
-      "__guid": "602cf9c9-8ab9-4bb7-a122-9d13fe46a223",
-      "Name": "M4 (2)",
-      "Position": "40.87687,7.99996,71.25922",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "Components": [
-        {
-          "__type": "Interactable",
-          "__guid": "2936da05-e699-4ee9-a47f-c237e7169d3d",
-          "Rigidbody": {
-            "_type": "component",
-            "component_id": "f874e558-187a-4ae9-afbe-865f2a2c63e4",
-            "go": "602cf9c9-8ab9-4bb7-a122-9d13fe46a223",
-            "component_type": "Rigidbody"
-          }
-        },
-        {
-          "__type": "Sandbox.HullCollider",
-          "__guid": "9d26402e-23a6-483d-9000-0f188f235823",
-          "BoxSize": "26.90005,2.100003,5.100002",
-          "Center": "2.5,0,5.7",
-          "Height": 50,
-          "IsTrigger": false,
-          "Radius": 25,
-          "Radius2": 0,
-          "Slices": 16,
-          "Static": false,
-          "Type": "Box"
-        },
-        {
-          "__type": "Sandbox.Rigidbody",
-          "__guid": "f874e558-187a-4ae9-afbe-865f2a2c63e4",
-          "AngularDamping": 0,
-          "Gravity": true,
-          "LinearDamping": 0,
-          "Locking": {},
-          "MassOverride": 0,
-          "MotionEnabled": true,
-          "RigidbodyFlags": 0,
-          "StartAsleep": false
-        },
-        {
-          "__type": "Weapon",
-          "__guid": "d2d1cc8a-0136-4498-9b30-056acdb59d4e",
-          "BulletSize": 4,
-          "MaxRange": 100000,
-          "MuzzleGameObject": {
-            "_type": "gameobject",
-            "go": "c8b3ec7f-e88e-4d81-b3d1-72d5c5597c21"
-          },
-          "RPM": 650,
-          "ShootSound": "sounds/weapons/m4a1/m4_shot.sound"
-        }
-      ],
-      "Children": [
-        {
-          "__guid": "a2da1618-fce7-476c-9e23-a0f557a19361",
-          "Name": "Model",
-          "Position": "0,0,0",
-          "Enabled": true,
-          "NetworkMode": 2,
-          "Components": [
-            {
-              "__type": "Sandbox.SkinnedModelRenderer",
-              "__guid": "d1d51ae2-3f52-406d-827f-dd9268f654ca",
-              "BodyGroups": 7763,
-              "CreateBoneObjects": false,
-              "Model": "models/weapons/sbox_assault_m4a1/v_m4a1.vmdl",
-              "RenderType": "On",
-              "Tint": "1,1,1,1"
-            }
-          ]
-        },
-        {
-          "__guid": "229f4398-4cb2-4535-a8ea-e9b451f96450",
-          "Name": "Grab Point",
-          "Position": "-0.687013,-0.01622051,3.932726",
-          "Tags": "trigger",
-          "Enabled": true,
-          "NetworkMode": 2,
-          "Components": [
-            {
-              "__type": "GrabPoint",
-              "__guid": "fe3011e6-7d18-452a-8bfc-5eab4cb18ca1",
-              "Collider": {
-                "_type": "component",
-                "component_id": "391bd29a-17f0-4e1c-aaa9-5917e25f5354",
-                "go": "229f4398-4cb2-4535-a8ea-e9b451f96450",
-                "component_type": "SphereCollider"
-              },
-              "HoldingPose": "GripNoIndex",
-              "Interactable": {
-                "_type": "component",
-                "component_id": "2936da05-e699-4ee9-a47f-c237e7169d3d",
-                "go": "602cf9c9-8ab9-4bb7-a122-9d13fe46a223",
-                "component_type": "Interactable"
-              }
-            },
-            {
-              "__type": "Sandbox.SphereCollider",
-              "__guid": "391bd29a-17f0-4e1c-aaa9-5917e25f5354",
-              "Center": "0,0,0",
-              "IsTrigger": true,
-              "Radius": 4,
-              "Static": false
-            }
-          ]
-        },
-        {
-          "__guid": "57d82982-69b8-44b3-9230-3a5309555ee4",
-          "Name": "Secondary Grab Point",
-          "Position": "10.3376,0.5952409,5.903609",
-          "Rotation": "-0.4999999,-0.00000000000001687539,0.00000000000001421085,0.8660255",
-          "Tags": "trigger",
-          "Enabled": true,
-          "NetworkMode": 2,
-          "Components": [
-            {
-              "__type": "GrabPoint",
-              "__guid": "1900d328-e8c4-4801-9c2f-ed61e59cb1c4",
-              "Collider": {
-                "_type": "component",
-                "component_id": "d9e0aace-0aa0-4808-84a7-3ebdf8047b61",
-                "go": "57d82982-69b8-44b3-9230-3a5309555ee4",
-                "component_type": "SphereCollider"
-              },
-              "HoldingPose": "Clamp",
-              "Interactable": {
-                "_type": "component",
-                "component_id": "2936da05-e699-4ee9-a47f-c237e7169d3d",
-                "go": "602cf9c9-8ab9-4bb7-a122-9d13fe46a223",
-                "component_type": "Interactable"
-              },
-              "PrimaryGrabPoint": {
-                "_type": "component",
-                "component_id": "fe3011e6-7d18-452a-8bfc-5eab4cb18ca1",
-                "go": "229f4398-4cb2-4535-a8ea-e9b451f96450",
-                "component_type": "GrabPoint"
-              }
-            },
-            {
-              "__type": "Sandbox.SphereCollider",
-              "__guid": "d9e0aace-0aa0-4808-84a7-3ebdf8047b61",
-              "Center": "0,0,0",
-              "IsTrigger": true,
-              "Radius": 4,
-              "Static": false
-            }
-          ]
-        },
-        {
-          "__guid": "5f2d27e0-11c4-418b-b04e-7b640aa3f5bd",
-          "Name": "Magazine Attachment Point",
-          "Position": "2.479351,-0.00009139063,3.599062",
-          "Tags": "trigger",
-          "Enabled": true,
-          "NetworkMode": 2,
-          "Components": [
-            {
-              "__type": "AttachmentPoint",
-              "__guid": "9f7e35a6-8f38-42b7-8f89-5beadeaf8de5",
-              "AcceptedTags": "magazine",
-              "GuideModel": "models/weapons/sbox_assault_m4a1/w_m4a1_magazine.vmdl"
-            },
-            {
-              "__type": "Sandbox.BoxCollider",
-              "__guid": "7ec542fa-19bf-44d1-a1c3-d770c783ae2e",
-              "Center": "0,0,0",
-              "IsTrigger": true,
-              "Scale": "1,1,1",
-              "Static": false
-            },
-            {
-              "__type": "Sandbox.Rigidbody",
-              "__guid": "dc4c1830-f38e-442e-9f82-1dd9829845f9",
-              "AngularDamping": 0,
-              "Gravity": false,
-              "LinearDamping": 0,
-              "Locking": {},
-              "MassOverride": 0,
-              "MotionEnabled": false,
-              "RigidbodyFlags": 0,
-              "StartAsleep": false
-            }
-          ]
-        },
-        {
-          "__guid": "c8b3ec7f-e88e-4d81-b3d1-72d5c5597c21",
           "Name": "Muzzle",
           "Position": "20.06361,-0.000003722113,7.350592",
           "Enabled": true,
@@ -1853,7 +1657,7 @@
   },
   "Title": "testbed",
   "Description": "",
-  "LastSaved": "2024-05-01T10:02:58.3730499\u002B01:00",
+  "LastSaved": "2024-05-01T10:46:17.7718279\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [

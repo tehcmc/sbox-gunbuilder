@@ -18,9 +18,12 @@ public partial class AttachmentPoint : Component, Component.ExecuteInEditor, Com
 		}
 	}
 
+	TimeSince TimeSinceAttachChanged = 1;
+
 	protected bool IsValidToAttach( Attachable attachable )
 	{
 		if ( CurrentAttachable.IsValid() ) return false;
+		if ( TimeSinceAttachChanged < 1f ) return false;
 
 		var attachableFwd = attachable.Transform.Rotation.Forward;
 		var thisFwd = Transform.Rotation.Forward;
@@ -35,17 +38,20 @@ public partial class AttachmentPoint : Component, Component.ExecuteInEditor, Com
 	protected void Attach( Attachable attachable )
 	{
 		attachable.Interactable.ClearAll();
+		attachable.Interactable.AttachmentPoint = this;
 
 		attachable.OnAttach( this );
 		attachable.Rigidbody.MotionEnabled = false;
-		attachable.Rigidbody.Enabled = false;
 
 		CurrentAttachable = attachable;
+		TimeSinceAttachChanged = 0;
 	}
 
-	protected void Detach()
+	public void Detach()
 	{
-		// TODO: do it
+		TimeSinceAttachChanged = 0;
+		CurrentAttachable.OnDetach( this );
+		CurrentAttachable = null;	
 	}
 
 	protected override void OnUpdate()

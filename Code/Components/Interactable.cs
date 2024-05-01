@@ -11,6 +11,11 @@ public partial class Interactable : Component
 	public GrabPoint PrimaryGrabPoint => heldGrabPoints.FirstOrDefault();
 	public GrabPoint SecondaryGrabPoint => heldGrabPoints.FirstOrDefault( x => x.IsSecondaryGrabPoint );
 
+	/// <summary>
+	/// Is this interactable currently attached to an attachment point?
+	/// </summary>
+	[Property] public AttachmentPoint AttachmentPoint { get; set; }
+
 	[Property] public Rigidbody Rigidbody { get; set; }
 
 	HashSet<GrabPoint> heldGrabPoints = new();
@@ -31,6 +36,11 @@ public partial class Interactable : Component
 	protected virtual bool CanInteract( GrabPoint grabPoint, Hand hand )
 	{
 		if ( TimeSinceInteract < 0.4f ) return false;
+
+		// already being held by someone's hands
+		if ( grabPoint.IsBeingHeld ) return false;
+
+		// ??
 		if ( hand.IsHolding() ) return false;
 
 		return grabPoint.CanGrab( this, hand );
@@ -84,9 +94,18 @@ public partial class Interactable : Component
 	{
 		if ( !CanInteract( grabPoint, hand ) ) return false;
 
-		Log.Info( $"started grabbing {this.GameObject} at {grabPoint.GameObject} with {hand.GameObject}" );
+		if ( AttachmentPoint.IsValid() )
+		{
+			AttachmentPoint.Detach();
+			AttachmentPoint = null;
+		}
 
 		OnInteract( grabPoint, hand );
+
+		if ( GameObject.Parent.IsValid() )
+		{
+			GameObject.SetParent( null, true );
+		}
 
 		hand.AttachModelTo( grabPoint.GameObject );
 

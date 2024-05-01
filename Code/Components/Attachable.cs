@@ -13,4 +13,8 @@ public sealed class Attachable : Component
 		if ( AttachSound is not null )
 			Sound.Play( AttachSound, Transform.Position );
 	}
+
+	internal void OnDetach( AttachmentPoint attachmentPoint )
+	{
+	}
 }
