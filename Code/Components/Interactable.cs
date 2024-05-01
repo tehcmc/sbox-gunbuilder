@@ -1,5 +1,4 @@
 using System.Collections.Immutable;
-using System.Numerics;
 
 public partial class Interactable : Component
 {
@@ -49,6 +48,26 @@ public partial class Interactable : Component
 		return grabPoint.CanGrab( this, hand );
 	}
 
+	public void AttachableAdded( Attachable attachable, AttachmentPoint attachmentPoint )
+	{
+		OnAttachableAdded( attachable, attachmentPoint );
+	}
+
+	public void AttachableRemoved( Attachable attachable, AttachmentPoint attachmentPoint )
+	{
+		OnAttachableRemoved( attachable, attachmentPoint );
+	}
+
+	protected virtual void OnAttachableRemoved( Attachable attachable, AttachmentPoint attachmentPoint )
+	{
+		//
+	}
+
+	protected virtual void OnAttachableAdded( Attachable attachable, AttachmentPoint attachmentPoint )
+	{
+		//
+	}
+
 	/// <summary>
 	/// Can we stop interacting with this object? Normally called when releasing the grip.
 	/// </summary>
@@ -57,7 +76,7 @@ public partial class Interactable : Component
 	/// <returns></returns>
 	protected virtual bool CanStopInteract( GrabPoint grabPoint, Hand hand )
 	{
-		if ( TimeSinceInteract < 0.4f ) return false;
+		if ( TimeSinceInteract < InteractDelay ) return false;
 
 		return grabPoint.CanStopGrab( this, hand );
 	}

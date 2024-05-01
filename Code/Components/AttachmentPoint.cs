@@ -2,10 +2,9 @@ using Sandbox;
 
 public partial class AttachmentPoint : Component, Component.ExecuteInEditor, Component.ITriggerListener, Component.ICollisionListener
 {
+	[Property] public Interactable Interactable { get; set; }
 	[Property] public Model GuideModel { get; set; }
 	[Property] public TagSet AcceptedTags { get; set; } = new TagSet();
-
-	[Property] public Collider Trigger { get; set; }
 
 	public Attachable CurrentAttachable { get; private set; }
 
@@ -45,12 +44,16 @@ public partial class AttachmentPoint : Component, Component.ExecuteInEditor, Com
 		attachable.OnAttach( this );
 		attachable.Rigidbody.MotionEnabled = false;
 
+		Interactable.AttachableAdded( attachable, this );
+
 		CurrentAttachable = attachable;
 		TimeSinceAttachChanged = 0;
 	}
 
 	public void Detach()
 	{
+		Interactable.AttachableRemoved( CurrentAttachable, this );
+
 		TimeSinceAttachChanged = 0;
 		CurrentAttachable.OnDetach( this );
 		CurrentAttachable = null;	

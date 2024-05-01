@@ -1,9 +1,8 @@
 using Sandbox;
 
-public partial class Weapon : Component
+public partial class Weapon : Interactable
 {
 	[RequireComponent] Interactable Interactable { get; set; }
-	[RequireComponent] Rigidbody Rigidbody { get; set; }
 	[RequireComponent] Collider MainCollider { get; set; }
 
 	/// <summary>
@@ -21,9 +20,30 @@ public partial class Weapon : Component
 	[Property] public SoundEvent ShootSound { get; set; }
 
 	/// <summary>
+	/// The current weapon magazine
+	/// </summary>
+	public WeaponMagazine Magazine { get; private set; }
+
+	/// <summary>
 	/// How long has it been since we've shot this gun?
 	/// </summary>
 	public TimeSince TimeSinceShoot { get; private set; }
+
+	protected override void OnAttachableAdded( Attachable attachable, AttachmentPoint attachmentPoint )
+	{
+		if ( attachable.Components.Get<WeaponMagazine>() is { } magazine )
+		{
+			Magazine = magazine;
+		}
+	}
+
+	protected override void OnAttachableRemoved( Attachable attachable, AttachmentPoint attachmentPoint )
+	{
+		if ( attachable.Components.Get<WeaponMagazine>() is { } magazine )
+		{
+			Magazine = null;
+		}
+	}
 
 	protected float RPMToSeconds()
 	{
@@ -51,7 +71,7 @@ public partial class Weapon : Component
 			return false;
 		}
 
-		return true;
+		return Magazine?.TakeBullet() ?? false;
 	}
 
 	private LegacyParticleSystem CreateParticleSystem( string particle, Vector3 pos, Rotation rot, List<ParticleControlPoint> cps = null, float decay = 5f )
@@ -155,6 +175,8 @@ public partial class Weapon : Component
 
 	protected override void OnUpdate()
 	{
+		base.OnUpdate();
+
 		if ( Interactable?.PrimaryGrabPoint?.HeldHand is { } hand )
 		{
 			if ( hand.IsTriggerDown() )
