@@ -1497,6 +1497,7 @@
           "__type": "Attachable",
           "__guid": "523873d6-e435-427c-9ecf-4a209fce95ed",
           "AttachSound": "sounds/weapons/m4a1/m4_magazine_in.sound",
+          "DetachSound": "sounds/weapons/m4a1/m4_magazine_in.sound",
           "Interactable": {
             "_type": "component",
             "component_id": "57bebbe7-5b45-488d-b33d-05fa679e2817",
@@ -1657,7 +1658,7 @@
   },
   "Title": "testbed",
   "Description": "",
-  "LastSaved": "2024-05-01T10:46:17.7718279\u002B01:00",
+  "LastSaved": "2024-05-01T10:59:23.2025177\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [

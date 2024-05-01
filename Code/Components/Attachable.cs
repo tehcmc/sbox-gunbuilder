@@ -7,6 +7,7 @@ public sealed class Attachable : Component
 	[RequireComponent] public Collider Collider { get; set; }
 
 	[Property] public SoundEvent AttachSound { get; set; }
+	[Property] public SoundEvent DetachSound { get; set; }
 
 	internal void OnAttach( AttachmentPoint attachmentPoint )
 	{
@@ -16,5 +17,7 @@ public sealed class Attachable : Component
 
 	internal void OnDetach( AttachmentPoint attachmentPoint )
 	{
+		if ( DetachSound is not null )
+			Sound.Play( DetachSound, Transform.Position );
 	}
 }
