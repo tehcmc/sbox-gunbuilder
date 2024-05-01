@@ -23,11 +23,6 @@ public partial class Interactable : Component
 	public GrabPoint SecondaryGrabPoint => heldGrabPoints.FirstOrDefault( x => x.IsSecondaryGrabPoint );
 
 	/// <summary>
-	/// Is this interactable currently attached to an attachment point?
-	/// </summary>
-	[Property] public AttachmentPoint AttachmentPoint { get; set; }
-
-	/// <summary>
 	/// The interactable's Rigidbody
 	/// </summary>
 	[Property] public Rigidbody Rigidbody { get; set; }
@@ -80,12 +75,6 @@ public partial class Interactable : Component
 
 	public void Attach( Attachable attachable, AttachmentPoint attachmentPoint )
 	{
-		// Clear all interactions since we don't want the player to hold the item anymore.
-		ClearAllInteractions();
-
-		// Make sure we know which attachment point we're on now.
-		AttachmentPoint = attachmentPoint;
-
 		attachable.OnAttach( attachmentPoint );
 
 		OnAttachableAdded( attachable, attachmentPoint );
@@ -164,12 +153,6 @@ public partial class Interactable : Component
 	{
 		if ( !CanInteract( grabPoint, hand ) ) return false;
 
-		if ( AttachmentPoint.IsValid() )
-		{
-			AttachmentPoint.TryDetach();
-			AttachmentPoint = null;
-		}
-
 		OnInteract( grabPoint, hand );
 
 		// Is this really necessary?
@@ -197,7 +180,7 @@ public partial class Interactable : Component
 
 		if ( !CanStopInteract( grabPoint, hand ) ) return false;
 
-		Log.Info( $"{this.GameObject} stopping interaction {grabPoint}" );
+		Log.Info( $"> Stop interacting with {grabPoint}" );
 
 		hand?.DetachModelFromGrabPoint();
 
@@ -225,25 +208,23 @@ public partial class Interactable : Component
 
 	protected void PositionInteractable()
 	{
-		var primaryGrabPoint = heldGrabPoints.First();
-
+		var primaryGrabPoint = PrimaryGrabPoint;
 		var velocity = Rigidbody.Velocity;
-
-		var holdPos = primaryGrabPoint.HeldHand.GetHoldPosition( primaryGrabPoint );
+		var holdPos = PrimaryGrabPoint.HeldHand.GetHoldPosition( PrimaryGrabPoint );
 		var grabPointPos = PrimaryGrabPoint.Transform.Position;
-		var diff = (holdPos - grabPointPos);
+		var diff = holdPos - grabPointPos;
 
 		Vector3.SmoothDamp( Rigidbody.Transform.Position, holdPos + diff, ref velocity, CalcVelocityWeight(), Time.Delta );
 		Rigidbody.Velocity = velocity;
 
 		var secondaryGrabPoint = heldGrabPoints.FirstOrDefault( x => x.IsSecondaryGrabPoint );
-
-		Rotation targetRotation = primaryGrabPoint.HeldHand.GetHoldRotation( primaryGrabPoint );
+		var targetRotation = primaryGrabPoint.HeldHand.GetHoldRotation( primaryGrabPoint );
 
 		// Are we holding from a secondary hold point as well?
-		if ( heldGrabPoints.FirstOrDefault( x => x.IsSecondaryGrabPoint ) is { } secondaryGrabPopint )
+		if ( SecondaryGrabPoint.IsValid() )
 		{
-			var direction = (secondaryGrabPoint.HeldHand.Transform.Position - primaryGrabPoint.HeldHand.Transform.Position).Normal;
+			var direction = (SecondaryGrabPoint.HeldHand.Transform.Position - primaryGrabPoint.HeldHand.Transform.Position).Normal;
+			// TODO: Take into account the real rotation of the secondary grab point, so you can tilt the interactable from there.
 			targetRotation = Rotation.LookAt( direction, Vector3.Up );
 		}
 

@@ -43,6 +43,9 @@ public sealed class Attachable : Component
 	{
 		CurrentAttachmentPoint = attachmentPoint;
 
+		// Clear all interactions since we don't want the player to hold the item anymore.
+		Interactable.ClearAllInteractions();
+
 		// Disable motion on our Rigidbody, since we're going to be controlled by an attachment point now.
 		Rigidbody.MotionEnabled = false;
 
@@ -59,7 +62,8 @@ public sealed class Attachable : Component
 	{
 		if ( CurrentAttachmentPoint.TryDetach() )
 		{
-			Interactable.AttachmentPoint = null;
+			Rigidbody.Velocity = 0;
+			Rigidbody.AngularVelocity = 0;
 		}
 	}
 

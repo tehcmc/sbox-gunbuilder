@@ -61,7 +61,7 @@ public partial class AttachmentPoint : Component, Component.ExecuteInEditor, Com
 		var attachableFwd = attachable.Transform.Rotation.Forward;
 		var thisFwd = Transform.Rotation.Forward;
 		var dot = attachableFwd.Dot( thisFwd );
-		if ( dot > 0f ) return true;
+		if ( dot > 0.85f ) return true;
 
 		return false;
 	}
@@ -86,6 +86,8 @@ public partial class AttachmentPoint : Component, Component.ExecuteInEditor, Com
 		// TODO: make it so the interactable can say no
 		Interactable.Detach( CurrentAttachable, this );
 
+		Log.Info( $"Detached our current attachable {CurrentAttachable}" );
+
 		TimeSinceAttachChanged = 0;
 		CurrentAttachable = null;
 
@@ -108,6 +110,8 @@ public partial class AttachmentPoint : Component, Component.ExecuteInEditor, Com
 	/// <param name="attachable"></param>
 	public bool TryAttach( Attachable attachable )
 	{
+		Log.Info( $"> Try attaching {this} to {attachable}" );
+
 		if ( !CanAttach( attachable ) ) return false;
 
 		// TODO: make it so the interactable can say no

@@ -88,8 +88,9 @@ public partial class Hand : Component, Component.ITriggerListener
 
 		if ( IsProxy ) return;
 
-		if ( IsGripDown() && HoveredGrabPoint.IsValid() )
+		if ( IsGripDown() )
 		{
+			if ( !HoveredGrabPoint.IsValid() ) return;
 			StartGrabbing( HoveredGrabPoint );
 		}
 		else
@@ -150,4 +151,13 @@ public partial class Hand : Component, Component.ITriggerListener
 		}
 	}
 
+	void ITriggerListener.OnTriggerExit( Collider other )
+	{
+		// Did we find a grab point that'll become eligible to grab?
+		if ( other.Components.Get<GrabPoint>( FindMode.EnabledInSelf ) is { } grabPoint )
+		{
+			if ( HoveredGrabPoint == grabPoint )
+				HoveredGrabPoint = null;
+		}
+	}
 }

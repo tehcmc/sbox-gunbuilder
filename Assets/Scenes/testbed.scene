@@ -772,8 +772,8 @@
     {
       "__guid": "38133b5a-297f-40d4-8739-bd77c36e09f9",
       "Name": "M4",
-      "Position": "40.87687,10.65512,71.25922",
-      "Rotation": "0.707107,-0.00000006705523,0.00000003062741,0.707107",
+      "Position": "40.87687,-2.019799,71.25922",
+      "Rotation": "-0.7071069,-0.00000003062743,-0.00000006705523,0.7071071",
       "Enabled": true,
       "NetworkMode": 2,
       "Components": [
@@ -844,7 +844,7 @@
         },
         {
           "__guid": "18004824-4990-4557-8d25-8102837dc2d0",
-          "Name": "Grab Point",
+          "Name": "M4 Primary Grab",
           "Position": "-0.687013,-0.01622051,3.932726",
           "Tags": "trigger",
           "Enabled": true,
@@ -879,7 +879,7 @@
         },
         {
           "__guid": "6f3cab13-78af-413b-90d4-292755245826",
-          "Name": "Secondary Grab Point",
+          "Name": "M4 Secondary Grab",
           "Position": "10.64944,-0.0001333913,4.139357",
           "Tags": "trigger",
           "Enabled": true,
@@ -941,7 +941,7 @@
             {
               "__type": "Sandbox.BoxCollider",
               "__guid": "7acf4505-1ad2-462d-8ca8-68b6f8af7796",
-              "Center": "0,0,0",
+              "Center": "-0.3,0,1.2",
               "IsTrigger": true,
               "Scale": "1,1,1",
               "Static": false
@@ -1617,7 +1617,7 @@
     }
   ],
   "SceneProperties": {
-    "FixedUpdateFrequency": 50,
+    "FixedUpdateFrequency": 100,
     "Lerping": true,
     "MaxFixedUpdates": 5,
     "NetworkFrequency": 30,
@@ -1639,7 +1639,7 @@
   },
   "Title": "testbed",
   "Description": "",
-  "LastSaved": "2024-05-01T11:54:08.6921492\u002B01:00",
+  "LastSaved": "2024-05-01T18:00:11.9963672\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
