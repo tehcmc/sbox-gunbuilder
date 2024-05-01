@@ -26,6 +26,7 @@ public partial class Interactable : Component
 	public ImmutableHashSet<GrabPoint> HeldGrabPoints => ImmutableHashSet.CreateRange( heldGrabPoints );
 
 	TimeSince TimeSinceInteract = 1;
+	const float InteractDelay = 0.4f;
 
 	/// <summary>
 	/// Can we start interacting with this object?
@@ -35,7 +36,9 @@ public partial class Interactable : Component
 	/// <returns></returns>
 	protected virtual bool CanInteract( GrabPoint grabPoint, Hand hand )
 	{
-		if ( TimeSinceInteract < 0.4f ) return false;
+		if ( TimeSinceInteract < InteractDelay ) return false;
+
+		if ( grabPoint.Transform.Position.Distance( hand.Transform.Position ) > 8f ) return false;
 
 		// already being held by someone's hands
 		if ( grabPoint.IsBeingHeld ) return false;

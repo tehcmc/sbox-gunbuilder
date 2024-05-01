@@ -45,6 +45,7 @@ public sealed class Hand : Component, Component.ITriggerListener
 
 		if ( grabPoint.Interactable.Interact( grabPoint, this ) )
 		{
+			GetController().TriggerHapticVibration( 0.1f, 0, 0.2f );
 			CurrentGrabPoint = grabPoint;
 		}
 	}
@@ -67,7 +68,9 @@ public sealed class Hand : Component, Component.ITriggerListener
 		{
 			var grabPoint = HoveredGrabPoint;
 			if ( !grabPoint.IsValid() )
+			{
 				return;
+			}
 
 			Grab( grabPoint );
 		}
@@ -89,19 +92,9 @@ public sealed class Hand : Component, Component.ITriggerListener
 		if ( other.Components.Get<GrabPoint>( FindMode.EnabledInSelf ) is { } grabPoint )
 		{
 			HoveredGrabPoint = grabPoint;
-
-			GetController().TriggerHapticVibration( 0.1f, 0, 0.2f );
 		}
 	}
-
-	void ITriggerListener.OnTriggerExit( Collider other )
-	{
-		if ( other.Components.Get<GrabPoint>() is { } grabPoint )
-		{
-			HoveredGrabPoint = null;
-		}
-	}
-
+	
 	internal void AttachModelTo( GameObject gameObject )
 	{
 		DummyGameObject.SetParent( gameObject, false );

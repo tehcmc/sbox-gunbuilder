@@ -312,7 +312,8 @@
           "Center": "0,0,4.699998",
           "IsTrigger": false,
           "Scale": "31.30009,63.59996,6.499996",
-          "Static": false
+          "Static": false,
+          "Surface": "surfaces/wood.surface"
         }
       ]
     },
@@ -910,6 +911,7 @@
           "Radius2": 0,
           "Slices": 16,
           "Static": false,
+          "Surface": "surfaces/metal.sheet.surface",
           "Type": "Box"
         },
         {
@@ -1487,7 +1489,8 @@
           "Center": "0,0,0",
           "IsTrigger": false,
           "Scale": "3,1,6",
-          "Static": false
+          "Static": false,
+          "Surface": "surfaces/metal.weapon.surface"
         },
         {
           "__type": "WeaponMagazine",
@@ -1533,7 +1536,7 @@
         },
         {
           "__guid": "2f7589f3-0968-4b55-aa44-2dd7ae51335b",
-          "Name": "Grab Point",
+          "Name": "Magazine Grab Point",
           "Position": "0.01413896,-0.05143735,-0.2274857",
           "Rotation": "0.00000006705523,-0.6087677,-0.00000002980232,0.7933571",
           "Tags": "trigger",
@@ -1658,7 +1661,7 @@
   },
   "Title": "testbed",
   "Description": "",
-  "LastSaved": "2024-05-01T10:59:23.2025177\u002B01:00",
+  "LastSaved": "2024-05-01T11:15:24.6812008\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [

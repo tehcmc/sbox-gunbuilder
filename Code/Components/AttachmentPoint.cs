@@ -19,11 +19,13 @@ public partial class AttachmentPoint : Component, Component.ExecuteInEditor, Com
 	}
 
 	TimeSince TimeSinceAttachChanged = 1;
+	const float InteractDelay = 0.4f;
+
 
 	protected bool IsValidToAttach( Attachable attachable )
 	{
 		if ( CurrentAttachable.IsValid() ) return false;
-		if ( TimeSinceAttachChanged < 1f ) return false;
+		if ( TimeSinceAttachChanged < InteractDelay ) return false;
 
 		var attachableFwd = attachable.Transform.Rotation.Forward;
 		var thisFwd = Transform.Rotation.Forward;

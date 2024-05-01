@@ -11,12 +11,16 @@ public sealed class Attachable : Component
 
 	internal void OnAttach( AttachmentPoint attachmentPoint )
 	{
+		Tags.Set( "attached", true );
+
 		if ( AttachSound is not null )
 			Sound.Play( AttachSound, Transform.Position );
 	}
 
 	internal void OnDetach( AttachmentPoint attachmentPoint )
 	{
+		Tags.Set( "attached", false );
+
 		if ( DetachSound is not null )
 			Sound.Play( DetachSound, Transform.Position );
 	}

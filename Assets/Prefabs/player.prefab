@@ -1,18 +1,18 @@
 {
   "RootObject": {
-    "__guid": "7bab979e-564b-4865-b137-1b4ec7c7656d",
+    "__guid": "8940ab29-4da1-418c-beb5-b7c296bc8c77",
     "Name": "player",
     "Enabled": true,
     "NetworkMode": 2,
     "Components": [
       {
         "__type": "Player",
-        "__guid": "1f26cd5a-a95e-43b7-8378-47f598f24214"
+        "__guid": "75fdb955-fec3-4db0-9e57-59ff8aab27a1"
       }
     ],
     "Children": [
       {
-        "__guid": "3ab96df3-bbba-4df5-a8b9-b94bef2cea58",
+        "__guid": "285528bd-b33a-4d41-9eca-481bf7c75b6c",
         "Name": "Head",
         "Position": "0,0,20",
         "Enabled": true,
@@ -20,14 +20,14 @@
         "Components": [
           {
             "__type": "Sandbox.VR.VRTrackedObject",
-            "__guid": "17e578ea-4db9-45c2-b218-aa5039da84ae",
+            "__guid": "848f21d0-1a5c-496d-ae70-45d00a9f99ff",
             "PoseSource": "Head",
             "TrackingType": "All",
             "UseRelativeTransform": false
           },
           {
             "__type": "Sandbox.CameraComponent",
-            "__guid": "7345e09e-402a-477b-82bf-dc0f5973c596",
+            "__guid": "6182ca80-42ac-498a-9e00-9302856ed216",
             "BackgroundColor": "0.33333,0.46275,0.52157,1",
             "ClearFlags": "All",
             "FieldOfView": 80.67,
@@ -45,7 +45,7 @@
         ],
         "Children": [
           {
-            "__guid": "dc000017-5b13-4955-abdf-6553effb285f",
+            "__guid": "b3664230-c1d1-4fc9-91a6-d4d71a71df98",
             "Name": "Object",
             "Position": "0,0,0",
             "Tags": "cameras",
@@ -54,7 +54,7 @@
             "Components": [
               {
                 "__type": "Sandbox.ModelRenderer",
-                "__guid": "8ca1e9e1-2797-47e0-9709-c713cec1aa8e",
+                "__guid": "5328b88e-5e0f-44c6-8c34-9a23f3e20418",
                 "BodyGroups": 18446744073709551615,
                 "Model": "models/editor/camera.vmdl",
                 "RenderType": "On",
@@ -65,62 +65,62 @@
         ]
       },
       {
-        "__guid": "b1628f12-3a45-4598-a021-4748a8d2bcf2",
+        "__guid": "5dab8176-8deb-46d6-882b-bec85a85eecf",
         "Name": "Anchor",
         "Enabled": true,
         "NetworkMode": 2,
         "Components": [
           {
             "__type": "Sandbox.VR.VRAnchor",
-            "__guid": "a5942ec4-3b76-4b75-abb7-8a1ee6f093a6"
+            "__guid": "8da38267-a5fc-4c6d-b08b-9b4d1eb8f7e2"
           }
         ]
       },
       {
-        "__guid": "4b4a73da-5df0-4834-bccd-7392f7d67f53",
+        "__guid": "a94dff29-3324-4df4-870e-0ae057a8a32d",
         "Name": "Left Hand",
         "Position": "0,12.28422,10.1414",
-        "Tags": "trigger",
+        "Tags": "trigger,hands",
         "Enabled": true,
         "NetworkMode": 2,
         "Components": [
           {
             "__type": "Sandbox.VR.VRTrackedObject",
-            "__guid": "77a84f91-84b1-4a2c-a5b2-7b42a1c8cc25",
+            "__guid": "d8e90831-cc4e-493c-9e17-9ea7dfb4ec81",
             "PoseSource": "LeftHand",
             "TrackingType": "All",
             "UseRelativeTransform": false
           },
           {
             "__type": "Hand",
-            "__guid": "48cef8af-67bb-4a01-9954-fa1353f4bd5f",
+            "__guid": "7b101678-8815-4a8e-9e77-84c2fc103397",
             "DummyGameObject": {
               "_type": "gameobject",
-              "go": "b0caeab8-da99-4030-a130-422fbc52a928"
+              "go": "f58f56aa-8855-402e-b831-9395189d2e38"
             },
             "HandSource": "Left",
             "ModelGameObject": {
               "_type": "gameobject",
-              "go": "48f22a3b-1a78-446f-b44c-f9143e5f9cdf"
+              "go": "e165a77a-5901-4d04-ba63-06714880b5ab"
             },
             "SkinnedModelComponent": {
               "_type": "component",
-              "component_id": "09256449-8e69-4cda-82b4-a1b1c8dc1cd4",
-              "go": "b0caeab8-da99-4030-a130-422fbc52a928",
+              "component_id": "97e2692e-d7c5-4f34-ae4f-7b3fbf3dda67",
+              "go": "f58f56aa-8855-402e-b831-9395189d2e38",
               "component_type": "SkinnedModelRenderer"
             }
           },
           {
             "__type": "Sandbox.SphereCollider",
-            "__guid": "379373ab-9fc6-4410-b2c4-294dcc0da4df",
+            "__guid": "0e7ab02f-e455-48a6-9522-c9a175a70068",
             "Center": "0,0,0",
             "IsTrigger": true,
-            "Radius": 3.4999993,
+            "Radius": 2,
             "Static": false
           },
           {
             "__type": "Sandbox.Rigidbody",
-            "__guid": "ba0c5141-a56a-492d-a27b-17dc6fdc051e",
+            "__guid": "9eabe97d-a1ed-456f-8f93-330fd625b900",
             "AngularDamping": 0,
             "Gravity": false,
             "LinearDamping": 0,
@@ -133,14 +133,14 @@
         ],
         "Children": [
           {
-            "__guid": "48f22a3b-1a78-446f-b44c-f9143e5f9cdf",
+            "__guid": "e165a77a-5901-4d04-ba63-06714880b5ab",
             "Name": "Model",
             "Position": "0,0,0",
             "Enabled": true,
             "NetworkMode": 2,
             "Children": [
               {
-                "__guid": "b0caeab8-da99-4030-a130-422fbc52a928",
+                "__guid": "f58f56aa-8855-402e-b831-9395189d2e38",
                 "Name": "RealModel",
                 "Position": "-2.3,0,0",
                 "Rotation": "0,0.1305262,0,0.9914449",
@@ -149,7 +149,7 @@
                 "Components": [
                   {
                     "__type": "Sandbox.SkinnedModelRenderer",
-                    "__guid": "09256449-8e69-4cda-82b4-a1b1c8dc1cd4",
+                    "__guid": "97e2692e-d7c5-4f34-ae4f-7b3fbf3dda67",
                     "BodyGroups": 18446744073709551615,
                     "CreateBoneObjects": false,
                     "Model": "models/hands/alyx_hand_left.vmdl",
@@ -163,50 +163,50 @@
         ]
       },
       {
-        "__guid": "1609432a-6837-46aa-a413-13e6c53d9471",
+        "__guid": "105bc8b6-ed87-4e1d-a10e-9a057be931ab",
         "Name": "Right Hand",
         "Position": "0,-16.74989,10.1414",
-        "Tags": "trigger",
+        "Tags": "trigger,hands",
         "Enabled": true,
         "NetworkMode": 2,
         "Components": [
           {
             "__type": "Sandbox.VR.VRTrackedObject",
-            "__guid": "444249ca-6deb-4a5c-8341-ad10897a7199",
+            "__guid": "8a15d4eb-1474-44f7-b0b9-66358028ac38",
             "PoseSource": "RightHand",
             "TrackingType": "All",
             "UseRelativeTransform": false
           },
           {
             "__type": "Hand",
-            "__guid": "3f38018b-e0ad-4d30-b28a-ae4dfe3c9826",
+            "__guid": "a989e126-8a8b-4dd9-8734-2f90953d2f0c",
             "DummyGameObject": {
               "_type": "gameobject",
-              "go": "a6e669c1-f700-44a6-88dc-a7b3d12e20b3"
+              "go": "e9de1308-daf7-4ecb-b896-9f5b2c4f05e0"
             },
             "HandSource": "Right",
             "ModelGameObject": {
               "_type": "gameobject",
-              "go": "68bf254d-91ba-412c-9332-8c4849dbd548"
+              "go": "eaddf16b-d7b1-478a-87be-edbda43aea8e"
             },
             "SkinnedModelComponent": {
               "_type": "component",
-              "component_id": "fc0039b5-8415-4714-adca-365563718213",
-              "go": "a6e669c1-f700-44a6-88dc-a7b3d12e20b3",
+              "component_id": "dc77cef7-c039-4f05-99e5-8d01eee1021e",
+              "go": "e9de1308-daf7-4ecb-b896-9f5b2c4f05e0",
               "component_type": "SkinnedModelRenderer"
             }
           },
           {
             "__type": "Sandbox.SphereCollider",
-            "__guid": "0daaf181-1a2f-4c6d-9fbe-d72610a9ac0c",
+            "__guid": "9c6bd775-dd95-4a8e-844b-0805316ddff1",
             "Center": "0,0,0",
             "IsTrigger": true,
-            "Radius": 3.4999993,
+            "Radius": 2,
             "Static": false
           },
           {
             "__type": "Sandbox.Rigidbody",
-            "__guid": "0322386d-a04c-415a-8bbc-8817762a0ce3",
+            "__guid": "48e80793-4889-46c3-9781-3857cb265a12",
             "AngularDamping": 0,
             "Gravity": false,
             "LinearDamping": 0,
@@ -219,14 +219,14 @@
         ],
         "Children": [
           {
-            "__guid": "68bf254d-91ba-412c-9332-8c4849dbd548",
+            "__guid": "eaddf16b-d7b1-478a-87be-edbda43aea8e",
             "Name": "Model",
             "Position": "0,0,0",
             "Enabled": true,
             "NetworkMode": 2,
             "Children": [
               {
-                "__guid": "a6e669c1-f700-44a6-88dc-a7b3d12e20b3",
+                "__guid": "e9de1308-daf7-4ecb-b896-9f5b2c4f05e0",
                 "Name": "RealModel",
                 "Position": "-2.3,0,0",
                 "Rotation": "0,0.1305262,0,0.9914449",
@@ -235,7 +235,7 @@
                 "Components": [
                   {
                     "__type": "Sandbox.SkinnedModelRenderer",
-                    "__guid": "fc0039b5-8415-4714-adca-365563718213",
+                    "__guid": "dc77cef7-c039-4f05-99e5-8d01eee1021e",
                     "BodyGroups": 18446744073709551615,
                     "CreateBoneObjects": false,
                     "Model": "models/hands/alyx_hand_right.vmdl",
