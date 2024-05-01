@@ -2,11 +2,37 @@ using Sandbox;
 
 public partial class AttachmentPoint : Component, Component.ExecuteInEditor, Component.ITriggerListener, Component.ICollisionListener
 {
+	/// <summary>
+	/// The attachment point's interactable. They'll always have one.
+	/// Example: A weapon's attachment point, of a magazine chamber.
+	/// </summary>
 	[Property] public Interactable Interactable { get; set; }
-	[Property] public Model GuideModel { get; set; }
+
+	/// <summary>
+	/// Editor: The model that'll show up in the editor as a guide.
+	/// </summary>
+	[Property, Group( "Editor" )] public Model GuideModel { get; set; }
+
+	/// <summary>
+	/// The tags that will be accepted when trying to attach something to this attachment point.
+	/// TODO: in the future, have a virtual method, and an Action that can be hooked into for this.
+	/// </summary>
 	[Property] public TagSet AcceptedTags { get; set; } = new TagSet();
 
+	/// <summary>
+	/// Do we have an attachable attached to this attachment point? What a fucking mouthful.
+	/// </summary>
 	public Attachable CurrentAttachable { get; private set; }
+
+	/// <summary>
+	/// How long has it been since we attached/detached something to this attachment point?
+	/// </summary>
+	TimeSince TimeSinceAttachChanged = 1;
+
+	/// <summary>
+	/// The delay between attaching/detaching.
+	/// </summary>
+	const float AttachmentDelay = 0.4f;
 
 	protected override void DrawGizmos()
 	{
@@ -17,90 +43,97 @@ public partial class AttachmentPoint : Component, Component.ExecuteInEditor, Com
 		}
 	}
 
-	TimeSince TimeSinceAttachChanged = 1;
-	const float InteractDelay = 0.4f;
-
-
-	protected bool IsValidToAttach( Attachable attachable )
+	/// <summary>
+	/// Can we attach "attachable" to this attachment point?
+	/// </summary>
+	/// <param name="attachable"></param>
+	/// <returns></returns>
+	protected bool CanAttach( Attachable attachable )
 	{
+		// If something is already attached, don't bother.
 		if ( CurrentAttachable.IsValid() ) return false;
-		if ( TimeSinceAttachChanged < InteractDelay ) return false;
 
+		// Artificial delay.
+		if ( TimeSinceAttachChanged < AttachmentDelay ) return false;
+
+		// We can only attach if the attachable is facing the same way as our attachment point.
+		// Good for stuff like magazines.
 		var attachableFwd = attachable.Transform.Rotation.Forward;
 		var thisFwd = Transform.Rotation.Forward;
 		var dot = attachableFwd.Dot( thisFwd );
-
-		// Facing the same way
 		if ( dot > 0f ) return true;
 
 		return false;
 	}
 
-	protected void Attach( Attachable attachable )
+	protected bool CanDetach()
 	{
-		attachable.Interactable.ClearAll();
-		attachable.Interactable.AttachmentPoint = this;
+		if ( !CurrentAttachable.IsValid() ) return false;
 
-		attachable.OnAttach( this );
-		attachable.Rigidbody.MotionEnabled = false;
+		// Artificial delay.
+		if ( TimeSinceAttachChanged < AttachmentDelay ) return false;
 
-		Interactable.AttachableAdded( attachable, this );
-
-		CurrentAttachable = attachable;
-		TimeSinceAttachChanged = 0;
+		return true;
 	}
 
-	public void Detach()
+	/// <summary>
+	/// Tries to detach the current attachable from this attachment point.
+	/// </summary>
+	public bool TryDetach()
 	{
-		Interactable.AttachableRemoved( CurrentAttachable, this );
+		if ( !CanDetach() ) return false;
+
+		// TODO: make it so the interactable can say no
+		Interactable.Detach( CurrentAttachable, this );
 
 		TimeSinceAttachChanged = 0;
-		CurrentAttachable.OnDetach( this );
-		CurrentAttachable = null;	
+		CurrentAttachable = null;
+
+		return true;
 	}
 
 	protected override void OnUpdate()
 	{
+		// TODO: Find out a better way to handle this. This kinda sucks.
 		if ( CurrentAttachable.IsValid() )
 		{
-			CurrentAttachable.Transform.Position = this.GameObject.Transform.Position;
-			CurrentAttachable.Transform.Rotation = this.GameObject.Transform.Rotation;
+			CurrentAttachable.Transform.Position = GameObject.Transform.Position;
+			CurrentAttachable.Transform.Rotation = GameObject.Transform.Rotation;
 		}
 	}
 
-	public void TryAttach( Attachable attachable )
+	/// <summary>
+	/// Tries to attach an attachable to this attachment point. Can fail.
+	/// </summary>
+	/// <param name="attachable"></param>
+	public bool TryAttach( Attachable attachable )
 	{
-		Log.Info( $"Trigger entered attachmnent point {attachable}" );
-		{
-			if ( !IsValidToAttach( attachable ) )
-			{
-				return;
-			}
+		if ( !CanAttach( attachable ) ) return false;
 
-			{
-				Attach( attachable );
-			}
-		}
+		// TODO: make it so the interactable can say no
+		Interactable.Attach( attachable, this );
+
+		TimeSinceAttachChanged = 0;
+		CurrentAttachable = attachable;
+
+		return false;
 	}
 
-	void ITriggerListener.OnTriggerEnter( Collider other )
+	/// <summary>
+	/// A shorthand method that searches a <see cref="GameObject"/> for an <see cref="Attachable"/> and runs <see cref="TryAttach(Attachable)"/>
+	/// </summary>
+	/// <param name="gameObject"></param>
+	private void TryAttachGameObject( GameObject gameObject )
 	{
-		if ( other.GameObject.Root.Components.Get<Attachable>( FindMode.EnabledInSelfAndDescendants ) is { } attachable )
-		{
-			TryAttach( attachable );
-		}
-	}
-
-	void ICollisionListener.OnCollisionStart( Collision other )
-	{
-		Log.Info( other.Other.GameObject );
-		if ( other.Other.GameObject.Root.Components.Get<Attachable>( FindMode.EnabledInSelfAndDescendants ) is { } attachable )
+		if ( gameObject.Root.Components.Get<Attachable>( FindMode.EnabledInSelfAndDescendants ) is { } attachable )
 		{
 			TryAttach( attachable );
 		}
 	}
 
-	void ITriggerListener.OnTriggerExit( Collider other )
-	{
-	}
+	//
+	// Try to attach an attachable to this attachment point if we collide with it.
+	//
+	void ITriggerListener.OnTriggerEnter( Collider other ) => TryAttachGameObject( other.GameObject );
+	void ICollisionListener.OnCollisionStart( Collision collision ) => TryAttachGameObject( collision.Other.GameObject );
 }

@@ -1,17 +1,28 @@
-using Sandbox;
 using Sandbox.VR;
 
-public sealed class Hand : Component, Component.ITriggerListener
+public partial class Hand : Component, Component.ITriggerListener
 {
 	[Property] GameObject ModelGameObject { get; set; }
 	[Property] GameObject DummyGameObject { get; set; }
 
+	/// <summary>
+	/// Which object are we hovering our hand over right now?
+	/// This doesn't mean HOLDING, it means hovered.
+	/// </summary>
+	GrabPoint HoveredGrabPoint { get; set; }
+
+	/// <summary>
+	/// The current grab point that this hand is holding. This means the grip is down, and we're actively holding an interactable.
+	/// </summary>
 	GrabPoint CurrentGrabPoint { get; set; }
 
+	/// <summary>
+	/// The input deadzone, so holding ( flDeadzone * 100 ) percent of the grip down means we've got the grip / trigger down.
+	/// </summary>
 	const float flDeadzone = 0.25f;
 
 	/// <summary>
-	/// Is the hand trigger down?
+	/// Is the hand grip down?
 	/// </summary>
 	/// <returns></returns>
 	public bool IsGripDown()
@@ -24,6 +35,10 @@ public sealed class Hand : Component, Component.ITriggerListener
 		return src.Grip.Value > flDeadzone;
 	}
 
+	/// <summary>
+	/// Is the hand trigger down?
+	/// </summary>
+	/// <returns></returns>
 	public bool IsTriggerDown()
 	{
 		// For debugging purposes
@@ -39,19 +54,28 @@ public sealed class Hand : Component, Component.ITriggerListener
 		return HandSource == HandSources.Left ? Input.VR.LeftHand : Input.VR.RightHand;
 	}
 
-	void Grab( GrabPoint grabPoint )
+	/// <summary>
+	/// Try to grab a grab point.
+	/// </summary>
+	/// <param name="grabPoint"></param>
+	void StartGrabbing( GrabPoint grabPoint )
 	{
+		// If we're already grabbing this thing, don't bother.
 		if ( CurrentGrabPoint == grabPoint ) return;
 
+		// Only if we succeed to interact with the interactable, take hold of the object.
 		if ( grabPoint.Interactable.Interact( grabPoint, this ) )
 		{
-			GetController().TriggerHapticVibration( 0.1f, 0, 0.2f );
 			CurrentGrabPoint = grabPoint;
 		}
 	}
 
-	void Release()
+	/// <summary>
+	/// Stop grabbing something.
+	/// </summary>
+	public void StopGrabbing()
 	{
+		// If we can release the object (which can fail!), clear the current grab point.
 		if ( CurrentGrabPoint?.Interactable?.StopInteract( CurrentGrabPoint ) ?? false )
 		{
 			CurrentGrabPoint = null;
@@ -64,160 +88,66 @@ public sealed class Hand : Component, Component.ITriggerListener
 
 		if ( IsProxy ) return;
 
-		if ( IsGripDown() )
+		if ( IsGripDown() && HoveredGrabPoint.IsValid() )
 		{
-			var grabPoint = HoveredGrabPoint;
-			if ( !grabPoint.IsValid() )
-			{
-				return;
-			}
-
-			Grab( grabPoint );
+			StartGrabbing( HoveredGrabPoint );
 		}
 		else
 		{
-			Release();
+			StopGrabbing();
 		}
 	}
 
+	/// <summary>
+	/// Is this hand holding something right now?
+	/// </summary>
+	/// <returns></returns>
 	internal bool IsHolding()
 	{
 		return CurrentGrabPoint.IsValid();
 	}
 
-	GrabPoint HoveredGrabPoint { get; set; }
-
-	void ITriggerListener.OnTriggerEnter( Collider other )
-	{
-		if ( other.Components.Get<GrabPoint>( FindMode.EnabledInSelf ) is { } grabPoint )
-		{
-			HoveredGrabPoint = grabPoint;
-		}
-	}
-	
-	internal void AttachModelTo( GameObject gameObject )
+	/// <summary>
+	/// Attaches the hand model to a grab point.
+	/// </summary>
+	/// <param name="gameObject"></param>
+	internal void AttachModelToGrabPoint( GameObject gameObject )
 	{
 		DummyGameObject.SetParent( gameObject, false );
 	}
 
-	internal void ResetAttachment()
+	/// <summary>
+	/// Detaches the hand model from the grab point, puts it back on our hand.
+	/// </summary>
+	internal void DetachModelFromGrabPoint()
 	{
 		DummyGameObject.SetParent( ModelGameObject, false );
 	}
 
+	// Not sure what purpose this'll really serve soon.
 	internal Vector3 GetHoldPosition( GrabPoint grabPoint )
 	{
 		var src = ModelGameObject.Transform.Position;
 		return src;
 	}
 
+	// Not sure what purpose this'll really serve soon.
 	internal Rotation GetHoldRotation( GrabPoint grabPoint )
 	{
 		return ModelGameObject.Transform.Rotation;
 	}
 
-
-	// TODO: These should ideally be user-editable, these values only work on the Alyx hands right now
-	private static List<string> AnimGraphNames = new()
-	{
-		"FingerCurl_Thumb",
-		"FingerCurl_Index",
-		"FingerCurl_Middle",
-		"FingerCurl_Ring",
-		"FingerCurl_Pinky"
-	};
-
 	/// <summary>
-	/// Represents a controller to use when fetching skeletal data (finger curl/splay values)
+	/// Called when we overlap with another trigger in the world.
 	/// </summary>
-	public enum HandSources
+	/// <param name="other"></param>
+	void ITriggerListener.OnTriggerEnter( Collider other )
 	{
-		/// <summary>
-		/// The left controller
-		/// </summary>
-		Left,
-
-		/// <summary>
-		/// The right controller
-		/// </summary>
-		Right
-	}
-
-	/// <summary>
-	/// Which hand should we use to update the parameters?
-	/// </summary>
-	[Property]
-	public HandSources HandSource { get; set; } = HandSources.Left;
-
-	[Property]
-	public SkinnedModelRenderer SkinnedModelComponent { get; set; }
-
-	public enum PresetPose
-	{
-		None,
-		Grip,
-		GripNoIndex,
-		HoldItem,
-		Clamp
-	}
-
-	public void SetPresetPose( PresetPose pose )
-	{
-		if ( !Game.IsRunningInVR ) return;
-
-		var source = (HandSource == HandSources.Left) ? Sandbox.Input.VR.LeftHand : Sandbox.Input.VR.RightHand;
-
-		SkinnedModelComponent.Set( "BasePose", 1 );
-		SkinnedModelComponent.Set( "bGrab", true );
-		SkinnedModelComponent.Set( "GrabMode", 1 );
-
-		var x = 0;
-
-		for ( FingerValue v = FingerValue.ThumbCurl; v <= FingerValue.PinkyCurl; ++v )
+		// Did we find a grab point that'll become eligible to grab?
+		if ( other.Components.Get<GrabPoint>( FindMode.EnabledInSelf ) is { } grabPoint )
 		{
-			SkinnedModelComponent.Set( AnimGraphNames[(int)v], source.GetFingerValue( v ) );
-
-			if ( pose == PresetPose.Grip || pose == PresetPose.GripNoIndex )
-			{
-				SkinnedModelComponent.Set( AnimGraphNames[(int)v], 1.0f );
-			}
-
-			if ( ( pose == PresetPose.GripNoIndex ) && v == FingerValue.IndexCurl )
-			{
-				SkinnedModelComponent.Set( AnimGraphNames[(int)v], source.GetFingerValue( v ) );
-			}
-
-			if ( pose == PresetPose.HoldItem )
-			{
-				SkinnedModelComponent.Set( AnimGraphNames[(int)v], 0.1f + ( x * 0.1f ) );
-			}
-
-			x++;
-		}
-
-		if ( pose == PresetPose.Clamp )
-		{
-			SkinnedModelComponent.Set( "FingerCurl_Thumb", 0.5f );
-			SkinnedModelComponent.Set( "FingerCurl_Index", 0.4f );
-			SkinnedModelComponent.Set( "FingerCurl_Middle", 0.4f );
-			SkinnedModelComponent.Set( "FingerCurl_Ring", 0.4f );
-			SkinnedModelComponent.Set( "FingerCurl_Pinky", 0.8f );
-
+			HoveredGrabPoint = grabPoint;
 		}
 	}
 
-	private void UpdatePose()
-	{
-		if ( !SkinnedModelComponent.IsValid() )
-			return;
-
-		if ( IsHolding() )
-		{
-			CurrentGrabPoint.UpdateHandPose( this );
-		}
-		else
-		{
-			SetPresetPose( PresetPose.None );
-		}
-	}
 }

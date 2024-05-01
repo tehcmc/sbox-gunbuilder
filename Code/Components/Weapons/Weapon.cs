@@ -1,23 +1,34 @@
-using Sandbox;
-
 public partial class Weapon : Interactable
 {
-	[RequireComponent] Interactable Interactable { get; set; }
-	[RequireComponent] Collider MainCollider { get; set; }
-
 	/// <summary>
 	/// Where do the bullets come from?
 	/// </summary>
-	[Property] public GameObject MuzzleGameObject { get; set; }
+	[Property, Group( "Setup" )] public GameObject MuzzleGameObject { get; set; }
 
 	/// <summary>
-	/// Rounds per minute
+	/// Rounds per minute that this weapon can fire.
 	/// </summary>
-	[Property] public float RPM { get; set; }
-	[Property] public float MaxRange { get; set; } = 100000;
-	[Property] public float BulletSize { get; set; } = 4;
+	[Property, Group( "Stats" )] public float RPM { get; set; }
 
-	[Property] public SoundEvent ShootSound { get; set; }
+	/// <summary>
+	/// How far can this bullet travel?
+	/// </summary>
+	[Property, Group( "Stats" )] public float MaxRange { get; set; } = 100000;
+
+	/// <summary>
+	/// How big (radius) is this bullet?
+	/// </summary>
+	[Property, Group( "Stats" )] public float BulletSize { get; set; } = 4;
+
+	/// <summary>
+	/// What sound should we play when shooting the gun?
+	/// </summary>
+	[Property, Group( "Sounds" )] public SoundEvent ShootSound { get; set; }
+
+	/// <summary>
+	/// What sound should we play when trying to dry fire?
+	/// </summary>
+	[Property, Group( "Sounds" )] public SoundEvent DryFireSound { get; set; }
 
 	/// <summary>
 	/// The current weapon magazine
@@ -29,38 +40,67 @@ public partial class Weapon : Interactable
 	/// </summary>
 	public TimeSince TimeSinceShoot { get; private set; }
 
+	/// <summary>
+	/// When we're trying to dry fire, we want to delay playing any sound
+	/// </summary>
+	public TimeUntil TimeUntilNextDryFire { get; private set; }
+
+	/// <summary>
+	/// Called when an attachable is added to this weapon. (From <see cref="Interactable"/>)
+	/// </summary>
+	/// <param name="attachable"></param>
+	/// <param name="attachmentPoint"></param>
 	protected override void OnAttachableAdded( Attachable attachable, AttachmentPoint attachmentPoint )
 	{
+		// When an attachable is added to this weapon (an attachment point on it), check to see if it's a magazine
+		// and specify to the weapon that this is its ammo reserve.
 		if ( attachable.Components.Get<WeaponMagazine>() is { } magazine )
 		{
 			Magazine = magazine;
 		}
 	}
 
+	/// <summary>
+	/// Called when an attachble is removed from this weapon. From (<see cref="Interactable"/>)
+	/// </summary>
+	/// <param name="attachable"></param>
+	/// <param name="attachmentPoint"></param>
 	protected override void OnAttachableRemoved( Attachable attachable, AttachmentPoint attachmentPoint )
 	{
+		// If the magazine gets detached, we don't have an ammo reserve anymore.
 		if ( attachable.Components.Get<WeaponMagazine>() is { } magazine )
 		{
 			Magazine = null;
 		}
 	}
 
-	protected void DetachMag()
+	/// <summary>
+	/// If there's a magazine, we'll try to detach it from its attachment point.
+	/// </summary>
+	protected void TryDetachMagazine()
 	{
-		if ( Magazine.IsValid() )
-		{
-			Magazine.Interactable.AttachmentPoint = null;
-			Magazine.Attachable.Detach();
-		}
+		Magazine?.Attachable?.Detach();
 	}
 
+	/// <summary>
+	/// A conversion from RPM (rounds per minute) to a fire rate in seconds.
+	/// </summary>
+	/// <returns></returns>
 	protected float RPMToSeconds()
 	{
 		return 60 / RPM;
 	}
 
+	/// <summary>
+	/// The weapon's forward direction, originating normally from the muzzle, straight forward.
+	/// </summary>
 	protected virtual Ray WeaponRay => new Ray( MuzzleGameObject.Transform.Position, MuzzleGameObject.Transform.Rotation.Forward );
 
+	/// <summary>
+	/// Produces a trace that we can use for weapon shooting.
+	/// This is designed in a way where we can override it for a shotgun, and supply multiple shots for pellets.
+	/// </summary>
+	/// <returns></returns>
 	protected virtual IEnumerable<SceneTraceResult> GetShootTrace()
 	{
 		var tr = Scene.Trace.Ray( WeaponRay, MaxRange )
@@ -72,6 +112,10 @@ public partial class Weapon : Interactable
 		yield return tr;
 	}
 
+	/// <summary>
+	/// Can we shoot this gun?
+	/// </summary>
+	/// <returns></returns>
 	public bool CanShoot()
 	{
 		// Delay checks
@@ -83,138 +127,38 @@ public partial class Weapon : Interactable
 		return Magazine?.TakeBullet() ?? false;
 	}
 
+	/// <summary>
+	/// Does the current magazine have any ammo in it?
+	/// </summary>
+	/// <returns></returns>
 	public bool HasAmmo()
 	{
 		return ( Magazine?.BulletCount ?? 0 ) > 0;
 	}
 
-	private LegacyParticleSystem CreateParticleSystem( string particle, Vector3 pos, Rotation rot, List<ParticleControlPoint> cps = null, float decay = 5f )
-	{
-		var gameObject = Scene.CreateObject();
-		gameObject.Transform.Position = pos;
-		gameObject.Transform.Rotation = rot;
-
-		var p = gameObject.Components.Create<LegacyParticleSystem>();
-		p.Particles = ParticleSystem.Load( particle );
-		p.ControlPoints = cps ?? new()
-		{
-			new() { Value = ParticleControlPoint.ControlPointValueInput.Vector3, VectorValue = pos }
-		};
-
-		// Clear off in a suitable amount of time.
-		// TODO: destroy async util
-		// gameObject.DestroyAsync( decay );
-
-		return p;
-	}
-
-	private void CreateImpactEffects( GameObject hitObject, Surface surface, Vector3 pos, Vector3 normal )
-	{
-		var decalPath = Game.Random.FromList( surface.ImpactEffects.BulletDecal, "decals/bullethole.decal" );
-		if ( ResourceLibrary.TryGet<DecalDefinition>( decalPath, out var decalResource ) )
-		{
-			CreateParticleSystem( Game.Random.FromList( surface.ImpactEffects.Bullet ), pos, Rotation.LookAt( -normal ) );
-
-			var decal = Game.Random.FromList( decalResource.Decals );
-
-			var gameObject = Scene.CreateObject();
-			gameObject.Transform.Position = pos;
-			gameObject.Transform.Rotation = Rotation.LookAt( -normal );
-
-			// Random rotation
-			gameObject.Transform.Rotation *= Rotation.FromAxis( Vector3.Forward, decal.Rotation.GetValue() );
-
-			var decalRenderer = gameObject.Components.Create<DecalRenderer>();
-			decalRenderer.Material = decal.Material;
-			decalRenderer.Size = new( decal.Width.GetValue(), decal.Height.GetValue(), decal.Depth.GetValue() );
-
-			// Creates a destruction component to destroy the gameobject after a while
-			// TODO: destroy async util
-			//gameObject.DestroyAsync( 3f );
-		}
-
-		if ( !string.IsNullOrEmpty( surface.Sounds.Bullet ) )
-		{
-			// TODO: play bullet impact sound
-			// hitObject.PlaySound( surface.Sounds.Bullet );
-		}
-	}
-
-	/// <summary>
-	/// Do shoot effects
-	/// </summary>
-	protected void DoShootEffects()
-	{
-		if ( ShootSound is not null )
-		{
-			if ( Sound.Play( ShootSound, MuzzleGameObject.Transform.Position ) is SoundHandle snd )
-			{
-				snd.ListenLocal = !IsProxy;
-			}
-		}
-	}
-
-	protected void DoTracer( Vector3 startPosition, Vector3 endPosition, float distance, int count )
-	{
-		var effectPath = "particles/gameplay/guns/trail/trail_smoke.vpcf";
-
-		// For when we have bullet penetration implemented.
-		if ( count > 0 )
-		{
-			effectPath = "particles/gameplay/guns/trail/rico_trail_smoke.vpcf";
-
-			// Project backward
-			Vector3 dir = (startPosition - endPosition).Normal;
-			var tr = Scene.Trace.Ray( endPosition, startPosition + (dir * 50f) )
-				.Radius( 1f )
-				.WithoutTags( "weapon" )
-				.Run();
-
-			if ( tr.Hit )
-			{
-				CreateImpactEffects( tr.GameObject, tr.Surface, tr.StartPosition, dir );
-			}
-		}
-
-		var origin = count == 0 ? MuzzleGameObject.Transform.Position : startPosition;
-
-		// What in tarnation is this 
-		CreateParticleSystem( effectPath, startPosition, Rotation.Identity, new()
-		{
-			new() { StringCP = "0", Value = ParticleControlPoint.ControlPointValueInput.Vector3, VectorValue = origin },
-			new() { StringCP = "1", Value = ParticleControlPoint.ControlPointValueInput.Vector3, VectorValue = endPosition },
-			new() { StringCP = "2", Value = ParticleControlPoint.ControlPointValueInput.Float, FloatValue = distance }
-		}, 3f );
-	}
-
 	protected override void OnUpdate()
 	{
-		base.OnUpdate();
-
-		if ( Interactable?.PrimaryGrabPoint?.HeldHand is { } hand )
+		if ( PrimaryGrabPoint?.HeldHand is { } hand )
 		{
 			if ( hand.IsTriggerDown() )
 			{
 				if ( !HasAmmo() )
 				{
-					DryFire();
+					TryDryShoot();
 					return;
 				}
 
-				Shoot();
+				TryShoot();
 			}
 
 			if ( hand.GetController().ButtonB.IsPressed )
 			{
-				DetachMag();
+				TryDetachMagazine();
 			}
 		}
 	}
 
-	[Property] public SoundEvent DryFireSound { get; set; }
-	public TimeUntil TimeUntilNextDryFire { get; set; }
-
-	private void DryFire()
+	private void TryDryShoot()
 	{
 		if ( !TimeUntilNextDryFire ) return;
 
@@ -222,7 +166,7 @@ public partial class Weapon : Interactable
 		TimeUntilNextDryFire = 0.5f;
 	}
 
-	public void Shoot()
+	public void TryShoot()
 	{
 		if ( !CanShoot() ) return;
 
@@ -231,15 +175,14 @@ public partial class Weapon : Interactable
 		int count = 0;
 		foreach ( var tr in GetShootTrace() )
 		{
-			// TODO: hurt players and stuff
-
+			// TODO: don't do random forces, wtf
 			Rigidbody.ApplyForceAt( MuzzleGameObject.Transform.Position, GameObject.Transform.Rotation.Up * 25000f );
 			Rigidbody.ApplyForceAt( MuzzleGameObject.Transform.Position, GameObject.Transform.Rotation.Left * 35000f );
 
+			// TODO: hurt players and stuff
+
 			if ( tr.Hit )
-			{
 				CreateImpactEffects( tr.GameObject, tr.Surface, tr.EndPosition, tr.Normal );
-			}
 
 			DoShootEffects();
 			DoTracer( tr.StartPosition, tr.EndPosition, tr.Distance, count );

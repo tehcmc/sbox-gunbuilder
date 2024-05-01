@@ -1,5 +1,9 @@
 using System.Collections.Immutable;
 
+/// <summary>
+/// An interactable object. This can be anything really, a box, a ball, a grenade, a gun.
+/// Used in combination with grab points, which dictates positions on the interactable where you can pick it up.
+/// </summary>
 public partial class Interactable : Component
 {
 	/// <summary>
@@ -7,7 +11,15 @@ public partial class Interactable : Component
 	/// </summary>
 	public bool IsHeld => heldGrabPoints.Count( x => x.IsBeingHeld ) > 0;
 
-	public GrabPoint PrimaryGrabPoint => heldGrabPoints.FirstOrDefault();
+	/// <summary>
+	/// A shorthand property to get the primary grab point for this interactable.
+	/// </summary>
+	public GrabPoint PrimaryGrabPoint => heldGrabPoints.FirstOrDefault( x => x.IsPrimaryGrabPoint );
+
+	/// <summary>
+	/// A shorthand property to get the secondary grab point for this interactable.
+	/// We have to be holding a primary grab point to use this grab point.
+	/// </summary>
 	public GrabPoint SecondaryGrabPoint => heldGrabPoints.FirstOrDefault( x => x.IsSecondaryGrabPoint );
 
 	/// <summary>
@@ -15,7 +27,14 @@ public partial class Interactable : Component
 	/// </summary>
 	[Property] public AttachmentPoint AttachmentPoint { get; set; }
 
+	/// <summary>
+	/// The interactable's Rigidbody
+	/// </summary>
 	[Property] public Rigidbody Rigidbody { get; set; }
+
+	/// <summary>
+	/// Which grab points (that belong to this interactable) are currently being held by some grubby player hands?
+	/// </summary>
 
 	HashSet<GrabPoint> heldGrabPoints = new();
 
@@ -24,7 +43,14 @@ public partial class Interactable : Component
 	/// </summary>
 	public ImmutableHashSet<GrabPoint> HeldGrabPoints => ImmutableHashSet.CreateRange( heldGrabPoints );
 
-	TimeSince TimeSinceInteract = 1;
+	/// <summary>
+	/// How long has it been since we started interacting / stopped interacting with this interactable?
+	/// </summary>
+	TimeSince TimeSinceInteract { get; set; } = 1;
+
+	/// <summary>
+	/// An artificial delay between how long we can start a new/stop a current interaction
+	/// </summary>
 	const float InteractDelay = 0.4f;
 
 	/// <summary>
@@ -35,26 +61,45 @@ public partial class Interactable : Component
 	/// <returns></returns>
 	protected virtual bool CanInteract( GrabPoint grabPoint, Hand hand )
 	{
+		// Artificial delay.
 		if ( TimeSinceInteract < InteractDelay ) return false;
 
+		// Are we close enough to this grab point to grab it?
+		// We could end up having stuff where we force grab items, but this system shouldn't be responsible for doing that.
 		if ( grabPoint.Transform.Position.Distance( hand.Transform.Position ) > 8f ) return false;
 
 		// already being held by someone's hands
 		if ( grabPoint.IsBeingHeld ) return false;
 
-		// ??
+		// Is this really necessary?
 		if ( hand.IsHolding() ) return false;
 
-		return grabPoint.CanGrab( this, hand );
+		// Final call, grab point, what do you think?
+		return grabPoint.CanStartGrabbing( this, hand );
 	}
 
-	public void AttachableAdded( Attachable attachable, AttachmentPoint attachmentPoint )
+	public void Attach( Attachable attachable, AttachmentPoint attachmentPoint )
 	{
+		// Clear all interactions since we don't want the player to hold the item anymore.
+		ClearAllInteractions();
+
+		// Make sure we know which attachment point we're on now.
+		AttachmentPoint = attachmentPoint;
+
+		attachable.OnAttach( attachmentPoint );
+
 		OnAttachableAdded( attachable, attachmentPoint );
 	}
 
-	public void AttachableRemoved( Attachable attachable, AttachmentPoint attachmentPoint )
+	/// <summary>
+	/// Detaches an attachable from a specific attachemnt point on this interactable.
+	/// </summary>
+	/// <param name="attachable"></param>
+	/// <param name="attachmentPoint"></param>
+	public void Detach( Attachable attachable, AttachmentPoint attachmentPoint )
 	{
+		attachable.OnDetach( attachmentPoint );
+
 		OnAttachableRemoved( attachable, attachmentPoint );
 	}
 
@@ -78,7 +123,7 @@ public partial class Interactable : Component
 	{
 		if ( TimeSinceInteract < InteractDelay ) return false;
 
-		return grabPoint.CanStopGrab( this, hand );
+		return grabPoint.CanStopGrabbing( this, hand );
 	}
 
 	/// <summary>
@@ -102,6 +147,9 @@ public partial class Interactable : Component
 		TimeSinceInteract = 0;
 	}
 
+	/// <summary>
+	/// Called every update while we're holding this interactable.
+	/// </summary>
 	protected virtual void OnHeldUpdate()
 	{
 		//
@@ -118,18 +166,19 @@ public partial class Interactable : Component
 
 		if ( AttachmentPoint.IsValid() )
 		{
-			AttachmentPoint.Detach();
+			AttachmentPoint.TryDetach();
 			AttachmentPoint = null;
 		}
 
 		OnInteract( grabPoint, hand );
 
+		// Is this really necessary?
 		if ( GameObject.Parent.IsValid() )
 		{
 			GameObject.SetParent( null, true );
 		}
 
-		hand.AttachModelTo( grabPoint.GameObject );
+		hand?.AttachModelToGrabPoint( grabPoint.GameObject );
 
 		grabPoint.HeldHand = hand;
 		Rigidbody.MotionEnabled = false;
@@ -150,13 +199,14 @@ public partial class Interactable : Component
 
 		Log.Info( $"{this.GameObject} stopping interaction {grabPoint}" );
 
-		hand?.ResetAttachment();
+		hand?.DetachModelFromGrabPoint();
 
 		OnStopInteract( grabPoint, hand );
 
 		grabPoint.HeldHand = null;
 		heldGrabPoints.Remove( grabPoint );
 		
+		// If we're not holding this interactable anymore, turn its motion back on.
 		if ( heldGrabPoints.Count <= 0 )
 		{
 			Rigidbody.MotionEnabled = true;
@@ -165,6 +215,9 @@ public partial class Interactable : Component
 		return true;
 	}
 
+	/// <summary>
+	/// Called every update while holding this interactable.
+	/// </summary>
 	protected void HeldUpdate()
 	{
 		OnHeldUpdate();
@@ -180,7 +233,7 @@ public partial class Interactable : Component
 		var grabPointPos = PrimaryGrabPoint.Transform.Position;
 		var diff = (holdPos - grabPointPos);
 
-		Vector3.SmoothDamp( Rigidbody.Transform.Position, holdPos + diff, ref velocity, GetTimeToTranslate(), Time.Delta );
+		Vector3.SmoothDamp( Rigidbody.Transform.Position, holdPos + diff, ref velocity, CalcVelocityWeight(), Time.Delta );
 		Rigidbody.Velocity = velocity;
 
 		var secondaryGrabPoint = heldGrabPoints.FirstOrDefault( x => x.IsSecondaryGrabPoint );
@@ -194,25 +247,27 @@ public partial class Interactable : Component
 			targetRotation = Rotation.LookAt( direction, Vector3.Up );
 		}
 
-		//if ( secondaryGrabPoint.IsValid() )
-		//{
-		//	Gizmo.Draw.Color = Color.Red;
-		//	Gizmo.Draw.Line( secondaryGrabPoint.Transform.Position, primaryGrabPoint.Transform.Position );
-		//	Gizmo.Draw.LineSphere( secondaryGrabPoint.Transform.Position, 2 );
-		//	Gizmo.Draw.LineSphere( primaryGrabPoint.Transform.Position, 2 );
-		//}
-
 		var angularVelocity = Rigidbody.AngularVelocity;
-		Rotation.SmoothDamp( Rigidbody.Transform.Rotation, targetRotation, ref angularVelocity, GetTimeToRotate(), Time.Delta );
+		Rotation.SmoothDamp( Rigidbody.Transform.Rotation, targetRotation, ref angularVelocity, CalcAngularVelocityWeight(), Time.Delta );
 		Rigidbody.AngularVelocity = angularVelocity;
 	}
 
-	float GetTimeToTranslate()
+	/// <summary>
+	/// Calculate the velocity weight.
+	/// </summary>
+	/// <returns></returns>
+	float CalcVelocityWeight()
 	{
+		// A higher weight means it'll take longer for this weapon to traverse to your hand.
+		// This is in seconds.
 		return 0.20f;
 	}
 
-	float GetTimeToRotate()
+	/// <summary>
+	/// Calculates the angular velocity weight.
+	/// </summary>
+	/// <returns></returns>
+	float CalcAngularVelocityWeight()
 	{
 		return 0.15f;
 	}
@@ -226,7 +281,10 @@ public partial class Interactable : Component
 		}
 	}
 
-	internal void ClearAll()
+	/// <summary>
+	/// Clears all interactions. This'll make the player release this weapon from their hands.
+	/// </summary>
+	internal void ClearAllInteractions()
 	{
 		var copy = new HashSet<GrabPoint>( heldGrabPoints );
 		foreach ( var point in copy )
