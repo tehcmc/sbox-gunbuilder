@@ -91,7 +91,7 @@ public partial class Weapon
 		var origin = count == 0 ? MuzzleGameObject.Transform.Position : startPosition;
 
 		// What in tarnation is this 
-		CreateParticleSystem( effectPath, startPosition, Rotation.Identity, new()
+		CreateParticleSystem( effectPath, origin, Rotation.Identity, new()
 		{
 			new() { StringCP = "0", Value = ParticleControlPoint.ControlPointValueInput.Vector3, VectorValue = origin },
 			new() { StringCP = "1", Value = ParticleControlPoint.ControlPointValueInput.Vector3, VectorValue = endPosition },

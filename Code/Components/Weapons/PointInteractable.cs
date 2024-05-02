@@ -2,7 +2,7 @@
 /// <summary>
 /// A weapon part. This can be held by a player, and translated on a locked axis specified by the component.
 /// </summary>
-public partial class WeaponPartInteractable : BaseInteractable
+public partial class PointInteractable : BaseInteractable
 {
 	[Property] public GameObject TargetGameObject { get; set; }
 
