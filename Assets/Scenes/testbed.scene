@@ -1087,6 +1087,7 @@
           "__guid": "a55f4947-1612-4f52-9bb0-7e954737d158",
           "BulletSize": 3,
           "DryFireSound": "sounds/weapons/weapon_dryfire.sound",
+          "HorizontalRecoil": "-200.00,200.00,1",
           "MaxRange": 100000,
           "MuzzleGameObject": {
             "_type": "gameobject",
@@ -1099,7 +1100,8 @@
             "component_type": "Rigidbody"
           },
           "RPM": 800,
-          "ShootSound": "sounds/weapons/mp5/mp5_shoot.sound"
+          "ShootSound": "sounds/weapons/mp5/mp5_shoot.sound",
+          "VerticalRecoil": "300.00,600.00,1"
         },
         {
           "__type": "Sandbox.Rigidbody",
@@ -2290,6 +2292,7 @@
           "__guid": "7a311c43-0ba7-4c3a-a814-3d50f162db14",
           "BulletSize": 3,
           "DryFireSound": "sounds/weapons/weapon_dryfire.sound",
+          "HorizontalRecoil": "-200.00,200.00,1",
           "MaxRange": 100000,
           "MuzzleGameObject": {
             "_type": "gameobject",
@@ -2302,7 +2305,8 @@
             "component_type": "Rigidbody"
           },
           "RPM": 200,
-          "ShootSound": "sounds/weapons/usp/usp_shoot.sound"
+          "ShootSound": "sounds/weapons/usp/usp_shoot.sound",
+          "VerticalRecoil": "900.00,1800.00,1"
         },
         {
           "__type": "Sandbox.Rigidbody",
@@ -2337,7 +2341,7 @@
               "__type": "Sandbox.SkinnedModelRenderer",
               "__guid": "1adcbdfa-e782-4a89-ae24-1a99c665686e",
               "AnimationGraph": "empty.vanmgrph",
-              "BodyGroups": 1317,
+              "BodyGroups": 4389,
               "CreateBoneObjects": true,
               "Model": "models/weapons/sbox_pistol_usp/v_usp.vmdl",
               "RenderType": "On",
@@ -3291,7 +3295,7 @@
                     "_type": "gameobject",
                     "go": "be26fca6-cecd-45dc-9310-689c8f0c5b33"
                   },
-                  "ZeroSound": "sounds/weapons/mp5/mp5_handle_zero.sound"
+                  "ZeroSound": "sounds/weapons/usp/usp_magazine_slide_fwd.sound"
                 },
                 {
                   "__type": "Sandbox.SphereCollider",
@@ -3331,6 +3335,7 @@
           "__guid": "cbcb6d64-6745-49a3-89c0-f4028e10a9a4",
           "BulletSize": 4,
           "DryFireSound": "sounds/weapons/weapon_dryfire.sound",
+          "HorizontalRecoil": "-200.00,200.00,1",
           "MaxRange": 100000,
           "MuzzleGameObject": {
             "_type": "gameobject",
@@ -3343,7 +3348,8 @@
             "component_type": "Rigidbody"
           },
           "RPM": 650,
-          "ShootSound": "sounds/weapons/m4a1/m4_shot.sound"
+          "ShootSound": "sounds/weapons/m4a1/m4_shot.sound",
+          "VerticalRecoil": "300.00,600.00,1"
         },
         {
           "__type": "Sandbox.HullCollider",
@@ -3796,8 +3802,8 @@
         {
           "__type": "Attachable",
           "__guid": "3d7e85fa-01bf-4826-8bde-a50b5431ba04",
-          "AttachSound": "sounds/weapons/m4a1/m4_magazine_in.sound",
-          "DetachSound": "sounds/weapons/m4a1/m4_magazine_in.sound",
+          "AttachSound": "sounds/weapons/usp/usp_magazine_load.sound",
+          "DetachSound": "sounds/weapons/usp/usp_magazine_unload.sound",
           "Interactable": {
             "_type": "component",
             "component_id": "92a790a8-7536-4ce8-8dd6-53a5aea739f9",
@@ -3835,8 +3841,8 @@
         {
           "__guid": "148e4816-9036-4193-bdc4-633ccce89336",
           "Name": "Magazine Grab Point",
-          "Position": "-0.8610976,-0.05129496,-4.237612",
-          "Rotation": "0.00000006332994,-0.6087678,-0.00000005960464,0.7933573",
+          "Position": "-0.6534327,-0.05125694,-3.460149",
+          "Rotation": "0.00000006332994,-0.6087678,-0.00000002980232,0.7933573",
           "Tags": "trigger",
           "Enabled": true,
           "NetworkMode": 2,
@@ -4599,7 +4605,7 @@
   },
   "Title": "testbed",
   "Description": "",
-  "LastSaved": "2024-05-03T15:06:08.4680917\u002B01:00",
+  "LastSaved": "2024-05-03T15:19:19.4586394\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
