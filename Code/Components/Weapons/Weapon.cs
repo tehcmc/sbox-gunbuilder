@@ -38,12 +38,12 @@ public partial class Weapon : Interactable
 	/// <summary>
 	/// How long has it been since we've shot this gun?
 	/// </summary>
-	public TimeSince TimeSinceShoot { get; private set; }
+	[Sync] public TimeSince TimeSinceShoot { get; private set; }
 
 	/// <summary>
 	/// When we're trying to dry fire, we want to delay playing any sound
 	/// </summary>
-	public TimeUntil TimeUntilNextDryFire { get; private set; }
+	[Sync] public TimeUntil TimeUntilNextDryFire { get; private set; }
 
 	/// <summary>
 	/// Called when an attachable is added to this weapon. (From <see cref="Interactable"/>)
@@ -171,6 +171,7 @@ public partial class Weapon : Interactable
 		}
 	}
 
+	[Broadcast]
 	private void TryDryShoot()
 	{
 		if ( !TimeUntilNextDryFire ) return;
@@ -193,6 +194,7 @@ public partial class Weapon : Interactable
 		return 3f;
 	}
 
+	[Broadcast]
 	public void TryShoot()
 	{
 		if ( !CanShoot() ) return;
