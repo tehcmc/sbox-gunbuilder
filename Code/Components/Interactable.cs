@@ -1,5 +1,3 @@
-using System.Collections.Immutable;
-
 /// <summary>
 /// An interactable object. This can be anything really, a box, a ball, a grenade, a gun.
 /// Used in combination with grab points, which dictates positions on the interactable where you can pick it up.
@@ -16,6 +14,11 @@ public partial class Interactable : BaseInteractable
 	/// The interactable's Rigidbody
 	/// </summary>
 	[Property] public Rigidbody Rigidbody { get; set; }
+
+	/// <summary>
+	/// The scale of the interactable's mass. Higher means heavier.
+	/// </summary>
+	[Property] public float MassScale { get; set; } = 1.0f;
 
 	/// <summary>
 	/// Can we start interacting with this object?
@@ -152,7 +155,7 @@ public partial class Interactable : BaseInteractable
 	{
 		// A higher weight means it'll take longer for this weapon to traverse to your hand.
 		// This is in seconds.
-		return 0.20f;
+		return 0.20f * MassScale;
 	}
 
 	/// <summary>
@@ -161,7 +164,7 @@ public partial class Interactable : BaseInteractable
 	/// <returns></returns>
 	float CalcAngularVelocityWeight()
 	{
-		return 0.15f;
+		return 0.15f * MassScale;
 	}
 
 	protected override void OnFixedUpdate()
