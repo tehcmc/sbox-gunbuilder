@@ -2301,8 +2301,8 @@
             "go": "a0b0686c-88bf-4071-991a-34ff6ab444c4",
             "component_type": "Rigidbody"
           },
-          "RPM": 800,
-          "ShootSound": "sounds/weapons/mp5/mp5_shoot.sound"
+          "RPM": 200,
+          "ShootSound": "sounds/weapons/usp/usp_shoot.sound"
         },
         {
           "__type": "Sandbox.Rigidbody",
@@ -3160,7 +3160,7 @@
         {
           "__guid": "f3ba206f-fb67-482f-932b-761bb31027ff",
           "Name": "usp Magazine Attachment",
-          "Position": "-2.315041,-0.00002281321,1.8927",
+          "Position": "-2.221184,-0.00002800208,2.323117",
           "Tags": "trigger",
           "Enabled": true,
           "NetworkMode": 2,
@@ -3170,7 +3170,7 @@
               "__type": "AttachmentPoint",
               "__guid": "effeb535-cd05-4192-b879-2ef5183804aa",
               "AcceptedTags": "magazine",
-              "GuideModel": "models/weapons/sbox_smg_mp5/v_mp5_magazine.vmdl",
+              "GuideModel": "models/weapons/sbox_pistol_usp/v_usp_magazine.vmdl",
               "Interactable": {
                 "_type": "component",
                 "component_id": "7a311c43-0ba7-4c3a-a814-3d50f162db14",
@@ -3181,7 +3181,7 @@
             {
               "__type": "Sandbox.BoxCollider",
               "__guid": "501293e0-6523-4938-b358-21b4207fd194",
-              "Center": "-0.3,0,1.2",
+              "Center": "-0.1999999,0,-1.5",
               "IsTrigger": true,
               "Scale": "1,1,1",
               "Static": false
@@ -3300,6 +3300,16 @@
                   "IsTrigger": false,
                   "Radius": 1,
                   "Static": false
+                },
+                {
+                  "__type": "SlideReleaseSystem",
+                  "__guid": "0c0e770c-4f36-4391-9628-34984fb4e946",
+                  "InputGrabPoint": {
+                    "_type": "component",
+                    "component_id": "3f433a2f-12c3-4e56-b0fd-0eb6504accfd",
+                    "go": "1fe00ce5-4940-4eba-bd3d-2230379f479a",
+                    "component_type": "GrabPoint"
+                  }
                 }
               ]
             }
@@ -3732,6 +3742,133 @@
             "go": "40e762aa-d56d-479c-9a06-86bdeddd0890",
             "component_type": "Interactable"
           }
+        }
+      ]
+    },
+    {
+      "__guid": "0e5de69e-2f10-450a-86af-7209e2fddba7",
+      "Name": "USP Magazine",
+      "Position": "19.40038,25.72973,67.14941",
+      "Rotation": "0.09229589,0.7010576,0.7010573,0.09229603",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Interactable",
+          "__guid": "92a790a8-7536-4ce8-8dd6-53a5aea739f9",
+          "Rigidbody": {
+            "_type": "component",
+            "component_id": "d27dc721-ee37-4532-90a7-10210c2d48a3",
+            "go": "0e5de69e-2f10-450a-86af-7209e2fddba7",
+            "component_type": "Rigidbody"
+          }
+        },
+        {
+          "__type": "Sandbox.Rigidbody",
+          "__guid": "d27dc721-ee37-4532-90a7-10210c2d48a3",
+          "AngularDamping": 0,
+          "Gravity": true,
+          "LinearDamping": 0,
+          "Locking": {},
+          "MassOverride": 50,
+          "MotionEnabled": true,
+          "RigidbodyFlags": 0,
+          "StartAsleep": false
+        },
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "c6a03a45-cdc4-4261-98fa-e569cad9c9b0",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "3,1,6",
+          "Static": false,
+          "Surface": "surfaces/metal.weapon.surface"
+        },
+        {
+          "__type": "WeaponMagazine",
+          "__guid": "d2c81459-45c6-4c42-aec3-c897de5ab2fd",
+          "BulletCapacity": 30,
+          "BulletCount": 30,
+          "IsInfiniteAmmo": false
+        },
+        {
+          "__type": "Attachable",
+          "__guid": "3d7e85fa-01bf-4826-8bde-a50b5431ba04",
+          "AttachSound": "sounds/weapons/m4a1/m4_magazine_in.sound",
+          "DetachSound": "sounds/weapons/m4a1/m4_magazine_in.sound",
+          "Interactable": {
+            "_type": "component",
+            "component_id": "92a790a8-7536-4ce8-8dd6-53a5aea739f9",
+            "go": "0e5de69e-2f10-450a-86af-7209e2fddba7",
+            "component_type": "Interactable"
+          },
+          "Rigidbody": {
+            "_type": "component",
+            "component_id": "d27dc721-ee37-4532-90a7-10210c2d48a3",
+            "go": "0e5de69e-2f10-450a-86af-7209e2fddba7",
+            "component_type": "Rigidbody"
+          }
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "96ff4590-9342-4ff4-8389-1c8e7dd025d8",
+          "Name": "Model",
+          "Position": "0.03938294,0.00000001408443,0.000000004694812",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "5c401b68-fdf2-4df7-af33-7d396d69a10e",
+              "BodyGroups": 1,
+              "CreateBoneObjects": false,
+              "Model": "models/weapons/sbox_pistol_usp/v_usp_magazine.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "148e4816-9036-4193-bdc4-633ccce89336",
+          "Name": "Magazine Grab Point",
+          "Position": "-0.8610976,-0.05129496,-4.237612",
+          "Rotation": "0.00000006332994,-0.6087678,-0.00000005960464,0.7933573",
+          "Tags": "trigger",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "Components": [
+            {
+              "__type": "GrabPoint",
+              "__guid": "8eaa3fdd-a9a6-4062-b9d0-a46b7b1eade3",
+              "Collider": {
+                "_type": "component",
+                "component_id": "a8794cd9-16c4-49bc-a3a6-0359b83075ea",
+                "go": "148e4816-9036-4193-bdc4-633ccce89336",
+                "component_type": "SphereCollider"
+              },
+              "GrabInput": "Grip",
+              "HoldingPose": "HoldItem",
+              "Interactable": {
+                "_type": "component",
+                "component_id": "92a790a8-7536-4ce8-8dd6-53a5aea739f9",
+                "go": "0e5de69e-2f10-450a-86af-7209e2fddba7",
+                "component_type": "Interactable"
+              }
+            },
+            {
+              "__type": "Sandbox.SphereCollider",
+              "__guid": "a8794cd9-16c4-49bc-a3a6-0359b83075ea",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Radius": 1.5,
+              "Static": false
+            }
+          ]
         }
       ]
     },
@@ -4462,7 +4599,7 @@
   },
   "Title": "testbed",
   "Description": "",
-  "LastSaved": "2024-05-03T11:37:01.2847718\u002B01:00",
+  "LastSaved": "2024-05-03T15:06:08.4680917\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
@@ -4470,6 +4607,7 @@
     "facepunch.v_mp5",
     "facepunch.v_mp5_magazine",
     "facepunch.v_usp",
+    "facepunch.v_usp_magazine",
     "facepunch.w_m4a1_magazine",
     "facepunch.w_mp5",
     "facepunch.w_usp"
