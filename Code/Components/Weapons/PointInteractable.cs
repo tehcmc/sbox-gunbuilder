@@ -1,30 +1,139 @@
+using System.Text.Json.Serialization;
 
 /// <summary>
 /// A weapon part. This can be held by a player, and translated on a locked axis specified by the component.
 /// </summary>
 public partial class PointInteractable : BaseInteractable
 {
-	[Property] public GameObject TargetGameObject { get; set; }
+	/// <summary>
+	/// The model renderer for this interactable.
+	/// </summary>
+	[Property, Group( "Components" )] public SkinnedModelRenderer Renderer { get; set; }
 
-	[Property] public GameObject StartPoint { get; set; }
-	[Property] public GameObject EndPoint { get; set; }
+	/// <summary>
+	/// A sound to play when <see cref="CompletionValue"/> hits 0 from another value.
+	/// </summary>
+	[Property, Group( "Sounds" )] public SoundEvent ZeroSound { get; set; }
 
-	protected override void DrawGizmos()
+	/// <summary>
+	/// A sound to play when <see cref="CompletionValue"/> hits 1 from another value.
+	/// </summary>
+	[Property, Group( "Sounds" )] public SoundEvent OneSound { get; set; }
+
+	/// <summary>
+	/// The bone we're targeting.
+	/// </summary>
+	[Property, Group( "Setup" )] public GameObject BoneGameObject { get; set; }
+
+	/// <summary>
+	/// The start gameobject. This'll be used for the hand grab point, so make sure it's accurate!
+	/// </summary>
+	[Property, Group( "Setup" )] public GameObject Start { get; set; }
+
+	/// <summary>
+	/// The ending gameobject. This'll be used for the hand grab point, so make sure it's accurate!
+	/// </summary>
+	[Property, Group( "Setup" )] public GameObject End { get; set; }
+
+	/// <summary>
+	/// Quick accessor for the hand.
+	/// </summary>
+	public Hand Hand => PrimaryGrabPoint?.HeldHand;
+
+	/// <summary>
+	/// We store an initial state for the bone, in local space - so we can maintain it.
+	/// </summary>
+	public Transform InitialBoneLocalTransform { get; set; }
+
+	/// <summary>
+	/// Calculates the distance between the start gameobject and the end gameobject, so we can use it to calculate the completion value.
+	/// </summary>
+	public float DistanceBetweenStartAndEnd { get; set; }
+
+	private float completionValue = 0f;
+	/// <summary>
+	/// The completion value of this interaction. 1 being fully fully done, 0 being default state
+	/// </summary>
+	[Property, JsonIgnore, Range( 0, 1 ), Group( "Debugging" )] public float CompletionValue
 	{
-		if ( StartPoint.IsValid() && EndPoint.IsValid() )
+		get => completionValue;
+		set
 		{
-			Gizmo.Transform = new();
-			Gizmo.Draw.Color = Color.Red;
-			Gizmo.Draw.Line( StartPoint.Transform.Position, EndPoint.Transform.Position );
-			Gizmo.Draw.LineSphere( StartPoint.Transform.Position, 0.2f );
-			Gizmo.Draw.LineSphere( EndPoint.Transform.Position, 0.2f );
+			var prev = completionValue;
+
+			completionValue = value;
+
+			if ( !completionValue.Equals( prev ) )
+			{
+				OnCompletionValueChanged( prev, completionValue );
+			}
+		}
+	}
+
+	/// <summary>
+	/// Called when the completion value changes.
+	/// </summary>
+	/// <param name="prev"></param>
+	/// <param name="value"></param>
+	void OnCompletionValueChanged( float prev, float value )
+	{
+		if ( prev != 0 && value == 0 )
+		{
+			if ( ZeroSound is not null )
+				Sound.Play( ZeroSound, Transform.Position );
 		}
 
-		if ( TargetGameObject.IsValid() )
+		if ( prev != 1 && value == 1 )
 		{
-			Gizmo.Transform = new();
-			Gizmo.Draw.Color = Color.Blue;
-			Gizmo.Draw.LineSphere( TargetGameObject.Transform.Position, 0.5f );
+			if ( OneSound is not null )
+				Sound.Play( OneSound, Transform.Position );
 		}
+	}
+
+	protected override void OnStart()
+	{
+		if ( Renderer.IsValid() )
+		{
+			// Store some initial data
+			DistanceBetweenStartAndEnd = Vector3.DistanceBetween( End.Transform.Position, Start.Transform.Position );
+			InitialBoneLocalTransform = BoneGameObject.Transform.Local;
+		}
+	}
+
+	/// <summary>
+	/// Calculates a local position for the bone, using all of our collected data.
+	/// </summary>
+	/// <returns></returns>
+	protected Vector3 CalcLocalPosition()
+	{
+		var pos = InitialBoneLocalTransform.Position;
+		var direction = (End.Transform.LocalPosition - Start.Transform.LocalPosition).Normal;
+		pos += (direction * (DistanceBetweenStartAndEnd * completionValue));
+
+		return pos;
+	}
+
+	protected override void OnPreRender()
+	{
+		// If we're not holding the object, just maintain its local transform. This might not be required really,
+		// but it's useful for debugging without VR.
+		if ( !Hand.IsValid() )
+		{
+			BoneGameObject.Transform.Local = new Transform( CalcLocalPosition(), Rotation.Identity, 1 );
+			return;
+		}
+
+		// Get the transform of the hand in local space to the Start GameObject.
+		var localHand = Start.Transform.World.ToLocal( Hand.Transform.World );
+		var handDiffFromStart = localHand.Position.x;
+		var clamped = handDiffFromStart.Remap( 0, -DistanceBetweenStartAndEnd, 0, 1, true );
+		
+		// Make sure our completion value is up to date.
+		CompletionValue = clamped;
+
+		// Move the primary grab point. This should always be the hand that's interacting with the interactable.
+		PrimaryGrabPoint.Transform.Position = Vector3.Lerp( Start.Transform.Position, End.Transform.Position, clamped );
+		// Move the bone!
+		BoneGameObject.Transform.Local = new Transform( CalcLocalPosition(), Rotation.Identity, 1 );
 	}
 }

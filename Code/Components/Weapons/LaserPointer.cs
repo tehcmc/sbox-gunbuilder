@@ -11,6 +11,8 @@ public partial class LaserPointerComponent : Component, Component.ExecuteInEdito
 
 	[Property, MakeDirty] public bool IsEnabled { get; set; } = true;
 
+	[Property] public GrabPoint GrabPoint { get; set; }
+
 	protected override void OnDirty()
 	{
 		SetEnabled( IsEnabled );
@@ -79,6 +81,19 @@ public partial class LaserPointerComponent : Component, Component.ExecuteInEdito
 	protected override void OnEnabled()
 	{
 		SetEnabled( IsEnabled );
+
+		GrabPoint.OnGrabStartEvent += OnGrabStart;
+		GrabPoint.OnGrabEndEvent += OnGrabEnd;
+	}
+
+	void OnGrabStart()
+	{ 
+		//
+	}
+
+	void OnGrabEnd()
+	{
+		//
 	}
 
 	protected override void OnDisabled()

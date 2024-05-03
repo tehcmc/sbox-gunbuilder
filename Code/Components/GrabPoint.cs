@@ -4,6 +4,9 @@
 /// </summary>
 public partial class GrabPoint : Component
 {
+	[Property] public Action OnGrabStartEvent { get; set; }
+	[Property] public Action OnGrabEndEvent { get; set; }
+
 	/// <summary>
 	/// The collider in question
 	/// </summary>

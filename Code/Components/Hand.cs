@@ -31,6 +31,7 @@ public partial class Hand : Component, Component.ITriggerListener
 		if ( !Game.IsRunningInVR ) return Input.Down( "Attack2" );
 
 		var src = GetController();
+		if ( src is null ) return false;
 
 		return src.Grip.Value > flDeadzone;
 	}
@@ -45,13 +46,14 @@ public partial class Hand : Component, Component.ITriggerListener
 		if ( !Game.IsRunningInVR ) return Input.Down( "Attack1" );
 
 		var src = GetController();
+		if ( src is null ) return false;
 
 		return src.Trigger.Value > flDeadzone;
 	}
 
 	public VRController GetController()
 	{
-		return HandSource == HandSources.Left ? Input.VR.LeftHand : Input.VR.RightHand;
+		return HandSource == HandSources.Left ? Input.VR?.LeftHand : Input.VR?.RightHand;
 	}
 
 	public bool IsDown( GrabPoint.GrabInputType inputType )
@@ -95,8 +97,20 @@ public partial class Hand : Component, Component.ITriggerListener
 		}
 	}
 
+	private void UpdateTrackedLocation()
+	{
+		var controller = GetController();
+		if ( controller is null ) return;
+
+		var tx = controller.Transform;
+		tx = tx.Add( Vector3.Forward * -2f, false );
+
+		Transform.World = tx;
+	}
+
 	protected override void OnUpdate()
 	{
+		UpdateTrackedLocation();
 		UpdatePose();
 
 		if ( IsProxy ) return;
@@ -120,7 +134,7 @@ public partial class Hand : Component, Component.ITriggerListener
 	{
 		return CurrentGrabPoint.IsValid();
 	}
-
+	
 	/// <summary>
 	/// Attaches the hand model to a grab point.
 	/// </summary>
