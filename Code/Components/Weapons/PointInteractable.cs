@@ -40,6 +40,8 @@ public partial class PointInteractable : BaseInteractable
 	/// </summary>
 	[Property, Group( "Configuration" )] public bool ResetOnRelease { get; set; }
 
+	[Property] public Angles AnglesAtOne { get; set; }
+
 	/// <summary>
 	/// Quick accessor for the hand.
 	/// </summary>
@@ -144,6 +146,10 @@ public partial class PointInteractable : BaseInteractable
 		if ( !Hand.IsValid() )
 		{
 			BoneGameObject.Transform.Local = new Transform( CalcLocalPosition(), Rotation.Identity, 1 );
+			if ( CompletionValue.AlmostEqual( 1f ) )
+			{
+				BoneGameObject.Transform.LocalRotation = AnglesAtOne.ToRotation();
+			}
 			return;
 		}
 
@@ -159,5 +165,10 @@ public partial class PointInteractable : BaseInteractable
 		PrimaryGrabPoint.Transform.Position = Vector3.Lerp( Start.Transform.Position, End.Transform.Position, clamped );
 		// Move the bone!
 		BoneGameObject.Transform.Local = new Transform( CalcLocalPosition(), Rotation.Identity, 1 );
+
+		if ( CompletionValue.AlmostEqual( 1f ) )
+		{
+			BoneGameObject.Transform.LocalRotation = AnglesAtOne.ToRotation();
+		}
 	}
 }
