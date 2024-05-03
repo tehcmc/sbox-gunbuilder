@@ -1,4 +1,5 @@
 using Sandbox.VR;
+using System.Numerics;
 
 public partial class Hand : Component, Component.ITriggerListener
 {
@@ -20,6 +21,11 @@ public partial class Hand : Component, Component.ITriggerListener
 	/// The input deadzone, so holding ( flDeadzone * 100 ) percent of the grip down means we've got the grip / trigger down.
 	/// </summary>
 	const float flDeadzone = 0.25f;
+
+	/// <summary>
+	/// What the velocity?
+	/// </summary>
+	public Vector3 Velocity { get; set; }
 
 	/// <summary>
 	/// Is the hand grip down?
@@ -106,7 +112,13 @@ public partial class Hand : Component, Component.ITriggerListener
 		// Bit of a hack, but the alyx controllers have a weird origin that I don't care for.
 		tx = tx.Add( Vector3.Forward * -2f, false );
 
+		var prevPosition = Transform.World.Position;
+
 		Transform.World = tx;
+
+		var newPosition = Transform.World.Position;
+
+		Velocity = (newPosition - prevPosition);
 	}
 
 	protected GrabPoint GetPrioritizedGrabPoint()
