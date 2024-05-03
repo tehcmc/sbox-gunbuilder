@@ -6,10 +6,10 @@ public partial class Hand : Component, Component.ITriggerListener
 	[Property] GameObject DummyGameObject { get; set; }
 
 	/// <summary>
-	/// Which object are we hovering our hand over right now?
+	/// Which objects are we hovering our hand over right now?
 	/// This doesn't mean HOLDING, it means hovered.
 	/// </summary>
-	GrabPoint HoveredGrabPoint { get; set; }
+	HashSet<GrabPoint> HoveredGrabPoints = new();
 
 	/// <summary>
 	/// The current grab point that this hand is holding. This means the grip is down, and we're actively holding an interactable.
@@ -108,6 +108,12 @@ public partial class Hand : Component, Component.ITriggerListener
 		Transform.World = tx;
 	}
 
+	protected GrabPoint GetPrioritizedGrabPoint()
+	{
+		var points = HoveredGrabPoints.OrderBy( x => x.Transform.Position.Distance( Transform.Position ) );
+		return points.FirstOrDefault();
+	}
+
 	protected override void OnUpdate()
 	{
 		UpdateTrackedLocation();
@@ -117,8 +123,9 @@ public partial class Hand : Component, Component.ITriggerListener
 
 		if ( IsGripDown() || IsTriggerDown() )
 		{
-			if ( !HoveredGrabPoint.IsValid() ) return;
-			StartGrabbing( HoveredGrabPoint );
+			var point = GetPrioritizedGrabPoint();
+			if ( !point.IsValid() ) return;
+			StartGrabbing( point );
 		}
 		else
 		{
@@ -174,7 +181,7 @@ public partial class Hand : Component, Component.ITriggerListener
 		// Did we find a grab point that'll become eligible to grab?
 		if ( other.Components.Get<GrabPoint>( FindMode.EnabledInSelf ) is { } grabPoint )
 		{
-			HoveredGrabPoint = grabPoint;
+			HoveredGrabPoints.Add( grabPoint );
 		}
 	}
 
@@ -183,8 +190,10 @@ public partial class Hand : Component, Component.ITriggerListener
 		// Did we find a grab point that'll become eligible to grab?
 		if ( other.Components.Get<GrabPoint>( FindMode.EnabledInSelf ) is { } grabPoint )
 		{
-			if ( HoveredGrabPoint == grabPoint )
-				HoveredGrabPoint = null;
+			if ( HoveredGrabPoints.Contains( grabPoint ) )
+			{
+				HoveredGrabPoints.Remove( grabPoint );
+			}
 		}
 	}
 }
