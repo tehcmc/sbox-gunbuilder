@@ -62,6 +62,16 @@ public partial class GrabPoint : Component
 	/// </summary>
 	public bool IsBeingHeld => HeldHand.IsValid();
 
+	public void OnStartGrabbing()
+	{
+		OnGrabStartEvent?.Invoke();
+	}
+
+	public void OnStopGrabbing()
+	{
+		OnGrabEndEvent?.Invoke();
+	}
+
 	/// <summary>
 	/// Can we stop grabbing?
 	/// </summary>

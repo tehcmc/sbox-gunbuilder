@@ -17,6 +17,8 @@ public partial class BaseInteractable : Component
 
 	protected HashSet<GrabPoint> heldGrabPoints = new();
 
+	protected IEnumerable<GrabPoint> AllGrabPoints => Components.GetAll<GrabPoint>( FindMode.EnabledInSelfAndDescendants );
+
 	/// <summary>
 	/// Gets you a hash set of the held grab points
 	/// </summary>
@@ -30,7 +32,7 @@ public partial class BaseInteractable : Component
 	/// <summary>
 	/// A shorthand property to get the primary grab point for this interactable.
 	/// </summary>
-	public GrabPoint PrimaryGrabPoint => heldGrabPoints.FirstOrDefault( x => x.IsPrimaryGrabPoint );
+	public GrabPoint PrimaryGrabPoint => AllGrabPoints.FirstOrDefault( x => x.IsPrimaryGrabPoint );
 
 	/// <summary>
 	/// An artificial delay between how long we can start a new/stop a current interaction
@@ -78,6 +80,7 @@ public partial class BaseInteractable : Component
 		grabPoint.HeldHand = hand;
 		heldGrabPoints.Add( grabPoint );
 
+		grabPoint.OnStartGrabbing();
 		OnInteract( grabPoint, hand );
 
 		return true;
@@ -100,7 +103,7 @@ public partial class BaseInteractable : Component
 		heldGrabPoints.Remove( grabPoint );
 
 		OnStopInteract( grabPoint, hand );
-
+		grabPoint.OnStopGrabbing();
 		grabPoint.HeldHand = null;
 
 		return true;
