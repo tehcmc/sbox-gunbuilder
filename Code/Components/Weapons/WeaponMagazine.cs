@@ -13,9 +13,25 @@ public sealed class WeaponMagazine : Component
 	[RequireComponent] public Attachable Attachable { get; set; }
 
 	/// <summary>
+	/// The model renderer for this mag.
+	/// </summary>
+	[Property] public SkinnedModelRenderer Renderer { get; set; }
+
+	private int bulletCount = 30;
+	/// <summary>
 	/// How many bullets are in this gun?
 	/// </summary>
-	[Property] public int BulletCount { get; set; } = 30;
+	[Property] public int BulletCount
+	{
+		get => bulletCount;
+		set
+		{
+			if ( bulletCount == value ) return;
+			bulletCount = value;
+
+			Renderer?.SetBodyGroup( AmmoBodygroup, bulletCount > 0 ? 0 : 1 );
+		}
+	}
 
 	/// <summary>
 	/// What's the ammo capacity for this gun?
@@ -26,6 +42,8 @@ public sealed class WeaponMagazine : Component
 	/// Mainly for development - but negates needing ammo in the magazine to fire a gun.
 	/// </summary>
 	[Property] public bool IsInfiniteAmmo { get; set; } = false;
+
+	[Property] public int AmmoBodygroup { get; set; } = 0;
 
 	/// <summary>
 	/// Does this magazine have any ammo?
