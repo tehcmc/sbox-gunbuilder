@@ -35,6 +35,8 @@ public partial class PointInteractable : BaseInteractable
 	/// </summary>
 	[Property, Group( "Setup" )] public GameObject End { get; set; }
 
+	[Property, Group( "Configuration" )] public bool ResetOnRelease { get; set; }
+
 	/// <summary>
 	/// Quick accessor for the hand.
 	/// </summary>
@@ -97,6 +99,33 @@ public partial class PointInteractable : BaseInteractable
 			// Store some initial data
 			DistanceBetweenStartAndEnd = Vector3.DistanceBetween( End.Transform.Position, Start.Transform.Position );
 			InitialBoneLocalTransform = BoneGameObject.Transform.Local;
+		}
+
+		PrimaryGrabPoint.OnGrabStartEvent += OnGrabStart;
+		PrimaryGrabPoint.OnGrabEndEvent += OnGrabEnd;
+	}
+
+	protected override void OnDestroy()
+	{
+		if ( PrimaryGrabPoint.IsValid() )
+		{
+			PrimaryGrabPoint.OnGrabStartEvent -= OnGrabStart;
+			PrimaryGrabPoint.OnGrabEndEvent -= OnGrabEnd;
+		}
+	}
+
+	void OnGrabStart()
+	{
+	}
+
+	void OnGrabEnd()
+	{
+		if ( ResetOnRelease )
+		{
+			if ( !CompletionValue.AlmostEqual( 1 ) )
+			{
+				CompletionValue = 0;
+			}
 		}
 	}
 
