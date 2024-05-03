@@ -1,3 +1,5 @@
+using Sandbox;
+
 public partial class Weapon : Interactable
 {
 	/// <summary>
@@ -180,12 +182,15 @@ public partial class Weapon : Interactable
 		TimeUntilNextDryFire = 0.5f;
 	}
 
+	[Property, Group( "Recoil" )] public RangedFloat VerticalRecoil { get; set; } = new( 300, 600 );
+	[Property, Group( "Recoil" )] public RangedFloat HorizontalRecoil { get; set; } = new( -200, 200 );
+
 	private Vector2 CalcRecoil()
 	{
 		return new Vector2()
 		{
-			y = Game.Random.Int( 300, 600 ),
-			x = Game.Random.Int( -200, 200 )
+			y = Game.Random.Int( VerticalRecoil.x.CeilToInt(), VerticalRecoil.y.CeilToInt() ),
+			x = Game.Random.Int( HorizontalRecoil.x.CeilToInt(), HorizontalRecoil.y.CeilToInt() )
 		};
 	}
 
