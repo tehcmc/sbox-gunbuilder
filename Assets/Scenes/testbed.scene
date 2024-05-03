@@ -841,7 +841,7 @@
         {
           "__type": "Weapon",
           "__guid": "a55f4947-1612-4f52-9bb0-7e954737d158",
-          "BulletSize": 4,
+          "BulletSize": 3,
           "DryFireSound": "sounds/weapons/weapon_dryfire.sound",
           "MaxRange": 100000,
           "MuzzleGameObject": {
@@ -854,8 +854,8 @@
             "go": "aca4a52c-39f4-4b69-aa30-58c78ce9c855",
             "component_type": "Rigidbody"
           },
-          "RPM": 650,
-          "ShootSound": "sounds/weapons/m4a1/m4_shot.sound"
+          "RPM": 800,
+          "ShootSound": "sounds/weapons/mp5/mp5_shoot.sound"
         },
         {
           "__type": "Sandbox.Rigidbody",
@@ -1841,8 +1841,9 @@
             {
               "__type": "LaserPointerComponent",
               "__guid": "3ee19cc4-6a65-4c28-b142-87c5b9bd0dec",
+              "__enabled": false,
               "DotParticle": "particles/laserdot.vpcf",
-              "IsEnabled": false,
+              "IsEnabled": true,
               "LaserColor": "0.06667,1,0,1",
               "LineParticle": "particles/laserline.vpcf"
             }
@@ -2036,7 +2037,7 @@
       "__guid": "38133b5a-297f-40d4-8739-bd77c36e09f9",
       "Name": "M4",
       "Position": "40.27348,-3.878812,68.07037",
-      "Rotation": "-0.5,0.5000002,-0.5000001,0.5000002",
+      "Rotation": "-0.5000003,-0.4999999,-0.5000003,-0.5",
       "Enabled": true,
       "NetworkMode": 2,
       "NetworkInterpolation": true,
@@ -3187,7 +3188,7 @@
   },
   "Title": "testbed",
   "Description": "",
-  "LastSaved": "2024-05-03T08:42:36.0358769\u002B01:00",
+  "LastSaved": "2024-05-03T09:00:44.6524031\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
