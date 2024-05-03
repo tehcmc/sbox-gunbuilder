@@ -1,17 +1,8 @@
 using Sandbox.VR;
+using System.Xml.XPath;
 
 public partial class Hand
 {
-	// TODO: These should ideally be user-editable, these values only work on the Alyx hands right now
-	private static List<string> AnimGraphNames = new()
-	{
-		"FingerCurl_Thumb",
-		"FingerCurl_Index",
-		"FingerCurl_Middle",
-		"FingerCurl_Ring",
-		"FingerCurl_Pinky"
-	};
-
 	/// <summary>
 	/// Represents a controller to use when fetching skeletal data (finger curl/splay values)
 	/// </summary>
@@ -46,8 +37,21 @@ public partial class Hand
 		HoldItem,
 		Clamp
 	}
+	
+	private static List<string> AnimGraphNames = new()
+	{
+		"FingerCurl_Thumb",
+		"FingerCurl_Index",
+		"FingerCurl_Middle",
+		"FingerCurl_Ring",
+		"FingerCurl_Pinky"
+	};
 
-	public void SetPresetPose( PresetPose pose )
+	/// <summary>
+	/// Applies a hand preset for this hand.
+	/// </summary>
+	/// <param name="preset"></param>
+	public void ApplyHandPreset( HandPreset preset = null )
 	{
 		if ( !Game.IsRunningInVR ) return;
 
@@ -58,38 +62,14 @@ public partial class Hand
 		SkinnedModelComponent.Set( "bGrab", true );
 		SkinnedModelComponent.Set( "GrabMode", 1 );
 
-		var x = 0;
-
 		for ( FingerValue v = FingerValue.ThumbCurl; v <= FingerValue.PinkyCurl; ++v )
 		{
 			SkinnedModelComponent.Set( AnimGraphNames[(int)v], source.GetFingerValue( v ) );
-
-			if ( pose == PresetPose.Grip || pose == PresetPose.GripNoIndex )
-			{
-				SkinnedModelComponent.Set( AnimGraphNames[(int)v], 1.0f );
-			}
-
-			if ( (pose == PresetPose.GripNoIndex) && v == FingerValue.IndexCurl )
-			{
-				SkinnedModelComponent.Set( AnimGraphNames[(int)v], source.GetFingerValue( v ) );
-			}
-
-			if ( pose == PresetPose.HoldItem )
-			{
-				SkinnedModelComponent.Set( AnimGraphNames[(int)v], 0.1f + (x * 0.1f) );
-			}
-
-			x++;
 		}
 
-		// -_-
-		if ( pose == PresetPose.Clamp )
+		if ( preset is not null )
 		{
-			SkinnedModelComponent.Set( "FingerCurl_Thumb", 0.5f );
-			SkinnedModelComponent.Set( "FingerCurl_Index", 0.4f );
-			SkinnedModelComponent.Set( "FingerCurl_Middle", 0.4f );
-			SkinnedModelComponent.Set( "FingerCurl_Ring", 0.4f );
-			SkinnedModelComponent.Set( "FingerCurl_Pinky", 0.8f );
+			preset.Apply( SkinnedModelComponent );
 		}
 	}
 
@@ -107,7 +87,8 @@ public partial class Hand
 		}
 		else
 		{
-			SetPresetPose( PresetPose.None );
+			// Use no preset
+			ApplyHandPreset();
 		}
 	}
 }

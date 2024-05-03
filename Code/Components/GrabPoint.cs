@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 /// <summary>
 /// A grab point. This has to be on an interactable somewhere. This'll be something like a handle on a gun.
 /// Or just a point where we can hold something.
@@ -25,7 +27,7 @@ public partial class GrabPoint : Component
 	/// <summary>
 	/// The hand pose that we'll use when a hand is attached to this grab point.
 	/// </summary>
-	[Property] public Hand.PresetPose HoldingPose { get; set; } = Hand.PresetPose.Grip;
+	[Property, Title( "Hand Preset" )] public HandPreset Preset { get; set; } = HandPreset.GripWithoutIndexFinger;
 
 	/// <summary>
 	/// What's our grabbing input type?
@@ -108,6 +110,6 @@ public partial class GrabPoint : Component
 	/// <param name="hand"></param>
 	public virtual void UpdateHandPose( Hand hand )
 	{
-		hand.SetPresetPose( HoldingPose );
+		hand.ApplyHandPreset( Preset );
 	}
 }

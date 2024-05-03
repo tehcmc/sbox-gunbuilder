@@ -1085,6 +1085,7 @@
         {
           "__type": "Weapon",
           "__guid": "a55f4947-1612-4f52-9bb0-7e954737d158",
+          "BaseRecoilDecay": 3,
           "BulletSize": 3,
           "DryFireSound": "sounds/weapons/weapon_dryfire.sound",
           "HorizontalRecoil": "-200.00,200.00,1",
@@ -1960,12 +1961,18 @@
                 "component_type": "SphereCollider"
               },
               "GrabInput": "Grip",
-              "HoldingPose": "GripNoIndex",
               "Interactable": {
                 "_type": "component",
                 "component_id": "a55f4947-1612-4f52-9bb0-7e954737d158",
                 "go": "aca4a52c-39f4-4b69-aa30-58c78ce9c855",
                 "component_type": "Weapon"
+              },
+              "Preset": {
+                "Thumb": 1,
+                "Index": -1,
+                "Middle": 1,
+                "Ring": 1,
+                "Pinky": 1
               }
             },
             {
@@ -1998,12 +2005,18 @@
                 "component_type": "SphereCollider"
               },
               "GrabInput": "Grip",
-              "HoldingPose": "Clamp",
               "Interactable": {
                 "_type": "component",
                 "component_id": "a55f4947-1612-4f52-9bb0-7e954737d158",
                 "go": "aca4a52c-39f4-4b69-aa30-58c78ce9c855",
                 "component_type": "Weapon"
+              },
+              "Preset": {
+                "Thumb": 1,
+                "Index": 1,
+                "Middle": 1,
+                "Ring": 1,
+                "Pinky": 1
               },
               "PrimaryGrabPoint": {
                 "_type": "component",
@@ -2142,12 +2155,18 @@
                     "component_type": "SphereCollider"
                   },
                   "GrabInput": "Trigger",
-                  "HoldingPose": "Grip",
                   "Interactable": {
                     "_type": "component",
                     "component_id": "38b11f4f-ae6e-4d06-97ef-67157069e91a",
                     "go": "fb2c8129-c0b3-499f-93af-11d3d16c133d",
                     "component_type": "PointInteractable"
+                  },
+                  "Preset": {
+                    "Thumb": 1,
+                    "Index": 1,
+                    "Middle": 0.3,
+                    "Ring": 0.4,
+                    "Pinky": 0.3
                   }
                 },
                 {
@@ -2214,12 +2233,18 @@
                     "component_type": "SphereCollider"
                   },
                   "GrabInput": "Trigger",
-                  "HoldingPose": "Grip",
                   "Interactable": {
                     "_type": "component",
                     "component_id": "62b883e1-f77b-40b1-a189-041fdc9f6312",
                     "go": "65374ed4-d869-4fe5-b41c-7aac4c4d8aab",
                     "component_type": "PointInteractable"
+                  },
+                  "Preset": {
+                    "Thumb": 1,
+                    "Index": 1,
+                    "Middle": 1,
+                    "Ring": 1,
+                    "Pinky": 1
                   }
                 },
                 {
@@ -2290,6 +2315,7 @@
         {
           "__type": "Weapon",
           "__guid": "7a311c43-0ba7-4c3a-a814-3d50f162db14",
+          "BaseRecoilDecay": 3,
           "BulletSize": 3,
           "DryFireSound": "sounds/weapons/weapon_dryfire.sound",
           "HorizontalRecoil": "-200.00,200.00,1",
@@ -3149,12 +3175,18 @@
                 "component_type": "SphereCollider"
               },
               "GrabInput": "Grip",
-              "HoldingPose": "GripNoIndex",
               "Interactable": {
                 "_type": "component",
                 "component_id": "7a311c43-0ba7-4c3a-a814-3d50f162db14",
                 "go": "a0b0686c-88bf-4071-991a-34ff6ab444c4",
                 "component_type": "Weapon"
+              },
+              "Preset": {
+                "Thumb": 1,
+                "Index": 1,
+                "Middle": 1,
+                "Ring": 1,
+                "Pinky": 1
               }
             },
             {
@@ -3269,12 +3301,18 @@
                     "component_type": "SphereCollider"
                   },
                   "GrabInput": "Trigger",
-                  "HoldingPose": "Clamp",
                   "Interactable": {
                     "_type": "component",
                     "component_id": "f283ab3d-8bce-472c-acd7-0cf8c472a2f5",
                     "go": "e5cc5580-a883-46d6-86bb-cddb4512e17d",
                     "component_type": "PointInteractable"
+                  },
+                  "Preset": {
+                    "Thumb": 1,
+                    "Index": 1,
+                    "Middle": 1,
+                    "Ring": 1,
+                    "Pinky": 1
                   }
                 },
                 {
@@ -3339,6 +3377,7 @@
         {
           "__type": "Weapon",
           "__guid": "cbcb6d64-6745-49a3-89c0-f4028e10a9a4",
+          "BaseRecoilDecay": 3,
           "BulletSize": 4,
           "DryFireSound": "sounds/weapons/weapon_dryfire.sound",
           "HorizontalRecoil": "-200.00,200.00,1",
@@ -3423,12 +3462,18 @@
                 "component_type": "SphereCollider"
               },
               "GrabInput": "Grip",
-              "HoldingPose": "GripNoIndex",
               "Interactable": {
                 "_type": "component",
                 "component_id": "cbcb6d64-6745-49a3-89c0-f4028e10a9a4",
                 "go": "38133b5a-297f-40d4-8739-bd77c36e09f9",
                 "component_type": "Weapon"
+              },
+              "Preset": {
+                "Thumb": 1,
+                "Index": 1,
+                "Middle": 1,
+                "Ring": 1,
+                "Pinky": 1
               }
             },
             {
@@ -3460,12 +3505,18 @@
                 "component_type": "SphereCollider"
               },
               "GrabInput": "Grip",
-              "HoldingPose": "Grip",
               "Interactable": {
                 "_type": "component",
                 "component_id": "cbcb6d64-6745-49a3-89c0-f4028e10a9a4",
                 "go": "38133b5a-297f-40d4-8739-bd77c36e09f9",
                 "component_type": "Weapon"
+              },
+              "Preset": {
+                "Thumb": 1,
+                "Index": 1,
+                "Middle": 1,
+                "Ring": 1,
+                "Pinky": 1
               },
               "PrimaryGrabPoint": {
                 "_type": "component",
@@ -3671,12 +3722,18 @@
                 "component_type": "SphereCollider"
               },
               "GrabInput": "Grip",
-              "HoldingPose": "Grip",
               "Interactable": {
                 "_type": "component",
                 "component_id": "7d04efff-99a0-489e-b9d2-2490ec6fe262",
                 "go": "3090b03c-3601-4a6e-b55e-fdffa71db633",
                 "component_type": "Interactable"
+              },
+              "Preset": {
+                "Thumb": 1,
+                "Index": 1,
+                "Middle": 1,
+                "Ring": 1,
+                "Pinky": 1
               }
             },
             {
@@ -3747,12 +3804,18 @@
             "component_type": "BoxCollider"
           },
           "GrabInput": "Grip",
-          "HoldingPose": "Grip",
           "Interactable": {
             "_type": "component",
             "component_id": "ebc0c16e-7506-42af-be7d-8d45eacdb12d",
             "go": "40e762aa-d56d-479c-9a06-86bdeddd0890",
             "component_type": "Interactable"
+          },
+          "Preset": {
+            "Thumb": 1,
+            "Index": 1,
+            "Middle": 1,
+            "Ring": 1,
+            "Pinky": 1
           }
         }
       ]
@@ -3864,12 +3927,18 @@
                 "component_type": "SphereCollider"
               },
               "GrabInput": "Grip",
-              "HoldingPose": "HoldItem",
               "Interactable": {
                 "_type": "component",
                 "component_id": "92a790a8-7536-4ce8-8dd6-53a5aea739f9",
                 "go": "0e5de69e-2f10-450a-86af-7209e2fddba7",
                 "component_type": "Interactable"
+              },
+              "Preset": {
+                "Thumb": 1,
+                "Index": 1,
+                "Middle": 1,
+                "Ring": 1,
+                "Pinky": 1
               }
             },
             {
@@ -3991,12 +4060,18 @@
                 "component_type": "SphereCollider"
               },
               "GrabInput": "Grip",
-              "HoldingPose": "HoldItem",
               "Interactable": {
                 "_type": "component",
                 "component_id": "a000bbb2-d6de-4c60-af81-a60d39c19e16",
                 "go": "e508fd43-e580-4b26-b4ed-6e957b3f10dc",
                 "component_type": "Interactable"
+              },
+              "Preset": {
+                "Thumb": 1,
+                "Index": 1,
+                "Middle": 1,
+                "Ring": 1,
+                "Pinky": 1
               }
             },
             {
@@ -4118,12 +4193,18 @@
                 "component_type": "SphereCollider"
               },
               "GrabInput": "Grip",
-              "HoldingPose": "HoldItem",
               "Interactable": {
                 "_type": "component",
                 "component_id": "e8722c7b-9b44-48c7-a464-322dfc6d9e9f",
                 "go": "015b9c94-0fdd-4e2f-90f2-efe3b23c2f6b",
                 "component_type": "Interactable"
+              },
+              "Preset": {
+                "Thumb": 1,
+                "Index": 1,
+                "Middle": 1,
+                "Ring": 1,
+                "Pinky": 1
               }
             },
             {
@@ -4245,12 +4326,18 @@
                 "component_type": "SphereCollider"
               },
               "GrabInput": "Grip",
-              "HoldingPose": "HoldItem",
               "Interactable": {
                 "_type": "component",
                 "component_id": "57bebbe7-5b45-488d-b33d-05fa679e2817",
                 "go": "cae6bc6e-8191-4200-b616-8342fa66ed44",
                 "component_type": "Interactable"
+              },
+              "Preset": {
+                "Thumb": 1,
+                "Index": 1,
+                "Middle": 1,
+                "Ring": 1,
+                "Pinky": 1
               }
             },
             {
@@ -4372,12 +4459,18 @@
                 "component_type": "SphereCollider"
               },
               "GrabInput": "Grip",
-              "HoldingPose": "HoldItem",
               "Interactable": {
                 "_type": "component",
                 "component_id": "20b1189d-1617-4669-8a2f-d9b9985841b1",
                 "go": "b7c050e5-6c5c-4569-9595-f78991c3de73",
                 "component_type": "Interactable"
+              },
+              "Preset": {
+                "Thumb": 1,
+                "Index": 1,
+                "Middle": 1,
+                "Ring": 1,
+                "Pinky": 1
               }
             },
             {
@@ -4499,12 +4592,18 @@
                 "component_type": "SphereCollider"
               },
               "GrabInput": "Grip",
-              "HoldingPose": "HoldItem",
               "Interactable": {
                 "_type": "component",
                 "component_id": "7b19ff2b-de72-408b-b065-c4cb9c2207be",
                 "go": "d4278a0d-4c5c-4ddb-9072-c252b5defb99",
                 "component_type": "Interactable"
+              },
+              "Preset": {
+                "Thumb": 1,
+                "Index": 1,
+                "Middle": 1,
+                "Ring": 1,
+                "Pinky": 1
               }
             },
             {
@@ -4611,7 +4710,7 @@
   },
   "Title": "testbed",
   "Description": "",
-  "LastSaved": "2024-05-03T15:22:59.2001779\u002B01:00",
+  "LastSaved": "2024-05-03T20:03:50.6101052\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [

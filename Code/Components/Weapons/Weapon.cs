@@ -32,6 +32,10 @@ public partial class Weapon : Interactable
 	/// </summary>
 	[Property, Group( "Sounds" )] public SoundEvent DryFireSound { get; set; }
 
+	[Property, Group( "Recoil" )] public RangedFloat VerticalRecoil { get; set; } = new( 300, 600 );
+	[Property, Group( "Recoil" )] public RangedFloat HorizontalRecoil { get; set; } = new( -200, 200 );
+	[Property, Group( "Recoil" )] public float BaseRecoilDecay { get; set; } = 3f;
+
 	/// <summary>
 	/// The current weapon magazine
 	/// </summary>
@@ -192,9 +196,6 @@ public partial class Weapon : Interactable
 		TimeUntilNextDryFire = 0.5f;
 	}
 
-	[Property, Group( "Recoil" )] public RangedFloat VerticalRecoil { get; set; } = new( 300, 600 );
-	[Property, Group( "Recoil" )] public RangedFloat HorizontalRecoil { get; set; } = new( -200, 200 );
-
 	private Vector2 CalcRecoil()
 	{
 		return new Vector2()
@@ -206,7 +207,7 @@ public partial class Weapon : Interactable
 
 	private float CalcRecoilDecay()
 	{
-		return 3f;
+		return BaseRecoilDecay;
 	}
 
 	[Broadcast]
@@ -228,11 +229,7 @@ public partial class Weapon : Interactable
 		int count = 0;
 		foreach ( var tr in GetShootTrace() )
 		{
-			// TODO: don't do random forces, wtf
-			Rigidbody.ApplyForceAt( MuzzleGameObject.Transform.Position, GameObject.Transform.Rotation.Up * 25000f );
-			Rigidbody.ApplyForceAt( MuzzleGameObject.Transform.Position, GameObject.Transform.Rotation.Left * 35000f );
-
-			// TODO: hurt players and stuff
+			// TODO: Component.IDamageable
 
 			if ( tr.Hit )
 				CreateImpactEffects( tr.GameObject, tr.Surface, tr.EndPosition, tr.Normal );

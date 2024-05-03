@@ -103,6 +103,7 @@ public partial class Hand : Component, Component.ITriggerListener
 		if ( controller is null ) return;
 
 		var tx = controller.Transform;
+		// Bit of a hack, but the alyx controllers have a weird origin that I don't care for.
 		tx = tx.Add( Vector3.Forward * -2f, false );
 
 		Transform.World = tx;

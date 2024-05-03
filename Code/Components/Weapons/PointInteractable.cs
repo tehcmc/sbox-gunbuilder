@@ -35,6 +35,9 @@ public partial class PointInteractable : BaseInteractable
 	/// </summary>
 	[Property, Group( "Setup" )] public GameObject End { get; set; }
 
+	/// <summary>
+	/// Should we reset <see cref="CompletionValue"/> back to 0 if we release the interactable?
+	/// </summary>
 	[Property, Group( "Configuration" )] public bool ResetOnRelease { get; set; }
 
 	/// <summary>
@@ -48,7 +51,7 @@ public partial class PointInteractable : BaseInteractable
 	public Transform InitialBoneLocalTransform { get; set; }
 
 	/// <summary>
-	/// Calculates the distance between the start gameobject and the end gameobject, so we can use it to calculate the completion value.
+	/// A stored calculation of the distance between the start gameobject and the end gameobject, so we can use it to calculate the completion value.
 	/// </summary>
 	public float DistanceBetweenStartAndEnd { get; set; }
 
@@ -62,13 +65,10 @@ public partial class PointInteractable : BaseInteractable
 		set
 		{
 			var prev = completionValue;
-
 			completionValue = value;
 
 			if ( !completionValue.Equals( prev ) )
-			{
 				OnCompletionValueChanged( prev, completionValue );
-			}
 		}
 	}
 
@@ -101,7 +101,6 @@ public partial class PointInteractable : BaseInteractable
 			InitialBoneLocalTransform = BoneGameObject.Transform.Local;
 		}
 
-		PrimaryGrabPoint.OnGrabStartEvent += OnGrabStart;
 		PrimaryGrabPoint.OnGrabEndEvent += OnGrabEnd;
 	}
 
@@ -109,17 +108,13 @@ public partial class PointInteractable : BaseInteractable
 	{
 		if ( PrimaryGrabPoint.IsValid() )
 		{
-			PrimaryGrabPoint.OnGrabStartEvent -= OnGrabStart;
 			PrimaryGrabPoint.OnGrabEndEvent -= OnGrabEnd;
 		}
 	}
 
-	void OnGrabStart()
-	{
-	}
-
 	void OnGrabEnd()
 	{
+		// ResetOnRelease only counts if we haven't pulled all the way
 		if ( ResetOnRelease )
 		{
 			if ( !CompletionValue.AlmostEqual( 1 ) )
@@ -137,7 +132,7 @@ public partial class PointInteractable : BaseInteractable
 	{
 		var pos = InitialBoneLocalTransform.Position;
 		var direction = (End.Transform.LocalPosition - Start.Transform.LocalPosition).Normal;
-		pos += (direction * (DistanceBetweenStartAndEnd * completionValue));
+		pos += direction * (DistanceBetweenStartAndEnd * completionValue);
 
 		return pos;
 	}
