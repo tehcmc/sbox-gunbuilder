@@ -38,6 +38,11 @@ public partial class Weapon : Interactable
 	public WeaponMagazine Magazine { get; private set; }
 
 	/// <summary>
+	/// Optional: Uses slide release system if we have one.
+	/// </summary>
+	[Property] public SlideReleaseSystem SlideReleaseSystem { get; set; }
+
+	/// <summary>
 	/// How long has it been since we've shot this gun?
 	/// </summary>
 	[Sync] public TimeSince TimeSinceShoot { get; private set; }
@@ -131,6 +136,11 @@ public partial class Weapon : Interactable
 	/// <returns></returns>
 	public bool CanShoot()
 	{
+		if ( SlideReleaseSystem?.IsPulled ?? false )
+		{
+			return false;
+		}
+
 		// Delay checks
 		if ( TimeSinceShoot < RPMToSeconds() )
 		{
@@ -207,6 +217,13 @@ public partial class Weapon : Interactable
 		TimeSinceShoot = 0;
 
 		CurrentRecoilAmount += CalcRecoil();
+
+		// did we just run out of ammo?
+		if ( !HasAmmo() )
+		{
+			// trigger the slide
+			SlideReleaseSystem?.TriggerEmpty();
+		}
 
 		int count = 0;
 		foreach ( var tr in GetShootTrace() )

@@ -2306,6 +2306,12 @@
           },
           "RPM": 200,
           "ShootSound": "sounds/weapons/usp/usp_shoot.sound",
+          "SlideReleaseSystem": {
+            "_type": "component",
+            "component_id": "0c0e770c-4f36-4391-9628-34984fb4e946",
+            "go": "e5cc5580-a883-46d6-86bb-cddb4512e17d",
+            "component_type": "SlideReleaseSystem"
+          },
           "VerticalRecoil": "900.00,1800.00,1"
         },
         {
@@ -3795,8 +3801,8 @@
         {
           "__type": "WeaponMagazine",
           "__guid": "d2c81459-45c6-4c42-aec3-c897de5ab2fd",
-          "BulletCapacity": 30,
-          "BulletCount": 30,
+          "BulletCapacity": 10,
+          "BulletCount": 10,
           "IsInfiniteAmmo": false
         },
         {
@@ -4605,7 +4611,7 @@
   },
   "Title": "testbed",
   "Description": "",
-  "LastSaved": "2024-05-03T15:19:19.4586394\u002B01:00",
+  "LastSaved": "2024-05-03T15:22:59.2001779\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
