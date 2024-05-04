@@ -4,7 +4,7 @@
     {
       "__guid": "41021595-0d1f-4c86-9f74-2addcf6d1a40",
       "Name": "Game",
-      "Position": "19.58845,0,16",
+      "Position": "19.58845,0,0",
       "Enabled": true,
       "NetworkMode": 2,
       "NetworkInterpolation": true,
@@ -1086,6 +1086,12 @@
           "__guid": "a55f4947-1612-4f52-9bb0-7e954737d158",
           "BaseRecoilDecay": 3,
           "BulletSize": 3,
+          "Chamber": {
+            "_type": "component",
+            "component_id": "dd6b2201-2ff1-4d07-9701-e2880a261066",
+            "go": "b1379b7d-d9b1-4897-9340-b9834e9df13a",
+            "component_type": "WeaponChamber"
+          },
           "DryFireSound": "sounds/weapons/weapon_dryfire.sound",
           "HorizontalRecoil": "-200.00,200.00,1",
           "MassScale": 1,
@@ -2219,6 +2225,12 @@
                     "component_id": "0d7f26fd-4286-483e-8f7b-a28e2e6c0ecb",
                     "go": "ba86cc5a-6f17-44a7-af6e-a64dd06c67d2",
                     "component_type": "GrabPoint"
+                  },
+                  "Weapon": {
+                    "_type": "component",
+                    "component_id": "a55f4947-1612-4f52-9bb0-7e954737d158",
+                    "go": "aca4a52c-39f4-4b69-aa30-58c78ce9c855",
+                    "component_type": "Weapon"
                   }
                 }
               ]
@@ -2351,6 +2363,32 @@
               "Center": "0,0,0",
               "IsTrigger": true,
               "Radius": 2,
+              "Static": false
+            }
+          ]
+        },
+        {
+          "__guid": "b1379b7d-d9b1-4897-9340-b9834e9df13a",
+          "Name": "Chamber",
+          "Position": "2.045376,-0.6387069,8.73793",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "Components": [
+            {
+              "__type": "WeaponChamber",
+              "__guid": "dd6b2201-2ff1-4d07-9701-e2880a261066",
+              "AutoChamber": false,
+              "Chamber": [],
+              "ChamberCapacity": 1,
+              "ChamberCount": 0
+            },
+            {
+              "__type": "Sandbox.SphereCollider",
+              "__guid": "dcee9d90-a121-4a88-96fc-8dc2e062d208",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Radius": 0.5,
               "Static": false
             }
           ]
@@ -3930,7 +3968,8 @@
           "__guid": "d2c81459-45c6-4c42-aec3-c897de5ab2fd",
           "AmmoBodygroup": 0,
           "BulletCapacity": 10,
-          "BulletCount": 10,
+          "Bullets": [],
+          "ChamberCount": 0,
           "IsInfiniteAmmo": false,
           "Renderer": {
             "_type": "component",
@@ -3970,7 +4009,7 @@
             {
               "__type": "Sandbox.SkinnedModelRenderer",
               "__guid": "5c401b68-fdf2-4df7-af33-7d396d69a10e",
-              "BodyGroups": 1,
+              "BodyGroups": 2,
               "CreateBoneObjects": false,
               "Model": "models/weapons/sbox_pistol_usp/v_usp_magazine.vmdl",
               "RenderType": "On",
@@ -4072,7 +4111,8 @@
           "__guid": "8c454b87-a10b-409b-8fa3-357f07301d90",
           "AmmoBodygroup": 0,
           "BulletCapacity": 30,
-          "BulletCount": 30,
+          "Bullets": [],
+          "ChamberCount": 0,
           "IsInfiniteAmmo": false,
           "Renderer": {
             "_type": "component",
@@ -4112,7 +4152,7 @@
             {
               "__type": "Sandbox.SkinnedModelRenderer",
               "__guid": "1571e4db-0952-4f82-9c63-858bbf9b06f6",
-              "BodyGroups": 18446744073709551615,
+              "BodyGroups": 18446744073709551614,
               "CreateBoneObjects": false,
               "Model": "models/weapons/sbox_smg_mp5/v_mp5_magazine.vmdl",
               "RenderType": "On",
@@ -4214,7 +4254,8 @@
           "__guid": "234fab9e-498d-42bb-a213-bf8c945255b2",
           "AmmoBodygroup": 0,
           "BulletCapacity": 30,
-          "BulletCount": 30,
+          "Bullets": [],
+          "ChamberCount": 0,
           "IsInfiniteAmmo": false,
           "Renderer": {
             "_type": "component",
@@ -4254,7 +4295,7 @@
             {
               "__type": "Sandbox.SkinnedModelRenderer",
               "__guid": "a3f7f4a8-5eb6-4f43-8631-9590687cf350",
-              "BodyGroups": 1,
+              "BodyGroups": 2,
               "CreateBoneObjects": false,
               "Model": "models/weapons/sbox_assault_m4a1/v_m4a1_magazine.vmdl",
               "RenderType": "On",
@@ -4401,7 +4442,7 @@
   },
   "Title": "testbed",
   "Description": "",
-  "LastSaved": "2024-05-03T21:21:35.0606271\u002B01:00",
+  "LastSaved": "2024-05-04T10:51:12.2066614\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [

@@ -37,6 +37,11 @@ public partial class Weapon : Interactable
 	[Property, Group( "Recoil" )] public float BaseRecoilDecay { get; set; } = 3f;
 
 	/// <summary>
+	/// The weapon's chamber. If it has one. It probably.
+	/// </summary>
+	[Property] public WeaponChamber Chamber { get; set; }
+
+	/// <summary>
 	/// The current weapon magazine
 	/// </summary>
 	public WeaponMagazine Magazine { get; private set; }
@@ -104,6 +109,25 @@ public partial class Weapon : Interactable
 		Magazine?.Attachable?.Detach();
 	}
 
+	public bool TryFeedFromMagazine()
+	{
+		var ejectedBullets = Chamber.Eject();
+
+		if ( ejectedBullets is not null )
+		{
+		// 	OnBulletEjected( ejectedBullets );
+		}
+
+		var magazine = Magazine;
+		// Feed the weapon's chamber from its current magazine.
+		if ( Chamber.Feed( magazine ) > 0 )
+		{
+			return true;
+		}
+
+		return false;
+	}
+
 	/// <summary>
 	/// A conversion from RPM (rounds per minute) to a fire rate in seconds.
 	/// </summary>
@@ -151,16 +175,7 @@ public partial class Weapon : Interactable
 			return false;
 		}
 
-		return Magazine?.TakeBullet() ?? false;
-	}
-
-	/// <summary>
-	/// Does the current magazine have any ammo in it?
-	/// </summary>
-	/// <returns></returns>
-	public bool HasAmmo()
-	{
-		return ( Magazine?.BulletCount ?? 0 ) > 0;
+		return true;
 	}
 
 	protected override void OnUpdate()
@@ -171,12 +186,6 @@ public partial class Weapon : Interactable
 		{
 			if ( hand.IsTriggerDown() )
 			{
-				if ( !HasAmmo() )
-				{
-					TryDryShoot();
-					return;
-				}
-
 				TryShoot();
 			}
 
@@ -210,6 +219,15 @@ public partial class Weapon : Interactable
 		return BaseRecoilDecay;
 	}
 
+	private Bullet GetBullet()
+	{
+		if ( Chamber?.Eject() is { } bullets )
+		{
+			return bullets.First();
+		}
+		return null;
+	}
+
 	[Broadcast]
 	public void TryShoot()
 	{
@@ -217,14 +235,15 @@ public partial class Weapon : Interactable
 
 		TimeSinceShoot = 0;
 
-		CurrentRecoilAmount += CalcRecoil();
-
-		// did we just run out of ammo?
-		if ( !HasAmmo() )
+		var bullet = GetBullet();
+		if ( bullet is null )
 		{
-			// trigger the slide
 			SlideReleaseSystem?.TriggerEmpty();
+			TryDryShoot();
+			return;
 		}
+
+		CurrentRecoilAmount += CalcRecoil();
 
 		int count = 0;
 		foreach ( var tr in GetShootTrace() )
@@ -238,5 +257,8 @@ public partial class Weapon : Interactable
 			DoTracer( tr.StartPosition, tr.EndPosition, tr.Distance, count );
 			count++;
 		}
+
+		// If we succeed to shoot, let's feed another bullet into the chamber from the mag.
+		TryFeedFromMagazine();
 	}
 }

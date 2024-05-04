@@ -6,6 +6,11 @@ using System.Text.Json.Serialization;
 public partial class PointInteractable : BaseInteractable
 {
 	/// <summary>
+	/// When the completion value changes.
+	/// </summary>
+	[Property, Group( "Events")] public Action<float, float> OnCompletionValue { get; set; }
+
+	/// <summary>
 	/// The model renderer for this interactable.
 	/// </summary>
 	[Property, Group( "Components" )] public SkinnedModelRenderer Renderer { get; set; }
@@ -92,6 +97,8 @@ public partial class PointInteractable : BaseInteractable
 			if ( OneSound is not null )
 				Sound.Play( OneSound, Transform.Position );
 		}
+
+		OnCompletionValue?.Invoke( prev, value );
 	}
 
 	protected override void OnStart()

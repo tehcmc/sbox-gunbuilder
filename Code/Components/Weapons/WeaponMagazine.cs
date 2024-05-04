@@ -1,6 +1,12 @@
 using Sandbox;
+using System.Text.Json.Serialization;
 
-public sealed class WeaponMagazine : Component
+public interface IAmmoSource
+{
+	Stack<Bullet> Bullets { get; }
+}
+
+public sealed class WeaponMagazine : Component, IAmmoSource
 {
 	/// <summary>
 	/// The interactable that belongs to this weapon magazine. It'll always exist.
@@ -17,21 +23,15 @@ public sealed class WeaponMagazine : Component
 	/// </summary>
 	[Property] public SkinnedModelRenderer Renderer { get; set; }
 
-	private int bulletCount = 30;
 	/// <summary>
-	/// How many bullets are in this gun?
+	/// A list of the weapon's bullets.
 	/// </summary>
-	[Property] public int BulletCount
-	{
-		get => bulletCount;
-		set
-		{
-			if ( bulletCount == value ) return;
-			bulletCount = value;
+	[Property, MakeDirty] public Stack<Bullet> Bullets { get; set; }
 
-			Renderer?.SetBodyGroup( AmmoBodygroup, bulletCount > 0 ? 0 : 1 );
-		}
-	}
+	/// <summary>
+	/// Debugging
+	/// </summary>
+	[Property, JsonIgnore] public int ChamberCount => Bullets.Count;
 
 	/// <summary>
 	/// What's the ammo capacity for this gun?
@@ -50,21 +50,43 @@ public sealed class WeaponMagazine : Component
 	/// </summary>
 	public bool HasAmmo
 	{
-		get => BulletCount > 0;
+		get => Bullets.Count > 0;
+	}
+
+	protected override void OnStart()
+	{
+		// Push the bullet capacity into the gun
+		for ( int i = 0; i < BulletCapacity; i++ )
+		{
+			Push( new Bullet() );
+		}
 	}
 
 	/// <summary>
-	/// Tries to take a bullet from the magazine. Called when firing a gun.
+	/// Adds a bullet to the top of the pile.
 	/// </summary>
-	/// <returns></returns>
-	public bool TakeBullet()
+	/// <param name="bullets"></param>
+	public void Push( params Bullet[] bullets )
 	{
-		if ( IsInfiniteAmmo ) return true;
+		foreach ( var bullet in bullets )
+		{
+			Bullets.Push( bullet );
+		}
+	}
 
-		if ( BulletCount == 0 ) return false;
+	public IEnumerable<Bullet> Pop( int amount = 1 )
+	{
+		var popped = new List<Bullet>();
 
-		BulletCount--;
+		for ( int i = 0; i < amount; i++ )
+		{
+			popped.Add( Bullets.Pop() );
+		}
+		return popped;
+	}
 
-		return true;
+	protected override void OnDirty()
+	{
+		Renderer?.SetBodyGroup( AmmoBodygroup, Bullets.Count > 0 ? 0 : 1 );
 	}
 }
