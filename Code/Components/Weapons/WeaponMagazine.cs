@@ -115,7 +115,11 @@ public sealed class WeaponMagazine : Component, IAmmoSource, Component.ITriggerL
 
 		for ( int i = 0; i < amount; i++ )
 		{
-			popped.Add( Bullets.Pop() );
+			if ( Bullets.TryPop( out var bullet ) )
+			{
+				popped.Add( bullet );
+			}
+			else break;
 		}
 
 		if ( amount > 0 ) UpdateMesh();

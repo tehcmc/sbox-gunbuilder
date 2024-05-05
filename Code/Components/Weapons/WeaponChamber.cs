@@ -72,9 +72,8 @@ public partial class WeaponChamber : Component, Component.ITriggerListener
 
 		while ( CanInsert )
 		{
-			if ( src.Pop() is { } bullets )
+			if ( src.Pop() is { } bullets && bullets.FirstOrDefault() is { } bullet )
 			{
-				var bullet = bullets.First();
 				Log.Info( $"Pushed {bullet} into {this}" );
 				Chamber.Push( bullet );
 				count++;

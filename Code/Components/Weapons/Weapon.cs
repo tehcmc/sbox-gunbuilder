@@ -166,6 +166,7 @@ public partial class Weapon : Interactable
 	{
 		if ( SlideReleaseSystem?.IsPulled ?? false )
 		{
+			TryDryShoot();
 			return false;
 		}
 
@@ -223,7 +224,7 @@ public partial class Weapon : Interactable
 	{
 		if ( Chamber?.Eject() is { } bullets )
 		{
-			return bullets.First();
+			return bullets.FirstOrDefault();
 		}
 		return null;
 	}
@@ -238,7 +239,6 @@ public partial class Weapon : Interactable
 		var bullet = GetBullet();
 		if ( bullet is null )
 		{
-			SlideReleaseSystem?.TriggerEmpty();
 			TryDryShoot();
 			return;
 		}
@@ -259,6 +259,9 @@ public partial class Weapon : Interactable
 		}
 
 		// If we succeed to shoot, let's feed another bullet into the chamber from the mag.
-		TryFeedFromMagazine();
+		if ( !TryFeedFromMagazine() )
+		{
+			SlideReleaseSystem?.TriggerEmpty();
+		}
 	}
 }
