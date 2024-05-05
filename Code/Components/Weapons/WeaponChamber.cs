@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-public partial class WeaponChamber : Component
+public partial class WeaponChamber : Component, Component.ITriggerListener
 {
 	/// <summary>
 	/// A list of bullets that are in this chamber.
@@ -16,6 +16,11 @@ public partial class WeaponChamber : Component
 	/// How many bullets can we put in the chamber? For something like a shotgun
 	/// </summary>
 	[Property] public int ChamberCapacity { get; set; } = 1;
+
+	/// <summary>
+	/// Can we manually feed bullets into the chamber?
+	/// </summary>
+	[Property] public bool CanManuallyFeed { get; set; } = true;
 
 	/// <summary>
 	/// Should we auto-chamber from the weapon's ammo source?
@@ -50,13 +55,13 @@ public partial class WeaponChamber : Component
 	{
 		if ( src is null ) return 0;
 
-		var bullets = src.Bullets;
 		int count = 0;
 
 		while ( CanInsert )
 		{
-			if ( bullets.TryPop( out var bullet ) )
+			if ( src.Pop() is { } bullets )
 			{
+				var bullet = bullets.First();
 				Log.Info( $"Pushed {bullet} into {this}" );
 				Chamber.Push( bullet );
 				count++;
@@ -68,5 +73,27 @@ public partial class WeaponChamber : Component
 		}
 
 		return count;
+	}
+
+	[Property] public PointInteractable Bolt { get; set; }
+
+	void ITriggerListener.OnTriggerEnter( Sandbox.Collider other )
+	{
+		if ( other.GameObject.Root.Components.Get<BulletComponent>() is { } bulletComponent )
+		{
+			if ( !Bolt.IsValid() || ( Bolt.IsValid() && Bolt.CompletionValue.Equals( 1f ) ) )
+			{
+				if ( Feed( bulletComponent ) > 0 )
+				{
+					var interactable = bulletComponent.Components.Get<Interactable>();
+					if ( interactable is not null )
+					{
+						interactable.ClearAllInteractions();
+					}
+
+					other.GameObject.Destroy();
+				}
+			}
+		}
 	}
 }
