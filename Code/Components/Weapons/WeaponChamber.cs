@@ -27,6 +27,19 @@ public partial class WeaponChamber : Component, Component.ITriggerListener
 	/// </summary>
 	[Property] public bool AutoChamber { get; set; }
 
+	/// <summary>
+	/// A reference to the bolt of this weapon. If it has one.
+	/// </summary>
+	[Property] public PointInteractable Bolt { get; set; }
+
+	/// <summary>
+	/// A sound to play when we manually chamber the gun.
+	/// </summary>
+	[Property] public SoundEvent OnChamberSound { get; set; }
+
+	/// <summary>
+	/// Are we able to add a bullet into the chamber?
+	/// </summary>
 	bool CanInsert
 	{
 		get => Chamber.Count < ChamberCapacity;
@@ -75,8 +88,6 @@ public partial class WeaponChamber : Component, Component.ITriggerListener
 		return count;
 	}
 
-	[Property] public PointInteractable Bolt { get; set; }
-
 	void ITriggerListener.OnTriggerEnter( Sandbox.Collider other )
 	{
 		if ( other.GameObject.Root.Components.Get<BulletComponent>() is { } bulletComponent )
@@ -90,6 +101,9 @@ public partial class WeaponChamber : Component, Component.ITriggerListener
 					{
 						interactable.ClearAllInteractions();
 					}
+
+					if ( OnChamberSound is not null )
+						Sound.Play( OnChamberSound, Transform.Position );
 
 					other.GameObject.Destroy();
 				}
