@@ -56,6 +56,11 @@ public sealed class WeaponMagazine : Component, IAmmoSource, Component.ITriggerL
 	[Property] public int AmmoBodygroup { get; set; } = 0;
 
 	/// <summary>
+	/// Called when inserting a bullet manually into the mag.
+	/// </summary>
+	[Property] public SoundEvent OnChamberSound { get; set; }
+
+	/// <summary>
 	/// Does this magazine have any ammo?
 	/// </summary>
 	public bool HasAmmo
@@ -134,6 +139,9 @@ public sealed class WeaponMagazine : Component, IAmmoSource, Component.ITriggerL
 				{
 					interactable.ClearAllInteractions();
 				}
+
+				if ( OnChamberSound is not null )
+					Sound.Play( OnChamberSound, Transform.Position );
 
 				other.GameObject.Root.Destroy();
 			}
