@@ -5,11 +5,16 @@ public partial class SlideReleaseSystem : Component
 	[Property] public Weapon Weapon { get; set; }
 	[Property] public GrabPoint InputGrabPoint { get; set; }
 	[Property] public GrabPoint SlideGrabPoint { get; set; }
+
+	[Property] public bool SlideCatch { get; protected set; }
 	WeaponMagazine Magazine => Weapon?.Magazine;
 
 	public bool IsPulled => PointInteractable.CompletionValue.AlmostEqual( 1f );
 
+
+
 	bool slideCaught = false;
+	bool slideBack = false;
 	protected override void OnStart()
 	{
 		PointInteractable.OnCompletionValue += OnCompletionValue;
@@ -53,7 +58,14 @@ public partial class SlideReleaseSystem : Component
 	{
 		if ( !Hand.IsValid() ) return;
 
-		if ( Hand.GetController().ButtonB.IsPressed)
+		if(PointInteractable.CompletionValue.AlmostEqual(1f) && !slideBack)
+		{
+			if(slideCaught) slideCaught = false;
+			slideBack = true;
+		}
+
+
+		if ( Hand.GetController().ButtonB.IsPressed && SlideCatch)
 		{
 	
 			slideCaught = true;
@@ -63,11 +75,13 @@ public partial class SlideReleaseSystem : Component
 		{
 			PointInteractable.CompletionValue = 0;
 			slideCaught = false;
+			slideBack = false;
 		}
-		if (!slideHand.IsValid() && Hand.GetController().ButtonA.IsPressed && PointInteractable.CompletionValue.AlmostEqual( 1f ) )
+		if (!slideHand.IsValid() && Hand.GetController().ButtonA.IsPressed && slideBack )
 		{
 			PointInteractable.CompletionValue = 0;
 			slideCaught = false;
+			slideBack = false;
 		}
 
 
