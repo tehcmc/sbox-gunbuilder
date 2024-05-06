@@ -1077,6 +1077,7 @@
       "__guid": "aca4a52c-39f4-4b69-aa30-58c78ce9c855",
       "Name": "MP5",
       "Position": "38.44824,0.209504,66.60546",
+      "Enabled": true,
       "NetworkMode": 2,
       "NetworkInterpolation": true,
       "Components": [
@@ -1565,7 +1566,7 @@
                             {
                               "__guid": "c6395d7e-b48f-4d3e-8d2f-332a5b575f48",
                               "Name": "arm_lower_R_twistctrl0",
-                              "Position": "0,0,0",
+                              "Position": "0.00000919568,0.00001355891,0.000009435412",
                               "Enabled": true,
                               "NetworkMode": 2,
                               "NetworkInterpolation": true,
@@ -1573,7 +1574,7 @@
                                 {
                                   "__guid": "17afb5fa-6089-41ba-b3a9-77e70dc42b6a",
                                   "Name": "arm_lower_R_twist0",
-                                  "Position": "0,0,0",
+                                  "Position": "0.00001389427,0.000003847329,0.000006570231",
                                   "Enabled": true,
                                   "NetworkMode": 2,
                                   "NetworkInterpolation": true
@@ -1599,8 +1600,7 @@
                                         {
                                           "__guid": "22c2405f-1b3f-410c-946f-484c4235588c",
                                           "Name": "arm_lower_R_twist2",
-                                          "Position": "0.00002516591,0.00005976527,-0.00000542174",
-                                          "Rotation": "-0.0000002011657,0.00000102818,0.0000005289912,0.9999999",
+                                          "Position": "0.000005753105,0.00002393638,0.00001813593",
                                           "Enabled": true,
                                           "NetworkMode": 2,
                                           "NetworkInterpolation": true
@@ -1610,8 +1610,7 @@
                                     {
                                       "__guid": "7280ae12-635a-482a-abfd-f73e6fbbf05b",
                                       "Name": "arm_lower_R_twist1",
-                                      "Position": "0.00003639211,0.00004453846,0.000001846241",
-                                      "Rotation": "0.0000002533197,0.000001162291,0.0000003799796,0.9999999",
+                                      "Position": "0.00001624034,0.00001188554,0.00001680962",
                                       "Enabled": true,
                                       "NetworkMode": 2,
                                       "NetworkInterpolation": true
@@ -1884,7 +1883,7 @@
                             {
                               "__guid": "5554f900-72db-4da2-a77a-b80a6efab5d0",
                               "Name": "arm_lower_L_twistctrl0",
-                              "Position": "0,0,0",
+                              "Position": "-0.000002561694,0.0000006928838,0.000002740356",
                               "Enabled": true,
                               "NetworkMode": 2,
                               "NetworkInterpolation": true,
@@ -1910,7 +1909,7 @@
                                         {
                                           "__guid": "e03fc93f-2868-47de-9cb8-017c2fba2578",
                                           "Name": "arm_lower_L_twist2",
-                                          "Position": "0,0,0",
+                                          "Position": "0.000007850051,-0.000009095898,0.00002759525",
                                           "Enabled": true,
                                           "NetworkMode": 2,
                                           "NetworkInterpolation": true
@@ -1920,7 +1919,7 @@
                                     {
                                       "__guid": "fc46b352-eaf0-4d3f-8a33-45b087faa144",
                                       "Name": "arm_lower_L_twist1",
-                                      "Position": "0,0,0",
+                                      "Position": "-0.00000564914,-0.000003181769,0.00001534143",
                                       "Enabled": true,
                                       "NetworkMode": 2,
                                       "NetworkInterpolation": true
@@ -1930,7 +1929,7 @@
                                 {
                                   "__guid": "7d1d13f1-b4a3-42c8-850e-930b8bf4c0d1",
                                   "Name": "arm_lower_L_twist0",
-                                  "Position": "0,0,0",
+                                  "Position": "-0.00001228277,0.000007820928,0.000003798789",
                                   "Enabled": true,
                                   "NetworkMode": 2,
                                   "NetworkInterpolation": true
@@ -6265,7 +6264,7 @@
   },
   "Title": "testbed",
   "Description": "",
-  "LastSaved": "2024-05-05T11:35:21.6485026\u002B01:00",
+  "LastSaved": "2024-05-06T09:44:04.1015072\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
