@@ -8,13 +8,16 @@ public partial class SlideReleaseSystem : Component
 
 	[Property] public bool SlideCatch { get; protected set; }
 	WeaponMagazine Magazine => Weapon?.Magazine;
-
+	WeaponChamber Chamber => Weapon?.Chamber;
 	public bool IsPulled => PointInteractable.CompletionValue.AlmostEqual( 1f );
 
 
 
 	bool slideCaught = false;
 	bool slideBack = false;
+
+	bool cat = false;
+	[Property] public bool outVRC { get; set; } = false; //testc stuff
 	protected override void OnStart()
 	{
 		PointInteractable.OnCompletionValue += OnCompletionValue;
@@ -40,14 +43,25 @@ public partial class SlideReleaseSystem : Component
 
 	public void TriggerEmpty()
 	{
-		if(Magazine is not null && !Magazine.HasAmmo)//if mag is empty hold slide. TODO add slide catch functionality to manually hold slide.
+		if(LockSlide())//if mag is empty hold slide. TODO add slide catch functionality to manually hold slide.
 		{
-			PointInteractable.CompletionValue = 1f;
+			PointInteractable.CompletionValue = 0.9999f;
 		}
 		else
 		{
 			PointInteractable.CompletionValue = 0;
 		}
+	}
+
+	public bool LockSlide()
+	{
+		if ( Magazine is not null && !Magazine.HasAmmo ) return true;
+
+		if ( cat ) return true;
+
+		return false;
+
+
 	}
 
 	public Hand Hand => InputGrabPoint?.HeldHand;
@@ -58,20 +72,15 @@ public partial class SlideReleaseSystem : Component
 	{
 		if ( !Hand.IsValid() ) return;
 
-		if(PointInteractable.CompletionValue.AlmostEqual(1f) && !slideBack)
+		
+
+		if(PointInteractable.CompletionValue.AlmostEqual(1f) || PointInteractable.CompletionValue ==1f && !slideBack)
 		{
 			if(slideCaught) slideCaught = false;
 			slideBack = true;
 		}
 
-
-		if ( Hand.GetController().ButtonB.IsPressed && SlideCatch)
-		{
-			if(slideBack) slideBack = false;
-			slideCaught = true;
-		}
-
-		if (!slideCaught && IsPulled && !slideHand.IsValid() && (Magazine is null || (Magazine is not null && Magazine.HasAmmo)) )
+		if (!slideCaught && IsPulled && !slideHand.IsValid() && !LockSlide() )
 		{
 			PointInteractable.CompletionValue = 0;
 			slideCaught = false;
@@ -82,6 +91,7 @@ public partial class SlideReleaseSystem : Component
 			PointInteractable.CompletionValue = 0;
 			slideCaught = false;
 			slideBack = false;
+			cat = false; 
 		}
 
 
