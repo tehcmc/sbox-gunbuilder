@@ -16,8 +16,8 @@ public partial class SlideReleaseSystem : Component
 	bool slideCaught = false;
 	bool slideBack = false;
 
-	bool cat = false;
-	[Property] public bool outVRC { get; set; } = false; //testc stuff
+
+
 	protected override void OnStart()
 	{
 		PointInteractable.OnCompletionValue += OnCompletionValue;
@@ -43,7 +43,7 @@ public partial class SlideReleaseSystem : Component
 
 	public void TriggerEmpty()
 	{
-		if(LockSlide())//if mag is empty hold slide. TODO add slide catch functionality to manually hold slide.
+		if(LockSlide()) //if mag is empty hold slide. TODO add slide catch functionality to manually hold slide.
 		{
 			PointInteractable.CompletionValue = 0.9999f;
 		}
@@ -56,12 +56,14 @@ public partial class SlideReleaseSystem : Component
 	public bool LockSlide()
 	{
 		if ( Magazine is not null && !Magazine.HasAmmo ) return true;
-
-		if ( cat ) return true;
-
 		return false;
+	}
 
-
+	public void ResetSlide()
+	{
+		PointInteractable.CompletionValue = 0;
+		slideCaught = false;
+		slideBack = false;
 	}
 
 	public Hand Hand => InputGrabPoint?.HeldHand;
@@ -82,16 +84,12 @@ public partial class SlideReleaseSystem : Component
 
 		if (!slideCaught && IsPulled && !slideHand.IsValid() && !LockSlide() )
 		{
-			PointInteractable.CompletionValue = 0;
-			slideCaught = false;
-			slideBack = false;
+			ResetSlide();
 		}
+
 		if (!slideHand.IsValid() && Hand.GetController().ButtonA.IsPressed && slideBack )
 		{
-			PointInteractable.CompletionValue = 0;
-			slideCaught = false;
-			slideBack = false;
-			cat = false; 
+			ResetSlide();
 		}
 
 
