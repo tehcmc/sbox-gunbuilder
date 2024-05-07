@@ -67,7 +67,7 @@ public partial class SlideReleaseSystem : Component
 
 		if ( Hand.GetController().ButtonB.IsPressed && SlideCatch)
 		{
-	
+			if(slideBack) slideBack = false;
 			slideCaught = true;
 		}
 
