@@ -9440,46 +9440,6 @@
       ]
     },
     {
-      "__guid": "cbc2752e-832a-42d7-900e-f6c61ea1ff86",
-      "Name": "male",
-      "Position": "-192.5122,76.91391,0.6178891",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "NetworkInterpolation": true,
-      "Components": [
-        {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "6a3a5565-edcf-4a20-bd6e-bf575a5206b1",
-          "BodyGroups": 7192,
-          "MaterialGroup": "skin1",
-          "Model": "models/humans/male.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        }
-      ],
-      "Children": [
-        {
-          "__guid": "0b75160e-9cd3-425c-b9eb-913d4e36e918",
-          "Name": "frank",
-          "Position": "0,0,0",
-          "Enabled": true,
-          "NetworkMode": 2,
-          "NetworkInterpolation": true,
-          "Components": [
-            {
-              "__type": "Sandbox.SkinnedModelRenderer",
-              "__guid": "46726745-6823-49b7-8f3c-671013af41d6",
-              "BodyGroups": 5,
-              "CreateBoneObjects": false,
-              "Model": "models/humans/heads/frank/frank.vmdl",
-              "RenderType": "On",
-              "Tint": "1,1,1,1"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "__guid": "436c7290-0468-4ba8-ab18-cc4ce80a70da",
       "Name": "oil_drum_a",
       "Position": "20.34867,486.3261,0.04251567",
@@ -9594,6 +9554,218 @@
           }
         }
       ]
+    },
+    {
+      "__guid": "a46a0cba-ceae-44e4-ae6c-a148359a633c",
+      "Name": "office_desk (1)",
+      "Position": "-223.9998,120.0001,0.113265",
+      "Rotation": "0,0,0.7071066,0.7071067",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "a66f1796-460f-4f50-b09f-c9a2e4ccd87a",
+          "BodyGroups": 18446744073709551615,
+          "Health": 100,
+          "IsStatic": false,
+          "Model": "models/sbox_props/office_desk/office_desk.vmdl"
+        }
+      ]
+    },
+    {
+      "__guid": "3bcea87e-d827-43e6-a9f9-0cd4cbf2761d",
+      "Name": "office_desk",
+      "Position": "-223.9999,40.0001,0.113265",
+      "Rotation": "0,0,0.7071066,0.7071067",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "d5c72845-e2bc-441c-94d7-98ffd16c5839",
+          "BodyGroups": 18446744073709551615,
+          "Health": 100,
+          "IsStatic": false,
+          "Model": "models/sbox_props/office_desk/office_desk.vmdl"
+        }
+      ]
+    },
+    {
+      "__guid": "4f62e947-a739-42f4-878c-c1dd2eae9baa",
+      "Name": "metal_wheely_bin",
+      "Position": "-216.1366,193.8928,0.6349892",
+      "Rotation": "0,0,-0.996968,0.07781085",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SkinnedModelRenderer",
+          "__guid": "bb52f9f0-56f2-4881-a80b-887c72dcbe3e",
+          "BodyGroups": 18446744073709551615,
+          "CreateBoneObjects": false,
+          "Model": "models/sbox_props/metal_wheely_bin/metal_wheely_bin.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "85b06f10-0f6e-4cb9-8cc0-f8e444048feb",
+          "IsTrigger": false,
+          "Model": "models/sbox_props/metal_wheely_bin/metal_wheely_bin.vmdl",
+          "Static": false
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "80a6e73c-a12c-4f95-b543-d527d9a85790",
+          "Name": "Void",
+          "Position": "-0,0,0",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "Components": [
+            {
+              "__type": "TrashRemoverComponent",
+              "__guid": "391cc9a8-9b9c-4b65-ba70-e1a61637cb69"
+            },
+            {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "11c4dab0-95b4-46d1-bf10-76164f046110",
+              "Center": "0,0,24.79997",
+              "IsTrigger": false,
+              "Scale": "45,30,30",
+              "Static": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "85154bbe-44d8-4c31-b3f8-6c322b9f687d",
+      "Name": "Game (1)",
+      "Position": "-170.8653,50.11655,2.00001",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/game.prefab"
+    },
+    {
+      "__guid": "889fca9d-dd78-45a0-a742-087352915237",
+      "Name": "MP5",
+      "Position": "-201.7965,111.692,34.39145",
+      "Rotation": "-0.4999999,-0.4999998,0.4999999,0.4999999",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/mp5/mp5.prefab"
+    },
+    {
+      "__guid": "a273bbd5-952a-4f37-a93f-cea173c38397",
+      "Name": "MP5 Magazine (3)",
+      "Position": "-211.4669,132,33.38082",
+      "Rotation": "0.2705979,-0.6532816,0.6532817,-0.2705979",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/mp5/mp5_magazine.prefab"
+    },
+    {
+      "__guid": "22b09129-1015-4b5a-8f7e-ee2991b90d7a",
+      "Name": "MP5 Magazine (2)",
+      "Position": "-211.4669,136,33.38082",
+      "Rotation": "0.2705979,-0.6532816,0.6532817,-0.2705979",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/mp5/mp5_magazine.prefab"
+    },
+    {
+      "__guid": "f59f504f-2b8c-40da-8477-9eadb4c50dcf",
+      "Name": "MP5 Magazine (1)",
+      "Position": "-211.4669,140,33.38082",
+      "Rotation": "0.2705979,-0.6532816,0.6532817,-0.2705979",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/mp5/mp5_magazine.prefab"
+    },
+    {
+      "__guid": "cec172cf-b51f-4bb3-bb05-9f59b4f01b6e",
+      "Name": "MP5 Magazine",
+      "Position": "-211.4669,144.7734,33.38082",
+      "Rotation": "0.2705979,-0.6532816,0.6532817,-0.2705979",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/mp5/mp5_magazine.prefab"
+    },
+    {
+      "__guid": "e4ed93d5-4c86-419d-b156-536866048064",
+      "Name": "USP (1)",
+      "Position": "-208,56,31.47736",
+      "Rotation": "-0.2476718,0.00000005255767,0.9688439,0.0000001874795",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/usp/usp.prefab"
+    },
+    {
+      "__guid": "cd9d9de9-2e4f-4c5c-8bc1-a52acf875ebb",
+      "Name": "USP",
+      "Position": "-208,60,31.47736",
+      "Rotation": "-0.2476718,0.00000005255767,0.9688439,0.0000001874795",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/usp/usp.prefab"
+    },
+    {
+      "__guid": "1d00098d-fba8-4026-b78c-08d33ce6324d",
+      "Name": "USP Magazine (3)",
+      "Position": "-210.8071,44,35.11327",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/usp/usp_magazine.prefab"
+    },
+    {
+      "__guid": "b74ea274-f575-4663-98f1-92d31786e2c6",
+      "Name": "USP Magazine (2)",
+      "Position": "-210.8071,40,35.11327",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/usp/usp_magazine.prefab"
+    },
+    {
+      "__guid": "ad6edbda-ec69-42e3-96cd-e130aa730562",
+      "Name": "USP Magazine (1)",
+      "Position": "-210.8071,36,35.11327",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/usp/usp_magazine.prefab"
+    },
+    {
+      "__guid": "d5228fa1-8344-4915-b140-88b23e70aee1",
+      "Name": "USP Magazine",
+      "Position": "-210.8071,48,35.11327",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/usp/usp_magazine.prefab"
     }
   ],
   "SceneProperties": {
@@ -9619,7 +9791,7 @@
   },
   "Title": "shooting_range",
   "Description": "",
-  "LastSaved": "2024-05-07T15:06:17.4138168\u002B01:00",
+  "LastSaved": "2024-05-07T17:16:21.3989003\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
@@ -9668,6 +9840,8 @@
     "facepunch.metal_painted_c",
     "facepunch.metal_rust_a_hs",
     "facepunch.metal_trim_clean",
+    "facepunch.metal_wheely_bin",
+    "facepunch.office_desk",
     "facepunch.oil_drum",
     "facepunch.outside_socket",
     "facepunch.plasticbucketa1",

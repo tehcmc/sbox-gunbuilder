@@ -1,0 +1,145 @@
+{
+  "RootObject": {
+    "__guid": "a4339880-82d8-419e-a4d1-3425ad0bc050",
+    "Name": "9mm Bullet",
+    "Position": "40.30875,4.878722,66.10013",
+    "Rotation": "0.0009143638,-0.1407643,-0.0006161518,0.9900426",
+    "Tags": "magazine",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkInterpolation": true,
+    "Components": [
+      {
+        "__type": "Interactable",
+        "__guid": "b390fe1e-24e9-4950-880d-ae57cf3e0fd3",
+        "MassScale": 1,
+        "Rigidbody": {
+          "_type": "component",
+          "component_id": "68d1782f-bf43-4ca9-b778-186b4d0a201a",
+          "go": "a4339880-82d8-419e-a4d1-3425ad0bc050",
+          "component_type": "Rigidbody"
+        }
+      },
+      {
+        "__type": "Sandbox.Rigidbody",
+        "__guid": "68d1782f-bf43-4ca9-b778-186b4d0a201a",
+        "AngularDamping": 5,
+        "Gravity": true,
+        "LinearDamping": 4.5,
+        "Locking": {},
+        "MassOverride": 50,
+        "MotionEnabled": true,
+        "RigidbodyFlags": 0,
+        "StartAsleep": false
+      },
+      {
+        "__type": "Attachable",
+        "__guid": "fb874461-0238-4221-a983-aa8194e6e7c3",
+        "AttachSound": "sounds/weapons/m4a1/m4_magazine_in.sound",
+        "DetachSound": "sounds/weapons/m4a1/m4_magazine_in.sound",
+        "Interactable": {
+          "_type": "component",
+          "component_id": "b390fe1e-24e9-4950-880d-ae57cf3e0fd3",
+          "go": "a4339880-82d8-419e-a4d1-3425ad0bc050",
+          "component_type": "Interactable"
+        },
+        "Rigidbody": {
+          "_type": "component",
+          "component_id": "68d1782f-bf43-4ca9-b778-186b4d0a201a",
+          "go": "a4339880-82d8-419e-a4d1-3425ad0bc050",
+          "component_type": "Rigidbody"
+        }
+      },
+      {
+        "__type": "BulletComponent",
+        "__guid": "6cf9ba7b-d053-40c5-95c6-7749534255a3",
+        "Bullet": {
+          "Caliber": "Nine"
+        }
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "f717711a-2ee5-4a0a-93c5-b2390aa7f830",
+        "Name": "Model",
+        "Position": "1.998995,1.434895,0.2537762",
+        "Rotation": "-0.001974069,0.02005978,-0.09791604,0.9949902",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.SkinnedModelRenderer",
+            "__guid": "1632579e-4d68-4c47-8ec0-75ff89a59587",
+            "BodyGroups": 1,
+            "CreateBoneObjects": false,
+            "Model": "models/weapons/sbox_ammo/9mm_bullet/9mm_bullet.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          },
+          {
+            "__type": "Sandbox.BoxCollider",
+            "__guid": "916a3729-dbde-487c-87d8-849ba9dd8e4c",
+            "Center": "0,0,0",
+            "IsTrigger": false,
+            "Scale": "1,0.5,0.5",
+            "Static": false
+          }
+        ]
+      },
+      {
+        "__guid": "291a99a3-ac47-4ca3-adca-9c3676a2d526",
+        "Name": "Grab Point",
+        "Position": "-0.5497334,-0.05147595,0.02175736",
+        "Rotation": "-0.258819,-0.00000001449371,0,0.9659259",
+        "Tags": "trigger",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "GrabPoint",
+            "__guid": "31eced3d-0e65-46f8-b4b2-87e90ded973b",
+            "Collider": {
+              "_type": "component",
+              "component_id": "ce56869c-5406-4394-b18a-fe5d3e5a87a4",
+              "go": "291a99a3-ac47-4ca3-adca-9c3676a2d526",
+              "component_type": "SphereCollider"
+            },
+            "GrabInput": "Grip",
+            "Interactable": {
+              "_type": "component",
+              "component_id": "b390fe1e-24e9-4950-880d-ae57cf3e0fd3",
+              "go": "a4339880-82d8-419e-a4d1-3425ad0bc050",
+              "component_type": "Interactable"
+            },
+            "Preset": {
+              "Thumb": 0.6,
+              "Index": 0.43,
+              "Middle": 0.3,
+              "Ring": 0.4,
+              "Pinky": 0.34
+            },
+            "PresetDebugging": false
+          },
+          {
+            "__type": "Sandbox.SphereCollider",
+            "__guid": "ce56869c-5406-4394-b18a-fe5d3e5a87a4",
+            "Center": "2.8,0.6000001,1.4",
+            "IsTrigger": true,
+            "Radius": 1.5,
+            "Static": false
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": [
+    "facepunch.9mm_bullet"
+  ]
+}
