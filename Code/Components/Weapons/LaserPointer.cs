@@ -55,6 +55,9 @@ public partial class LaserPointerComponent : Component, Component.ExecuteInEdito
 	{
 		if ( enabled )
 		{
+			LineParticleSystem?.Destroy();
+			DotParticleSystem?.Destroy();
+
 			if ( LineParticle is not null )
 			{
 				LineParticleSystem = Components.Create<LegacyParticleSystem>();
@@ -101,6 +104,8 @@ public partial class LaserPointerComponent : Component, Component.ExecuteInEdito
 		SetEnabled( false );
 	}
 
+	TimeSince TimeSinceToggled { get; set; } = 1;
+
 	protected override void OnUpdate()
 	{
 		if ( LineParticleSystem.IsValid() )
@@ -108,5 +113,17 @@ public partial class LaserPointerComponent : Component, Component.ExecuteInEdito
 
 		if ( DotParticleSystem.IsValid() )
 			DotParticleSystem.ControlPoints = DotCPs;
+
+		if ( GrabPoint.IsValid() && GrabPoint.HeldHand.IsValid() )
+		{
+			var controller = GrabPoint.HeldHand.GetController();
+			if ( controller.JoystickPress.IsPressed && TimeSinceToggled > 0.5f )
+			{
+				TimeSinceToggled = 0;
+
+				IsEnabled ^= true;
+				SetEnabled( IsEnabled );
+			}
+		}
 	}
 }

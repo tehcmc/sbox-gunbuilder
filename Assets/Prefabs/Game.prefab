@@ -1,0 +1,31 @@
+{
+  "RootObject": {
+    "__guid": "41021595-0d1f-4c86-9f74-2addcf6d1a40",
+    "Name": "Game",
+    "Position": "19.58845,0,41.52672",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkInterpolation": true,
+    "Components": [
+      {
+        "__type": "NetworkManager",
+        "__guid": "a27fc402-143f-4aac-9cab-75fd61733ccf",
+        "IsMultiplayer": true,
+        "PlayerPrefab": {
+          "_type": "gameobject",
+          "prefab": "prefabs/player.prefab"
+        },
+        "SpawnPoint": {
+          "_type": "gameobject",
+          "go": "41021595-0d1f-4c86-9f74-2addcf6d1a40"
+        }
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": []
+}
