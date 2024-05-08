@@ -55,7 +55,8 @@ public partial class SlideReleaseSystem : Component
 
 	public bool LockSlide()
 	{
-		if ( Magazine is not null && !Magazine.HasAmmo ) return true;
+		if ( (Magazine is not null && !Magazine.HasAmmo) && (Chamber is not null && Chamber.Chamber.Count == 0) ) return true;
+
 		return false;
 	}
 
@@ -64,12 +65,16 @@ public partial class SlideReleaseSystem : Component
 		PointInteractable.CompletionValue = 0;
 		slideCaught = false;
 		slideBack = false;
+		if ( Chamber is not null && Chamber.ChamberCount != 0 && Magazine is not null )
+		{
+			Chamber.Feed(Magazine);
+		}
 	}
 
 	public Hand Hand => InputGrabPoint?.HeldHand;
-	public Hand slideHand => SlideGrabPoint?.HeldHand;
+	public Hand SlideHand => SlideGrabPoint?.HeldHand;
 
-	public bool slideUp = false;
+
 	protected override void OnUpdate()
 	{
 		if ( !Hand.IsValid() ) return;
@@ -80,14 +85,19 @@ public partial class SlideReleaseSystem : Component
 		{
 			if(slideCaught) slideCaught = false;
 			slideBack = true;
+
+			if(Chamber is not null && Chamber.ChamberCount !=0)
+			{
+				Chamber.Eject();
+			}
 		}
 
-		if (!slideCaught && IsPulled && !slideHand.IsValid() && !LockSlide() )
+		if (IsPulled && !SlideHand.IsValid() && !LockSlide() )
 		{
 			ResetSlide();
 		}
 
-		if (!slideHand.IsValid() && Hand.GetController().ButtonA.IsPressed && slideBack )
+		if (LockSlide() && Hand.GetController().ButtonA.IsPressed && slideBack )
 		{
 			ResetSlide();
 		}
