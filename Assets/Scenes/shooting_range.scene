@@ -9533,29 +9533,6 @@
       ]
     },
     {
-      "__guid": "b97ee472-8b10-409e-8378-d26776f4e0f4",
-      "Name": "Game",
-      "Position": "-64,0,17.38339",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "NetworkInterpolation": true,
-      "Components": [
-        {
-          "__type": "NetworkManager",
-          "__guid": "c1976f52-8013-4ec3-9760-df93a6fa5c93",
-          "IsMultiplayer": true,
-          "PlayerPrefab": {
-            "_type": "gameobject",
-            "prefab": "prefabs/player.prefab"
-          },
-          "SpawnPoint": {
-            "_type": "gameobject",
-            "go": "b97ee472-8b10-409e-8378-d26776f4e0f4"
-          }
-        }
-      ]
-    },
-    {
       "__guid": "a46a0cba-ceae-44e4-ae6c-a148359a633c",
       "Name": "office_desk (1)",
       "Position": "-223.9998,120.0001,0.113265",
@@ -9623,7 +9600,7 @@
         {
           "__guid": "80a6e73c-a12c-4f95-b543-d527d9a85790",
           "Name": "Void",
-          "Position": "-0,0,0",
+          "Position": "0,0,0",
           "Enabled": true,
           "NetworkMode": 2,
           "NetworkInterpolation": true,
@@ -9847,7 +9824,7 @@
   },
   "Title": "shooting_range",
   "Description": "",
-  "LastSaved": "2024-05-07T19:36:19.7904692\u002B01:00",
+  "LastSaved": "2024-05-08T09:45:49.1992775\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
