@@ -66,6 +66,7 @@ public partial class Hand : Component, Component.ITriggerListener
 	{
 		return inputType switch
 		{
+			GrabPoint.GrabInputType.Hover => true,
 			GrabPoint.GrabInputType.Grip => IsGripDown(),
 			GrabPoint.GrabInputType.Trigger => IsTriggerDown(),
 			_ => false
@@ -134,9 +135,21 @@ public partial class Hand : Component, Component.ITriggerListener
 
 		if ( IsProxy ) return;
 
-		if ( IsGripDown() || IsTriggerDown() )
+		// Auto-detach for hover input type
+		if ( CurrentGrabPoint.IsValid() && CurrentGrabPoint.GrabInput == GrabPoint.GrabInputType.Hover )
 		{
-			var point = GetPrioritizedGrabPoint();
+			// Detach!
+			if ( CurrentGrabPoint.Transform.Position.Distance( Transform.Position ) > 32f )
+			{
+				StopGrabbing();
+				return;
+			}
+		}
+
+		var point = GetPrioritizedGrabPoint();
+
+		if ( point.IsValid() && IsDown( point.GrabInput ) )
+		{
 			if ( !point.IsValid() ) return;
 			StartGrabbing( point );
 		}

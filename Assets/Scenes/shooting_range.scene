@@ -1392,6 +1392,7 @@
               "0.25,0.25",
               "0.25,0.25",
               "0.25,0.25",
+              "0.1,0.1",
               "0.25,0.25",
               "0.25,0.25",
               "0.25,0.25",
@@ -1400,8 +1401,7 @@
               "0.25,0.25",
               "0.25,0.25",
               "0.25,0.25",
-              "0.25,0.25",
-              "0.25,0.25",
+              "0.1,0.1",
               "0.25,0.25",
               "0.25,0.25",
               "0.25,0.25",
@@ -2156,6 +2156,7 @@
               "0.25,0.25",
               "0.25,0.25",
               "0.25,0.25",
+              "0.1,0.1",
               "0.25,0.25",
               "0.25,0.25",
               "0.25,0.25",
@@ -2164,8 +2165,7 @@
               "0.25,0.25",
               "0.25,0.25",
               "0.25,0.25",
-              "0.25,0.25",
-              "0.25,0.25",
+              "0.1,0.1",
               "0.25,0.25",
               "0.25,0.25",
               "0.25,0.25",
@@ -2921,6 +2921,7 @@
               "0.25,0.25",
               "0.25,0.25",
               "0.25,0.25",
+              "0.1,0.1",
               "0.25,0.25",
               "0.25,0.25",
               "0.25,0.25",
@@ -2929,8 +2930,7 @@
               "0.25,0.25",
               "0.25,0.25",
               "0.25,0.25",
-              "0.25,0.25",
-              "0.25,0.25",
+              "0.1,0.1",
               "0.25,0.25",
               "0.25,0.25",
               "0.25,0.25",
@@ -3612,6 +3612,7 @@
               "0.25,0.25",
               "0.25,0.25",
               "0.25,0.25",
+              "0.1,0.1",
               "0.25,0.25",
               "0.25,0.25",
               "0.25,0.25",
@@ -3620,8 +3621,7 @@
               "0.25,0.25",
               "0.25,0.25",
               "0.25,0.25",
-              "0.25,0.25",
-              "0.25,0.25",
+              "0.1,0.1",
               "0.25,0.25",
               "0.25,0.25",
               "0.25,0.25",
@@ -6427,419 +6427,6 @@
       ]
     },
     {
-      "__guid": "94415e5b-62cc-4a55-83b1-dbf7b69330bd",
-      "Name": "Box (13)",
-      "Position": "136.4027,382.8439,49.30565",
-      "Rotation": "-0.5000001,-0.5,0.5000001,0.5000001",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "NetworkInterpolation": true,
-      "Components": [
-        {
-          "__type": "Sandbox.MeshComponent",
-          "__guid": "9594515a-7eab-4c0a-8010-de4091911cc6",
-          "Collision": "Mesh",
-          "Color": "0.11628,0.11628,0.11628,1",
-          "IsTrigger": false,
-          "Mesh": {
-            "Topology": "H4sIAAAAAAAACoWUWVNTQRCFsxCykj1AIlEUQRQUBBQVFXeNCy6ACO778v/ftb\u002Bq71bdN1N1KnPn9HK6Z3oGmUzmT2AmUA7cDVQDjUA7cD8wCgwDg8ClwHrgYWA5cCGwGlgLbATuBPYDbwPvA3uB14E3gaPAu8B4IBs4EcgFkh/5/8aPvHnjtLTNqQ2\u002BGP\u002BFwDH/4cbUDc8am65x8\u002BZsyCe5Minfkj7wOWONGR9U7AU8miYCO2ojds01fN5c7GeMWzcO/P9\u002B5OrY57I62mrMudfzzDLyXW3K\u002Bk55Bl3zTgam7QVx\u002BoEFvwtyFddFezu0hpJn30/xQ2tKejnj3cB\u002B3LMdGRMcV1dOTSe9Hz17PRu4qG0zMBe4YQ7yn1JD0uv5wGU5cFqbumdzxruZ1LugTcmzORu4pS36F9VSNsZS4Kq50HTOGpJ6zrsHX3MWrtkb6llxRvLmQMtNuaq1rriuO0NLqfjr5iiqd03N6Cvb60VjN529OfvD3qY9KKmPXl0xVt3atv2uyS27Zm/LnEX3qO26uZqezW3XNbl5Y9eNvWp9E9a\u002BaeymvhtyDc9iSy7rrHNXmLWW7wq2zEfBWZxM3ft79hq\u002Bau9nPVPu3QNnInkLRqmZJcYj72RFnyeBD8Ym/2M1tMz7LPDF2Ow91aZtnue\u002BeVn5HW06ztrLwGdt8XlhDV3nbDfw0zuPzytr6Gm/r8\u002BUe3tqbml/oM9AvbzB31I9O7TmrDHQ\u002BkttHd\u002BOg9S7caRmfLvO7qFc33d9Vy34fLRHbffo5Sdtp639u9/wcNSAFvDVHqKFePT6R4B3CX980QQHqI2cxAP07rf28PjSg\u002BQdg0MzschH7eTEnvo4L3LzbnCn8GG\u002BmANmiVlkXrnXzBL3l5ng3nO3k/uDbvpGb9BI3eRCf6LxH/zO2A\u002BEBwAA",
-            "Positions": [
-              "-128,-192,-0.4011633",
-              "128,-192,-0.4011633",
-              "128,64.00002,-0.7073823",
-              "-128,64.00002,-0.4011633",
-              "-128,-64.00008,-0.7073823",
-              "128,-63.99999,-0.7073823",
-              "0.00003051758,-192,3.292606",
-              "-0.000001907349,64.00001,-0.7073823",
-              "64,0.000003814697,3.292606",
-              "-64,-0.000007629395,3.292606",
-              "-63.99998,-128,3.292606",
-              "64.00005,-128,2.33483",
-              "0.00001811981,-63.99995,7.292618",
-              "64.00003,-63.99995,7.292618",
-              "0.00005340576,-128,-0.7073823",
-              "-63.99999,-63.99998,7.292618",
-              "-0.0000118478,0.00004421657,-0.7073823",
-              "64.00002,-192,1.445721",
-              "128,-128,-0.5542728",
-              "96.00002,-96,1.292612",
-              "32.00003,-160,3.292606",
-              "96.00001,-160,0.4457243",
-              "73.98789,-158.7321,11.29262",
-              "48.00002,-176,2.369164",
-              "112,-112,0.3691695",
-              "64.00002,-128,2.292609"
-            ],
-            "TextureOrigin": [
-              "0,0,0",
-              "0,0,0",
-              "0,0,0",
-              "0,0,0",
-              "0,0,0",
-              "0,0,0",
-              "0,0,0",
-              "0,0,0",
-              "0,0,0",
-              "0,0,0",
-              "0,0,0",
-              "0,0,0",
-              "0,0,0",
-              "0,0,0",
-              "0,0,0",
-              "0,0,0",
-              "0,0,0",
-              "0,0,0",
-              "0,0,0",
-              "0,0,0",
-              "0,0,0",
-              "0,0,0",
-              "0,0,0",
-              "0,0,0",
-              "0,0,0",
-              "0,0,0",
-              "0,0,0",
-              "0,0,0"
-            ],
-            "TextureRotation": [
-              "0,0,0,0",
-              "0,0,0,0",
-              "0,0,0,0",
-              "0,0,0,0",
-              "0,0,0,0",
-              "0,0,0,0",
-              "0,0,0,0",
-              "0,0,0,0",
-              "0,0,0,0",
-              "0,0,0,0",
-              "0,0,0,0",
-              "0,0,0,0",
-              "0,0,0,0",
-              "0,0,0,0",
-              "0,0,0,0",
-              "0,0,0,0",
-              "0,0,0,0",
-              "0,0,0,0",
-              "0,0,0,0",
-              "0,0,0,0",
-              "0,0,0,0",
-              "0,0,0,0",
-              "0,0,0,0",
-              "0,0,0,0",
-              "0,0,0,0",
-              "0,0,0,0",
-              "0,0,0,0",
-              "0,0,0,0"
-            ],
-            "TextureUAxis": [
-              "1,0,0",
-              "1,0,0",
-              "1,0,0",
-              "1,0,0",
-              "1,0,0",
-              "1,0,0",
-              "1,0,0",
-              "1,0,0",
-              "1,0,0",
-              "1,0,0",
-              "1,0,0",
-              "1,0,0",
-              "1,0,0",
-              "1,0,0",
-              "1,0,0",
-              "1,0,0",
-              "1,0,0",
-              "1,0,0",
-              "1,0,0",
-              "1,0,0",
-              "1,0,0",
-              "1,0,0",
-              "1,0,0",
-              "1,0,0",
-              "1,0,0",
-              "1,0,0",
-              "1,0,0",
-              "1,0,0"
-            ],
-            "TextureVAxis": [
-              "0,-1,0",
-              "0,-1,0",
-              "0,-1,0",
-              "0,-1,0",
-              "0,-1,0",
-              "0,-1,0",
-              "0,-1,0",
-              "0,-1,0",
-              "0,-1,0",
-              "0,-1,0",
-              "0,-1,0",
-              "0,-1,0",
-              "0,-1,0",
-              "0,-1,0",
-              "0,-1,0",
-              "0,-1,0",
-              "0,-1,0",
-              "0,-1,0",
-              "0,-1,0",
-              "0,-1,0",
-              "0,-1,0",
-              "0,-1,0",
-              "0,-1,0",
-              "0,-1,0",
-              "0,-1,0",
-              "0,-1,0",
-              "0,-1,0",
-              "0,-1,0"
-            ],
-            "TextureScale": [
-              "0.247,0.25",
-              "0.247,0.25",
-              "0.247,0.25",
-              "0.247,0.25",
-              "0.247,0.25",
-              "0.247,0.25",
-              "0.247,0.25",
-              "0.247,0.25",
-              "0.247,0.25",
-              "0.247,0.25",
-              "0.247,0.25",
-              "0.247,0.25",
-              "0.247,0.25",
-              "0.247,0.25",
-              "0.247,0.25",
-              "0.247,0.25",
-              "0.247,0.25",
-              "0.247,0.25",
-              "0.247,0.25",
-              "0.247,0.25",
-              "0.247,0.25",
-              "0.247,0.25",
-              "0.247,0.25",
-              "0.247,0.25",
-              "0.247,0.25",
-              "0.247,0.25",
-              "0.247,0.25",
-              "0.247,0.25"
-            ],
-            "TextureOffset": [
-              "159.799,321.1988",
-              "159.799,321.1988",
-              "159.799,321.1988",
-              "159.799,321.1988",
-              "159.799,321.1988",
-              "159.799,321.1988",
-              "159.799,321.1988",
-              "159.799,321.1988",
-              "159.799,321.1988",
-              "159.799,321.1988",
-              "159.799,321.1988",
-              "159.799,321.1988",
-              "159.799,321.1988",
-              "159.799,321.1988",
-              "159.799,321.1988",
-              "159.799,321.1988",
-              "159.799,321.1988",
-              "159.799,321.1988",
-              "159.799,321.1988",
-              "159.799,321.1988",
-              "159.799,321.1988",
-              "159.799,321.1988",
-              "159.799,321.1988",
-              "159.799,321.1988",
-              "159.799,321.1988",
-              "159.799,321.1988",
-              "159.799,321.1988",
-              "159.799,321.1988"
-            ],
-            "TextureAngle": [
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "MaterialIndex": [
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-              1,
-              1
-            ],
-            "EdgeFlags": [
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "Materials": [
-              "materials/dev/reflectivity_30.vmat",
-              "materials/fabric/tarpaulin_dirty_01.vmat",
-              "materials/trimsheets/wood/plywood_trim_burnt_blend.vmat",
-              "materials/trimsheets/wood/plywood_trim_weathered_blend_03.vmat",
-              "materials/generic/wall_brick_older_bottom_moss.vmat",
-              "materials/generic/wall_brick_older.vmat",
-              "materials/generic/wall_brick_old_bottom_moss.vmat",
-              "materials/generic/metal_brushed.vmat",
-              "materials/trimsheets/wood/plywood_trim_02.vmat",
-              "models/walls/corrugated_wall_bare_a.vmat",
-              "models/walls/corrugated_wall_rust_a.vmat",
-              "models/walls/corrugated_wall_a_transparent.vmat"
-            ]
-          },
-          "SmoothingAngle": 40,
-          "Static": true
-        }
-      ]
-    },
-    {
       "__guid": "7692d35d-efae-424f-bb02-540108157fdb",
       "Name": "Box (10)",
       "Position": "-88.47288,293.6161,0.7073823",
@@ -9624,7 +9211,8 @@
     {
       "__guid": "85154bbe-44d8-4c31-b3f8-6c322b9f687d",
       "Name": "Game (1)",
-      "Position": "-170.8653,50.11655,2.00001",
+      "Position": "-190.6283,19.73162,2.000018",
+      "Rotation": "0,0,-1,0.00000008940697",
       "Enabled": true,
       "NetworkMode": 2,
       "NetworkInterpolation": true,
@@ -9799,6 +9387,465 @@
       "NetworkMode": 2,
       "NetworkInterpolation": true,
       "__Prefab": "prefabs/interactables/usp/usp_magazine.prefab"
+    },
+    {
+      "__guid": "7180f630-988c-4889-b7a7-7fc847e4ea3f",
+      "Name": "BouncingTarget",
+      "Position": "329.52,351.1749,46.95666",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "BouncingTarget",
+          "__guid": "aac90a17-669d-41c4-bab3-f7d7ed5f73e3",
+          "Distance": 2,
+          "Object": {
+            "_type": "gameobject",
+            "go": "cb762f17-97e6-4ab2-a269-948002825ace"
+          },
+          "Speed": 5,
+          "Triggered": true
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "cb762f17-97e6-4ab2-a269-948002825ace",
+          "Name": "Object",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "Children": [
+            {
+              "__guid": "89333e1a-823c-4ec8-8bb2-039ed637bcbb",
+              "Name": "Cube",
+              "Position": "0,0,0",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "d7784342-6f11-4284-b1f3-d093eeff58e8",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/dev/box.vmdl",
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "00a3117b-75fd-4c20-99f3-ab4d48e33b0a",
+      "Name": "FlipUpTarget",
+      "Position": "329.52,176.6305,0",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "FlipUpTarget",
+          "__guid": "1bdc3ecd-2bdf-4dc7-812b-7c8e2f4e45a6",
+          "Speed": 200,
+          "Target": {
+            "_type": "gameobject",
+            "go": "6b241e07-c1a1-46ce-b2a0-44e1703e88bb"
+          },
+          "Triggered": false
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "6b241e07-c1a1-46ce-b2a0-44e1703e88bb",
+          "Name": "Object",
+          "Position": "0,0,0",
+          "Rotation": "0,0.7071067,0,0.7071068",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "Children": [
+            {
+              "__guid": "1d92ea21-306e-4c74-a505-5bd0bdeb626e",
+              "Name": "Box",
+              "Position": "-1.519989,0,0.0000002717952",
+              "Rotation": "-1,0.000000000000007105427,0.0000001788139,0.0000000948304",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.MeshComponent",
+                  "__guid": "1e2f1848-e93b-4a2b-9472-415f2ee9f51d",
+                  "Collision": "Mesh",
+                  "Color": "1,1,1,1",
+                  "IsTrigger": false,
+                  "Mesh": {
+                    "Topology": "H4sIAAAAAAAACk2MAQoAIAgDrSz7/4drBwoOjmKbczO7Ygg0hYuTHuB1hXgS/so\u002Bqi4vOdnOrb6NT15bJXy63JDz/\u002Bg6SXigAAAA",
+                    "Positions": [
+                      "-62,-24,0",
+                      "16,-24,-0.000001907349",
+                      "16,24,-0.000001907349",
+                      "-62,24,0"
+                    ],
+                    "TextureOrigin": [
+                      "342,164,0.0005090105"
+                    ],
+                    "TextureRotation": [
+                      "0,0,0,1"
+                    ],
+                    "TextureUAxis": [
+                      "1,0,0"
+                    ],
+                    "TextureVAxis": [
+                      "0,-1,0"
+                    ],
+                    "TextureScale": [
+                      "0.25,0.25"
+                    ],
+                    "TextureOffset": [
+                      "0,0"
+                    ],
+                    "TextureAngle": [
+                      0
+                    ],
+                    "MaterialIndex": [
+                      0
+                    ],
+                    "EdgeFlags": [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "Materials": [
+                      "materials/dev/reflectivity_30.vmat"
+                    ]
+                  },
+                  "SmoothingAngle": 40,
+                  "Static": true
+                }
+              ]
+            },
+            {
+              "__guid": "1310c52b-950f-42bb-b1a3-40bded7d7ecf",
+              "Name": "Cube",
+              "Position": "0,0,0",
+              "Scale": "0.1,0.1,0.1",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "7e77e433-df02-40a0-9cab-9b7ade1aef94",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/dev/box.vmdl",
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "93601502-1905-4385-b0fd-9b5b76a5caad",
+      "Name": "MovingTarget",
+      "Position": "329.52,-20.73724,46.95666",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "MovingTarget",
+          "__guid": "f46a24e7-4c6e-4e9f-ac5c-5e6b4ecf4bdc",
+          "Distance": 0,
+          "Object": {
+            "_type": "gameobject",
+            "go": "452994a5-2da6-4163-8069-46235d05148f"
+          },
+          "Speed": 5
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "452994a5-2da6-4163-8069-46235d05148f",
+          "Name": "Object",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "Children": [
+            {
+              "__guid": "0f984ee0-7a68-4abe-9203-3799feacba45",
+              "Name": "Cube",
+              "Position": "0,0,0",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "f089e200-fe36-4265-886e-3d51816bb95f",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/dev/box.vmdl",
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "dda8c8c1-92b9-4013-bce1-18448da618d6",
+      "Name": "Spot Light (3)",
+      "Position": "137.0489,361.0815,7.164132",
+      "Rotation": "-0.0009496585,-0.09843343,-0.00960042,0.9950969",
+      "Tags": "light_spot,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SpotLight",
+          "__guid": "233edf63-860b-4802-990a-36fc3615fc4a",
+          "Attenuation": 0.11,
+          "ConeInner": 47.75,
+          "ConeOuter": 41.07,
+          "Cookie": "materials/effects/lightcookie.vtex",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Radius": 500,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "__guid": "7ff310b0-10e8-48c6-8b22-0c293987bec2",
+      "Name": "Spot Light (2)",
+      "Position": "137.0489,-46.95033,7.164132",
+      "Rotation": "-0.0009496585,-0.09843343,-0.00960042,0.9950969",
+      "Tags": "light_spot,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SpotLight",
+          "__guid": "878ce817-f64c-40d7-8cd4-479166b72765",
+          "Attenuation": 0.11,
+          "ConeInner": 47.75,
+          "ConeOuter": 22.21,
+          "Cookie": "materials/effects/lightcookie.vtex",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Radius": 500,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "__guid": "67f6858b-63ed-453d-a977-f3cb82ee697b",
+      "Name": "Spot Light (1)",
+      "Position": "137.0489,73.95201,7.164132",
+      "Rotation": "-0.0009496585,-0.09843343,-0.00960042,0.9950969",
+      "Tags": "light_spot,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SpotLight",
+          "__guid": "bf35d4dd-0cfb-44ff-816e-6b976b36df96",
+          "Attenuation": 0.11,
+          "ConeInner": 47.75,
+          "ConeOuter": 22.21,
+          "Cookie": "materials/effects/lightcookie.vtex",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Radius": 500,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "__guid": "f9adac76-4a9e-4593-abcd-3821d53b81b4",
+      "Name": "Spot Light",
+      "Position": "137.0489,180.8218,7.164132",
+      "Rotation": "-0.0009496585,-0.09843343,-0.00960042,0.9950969",
+      "Tags": "light_spot,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SpotLight",
+          "__guid": "88fa0067-de9a-4473-9b20-ced621bf6d97",
+          "Attenuation": 0.11,
+          "ConeInner": 47.75,
+          "ConeOuter": 22.21,
+          "Cookie": "materials/effects/lightcookie.vtex",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Radius": 500,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "__guid": "257835ee-c458-4000-86df-d6a33d779d84",
+      "Name": "big_button",
+      "Position": "-208,20,30.63177",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SkinnedModelRenderer",
+          "__guid": "9de1a233-2dcd-49cd-a71e-5f3afea39008",
+          "BodyGroups": 18446744073709551615,
+          "CreateBoneObjects": true,
+          "MaterialOverride": "models/props/big_button/big_button.vmat",
+          "Model": "models/big_button/big_button.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "2f92e084-3bd9-439c-8374-43b3ae4ad3b3",
+          "Name": "root",
+          "Position": "-0,0,0",
+          "Rotation": "0,0,0,-1",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true
+        },
+        {
+          "__guid": "84fd73df-3076-40d1-a975-14cad9c6dc1e",
+          "Name": "button",
+          "Position": "-0,0,0",
+          "Rotation": "0,0,0,-1",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true
+        },
+        {
+          "__guid": "3922d245-2258-479f-812a-d3e5eff5aaef",
+          "Name": "button_press",
+          "Position": "0,0,0",
+          "Rotation": "0,0,0.0000004023314,-1",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "Children": [
+            {
+              "__guid": "ff19451e-957f-423f-a387-e50fcc0590d1",
+              "Name": "button_press_grab",
+              "Position": "0,0,9.571308",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
+              "Components": [
+                {
+                  "__type": "GrabPoint",
+                  "__guid": "a35cf207-1098-49e8-82ed-94af49d17f60",
+                  "Collider": {
+                    "_type": "component",
+                    "component_id": "7dd4cf48-fd4f-4b12-a2ca-4a8f2ad75699",
+                    "go": "ff19451e-957f-423f-a387-e50fcc0590d1",
+                    "component_type": "SphereCollider"
+                  },
+                  "GrabInput": "Hover",
+                  "Interactable": {
+                    "_type": "component",
+                    "component_id": "a151c8ad-2e26-4d23-9fbf-2857a2111411",
+                    "go": "ff19451e-957f-423f-a387-e50fcc0590d1",
+                    "component_type": "PointInteractable"
+                  },
+                  "Preset": {
+                    "Thumb": 1,
+                    "Index": 1,
+                    "Middle": 1,
+                    "Ring": 1,
+                    "Pinky": 1
+                  },
+                  "PresetDebugging": false
+                },
+                {
+                  "__type": "PointInteractable",
+                  "__guid": "a151c8ad-2e26-4d23-9fbf-2857a2111411",
+                  "AnglesAtOne": "0,0,0",
+                  "BoneGameObject": {
+                    "_type": "gameobject",
+                    "go": "84fd73df-3076-40d1-a975-14cad9c6dc1e"
+                  },
+                  "CompletionValue": 0,
+                  "End": {
+                    "_type": "gameobject",
+                    "go": "2778535c-cb66-4aa5-9c16-00f113bef6a4"
+                  },
+                  "OneSound": "sounds/weapons/mp5/mp5_handle_one.sound",
+                  "Renderer": {
+                    "_type": "component",
+                    "component_id": "9de1a233-2dcd-49cd-a71e-5f3afea39008",
+                    "go": "257835ee-c458-4000-86df-d6a33d779d84",
+                    "component_type": "SkinnedModelRenderer"
+                  },
+                  "ResetOnRelease": true,
+                  "Start": {
+                    "_type": "gameobject",
+                    "go": "6052e817-c8d1-4d66-88bf-d080c1940b5c"
+                  },
+                  "ZeroSound": "sounds/weapons/mp5/mp5_handle_zero.sound"
+                },
+                {
+                  "__type": "Sandbox.SphereCollider",
+                  "__guid": "7dd4cf48-fd4f-4b12-a2ca-4a8f2ad75699",
+                  "Center": "0,0,0",
+                  "IsTrigger": false,
+                  "Radius": 1,
+                  "Static": false
+                }
+              ]
+            },
+            {
+              "__guid": "6052e817-c8d1-4d66-88bf-d080c1940b5c",
+              "Name": "button_press start",
+              "Position": "0.00004577637,-0.000003814678,8.395203",
+              "Rotation": "-0.00000000000004263256,-0.7071066,-0.00000000000001421085,0.7071068",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true
+            },
+            {
+              "__guid": "2778535c-cb66-4aa5-9c16-00f113bef6a4",
+              "Name": "button_press end",
+              "Position": "-0.00003051758,0.000003814685,6.414211",
+              "Rotation": "0,0.7071067,0,0.7071068",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true
+            }
+          ]
+        }
+      ]
     }
   ],
   "SceneProperties": {
@@ -9824,10 +9871,11 @@
   },
   "Title": "shooting_range",
   "Description": "",
-  "LastSaved": "2024-05-08T10:21:56.2575968\u002B01:00",
+  "LastSaved": "2024-05-08T12:01:33.6933163\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
+    "facepunch.big_button",
     "facepunch.binbag_a2",
     "facepunch.binbag_flat_a1",
     "facepunch.binbag_flat_a2",
