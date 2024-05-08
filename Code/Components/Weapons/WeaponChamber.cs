@@ -35,6 +35,15 @@ public partial class WeaponChamber : Component, Component.ITriggerListener
 		get => Chamber.Count < ChamberCapacity;
 	}
 
+
+	public IEnumerable<Bullet> GetBullet()
+	{
+		if(Chamber.Any())
+		{
+			yield return Chamber.FirstOrDefault();
+		}
+	}
+
 	/// <summary>
 	/// Try to eject a bullet from the chamber.
 	/// </summary>
@@ -44,6 +53,11 @@ public partial class WeaponChamber : Component, Component.ITriggerListener
 		if ( Chamber.TryPop( out var bullet ) )
 		{
 			Log.Info( $"Popped {bullet} out of {this}" );
+			yield return bullet;
+		}
+		else
+		{
+			Log.Info( "Pop FAIL" );
 			yield return bullet;
 		}
 	}

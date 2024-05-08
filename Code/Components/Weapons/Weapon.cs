@@ -109,21 +109,21 @@ public partial class Weapon : Interactable
 
 	public bool TryFeedFromMagazine()
 	{
-		var ejectedBullets = Chamber.Eject();
-
-		if ( ejectedBullets is not null )
-		{
-		// 	OnBulletEjected( ejectedBullets );
-		}
 
 		var magazine = Magazine;
+
 		// Feed the weapon's chamber from its current magazine.
 		if ( Chamber.Feed( magazine ) > 0 )
 		{
+			Log.Info( "feed T" );
 			return true;
 		}
-
-		return false;
+		else
+		{
+			Log.Info( "feed F" ); 
+			return false;
+		}
+		
 	}
 
 	/// <summary>
@@ -220,9 +220,9 @@ public partial class Weapon : Interactable
 
 	private Bullet GetBullet()
 	{
-		if ( Chamber?.Eject() is { } bullets )
+		if ( Chamber?.GetBullet() is { } bullet )
 		{
-			return bullets.FirstOrDefault();
+			return bullet.FirstOrDefault();
 		}
 		return null;
 	}
@@ -237,13 +237,15 @@ public partial class Weapon : Interactable
 		var bullet = GetBullet();
 		if ( bullet is null )
 		{
+			Log.Info( "dry" );
 			TryDryShoot();
 			return;
 		}
-		else
-		{
-			bullet.IsFired = true;
-		}
+
+
+		bullet.IsFired = true;
+	
+			
 		CurrentRecoilAmount += CalcRecoil();
 
 		int count = 0;
@@ -258,8 +260,8 @@ public partial class Weapon : Interactable
 			DoTracer( tr.StartPosition, tr.EndPosition, tr.Distance, count );
 			count++;
 		}
+		TryEjectFromChamber();
 
-		OnBulletEjected( null );
 
 		// If we succeed to shoot, let's feed another bullet into the chamber from the mag.
 		if ( !TryFeedFromMagazine() )
@@ -276,8 +278,8 @@ public partial class Weapon : Interactable
 	protected void OnBulletEjected( Bullet bullet )
 	{
 		GameObject ejection;
-
-		if(bullet is null|| bullet.IsFired)
+		Log.Info( $"BULLET: {bullet}, CHAMBER:{Chamber.ChamberCount}" );
+		if(bullet.IsFired)
 		{
 		
 			Log.Info( "spent" );
@@ -309,21 +311,28 @@ public partial class Weapon : Interactable
 
 	internal bool TryEjectFromChamber()
 	{
+		var bullet = GetBullet();
 		var ejectedBullets = Chamber.Eject();
-
+	
 		if ( ejectedBullets is not null && ejectedBullets.Any() )
 		{
-			
-			if(ejectedBullets.FirstOrDefault() != null )
+			if ( bullet is not null )
 			{
 				Log.Info( "good1" );
-				if(ejectedBullets.FirstOrDefault().IsFired)
+				if ( bullet.IsFired )
 				{
 					Log.Info( "shot" );
 				}
+				OnBulletEjected( bullet );
+				
+			}
+			else
+			{
+				Log.Info( "NONE!" );
+				OnBulletEjected( ejectedBullets.FirstOrDefault() );
 			}
 
-			OnBulletEjected( ejectedBullets.FirstOrDefault() );
+			
 		}
 
 		return false;

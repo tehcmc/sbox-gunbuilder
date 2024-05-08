@@ -32,6 +32,7 @@ public partial class SlideReleaseSystem : Component
 	{
 		if ( after == 0 )
 		{
+			Log.Info( $"SLIDE FEED{Weapon} , {Weapon.Chamber.GetBullet()}" );
 			Weapon.TryFeedFromMagazine();
 		}
 
@@ -91,10 +92,6 @@ public partial class SlideReleaseSystem : Component
 			if(slideCaught) slideCaught = false;
 			slideBack = true;
 
-			if(Chamber is not null && Chamber.ChamberCount > 0)
-			{
-				Chamber.Eject();
-			}
 		}
 
 		if (IsPulled && !SlideHand.IsValid() && !LockSlide() )
