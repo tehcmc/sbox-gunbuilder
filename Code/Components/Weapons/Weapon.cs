@@ -109,20 +109,17 @@ public partial class Weapon : Interactable
 
 	public bool TryFeedFromMagazine()
 	{
-		Log.Warning( "TRYFEED" );
+
 		var magazine = Magazine;
 
 		// Feed the weapon's chamber from its current magazine.
 		if ( Chamber.Feed( magazine ) > 0 )
 		{
-			Log.Info( "feed T" );
 			return true;
 		}
-		else
-		{
-			Log.Info( "feed F" ); 
-			return false;
-		}
+
+		return false;
+		
 		
 	}
 
@@ -237,7 +234,6 @@ public partial class Weapon : Interactable
 		var bullet = GetBullet();
 		if ( bullet is null )
 		{
-			Log.Info( "dry" );
 			TryDryShoot();
 			return;
 		}
@@ -318,17 +314,13 @@ public partial class Weapon : Interactable
 		{
 			if ( bullet is not null )
 			{
-				Log.Info( "good1" );
-				if ( bullet.IsFired )
-				{
-				
-				}
+
 				OnBulletEjected( bullet );
 				
 			}
 			else
 			{
-				
+				// can possibly be chucked. idk what one though, perhaps bullet.
 				OnBulletEjected( ejectedBullets.FirstOrDefault() );
 			}
 

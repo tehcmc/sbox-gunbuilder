@@ -55,11 +55,6 @@ public partial class WeaponChamber : Component, Component.ITriggerListener
 			Log.Info( $"Popped {bullet} out of {this}" );
 			yield return bullet;
 		}
-		else
-		{
-			Log.Info( "Pop FAIL" );
-			yield return bullet;
-		}
 	}
 
 	/// <summary>
@@ -71,12 +66,10 @@ public partial class WeaponChamber : Component, Component.ITriggerListener
 	{
 		
 		if ( src is null ) return 0;
-		Log.Error( "FEED" );
 		int count = 0;
 
 		while ( CanInsert )
 		{
-			Log.Error( "CANINSERT" );
 			if ( src.Pop() is { } bullets && bullets.FirstOrDefault() is { } bullet )
 			{
 				Log.Info( $"Pushed {bullet} into {this}" );
@@ -92,6 +85,7 @@ public partial class WeaponChamber : Component, Component.ITriggerListener
 		return count;
 	}
 	/*
+	//idk what this does but it caused double feeding when using slide.
 	void ITriggerListener.OnTriggerEnter( Sandbox.Collider other )
 	{
 		if ( other.GameObject.Root.Components.Get<BulletComponent>() is { } bulletComponent )

@@ -32,7 +32,6 @@ public partial class SlideReleaseSystem : Component
 	{
 		if ( after == 0 )
 		{
-			Log.Info( $"SLIDE FEED{Weapon} ,t{Weapon.Chamber.GetBullet()}" );
 			Weapon.TryFeedFromMagazine();
 		}
 
