@@ -43,6 +43,12 @@
         "__type": "Attachable",
         "__guid": "3d7e85fa-01bf-4826-8bde-a50b5431ba04",
         "AttachSound": "sounds/weapons/usp/usp_magazine_load.sound",
+        "Collider": {
+          "_type": "component",
+          "component_id": "c6a03a45-cdc4-4261-98fa-e569cad9c9b0",
+          "go": "0e5de69e-2f10-450a-86af-7209e2fddba7",
+          "component_type": "BoxCollider"
+        },
         "DetachSound": "sounds/weapons/usp/usp_magazine_unload.sound",
         "Interactable": {
           "_type": "component",
