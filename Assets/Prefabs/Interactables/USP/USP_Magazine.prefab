@@ -1,9 +1,7 @@
 {
   "RootObject": {
     "__guid": "0e5de69e-2f10-450a-86af-7209e2fddba7",
-    "Name": "USP Magazine",
-    "Position": "19.40038,25.72973,67.14941",
-    "Rotation": "0.09229589,0.7010576,0.7010573,0.09229603",
+    "Name": "usp_magazine",
     "Tags": "magazine",
     "Enabled": true,
     "NetworkMode": 2,
@@ -37,7 +35,7 @@
         "__guid": "c6a03a45-cdc4-4261-98fa-e569cad9c9b0",
         "Center": "0,0,0",
         "IsTrigger": false,
-        "Scale": "3,1,6",
+        "Scale": "3,1,4.5",
         "Static": false,
         "Surface": "surfaces/metal.weapon.surface"
       },
@@ -67,7 +65,7 @@
         "BulletCount": 0,
         "Bullets": [],
         "Caliber": "Nine",
-        "DefaultBulletCapacity": 1,
+        "DefaultBulletCapacity": 10,
         "IsInfiniteAmmo": false,
         "Renderer": {
           "_type": "component",
@@ -100,8 +98,7 @@
       {
         "__guid": "148e4816-9036-4193-bdc4-633ccce89336",
         "Name": "Magazine Grab Point",
-        "Position": "-0.6534327,-0.05125694,-3.460149",
-        "Rotation": "0.00000006332994,-0.6087678,-0.00000002980232,0.7933573",
+        "Position": "0,-0.2585772,-2.12495",
         "Tags": "trigger",
         "Enabled": true,
         "NetworkMode": 2,
