@@ -100,6 +100,7 @@ public partial class Hand : Component, Component.ITriggerListener
 		// If we can release the object (which can fail!), clear the current grab point.
 		if ( CurrentGrabPoint?.Interactable?.StopInteract( CurrentGrabPoint ) ?? false )
 		{
+			HoveredGrabPoints.Remove( CurrentGrabPoint );
 			CurrentGrabPoint = null;
 		}
 	}
@@ -139,7 +140,7 @@ public partial class Hand : Component, Component.ITriggerListener
 		if ( CurrentGrabPoint.IsValid() && CurrentGrabPoint.GrabInput == GrabPoint.GrabInputType.Hover )
 		{
 			// Detach!
-			if ( CurrentGrabPoint.Transform.Position.Distance( Transform.Position ) > 32f )
+			if ( CurrentGrabPoint.Transform.Position.Distance( Transform.Position ) > 3f )
 			{
 				StopGrabbing();
 				return;
@@ -218,7 +219,7 @@ public partial class Hand : Component, Component.ITriggerListener
 		{
 			if ( HoveredGrabPoints.Contains( grabPoint ) )
 			{
-				HoveredGrabPoints.Remove( grabPoint );
+			//	HoveredGrabPoints.Remove( grabPoint );
 			}
 		}
 	}
