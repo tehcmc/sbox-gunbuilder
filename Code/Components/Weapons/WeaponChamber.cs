@@ -85,7 +85,7 @@ public partial class WeaponChamber : Component, Component.ITriggerListener
 		return count;
 	}
 	/*
-	//idk what this does but it caused double feeding when using slide.
+	// I THINK (think) that this was causing issues because when ejecting unspent rounds they would immediately chamber into the gun and at the same time spawn a bullet prefab.
 	void ITriggerListener.OnTriggerEnter( Sandbox.Collider other )
 	{
 		if ( other.GameObject.Root.Components.Get<BulletComponent>() is { } bulletComponent )
