@@ -15,6 +15,9 @@ public partial record Bullet
 {
 	[Property] public BulletCaliber Caliber { get; set; } = BulletCaliber.FiveFiveSix;
 	[Property] public bool IsFired { get; set; } = false;
+
+	[Property] public GameObject SpentCasing { get; set; } = null;
+	[Property] public GameObject UnspentCasing { get; set; } = null;
 }
 
 public partial class BulletComponent : Component, IAmmoSource

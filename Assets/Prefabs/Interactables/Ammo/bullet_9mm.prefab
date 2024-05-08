@@ -1,9 +1,8 @@
 {
   "RootObject": {
     "__guid": "a4339880-82d8-419e-a4d1-3425ad0bc050",
-    "Name": "9mm Bullet",
-    "Position": "40.30875,4.878722,66.10013",
-    "Rotation": "0.0009143638,-0.1407643,-0.0006161518,0.9900426",
+    "Flags": 0,
+    "Name": "bullet_9mm",
     "Tags": "magazine",
     "Enabled": true,
     "NetworkMode": 2,
@@ -54,13 +53,22 @@
         "__type": "BulletComponent",
         "__guid": "6cf9ba7b-d053-40c5-95c6-7749534255a3",
         "Bullet": {
-          "Caliber": "Nine"
+          "Caliber": "Nine",
+          "SpentCasing": {
+            "_type": "gameobject",
+            "prefab": "prefabs/interactables/ammo/spent_9mm_shell.prefab"
+          },
+          "UnspentCasing": {
+            "_type": "gameobject",
+            "prefab": "prefabs/interactables/ammo/bullet_9mm.prefab"
+          }
         }
       }
     ],
     "Children": [
       {
         "__guid": "f717711a-2ee5-4a0a-93c5-b2390aa7f830",
+        "Flags": 0,
         "Name": "Model",
         "Position": "1.998995,1.434895,0.2537762",
         "Rotation": "-0.001974069,0.02005978,-0.09791604,0.9949902",
@@ -89,6 +97,7 @@
       },
       {
         "__guid": "291a99a3-ac47-4ca3-adca-9c3676a2d526",
+        "Flags": 0,
         "Name": "Grab Point",
         "Position": "-0.5497334,-0.05147595,0.02175736",
         "Rotation": "-0.258819,-0.00000001449371,0,0.9659259",

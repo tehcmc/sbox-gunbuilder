@@ -279,7 +279,7 @@ public partial class Weapon : Interactable
 		{
 		
 		
-			ejection = SpentBulletPrefab.Clone( new CloneConfig()
+			ejection = bullet.SpentCasing.Clone( new CloneConfig()
 			{
 				StartEnabled = true,
 				Transform = EjectionPort.Transform.World
@@ -289,7 +289,7 @@ public partial class Weapon : Interactable
 		else
 		{
 		
-			ejection = BulletPrefab.Clone( new CloneConfig()
+			ejection = bullet.UnspentCasing.Clone( new CloneConfig()
 			{
 				StartEnabled = true,
 				Transform = EjectionPort.Transform.World
