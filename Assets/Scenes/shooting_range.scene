@@ -9654,9 +9654,19 @@
       "__Prefab": "prefabs/game.prefab"
     },
     {
+      "__guid": "915b2863-6634-4293-b34b-045ff0cfd7ef",
+      "Name": "MP5 (1)",
+      "Position": "-204,92,34.39145",
+      "Rotation": "-0.4999999,-0.4999998,0.4999999,0.4999999",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/mp5/mp5.prefab"
+    },
+    {
       "__guid": "889fca9d-dd78-45a0-a742-087352915237",
       "Name": "MP5",
-      "Position": "-201.7965,111.692,34.39145",
+      "Position": "-204,116,34.39145",
       "Rotation": "-0.4999999,-0.4999998,0.4999999,0.4999999",
       "Enabled": true,
       "NetworkMode": 2,
@@ -9697,9 +9707,20 @@
       "__Prefab": "prefabs/interactables/mp5/mp5_magazine.prefab"
     },
     {
+      "__guid": "d102410b-e07e-4073-98dc-e440bdecf07c",
+      "Name": "MP5 Magazine (4)",
+      "Position": "-211.4669,148,33.38082",
+      "Rotation": "0.2705979,-0.6532816,0.6532817,-0.2705979",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/mp5/mp5_magazine.prefab"
+    },
+    {
       "__guid": "cec172cf-b51f-4bb3-bb05-9f59b4f01b6e",
       "Name": "MP5 Magazine",
-      "Position": "-211.4669,144.7734,33.38082",
+      "Position": "-211.4669,144,33.38082",
       "Rotation": "0.2705979,-0.6532816,0.6532817,-0.2705979",
       "Tags": "magazine",
       "Enabled": true,
@@ -9718,6 +9739,26 @@
       "__Prefab": "prefabs/interactables/usp/usp.prefab"
     },
     {
+      "__guid": "80bc5f9a-8d88-42f5-be21-8a23fabd5b55",
+      "Name": "USP (3)",
+      "Position": "-208,68,31.47736",
+      "Rotation": "-0.2476718,0.00000005255767,0.9688439,0.0000001874795",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/usp/usp.prefab"
+    },
+    {
+      "__guid": "4cc18efd-337d-411d-ac59-68ac8e825367",
+      "Name": "USP (2)",
+      "Position": "-208,64,31.47736",
+      "Rotation": "-0.2476718,0.00000005255767,0.9688439,0.0000001874795",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/usp/usp.prefab"
+    },
+    {
       "__guid": "cd9d9de9-2e4f-4c5c-8bc1-a52acf875ebb",
       "Name": "USP",
       "Position": "-208,60,31.47736",
@@ -9728,39 +9769,54 @@
       "__Prefab": "prefabs/interactables/usp/usp.prefab"
     },
     {
+      "__guid": "d5a4f033-71f5-41ea-ab46-ee34120ac486",
+      "Name": "USP Magazine (5)",
+      "Position": "-208,32,35.11327",
+      "Rotation": "0.5,-0.4999999,-0.5,0.5000001",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/usp/usp_magazine.prefab"
+    },
+    {
+      "__guid": "86f1e2c8-74df-470f-aa36-e577f0069e69",
+      "Name": "USP Magazine (4)",
+      "Position": "-208,36,35.11327",
+      "Rotation": "0.5,-0.4999999,-0.5,0.5000001",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/usp/usp_magazine.prefab"
+    },
+    {
+      "__guid": "43466629-5c29-48f1-9a60-af1c03465d43",
+      "Name": "USP Magazine (2)",
+      "Position": "-208,40,35.11327",
+      "Rotation": "0.5,-0.4999999,-0.5,0.5000001",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/usp/usp_magazine.prefab"
+    },
+    {
+      "__guid": "db346a04-6b4d-4a81-bef8-c4ec185dfdac",
+      "Name": "USP Magazine (1)",
+      "Position": "-208,44,35.11327",
+      "Rotation": "0.5,-0.4999999,-0.5,0.5000001",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/usp/usp_magazine.prefab"
+    },
+    {
       "__guid": "1d00098d-fba8-4026-b78c-08d33ce6324d",
       "Name": "USP Magazine (3)",
-      "Position": "-210.8071,44,35.11327",
-      "Tags": "magazine",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "NetworkInterpolation": true,
-      "__Prefab": "prefabs/interactables/usp/usp_magazine.prefab"
-    },
-    {
-      "__guid": "b74ea274-f575-4663-98f1-92d31786e2c6",
-      "Name": "USP Magazine (2)",
-      "Position": "-210.8071,40,35.11327",
-      "Tags": "magazine",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "NetworkInterpolation": true,
-      "__Prefab": "prefabs/interactables/usp/usp_magazine.prefab"
-    },
-    {
-      "__guid": "ad6edbda-ec69-42e3-96cd-e130aa730562",
-      "Name": "USP Magazine (1)",
-      "Position": "-210.8071,36,35.11327",
-      "Tags": "magazine",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "NetworkInterpolation": true,
-      "__Prefab": "prefabs/interactables/usp/usp_magazine.prefab"
-    },
-    {
-      "__guid": "d5228fa1-8344-4915-b140-88b23e70aee1",
-      "Name": "USP Magazine",
-      "Position": "-210.8071,48,35.11327",
+      "Position": "-208,48,35.11327",
+      "Rotation": "0.5,-0.4999999,-0.5,0.5000001",
       "Tags": "magazine",
       "Enabled": true,
       "NetworkMode": 2,
@@ -9791,7 +9847,7 @@
   },
   "Title": "shooting_range",
   "Description": "",
-  "LastSaved": "2024-05-07T17:16:21.3989003\u002B01:00",
+  "LastSaved": "2024-05-07T19:36:19.7904692\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
