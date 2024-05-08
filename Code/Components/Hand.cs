@@ -125,7 +125,9 @@ public partial class Hand : Component, Component.ITriggerListener
 
 	protected GrabPoint GetPrioritizedGrabPoint()
 	{
+		if ( CurrentGrabPoint.IsValid() ) return CurrentGrabPoint;
 		var points = HoveredGrabPoints.OrderBy( x => x.Transform.Position.Distance( Transform.Position ) );
+
 		return points.FirstOrDefault();
 	}
 
