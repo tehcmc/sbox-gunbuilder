@@ -17,22 +17,22 @@ public partial class BaseInteractable : Component
 
 	protected HashSet<GrabPoint> heldGrabPoints = new();
 
-	protected IEnumerable<GrabPoint> AllGrabPoints => Components.GetAll<GrabPoint>( FindMode.EnabledInSelfAndDescendants );
+	protected virtual IEnumerable<GrabPoint> AllGrabPoints => Components.GetAll<GrabPoint>( FindMode.EnabledInSelfAndDescendants );
 
 	/// <summary>
 	/// Gets you a hash set of the held grab points
 	/// </summary>
-	public ImmutableHashSet<GrabPoint> HeldGrabPoints => ImmutableHashSet.CreateRange( heldGrabPoints );
+	public virtual ImmutableHashSet<GrabPoint> HeldGrabPoints => ImmutableHashSet.CreateRange( heldGrabPoints );
 
 	/// <summary>
 	/// Is this interactable held by something?
 	/// </summary>
-	public bool IsHeld => heldGrabPoints.Count( x => x.IsBeingHeld ) > 0;
+	public virtual bool IsHeld => heldGrabPoints.Count( x => x.IsBeingHeld ) > 0;
 
 	/// <summary>
 	/// A shorthand property to get the primary grab point for this interactable.
 	/// </summary>
-	public GrabPoint PrimaryGrabPoint => AllGrabPoints.FirstOrDefault( x => x.IsPrimaryGrabPoint );
+	public virtual GrabPoint PrimaryGrabPoint => AllGrabPoints.FirstOrDefault( x => x.IsPrimaryGrabPoint );
 
 	/// <summary>
 	/// An artificial delay between how long we can start a new/stop a current interaction

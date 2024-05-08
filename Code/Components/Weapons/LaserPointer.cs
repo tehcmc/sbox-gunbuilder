@@ -85,8 +85,11 @@ public partial class LaserPointerComponent : Component, Component.ExecuteInEdito
 	{
 		SetEnabled( IsEnabled );
 
-		GrabPoint.OnGrabStartEvent += OnGrabStart;
-		GrabPoint.OnGrabEndEvent += OnGrabEnd;
+		if ( GrabPoint.IsValid() )
+		{
+			GrabPoint.OnGrabStartEvent += OnGrabStart;
+			GrabPoint.OnGrabEndEvent += OnGrabEnd;
+		}
 	}
 
 	void OnGrabStart()

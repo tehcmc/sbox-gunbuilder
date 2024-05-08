@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 /// <summary>
 /// A weapon part. This can be held by a player, and translated on a locked axis specified by the component.
 /// </summary>
-public partial class PointInteractable : BaseInteractable
+public partial class PointInteractable : BaseInteractable, Component.ITriggerListener
 {
 	/// <summary>
 	/// When the completion value changes.
@@ -176,6 +176,24 @@ public partial class PointInteractable : BaseInteractable
 		if ( CompletionValue.AlmostEqual( 1f ) )
 		{
 			BoneGameObject.Transform.LocalRotation = AnglesAtOne.ToRotation();
+		}
+	}
+
+	Hand HoveredHand { get; set; }
+
+	void ITriggerListener.OnTriggerEnter( Collider other )
+	{
+		if ( other.GameObject.Root.Components.Get<Hand>( FindMode.EnabledInSelfAndDescendants ) is { } hand )
+		{
+			HoveredHand = hand;
+		}
+	}
+
+	void ITriggerListener.OnTriggerExit( Collider other )
+	{
+		if ( other.GameObject.Root.Components.Get<Hand>( FindMode.EnabledInSelfAndDescendants ) is { } hand )
+		{
+			HoveredHand = null;
 		}
 	}
 }

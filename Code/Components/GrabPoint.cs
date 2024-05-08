@@ -35,7 +35,8 @@ public partial class GrabPoint : Component
 	public enum GrabInputType
 	{
 		Grip,
-		Trigger
+		Trigger,
+		Hover
 	}
 
 	/// <summary>
