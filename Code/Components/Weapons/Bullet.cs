@@ -14,6 +14,7 @@ public partial record Bullet
 
 {
 	[Property] public BulletCaliber Caliber { get; set; } = BulletCaliber.FiveFiveSix;
+	[Property] public bool IsFired { get; set; } = false;
 }
 
 public partial class BulletComponent : Component, IAmmoSource

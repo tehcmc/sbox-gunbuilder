@@ -1,5 +1,5 @@
 {
-  "__guid": "64b45f3f-a1a4-473f-84f3-e0b6f482a98e",
+  "__guid": "9dc05891-ccc1-4f9a-b831-a8cd3ba6ab0a",
   "GameObjects": [
     {
       "__guid": "4a54e6e6-9a6f-4761-8268-3f5ee4057cec",
@@ -119,7 +119,15 @@
               "models/walls/corrugated_wall_blend_a.vmat",
               "models/walls/corrugated_wall_bare_a.vmat",
               "models/walls/corrugated_wall_a.vmat",
-              "materials/trimsheets/wood/plywood_trim_02.vmat"
+              "materials/trimsheets/wood/plywood_trim_02.vmat",
+              "materials/models/solids/black.vmat",
+              "materials/models/props/cs_office/chair_office.vmat",
+              "materials/decals/blood1.vmat",
+              "materials/cables/cable_metal_wire_a.vmat",
+              "materials/cables/cable_metal_fire_extinguisher_cable.vmat",
+              "materials/cables/cable_metal_wire_a_cable.vmat",
+              "materials/zombieworld/concretefloor04_pixel.vmat",
+              "materials/concrete_f_bld_var2.vmat"
             ]
           },
           "SmoothingAngle": 40,
@@ -609,7 +617,8 @@
               "models/walls/corrugated_wall_rust_a.vmat",
               "models/walls/corrugated_wall_blend_a.vmat",
               "models/walls/corrugated_wall_bare_a.vmat",
-              "models/walls/corrugated_wall_a_doublesided.vmat"
+              "models/walls/corrugated_wall_a_doublesided.vmat",
+              "materials/cables/cable_metal_wire_a.vmat"
             ]
           },
           "SmoothingAngle": 40,
@@ -1037,7 +1046,8 @@
               "models/walls/corrugated_wall_a_doublesided.vmat",
               "models/walls/corrugated_wall_a_transparent.vmat",
               "models/walls/corrugated_wall_a.vmat",
-              "models/rust_props/remnant_container/corrugated_a_cont.vmat"
+              "models/rust_props/remnant_container/corrugated_a_cont.vmat",
+              "materials/cables/cable_metal_wire_a.vmat"
             ]
           },
           "SmoothingAngle": 40,
@@ -9633,6 +9643,31 @@
       ]
     },
     {
+      "__guid": "0b8ed84b-6dca-4b46-ab9e-9b2b3c4bcae0",
+      "Name": "Spot Light (5)",
+      "Position": "303.3166,216.841,169.0052",
+      "Rotation": "0.001567471,0.1624706,-0.009519084,0.9866666",
+      "Tags": "light_spot,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SpotLight",
+          "__guid": "7addbd5a-4a95-4e66-a556-8f9ee5ddea19",
+          "Attenuation": 0.11,
+          "ConeInner": 47.75,
+          "ConeOuter": 41.07,
+          "Cookie": "materials/effects/lightcookie.vtex",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Radius": 883.9,
+          "Shadows": true
+        }
+      ]
+    },
+    {
       "__guid": "7ff310b0-10e8-48c6-8b22-0c293987bec2",
       "Name": "Spot Light (2)",
       "Position": "137.0489,-46.95033,7.164132",
@@ -9645,9 +9680,9 @@
         {
           "__type": "Sandbox.SpotLight",
           "__guid": "878ce817-f64c-40d7-8cd4-479166b72765",
-          "Attenuation": 0.11,
-          "ConeInner": 47.75,
-          "ConeOuter": 22.21,
+          "Attenuation": 0.08,
+          "ConeInner": 23.61,
+          "ConeOuter": 41.44,
           "Cookie": "materials/effects/lightcookie.vtex",
           "FogMode": "Enabled",
           "FogStrength": 1,
@@ -9846,6 +9881,280 @@
           ]
         }
       ]
+    },
+    {
+      "__guid": "a3ee6706-2e04-4cc5-b7a3-94651e42d433",
+      "Name": "Box",
+      "Position": "986.2246,-126.5084,9.081593",
+      "Rotation": "0,0.258819,0,0.9659258",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.MeshComponent",
+          "__guid": "08aed4d8-d1fc-45b3-a82a-bb4d543a4061",
+          "Collision": "Mesh",
+          "Color": "1,1,1,1",
+          "IsTrigger": false,
+          "Mesh": {
+            "Topology": "H4sIAAAAAAAACl2Qiw6CUAxDh1flgg/wAfr/X2pP0iWLJA25W9t16xHxFc4C30E4\u002Bt2FWbgKd2Ew4NTvIZxcb9ZH4b5db\u002Bb9z/oUzVh8m7lPc9FOzjRYQ8ZXyXxxXvrw4e72wvtWdoEPdzMXj8We9OHDXcvO7EqdN396eKaeLHjkLciePeYxi4z0mMFtMisablFvRXZ2Tj158KQOF78f9WSROMQBAAA=",
+            "Positions": [
+              "-11.79591,-3.951625,102.693",
+              "31.94127,-3.951625,102.693",
+              "31.94127,636.0426,102.693",
+              "-11.79591,636.0426,102.693",
+              "-11.79591,636.0426,-36.67119",
+              "31.94127,636.0426,-36.67119",
+              "31.94127,-3.951625,-36.67119",
+              "-11.79591,-3.951625,-36.67119"
+            ],
+            "TextureOrigin": [
+              "-3.50769,-201.8615,-27.20908",
+              "-3.50769,-201.8615,-27.20908",
+              "-3.50769,-201.8615,-27.20908",
+              "-3.50769,-201.8615,-27.20908",
+              "-3.50769,-201.8615,-27.20908",
+              "-3.50769,-201.8615,-27.20908"
+            ],
+            "TextureRotation": [
+              "0,0,0,1",
+              "0,0,0,1",
+              "0,0,0,1",
+              "0,0,0,1",
+              "0,0,0,1",
+              "0,0,0,1"
+            ],
+            "TextureUAxis": [
+              "1,0,0",
+              "1,0,0",
+              "0,-1,0",
+              "0,1,0",
+              "-1,0,0",
+              "1,0,0"
+            ],
+            "TextureVAxis": [
+              "0,-1,0",
+              "0,-1,0",
+              "0,0,-1",
+              "0,0,-1",
+              "0,0,-1",
+              "0,0,-1"
+            ],
+            "TextureScale": [
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25"
+            ],
+            "TextureOffset": [
+              "0,0",
+              "0,0",
+              "0,0",
+              "0,0",
+              "0,0",
+              "0,0"
+            ],
+            "TextureAngle": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "MaterialIndex": [
+              -1,
+              -1,
+              8,
+              -1,
+              -1,
+              -1
+            ],
+            "EdgeFlags": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "Materials": [
+              "materials/models/solids/black.vmat",
+              "materials/models/props/cs_office/chair_office.vmat",
+              "materials/decals/blood1.vmat",
+              "materials/cables/cable_metal_wire_a.vmat",
+              "materials/cables/cable_metal_fire_extinguisher_cable.vmat",
+              "materials/cables/cable_metal_wire_a_cable.vmat",
+              "materials/rock_flat/rock_flat.vmat",
+              "materials/zombieworld/concretefloor04_pixel.vmat",
+              "materials/concrete_f_bld_var2.vmat"
+            ]
+          },
+          "SmoothingAngle": 40,
+          "Static": true
+        }
+      ]
+    },
+    {
+      "__guid": "06be877b-ae8e-43c2-98c8-3b47d58ce3e6",
+      "Name": "dirt_pile_strt_04",
+      "Position": "968.1103,402.7596,0.1210665",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Scale": "3,3,3",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "cca0828f-5077-4350-8f22-e18de4019d3f",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/props/dirt_pile/dirt_pile_strt_04.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "70e919c1-bbda-4c11-a1fc-ee9df106b0ed",
+      "Name": "dirt_pile_strt_04 (1)",
+      "Position": "968.1103,347.5788,0.1944796",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Scale": "3,3,3",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "7ff1efb3-c70a-4903-9394-db863885247d",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/props/dirt_pile/dirt_pile_strt_04.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "334a4063-1444-4a9d-bbe7-53ca465954f7",
+      "Name": "dirt_pile_crn_02",
+      "Position": "967.7629,508.4008,0.2336311",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "20462429-dd65-40ae-858b-5ecf69e81836",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/props/dirt_pile/dirt_pile_crn_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "16b40dc0-2924-4b4f-bdb7-9ac9e145310d",
+      "Name": "coffeemug01",
+      "Position": "16.88581,480.0782,48.00789",
+      "Rotation": "-0.00000008940697,0.0000001345462,0.9999999,0.0000004036385",
+      "Scale": "0.5,0.5,0.5",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "29600e0c-9311-4b8b-a1f6-3a423511d972",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/citizen_props/coffeemug01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "75036922-e3ec-45be-90c5-90dfd5f5413f",
+          "IsTrigger": false,
+          "Model": "models/citizen_props/coffeemug01.vmdl",
+          "Static": false
+        },
+        {
+          "__type": "Sandbox.Rigidbody",
+          "__guid": "ec3d361f-a3b6-4686-9d97-7ed41b4c1567",
+          "AngularDamping": 0,
+          "Gravity": true,
+          "LinearDamping": 0,
+          "Locking": {},
+          "MassOverride": 0,
+          "MotionEnabled": true,
+          "RigidbodyFlags": 0,
+          "StartAsleep": false
+        },
+        {
+          "__type": "Interactable",
+          "__guid": "a118fb1b-0d37-483e-ac40-7fe41f5622ca",
+          "MassScale": 1
+        },
+        {
+          "__type": "Sandbox.Rigidbody",
+          "__guid": "a0168d8c-8a27-4034-8b57-da534600704f",
+          "AngularDamping": 0,
+          "Gravity": true,
+          "LinearDamping": 0,
+          "Locking": {},
+          "MassOverride": 0,
+          "MotionEnabled": true,
+          "RigidbodyFlags": 0,
+          "StartAsleep": false
+        },
+        {
+          "__type": "GrabPoint",
+          "__guid": "ffff88a1-fdac-4b76-9820-40e65c34010d",
+          "Collider": {
+            "_type": "component",
+            "component_id": "75036922-e3ec-45be-90c5-90dfd5f5413f",
+            "go": "16b40dc0-2924-4b4f-bdb7-9ac9e145310d",
+            "component_type": "ModelCollider"
+          },
+          "GrabInput": "Grip",
+          "Interactable": {
+            "_type": "component",
+            "component_id": "a118fb1b-0d37-483e-ac40-7fe41f5622ca",
+            "go": "16b40dc0-2924-4b4f-bdb7-9ac9e145310d",
+            "component_type": "Interactable"
+          },
+          "Preset": {
+            "Thumb": -1,
+            "Index": 1,
+            "Middle": 1,
+            "Ring": 1,
+            "Pinky": 1
+          },
+          "PresetDebugging": false
+        }
+      ]
     }
   ],
   "SceneProperties": {
@@ -9871,7 +10180,7 @@
   },
   "Title": "shooting_range",
   "Description": "",
-  "LastSaved": "2024-05-08T14:30:00.1753453\u002B01:00",
+  "LastSaved": "2024-05-08T20:06:22.3314845\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
@@ -9885,6 +10194,7 @@
     "facepunch.cable_reel_01",
     "facepunch.concrete_hs_01",
     "facepunch.concrete_pol_01",
+    "facepunch.corrugated_door_double_a_128",
     "facepunch.corrugated_wall_a_128",
     "facepunch.corrugated_wall_blend_a",
     "facepunch.corrugated_wall_doorframe_a_128",
@@ -9902,6 +10212,7 @@
     "facepunch.dirtpile_strt_01",
     "facepunch.dirtpile_strt_02",
     "facepunch.dirtpile_strt_03",
+    "facepunch.dirtpile_strt_04",
     "facepunch.door_handle_a",
     "facepunch.door_lock_a",
     "facepunch.doorframe_metal_a",
@@ -9918,6 +10229,7 @@
     "facepunch.metal_board_01c",
     "facepunch.metal_brushed_a_hs",
     "facepunch.metal_galvanized",
+    "facepunch.metal_painted_blue_a_hs",
     "facepunch.metal_painted_c",
     "facepunch.metal_rust_a_hs",
     "facepunch.metal_trim_clean",
@@ -9962,8 +10274,11 @@
     "facepunch.wooden_crate_02",
     "facepunch.wooden_door_01b",
     "facepunch.wooden_door_frame_single_01a",
+    "kvien.concretefloor04_pixel",
     "polyhaven.industrial_sunset_02_puresky",
+    "rust.concrete_f_bld_var2",
     "rust.remnant_container_6x4",
+    "rustextended.rock_flat",
     "stardrive.rope_barrier_a"
   ]
 }

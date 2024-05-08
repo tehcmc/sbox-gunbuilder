@@ -43,6 +43,7 @@ public partial class WeaponChamber : Component, Component.ITriggerListener
 	{
 		if ( Chamber.TryPop( out var bullet ) )
 		{
+			Log.Info( $"Popped {bullet} out of {this}" );
 			yield return bullet;
 		}
 	}

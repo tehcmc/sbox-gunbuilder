@@ -240,7 +240,10 @@ public partial class Weapon : Interactable
 			TryDryShoot();
 			return;
 		}
-
+		else
+		{
+			bullet.IsFired = true;
+		}
 		CurrentRecoilAmount += CalcRecoil();
 
 		int count = 0;
@@ -266,16 +269,35 @@ public partial class Weapon : Interactable
 	}
 
 
-	[Property] public GameObject BulletEjectPrefab { get; set; }
+	[Property] public GameObject BulletPrefab { get; set; }
+	[Property] public GameObject SpentBulletPrefab { get; set; }
 	[Property] public GameObject EjectionPort { get; set; }
 
 	protected void OnBulletEjected( Bullet bullet )
 	{
-		var ejection = BulletEjectPrefab.Clone( new CloneConfig()
+		GameObject ejection;
+
+		if(bullet is null|| bullet.IsFired)
 		{
-			StartEnabled = true,
-			Transform = EjectionPort.Transform.World
-		} );
+		
+			Log.Info( "spent" );
+			ejection = SpentBulletPrefab.Clone( new CloneConfig()
+			{
+				StartEnabled = true,
+				Transform = EjectionPort.Transform.World
+			} );
+		
+		}
+		else
+		{
+			Log.Info( "good" );
+			ejection = BulletPrefab.Clone( new CloneConfig()
+			{
+				StartEnabled = true,
+				Transform = EjectionPort.Transform.World
+			} );
+		}
+		
 
 		var rb = ejection.Components.Get<Rigidbody>();
 		if ( rb.IsValid() )
@@ -289,8 +311,18 @@ public partial class Weapon : Interactable
 	{
 		var ejectedBullets = Chamber.Eject();
 
-		if ( ejectedBullets is not null && ejectedBullets.Count() > 0 )
+		if ( ejectedBullets is not null && ejectedBullets.Any() )
 		{
+			
+			if(ejectedBullets.FirstOrDefault() != null )
+			{
+				Log.Info( "good1" );
+				if(ejectedBullets.FirstOrDefault().IsFired)
+				{
+					Log.Info( "shot" );
+				}
+			}
+
 			OnBulletEjected( ejectedBullets.FirstOrDefault() );
 		}
 

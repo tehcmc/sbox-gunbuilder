@@ -10,9 +10,9 @@
         "__type": "Weapon",
         "__guid": "7a311c43-0ba7-4c3a-a814-3d50f162db14",
         "BaseRecoilDecay": 3,
-        "BulletEjectPrefab": {
+        "BulletPrefab": {
           "_type": "gameobject",
-          "prefab": "prefabs/interactables/ammo/spent_9mm_shell.prefab"
+          "prefab": "prefabs/interactables/ammo/bullet_9mm.prefab"
         },
         "BulletSize": 3,
         "Chamber": {
@@ -46,6 +46,10 @@
           "component_id": "0c0e770c-4f36-4391-9628-34984fb4e946",
           "go": "e5cc5580-a883-46d6-86bb-cddb4512e17d",
           "component_type": "SlideReleaseSystem"
+        },
+        "SpentBulletPrefab": {
+          "_type": "gameobject",
+          "prefab": "prefabs/interactables/ammo/spent_9mm_shell.prefab"
         },
         "VerticalRecoil": "900.00,1800.00,1"
       },

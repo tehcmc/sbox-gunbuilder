@@ -91,7 +91,7 @@ public partial class SlideReleaseSystem : Component
 			if(slideCaught) slideCaught = false;
 			slideBack = true;
 
-			if(Chamber is not null && Chamber.ChamberCount !=0)
+			if(Chamber is not null && Chamber.ChamberCount > 0)
 			{
 				Chamber.Eject();
 			}
