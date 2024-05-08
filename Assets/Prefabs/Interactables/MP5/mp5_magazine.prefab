@@ -71,7 +71,6 @@
         "__guid": "4094eb97-1b8a-46df-9323-eba48a294018",
         "Name": "Model",
         "Position": "-1.507239,0.753112,-0.8448114",
-        "Rotation": "-0.0000005364418,0.9488792,0.0000003576279,0.3156419",
         "Enabled": true,
         "NetworkMode": 2,
         "NetworkInterpolation": true,
@@ -98,7 +97,7 @@
       {
         "__guid": "965f7275-e93b-42eb-b480-bbf8bff0ed82",
         "Name": "Magazine Grab Point",
-        "Position": "-0.6212195,-0.05143751,-0.8158381",
+        "Position": "-1.925321,0,-0.8158381",
         "Tags": "trigger",
         "Enabled": true,
         "NetworkMode": 2,

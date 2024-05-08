@@ -114,6 +114,8 @@ public partial class Hand : Component, Component.ITriggerListener
 		// Bit of a hack, but the alyx controllers have a weird origin that I don't care for.
 		tx = tx.Add( Vector3.Forward * -2f, false );
 
+		tx = tx.WithRotation( tx.Rotation * Rotation.From( 20, -5, 0 ) );
+
 		var prevPosition = Transform.World.Position;
 
 		Transform.World = tx;

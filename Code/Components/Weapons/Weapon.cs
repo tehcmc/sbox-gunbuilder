@@ -1,5 +1,3 @@
-using Sandbox;
-
 public partial class Weapon : Interactable
 {
 	/// <summary>
@@ -258,10 +256,44 @@ public partial class Weapon : Interactable
 			count++;
 		}
 
+		OnBulletEjected( null );
+
 		// If we succeed to shoot, let's feed another bullet into the chamber from the mag.
 		if ( !TryFeedFromMagazine() )
 		{
 			SlideReleaseSystem?.TriggerEmpty();
 		}
+	}
+
+
+	[Property] public GameObject BulletEjectPrefab { get; set; }
+	[Property] public GameObject EjectionPort { get; set; }
+
+	protected void OnBulletEjected( Bullet bullet )
+	{
+		var ejection = BulletEjectPrefab.Clone( new CloneConfig()
+		{
+			StartEnabled = true,
+			Transform = EjectionPort.Transform.World
+		} );
+
+		var rb = ejection.Components.Get<Rigidbody>();
+		if ( rb.IsValid() )
+		{
+			rb.ApplyForce( EjectionPort.Transform.Rotation.Right * 1500000 );
+			rb.ApplyForce( EjectionPort.Transform.Rotation.Up * Game.Random.Float( 100000, 200000 ) );
+		}
+	}
+
+	internal bool TryEjectFromChamber()
+	{
+		var ejectedBullets = Chamber.Eject();
+
+		if ( ejectedBullets is not null && ejectedBullets.Count() > 0 )
+		{
+			OnBulletEjected( ejectedBullets.FirstOrDefault() );
+		}
+
+		return false;
 	}
 }
