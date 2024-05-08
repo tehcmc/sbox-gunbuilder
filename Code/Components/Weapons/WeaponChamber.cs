@@ -69,12 +69,14 @@ public partial class WeaponChamber : Component, Component.ITriggerListener
 	/// <returns>How many bullets we fed from this list</returns>
 	public int Feed( IAmmoSource src )
 	{
+		
 		if ( src is null ) return 0;
-
+		Log.Error( "FEED" );
 		int count = 0;
 
 		while ( CanInsert )
 		{
+			Log.Error( "CANINSERT" );
 			if ( src.Pop() is { } bullets && bullets.FirstOrDefault() is { } bullet )
 			{
 				Log.Info( $"Pushed {bullet} into {this}" );
@@ -89,7 +91,7 @@ public partial class WeaponChamber : Component, Component.ITriggerListener
 
 		return count;
 	}
-
+	/*
 	void ITriggerListener.OnTriggerEnter( Sandbox.Collider other )
 	{
 		if ( other.GameObject.Root.Components.Get<BulletComponent>() is { } bulletComponent )
@@ -112,4 +114,5 @@ public partial class WeaponChamber : Component, Component.ITriggerListener
 			}
 		}
 	}
+	*/
 }

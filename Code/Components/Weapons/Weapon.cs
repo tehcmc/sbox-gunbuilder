@@ -109,7 +109,7 @@ public partial class Weapon : Interactable
 
 	public bool TryFeedFromMagazine()
 	{
-
+		Log.Warning( "TRYFEED" );
 		var magazine = Magazine;
 
 		// Feed the weapon's chamber from its current magazine.
@@ -260,6 +260,7 @@ public partial class Weapon : Interactable
 			DoTracer( tr.StartPosition, tr.EndPosition, tr.Distance, count );
 			count++;
 		}
+
 		TryEjectFromChamber();
 
 
@@ -278,11 +279,10 @@ public partial class Weapon : Interactable
 	protected void OnBulletEjected( Bullet bullet )
 	{
 		GameObject ejection;
-		Log.Info( $"BULLET: {bullet}, CHAMBER:{Chamber.ChamberCount}" );
 		if(bullet.IsFired)
 		{
 		
-			Log.Info( "spent" );
+		
 			ejection = SpentBulletPrefab.Clone( new CloneConfig()
 			{
 				StartEnabled = true,
@@ -292,7 +292,7 @@ public partial class Weapon : Interactable
 		}
 		else
 		{
-			Log.Info( "good" );
+		
 			ejection = BulletPrefab.Clone( new CloneConfig()
 			{
 				StartEnabled = true,
@@ -321,14 +321,14 @@ public partial class Weapon : Interactable
 				Log.Info( "good1" );
 				if ( bullet.IsFired )
 				{
-					Log.Info( "shot" );
+				
 				}
 				OnBulletEjected( bullet );
 				
 			}
 			else
 			{
-				Log.Info( "NONE!" );
+				
 				OnBulletEjected( ejectedBullets.FirstOrDefault() );
 			}
 

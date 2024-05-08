@@ -32,7 +32,7 @@ public partial class SlideReleaseSystem : Component
 	{
 		if ( after == 0 )
 		{
-			Log.Info( $"SLIDE FEED{Weapon} , {Weapon.Chamber.GetBullet()}" );
+			Log.Info( $"SLIDE FEED{Weapon} ,t{Weapon.Chamber.GetBullet()}" );
 			Weapon.TryFeedFromMagazine();
 		}
 
@@ -61,7 +61,7 @@ public partial class SlideReleaseSystem : Component
 
 	public bool LockSlide()
 	{
-		if ( (Magazine is not null && !Magazine.HasAmmo) && (Chamber is not null && Chamber.Chamber.Count == 0) ) return true;
+		if ( (Magazine is not null && !Magazine.HasAmmo) && (Chamber is not null && Chamber.ChamberCount == 0) ) return true;
 
 		return false;
 	}
@@ -71,10 +71,7 @@ public partial class SlideReleaseSystem : Component
 		PointInteractable.CompletionValue = 0;
 		slideCaught = false;
 		slideBack = false;
-		if ( Chamber is not null && Chamber.ChamberCount != 0 && Magazine is not null )
-		{
-			Chamber.Feed(Magazine);
-		}
+		
 	}
 
 	public Hand Hand => InputGrabPoint?.HeldHand;
