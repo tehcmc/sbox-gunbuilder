@@ -18,16 +18,6 @@ public partial class WeaponChamber : Component, Component.ITriggerListener
 	[Property] public int ChamberCapacity { get; set; } = 1;
 
 	/// <summary>
-	/// Can we manually feed bullets into the chamber?
-	/// </summary>
-	[Property] public bool CanManuallyFeed { get; set; } = true;
-
-	/// <summary>
-	/// Should we auto-chamber from the weapon's ammo source?
-	/// </summary>
-	[Property] public bool AutoChamber { get; set; }
-
-	/// <summary>
 	/// A reference to the bolt of this weapon. If it has one.
 	/// </summary>
 	[Property] public PointInteractable Bolt { get; set; }
@@ -53,8 +43,6 @@ public partial class WeaponChamber : Component, Component.ITriggerListener
 	{
 		if ( Chamber.TryPop( out var bullet ) )
 		{
-			Log.Info( $"Ejected {bullet} from {this}" );
-
 			yield return bullet;
 		}
 	}

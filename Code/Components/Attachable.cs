@@ -18,7 +18,7 @@ public sealed class Attachable : Component
 	/// <summary>
 	/// The collider in question.
 	/// </summary>
-	[RequireComponent] public Collider Collider { get; set; }
+	[Property] public Collider Collider { get; set; }
 
 	/// <summary>
 	/// A sound to play when we attach to a valid AttachmentPoint

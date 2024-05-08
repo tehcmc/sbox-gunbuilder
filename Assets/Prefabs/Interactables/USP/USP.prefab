@@ -10,6 +10,10 @@
         "__type": "Weapon",
         "__guid": "7a311c43-0ba7-4c3a-a814-3d50f162db14",
         "BaseRecoilDecay": 3,
+        "BulletEjectPrefab": {
+          "_type": "gameobject",
+          "prefab": "prefabs/interactables/ammo/spent_9mm_shell.prefab"
+        },
         "BulletSize": 3,
         "Chamber": {
           "_type": "component",
@@ -18,6 +22,10 @@
           "component_type": "WeaponChamber"
         },
         "DryFireSound": "sounds/weapons/weapon_dryfire.sound",
+        "EjectionPort": {
+          "_type": "gameobject",
+          "go": "8c71d0ce-94d9-40ec-9205-47b6e94439f5"
+        },
         "HorizontalRecoil": "-200.00,200.00,1",
         "MassScale": 1,
         "MaxRange": 100000,
@@ -900,7 +908,7 @@
       {
         "__guid": "f3ba206f-fb67-482f-932b-761bb31027ff",
         "Name": "usp Magazine Attachment",
-        "Position": "-2.221198,-0.00002816785,2.323118",
+        "Position": "-2.221198,-0.00002816785,2.095666",
         "Tags": "trigger",
         "Enabled": true,
         "NetworkMode": 2,
@@ -921,9 +929,9 @@
           {
             "__type": "Sandbox.BoxCollider",
             "__guid": "501293e0-6523-4938-b358-21b4207fd194",
-            "Center": "-0.1999999,0,-1.5",
+            "Center": "-0.5999998,0,-2.2",
             "IsTrigger": true,
-            "Scale": "1,1,1",
+            "Scale": "1.9,0.9,0.3999999",
             "Static": false
           }
         ]
@@ -1066,7 +1074,7 @@
       {
         "__guid": "09edb335-95ea-4310-aa6e-2dd9b7d0a57c",
         "Name": "Chamber",
-        "Position": "0.1239342,0.1340907,5.794929",
+        "Position": "0.1239342,-0.2440788,5.346017",
         "Enabled": true,
         "NetworkMode": 2,
         "NetworkInterpolation": true,
@@ -1074,14 +1082,12 @@
           {
             "__type": "WeaponChamber",
             "__guid": "8cc59a85-ce87-433b-98cb-6a1dcc94d466",
-            "AutoChamber": false,
             "Bolt": {
               "_type": "component",
               "component_id": "f283ab3d-8bce-472c-acd7-0cf8c472a2f5",
               "go": "e5cc5580-a883-46d6-86bb-cddb4512e17d",
               "component_type": "PointInteractable"
             },
-            "CanManuallyFeed": true,
             "Chamber": [],
             "ChamberCapacity": 1,
             "ChamberCount": 0
@@ -1093,6 +1099,16 @@
             "IsTrigger": true,
             "Radius": 0.5,
             "Static": false
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "8c71d0ce-94d9-40ec-9205-47b6e94439f5",
+            "Name": "Ejection",
+            "Position": "-1.494843,-0.6206005,0",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "NetworkInterpolation": true
           }
         ]
       }

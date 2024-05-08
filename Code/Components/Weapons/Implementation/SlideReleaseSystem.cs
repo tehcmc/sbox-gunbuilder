@@ -34,6 +34,11 @@ public partial class SlideReleaseSystem : Component
 		{
 			Weapon.TryFeedFromMagazine();
 		}
+
+		if ( after == 1 )
+		{
+			Weapon.TryEjectFromChamber();
+		}
 	}
 
 	public void OnBulletEjected( IEnumerable<Bullet> ejected )

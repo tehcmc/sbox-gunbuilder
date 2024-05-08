@@ -51,6 +51,12 @@
         "__type": "Attachable",
         "__guid": "ce30f78d-cda4-4f3d-875b-84e96f0904bc",
         "AttachSound": "sounds/weapons/m4a1/m4_magazine_in.sound",
+        "Collider": {
+          "_type": "component",
+          "component_id": "0e5a7c8e-95f5-4018-9874-27f48c1f42a3",
+          "go": "9ebb3276-10f7-4cf8-9755-b100c7e9c7ce",
+          "component_type": "BoxCollider"
+        },
         "DetachSound": "sounds/weapons/m4a1/m4_magazine_in.sound",
         "Interactable": {
           "_type": "component",
@@ -64,14 +70,20 @@
           "go": "9ebb3276-10f7-4cf8-9755-b100c7e9c7ce",
           "component_type": "Rigidbody"
         }
+      },
+      {
+        "__type": "Sandbox.BoxCollider",
+        "__guid": "0e5a7c8e-95f5-4018-9874-27f48c1f42a3",
+        "Center": "0,0,0",
+        "IsTrigger": false,
+        "Scale": "3,1,7",
+        "Static": false
       }
     ],
     "Children": [
       {
         "__guid": "4094eb97-1b8a-46df-9323-eba48a294018",
         "Name": "Model",
-        "Position": "-1.507239,0.753112,-0.8448114",
-        "Rotation": "-0.0000005364418,0.9488792,0.0000003576279,0.3156419",
         "Enabled": true,
         "NetworkMode": 2,
         "NetworkInterpolation": true,
@@ -84,21 +96,13 @@
             "Model": "models/weapons/sbox_smg_mp5/v_mp5_magazine.vmdl",
             "RenderType": "On",
             "Tint": "1,1,1,1"
-          },
-          {
-            "__type": "Sandbox.BoxCollider",
-            "__guid": "3b15fc5a-2f17-4047-a31f-4296ad16a979",
-            "Center": "0,0,0",
-            "IsTrigger": false,
-            "Scale": "2,1,8",
-            "Static": false
           }
         ]
       },
       {
         "__guid": "965f7275-e93b-42eb-b480-bbf8bff0ed82",
         "Name": "Magazine Grab Point",
-        "Position": "-0.6212195,-0.05143751,-0.8158381",
+        "Position": "-0.1776,0,-0.8158381",
         "Tags": "trigger",
         "Enabled": true,
         "NetworkMode": 2,
