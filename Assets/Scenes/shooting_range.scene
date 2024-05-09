@@ -3,6 +3,7 @@
   "GameObjects": [
     {
       "__guid": "4a54e6e6-9a6f-4761-8268-3f5ee4057cec",
+      "Flags": 0,
       "Name": "Main Camera",
       "Position": "16.47198,462.3351,26.03419",
       "Rotation": "-0.04722369,-0.03729285,-0.7833719,0.6186337",
@@ -32,6 +33,7 @@
     },
     {
       "__guid": "9d5525f3-c193-4562-b26d-4e47d594c300",
+      "Flags": 0,
       "Name": "Directional Light",
       "Position": "0,0,200",
       "Rotation": "-0.2459842,0.5938582,0.2931525,0.7077327",
@@ -54,6 +56,7 @@
     },
     {
       "__guid": "5d2b9702-eae7-4348-ac9a-1c44c261b5a5",
+      "Flags": 0,
       "Name": "Box (4)",
       "Position": "320,192,-0.000003910885",
       "Enabled": true,
@@ -129,6 +132,7 @@
     },
     {
       "__guid": "e34dd658-302c-4709-bfb2-be1addd4aa74",
+      "Flags": 0,
       "Name": "Box",
       "Position": "-64,192,-0.000003910885",
       "Enabled": true,
@@ -223,6 +227,7 @@
     },
     {
       "__guid": "9fb08796-3385-48b9-9710-35d9c9c7ed3b",
+      "Flags": 0,
       "Name": "Box (1)",
       "Position": "-64,512,56.00003",
       "Enabled": true,
@@ -619,6 +624,7 @@
     },
     {
       "__guid": "a3d733a5-2f1e-48bb-9d3b-d16d74a8aeda",
+      "Flags": 0,
       "Name": "Box",
       "Position": "-64,-128,56.00003",
       "Enabled": true,
@@ -1047,6 +1053,7 @@
     },
     {
       "__guid": "71335956-795a-4bd9-a7eb-bc2771e1be1a",
+      "Flags": 0,
       "Name": "Box (7)",
       "Position": "132,32,55.99997",
       "Enabled": true,
@@ -1811,6 +1818,7 @@
     },
     {
       "__guid": "dad79768-d76d-479c-a8ee-ae48d0809e55",
+      "Flags": 0,
       "Name": "Box (6)",
       "Position": "132,144,55.99997",
       "Enabled": true,
@@ -2576,6 +2584,7 @@
     },
     {
       "__guid": "de8e41c5-30ee-4676-8d42-8c7d76369ea1",
+      "Flags": 0,
       "Name": "Box (5)",
       "Position": "132,256,55.99997",
       "Enabled": true,
@@ -3342,6 +3351,7 @@
     },
     {
       "__guid": "180f2c86-d97c-4e29-a8d3-45ad28cbfb38",
+      "Flags": 0,
       "Name": "Box (2)",
       "Position": "132,488,55.99997",
       "Enabled": true,
@@ -3948,6 +3958,7 @@
     },
     {
       "__guid": "a72ae338-367a-4c04-acec-50297f5f6a51",
+      "Flags": 0,
       "Name": "Box (3)",
       "Position": "132,-104,55.99997",
       "Enabled": true,
@@ -5286,6 +5297,7 @@
     },
     {
       "__guid": "8868cb5b-5404-4a28-94cb-9ab1ba30e078",
+      "Flags": 0,
       "Name": "industrial_strip_light (1)",
       "Position": "-63.99997,448,183.9924",
       "Rotation": "0,0.9999999,0,0",
@@ -5306,6 +5318,7 @@
       "Children": [
         {
           "__guid": "bf283e74-6552-447f-804e-5039f29b546b",
+          "Flags": 0,
           "Name": "Spot Light",
           "Position": "0.004974365,0,7.997238",
           "Rotation": "0,-0.7071018,0,0.7071019",
@@ -5331,6 +5344,7 @@
         },
         {
           "__guid": "1c02c068-c080-4f3c-a051-0075deac1b55",
+          "Flags": 0,
           "Name": "Point Light",
           "Position": "0,0,9.497762",
           "Tags": "light_point,light",
@@ -5354,6 +5368,7 @@
     },
     {
       "__guid": "2d1fdb3f-a6ca-4eaf-a4ee-317f58b8001d",
+      "Flags": 0,
       "Name": "industrial_strip_light",
       "Position": "-23.4995,83.28425,183.9924",
       "Rotation": "0,0.9999999,0,0",
@@ -5374,6 +5389,7 @@
       "Children": [
         {
           "__guid": "33b2ece8-ef77-4da1-a5dc-99ce590e4e8d",
+          "Flags": 0,
           "Name": "Spot Light",
           "Position": "0.004974365,0,7.997238",
           "Rotation": "0,-0.7071018,0,0.7071019",
@@ -5399,6 +5415,7 @@
         },
         {
           "__guid": "1b2e0d0e-56b2-4be5-b994-f07549bda1c6",
+          "Flags": 0,
           "Name": "Point Light",
           "Position": "0,0,9.497808",
           "Tags": "light_point,light",
@@ -5422,6 +5439,7 @@
     },
     {
       "__guid": "d12297f7-fafc-4a51-b968-5288cefca4c8",
+      "Flags": 0,
       "Name": "Sun (1)",
       "Position": "-280,78.66782,68.65121",
       "Rotation": "0,0.5,0,0.8660254",
@@ -5443,6 +5461,7 @@
     },
     {
       "__guid": "19a669dc-ac4e-4b1e-9808-fc5e33e6e0d2",
+      "Flags": 0,
       "Name": "2D Skybox",
       "Position": "6.512939,268.8316,59.78413",
       "Tags": "skybox",
@@ -5460,6 +5479,7 @@
     },
     {
       "__guid": "b020109c-2c7f-4295-9cc1-16ded2da96dd",
+      "Flags": 0,
       "Name": "Gradient Fog",
       "Position": "11.48245,241.6097,35.50454",
       "Enabled": true,
@@ -5481,6 +5501,7 @@
     },
     {
       "__guid": "a9290cfd-02b5-4821-8691-02bb938ad27b",
+      "Flags": 0,
       "Name": "Envmap Probe",
       "Position": "68.16153,257.0566,42.30988",
       "Enabled": true,
@@ -5510,6 +5531,7 @@
     },
     {
       "__guid": "e32a69ad-c8ac-4ffd-bfa5-d08f189fc019",
+      "Flags": 0,
       "Name": "Volumetric Fog",
       "Position": "212.3652,269.5529,41.19971",
       "Enabled": true,
@@ -5530,6 +5552,7 @@
     },
     {
       "__guid": "112945df-1918-41af-a4e5-74b9ed6cb5e8",
+      "Flags": 0,
       "Name": "trolley_02",
       "Position": "40,-84,0.1483841",
       "Enabled": true,
@@ -5556,6 +5579,7 @@
     },
     {
       "__guid": "a78c5698-6981-491d-a81c-033eb8edc632",
+      "Flags": 0,
       "Name": "wooden_crate_02 (1)",
       "Position": "84,-74.40032,8.000001",
       "Rotation": "0,0,0.06011602,0.9981914",
@@ -5575,6 +5599,7 @@
     },
     {
       "__guid": "aa3d6110-3f66-41d0-845d-cc20a2af82fa",
+      "Flags": 0,
       "Name": "wooden_crate_02",
       "Position": "84,-93.71516,8.000001",
       "Enabled": true,
@@ -5593,6 +5618,7 @@
     },
     {
       "__guid": "16b74330-1f49-4289-8979-e6369226068c",
+      "Flags": 0,
       "Name": "corrugated_wall_a_128 (5)",
       "Position": "-256,-68,0",
       "Enabled": true,
@@ -5620,6 +5646,7 @@
     },
     {
       "__guid": "f053a97d-87f8-4131-ac7e-006539167bc3",
+      "Flags": 0,
       "Name": "corrugated_wall_a_128 (4)",
       "Position": "-256,60,0",
       "Enabled": true,
@@ -5646,6 +5673,7 @@
     },
     {
       "__guid": "fb0f1aad-00d9-4e1c-a217-42aaa081a680",
+      "Flags": 0,
       "Name": "corrugated_wall_a_128 (3)",
       "Position": "-256,188,0",
       "Enabled": true,
@@ -5673,6 +5701,7 @@
     },
     {
       "__guid": "c4c38ba0-e10d-487e-a06b-14a7d9aa318c",
+      "Flags": 0,
       "Name": "corrugated_wall_a_128",
       "Position": "-256,316,0",
       "Enabled": true,
@@ -5699,6 +5728,7 @@
     },
     {
       "__guid": "e713dad3-bd64-4608-aa08-29f9d8f8247e",
+      "Flags": 0,
       "Name": "corrugated_wall_a_128 (2)",
       "Position": "64,508,0",
       "Rotation": "0,0,-0.7071067,0.7071068",
@@ -5727,6 +5757,7 @@
     },
     {
       "__guid": "366115b9-58c7-4d86-bb4c-66db4d782f3e",
+      "Flags": 0,
       "Name": "corrugated_wall_a_128",
       "Position": "-192,508,0",
       "Rotation": "0,0,-0.7071067,0.7071068",
@@ -5755,6 +5786,7 @@
     },
     {
       "__guid": "50c54f6b-4f64-4271-8785-1e1dff440f29",
+      "Flags": 0,
       "Name": "corrugated_wall_doorframe_a_128",
       "Position": "-256,444,0",
       "Enabled": true,
@@ -5781,6 +5813,7 @@
     },
     {
       "__guid": "402b62aa-b840-4ec2-9ce1-02c2ff08fbee",
+      "Flags": 0,
       "Name": "doorframe_metal_a",
       "Position": "-256,444,0.000007629395",
       "Enabled": true,
@@ -5799,6 +5832,7 @@
     },
     {
       "__guid": "b140cb3e-9f99-4184-a828-be3746f60f46",
+      "Flags": 0,
       "Name": "metal_door_01a",
       "Position": "-254.6406,467.0843,-0.00001510999",
       "Enabled": true,
@@ -5818,6 +5852,7 @@
     },
     {
       "__guid": "7c876fd7-2962-43f9-87aa-34e652969aab",
+      "Flags": 0,
       "Name": "door_lock_a",
       "Position": "-253.6405,422.5143,50.56475",
       "Rotation": "0.4999999,0.5,0.5,0.5000001",
@@ -5838,6 +5873,7 @@
     },
     {
       "__guid": "fb9618cc-6ccc-4631-9a87-792243f6f816",
+      "Flags": 0,
       "Name": "door_handle_a",
       "Position": "-253.6406,422.5371,54.63438",
       "Rotation": "0.4999999,0.5,0.5,0.5000001",
@@ -5858,6 +5894,7 @@
     },
     {
       "__guid": "db3c391a-11c4-4297-8345-935b51ea9a9b",
+      "Flags": 0,
       "Name": "dirt_pile_strt_01",
       "Position": "-251.5443,441.5154,0.0112484",
       "Enabled": true,
@@ -5877,6 +5914,7 @@
     },
     {
       "__guid": "697f3312-ce1b-4175-927c-e7a0ae5216fc",
+      "Flags": 0,
       "Name": "dirt_pile_crn_02",
       "Position": "128.9344,508.5815,0.0104149",
       "Rotation": "0,0,1,0.0000001947072",
@@ -5897,6 +5935,7 @@
     },
     {
       "__guid": "0bf2f3e3-7691-4eb9-9730-6427a7e71478",
+      "Flags": 0,
       "Name": "dirt_pile_05",
       "Position": "-166.7935,-29.26573,0.01042945",
       "Scale": "3,3,3",
@@ -5917,6 +5956,7 @@
     },
     {
       "__guid": "f0f40130-d8f5-47ca-98c9-e96a277a7584",
+      "Flags": 0,
       "Name": "dirt_pile_strt_03",
       "Position": "120,76,0.01040445",
       "Rotation": "0,0,1,0.0000001947072",
@@ -5937,6 +5977,7 @@
     },
     {
       "__guid": "ed51eb7b-7db9-492a-84c1-23f371c335c8",
+      "Flags": 0,
       "Name": "dirt_pile_strt_02",
       "Position": "120,236,0.001358313",
       "Rotation": "0,0,1,0.0000001947072",
@@ -5957,6 +5998,7 @@
     },
     {
       "__guid": "3ac05b27-fb1b-47bb-b9a1-5fdb0a140fc8",
+      "Flags": 0,
       "Name": "dirt_pile_04",
       "Position": "120,428,0.03169174",
       "Rotation": "0,0,-0.7071067,0.7071068",
@@ -5977,6 +6019,7 @@
     },
     {
       "__guid": "9bb32a31-f60c-4b70-baa3-90fa282a4605",
+      "Flags": 0,
       "Name": "Box",
       "Position": "18,26,0.0009887008",
       "Enabled": true,
@@ -6043,6 +6086,7 @@
     },
     {
       "__guid": "a1e5fd25-436d-47dc-b1f7-b5f110b5fce2",
+      "Flags": 0,
       "Name": "Box (12)",
       "Position": "-251.9999,84.46302,63.99984",
       "Rotation": "0.5,0.4999999,0.4999999,0.5",
@@ -6114,6 +6158,7 @@
     },
     {
       "__guid": "32b424f2-761a-4c00-834c-814f579386ff",
+      "Flags": 0,
       "Name": "Box (11)",
       "Position": "-251.9998,211.537,63.99991",
       "Rotation": "0.5,0.4999999,0.4999999,0.5",
@@ -6184,6 +6229,7 @@
     },
     {
       "__guid": "131962d2-7749-4a8b-9246-7fe293c06514",
+      "Flags": 0,
       "Name": "Box (8)",
       "Position": "0.6294768,500.0001,65.20538",
       "Rotation": "0.7070961,0.003902959,-0.003902959,0.7070961",
@@ -6428,6 +6474,7 @@
     },
     {
       "__guid": "7692d35d-efae-424f-bb02-540108157fdb",
+      "Flags": 0,
       "Name": "Box (10)",
       "Position": "-88.47288,293.6161,0.7073823",
       "Rotation": "0,0,0.6087615,0.7933534",
@@ -6900,6 +6947,7 @@
     },
     {
       "__guid": "be56901a-98aa-488d-9852-15a991ba2c79",
+      "Flags": 0,
       "Name": "Box",
       "Position": "-43.72123,16,0.7074294",
       "Rotation": "0,0,0.129048,0.9916384",
@@ -6977,6 +7025,7 @@
     },
     {
       "__guid": "5e2bddb5-b537-4549-9443-5496a8fc51e5",
+      "Flags": 0,
       "Name": "water_drum_01_base",
       "Position": "-64,494.7977,-0.000002218417",
       "Enabled": true,
@@ -6995,6 +7044,7 @@
     },
     {
       "__guid": "d8097525-fc27-468a-ad41-b7dddc7cac15",
+      "Flags": 0,
       "Name": "ibc_water_tank",
       "Position": "72,464,0.3360804",
       "Rotation": "0,0,-0.2920728,0.9563961",
@@ -7014,6 +7064,7 @@
     },
     {
       "__guid": "919ff529-0388-441f-b22e-261e09ee491b",
+      "Flags": 0,
       "Name": "metal_beam_a_small_bracket_out (3)",
       "Position": "-253.0718,-91.20878,128",
       "Rotation": "0.4999999,0.5,-0.4999999,0.5",
@@ -7034,6 +7085,7 @@
     },
     {
       "__guid": "e70bc8c4-e26d-481d-a930-ac8bcdd1fb60",
+      "Flags": 0,
       "Name": "metal_beam_a_small_bracket_out (2)",
       "Position": "-253.0718,-11.67523,128",
       "Rotation": "0.4999999,0.5,-0.4999999,0.5",
@@ -7054,6 +7106,7 @@
     },
     {
       "__guid": "a2a59ab5-e4ba-459c-9926-fa36e01130c1",
+      "Flags": 0,
       "Name": "metal_beam_a_small_bracket_out (1)",
       "Position": "-253.0718,167.2023,128",
       "Rotation": "0.4999999,0.5,-0.4999999,0.5",
@@ -7074,6 +7127,7 @@
     },
     {
       "__guid": "7d4f1163-8c43-4e99-9464-9c95a97adba9",
+      "Flags": 0,
       "Name": "metal_beam_a_small_bracket_out",
       "Position": "-253.0718,412.6853,128",
       "Rotation": "0.4999999,0.5,-0.4999999,0.5",
@@ -7094,6 +7148,7 @@
     },
     {
       "__guid": "051c16ed-1866-42a3-989c-e50387c7ef29",
+      "Flags": 0,
       "Name": "fire_extinguisher",
       "Position": "-242.4139,497.2513,1.265151",
       "Rotation": "0,0,0.3826834,0.9238796",
@@ -7113,6 +7168,7 @@
     },
     {
       "__guid": "7b6b9d55-e363-422d-8d40-110acdafde2d",
+      "Flags": 0,
       "Name": "plastic_bucket_a",
       "Position": "111.8712,160.8348,0.0000000000000003550947",
       "Rotation": "0,0,-0.6365955,0.7711979",
@@ -7147,6 +7203,7 @@
       "Children": [
         {
           "__guid": "fec393a0-2bf8-42d5-ab6a-8d33730096f3",
+          "Flags": 4,
           "Name": "Base",
           "Position": "0,0,0",
           "Enabled": true,
@@ -7155,6 +7212,7 @@
           "Children": [
             {
               "__guid": "16c6ff6e-85dd-4707-8f06-f4b1b1bcfec3",
+              "Flags": 4,
               "Name": "Handle",
               "Position": "0,0,14.20712",
               "Enabled": true,
@@ -7167,6 +7225,7 @@
     },
     {
       "__guid": "09c7095b-700a-401d-b9f3-6cf8f6be04ab",
+      "Flags": 0,
       "Name": "outside_socket",
       "Position": "128,243.3943,12",
       "Rotation": "0.4999999,-0.5,-0.5,0.5000001",
@@ -7186,6 +7245,7 @@
     },
     {
       "__guid": "e7c8616e-0fd1-4457-9a7f-e849d6397be0",
+      "Flags": 0,
       "Name": "cable_reel_01",
       "Position": "-127.1239,471.2579,0.5400618",
       "Enabled": true,
@@ -7211,6 +7271,7 @@
     },
     {
       "__guid": "9e9cc093-9bf9-4db9-bf9b-4d61e124fb29",
+      "Flags": 0,
       "Name": "sprinkler_a",
       "Position": "-100.8735,49.12289,184",
       "Rotation": "0,0.9999999,0,0",
@@ -7230,6 +7291,7 @@
     },
     {
       "__guid": "b71c0942-936d-48d8-8321-e959fe91cee9",
+      "Flags": 0,
       "Name": "Box",
       "Position": "-218,194,13.3065",
       "Enabled": true,
@@ -7297,6 +7359,7 @@
     },
     {
       "__guid": "6608eda5-a8e8-4435-bd6e-edbd5c0ba786",
+      "Flags": 0,
       "Name": "dirt_pile_crn_01",
       "Position": "128,-124,0.01040841",
       "Rotation": "0,0,0.7071067,0.7071068",
@@ -7317,6 +7380,7 @@
     },
     {
       "__guid": "019ced89-d13c-406b-b12b-f9ff26d5a80c",
+      "Flags": 0,
       "Name": "dirt_pile_strt_01",
       "Position": "-26.22373,-124.2179,0.01041221",
       "Rotation": "0,0,0.7071067,0.7071068",
@@ -7337,6 +7401,7 @@
     },
     {
       "__guid": "1c98d02b-a966-41aa-b0a3-ce688461e5f4",
+      "Flags": 0,
       "Name": "trash_pile_c_05",
       "Position": "-73.25069,22.21425,0.4470298",
       "Enabled": true,
@@ -7355,6 +7420,7 @@
     },
     {
       "__guid": "6f6babfc-7bbb-42fa-a583-4bffc5d295c8",
+      "Flags": 0,
       "Name": "trash_pile_c_01",
       "Position": "27.94328,-85.84843,0.1727727",
       "Enabled": true,
@@ -7373,6 +7439,7 @@
     },
     {
       "__guid": "0e00bf73-03ba-4d6a-8517-852a5a887404",
+      "Flags": 0,
       "Name": "trash_pile_b_1",
       "Position": "28.96454,-66.40208,0.04197037",
       "Rotation": "0,0,0.4078841,0.9130337",
@@ -7392,6 +7459,7 @@
     },
     {
       "__guid": "a2b07e52-acb5-4b5c-924f-54a061567c49",
+      "Flags": 0,
       "Name": "trash_pile_a_03",
       "Position": "-252.922,358.1439,0.380977",
       "Enabled": true,
@@ -7410,6 +7478,7 @@
     },
     {
       "__guid": "d034db55-2b6d-49dc-a7d9-438259a249f5",
+      "Flags": 0,
       "Name": "trash_pile_c_02",
       "Position": "-234.2999,301.4464,0.1884612",
       "Enabled": true,
@@ -7428,6 +7497,7 @@
     },
     {
       "__guid": "f67f36b1-00e6-49de-bc36-bb16088e7a82",
+      "Flags": 0,
       "Name": "trash_pile_c_cigs_01",
       "Position": "-220.6329,334.497,0.2308625",
       "Rotation": "0,0,-0.3258719,0.9454139",
@@ -7447,6 +7517,7 @@
     },
     {
       "__guid": "a673327c-19a2-41af-acc6-cfd98a2d20e8",
+      "Flags": 0,
       "Name": "trash_pile_c_cigs_02",
       "Position": "-248.638,232.3094,0.1004675",
       "Enabled": true,
@@ -7465,6 +7536,7 @@
     },
     {
       "__guid": "f19313aa-0577-4456-af91-1fa73e858bc2",
+      "Flags": 0,
       "Name": "trash_pile_c_01",
       "Position": "-236.9252,218.7273,0.1727727",
       "Enabled": true,
@@ -7483,6 +7555,7 @@
     },
     {
       "__guid": "581e01e8-eac6-4fad-a3d5-fe382532c186",
+      "Flags": 0,
       "Name": "trash_pile_b_3",
       "Position": "-228.6784,231.6729,0.0000004770217",
       "Rotation": "0,0,0.3716474,0.9283739",
@@ -7502,6 +7575,7 @@
     },
     {
       "__guid": "107f3f4d-3cff-45a8-8f82-1838a1449bd3",
+      "Flags": 0,
       "Name": "dirt_pile_05 (1)",
       "Position": "-0.6968095,483.4856,0.0104338",
       "Rotation": "0,0,0.7272972,0.6863227",
@@ -7523,6 +7597,7 @@
     },
     {
       "__guid": "7fd4bc61-821a-448e-a192-22725b7fe989",
+      "Flags": 0,
       "Name": "dirt_pile_05",
       "Position": "-195.9517,174.7329,0.01040607",
       "Rotation": "0,0,0.2795053,0.9601442",
@@ -7544,6 +7619,7 @@
     },
     {
       "__guid": "dcea70fa-19cd-420e-b8fa-206503d1376f",
+      "Flags": 0,
       "Name": "dirt_pile_crn_03",
       "Position": "-180.0542,262.1431,0.03168963",
       "Enabled": true,
@@ -7562,6 +7638,7 @@
     },
     {
       "__guid": "93065779-5e81-49c9-aa59-89de3655ee4c",
+      "Flags": 0,
       "Name": "Box (9)",
       "Position": "-196,-76,85.99997",
       "Enabled": true,
@@ -8005,6 +8082,7 @@
     },
     {
       "__guid": "9e9a0add-c894-4718-bf1f-bd406560bfc9",
+      "Flags": 0,
       "Name": "Box",
       "Position": "-196,244,85.99997",
       "Enabled": true,
@@ -8448,6 +8526,7 @@
     },
     {
       "__guid": "abfacb44-006a-46cd-98fe-cf99711ac1f8",
+      "Flags": 0,
       "Name": "metal_beam_stairs_a_64 (4)",
       "Position": "-188,-58,136",
       "Rotation": "-0.5,0.5,0.5,0.5",
@@ -8468,6 +8547,7 @@
     },
     {
       "__guid": "490a1b43-6f53-4bec-81ce-de160fbcc823",
+      "Flags": 0,
       "Name": "metal_beam_stairs_a_64 (5)",
       "Position": "-204,-58,136",
       "Rotation": "-0.5,0.5,0.5,0.5",
@@ -8488,6 +8568,7 @@
     },
     {
       "__guid": "ab76f47c-ed0b-4ee2-8797-ff81a0f92fe2",
+      "Flags": 0,
       "Name": "metal_beam_stairs_a_64 (6)",
       "Position": "-188,-94,136",
       "Rotation": "-0.5000001,-0.4999999,0.5000001,-0.4999999",
@@ -8508,6 +8589,7 @@
     },
     {
       "__guid": "e316d6b9-e2fb-461d-a562-4e57bdb533d2",
+      "Flags": 0,
       "Name": "metal_beam_stairs_a_64 (7)",
       "Position": "-204,-94,136",
       "Rotation": "-0.5000001,-0.4999999,0.5000001,-0.4999999",
@@ -8528,6 +8610,7 @@
     },
     {
       "__guid": "9e4fcdd8-8d85-45b1-98fd-be009514e5a4",
+      "Flags": 0,
       "Name": "metal_beam_stairs_a_64 (1)",
       "Position": "-188,262,136",
       "Rotation": "-0.5,0.5,0.5,0.5",
@@ -8548,6 +8631,7 @@
     },
     {
       "__guid": "23a35d6f-dfc5-4195-b7d9-4dcadd6586bd",
+      "Flags": 0,
       "Name": "metal_beam_stairs_a_64 (2)",
       "Position": "-188,226,136",
       "Rotation": "-0.5000001,-0.4999999,0.5000001,-0.4999999",
@@ -8568,6 +8652,7 @@
     },
     {
       "__guid": "133ec81b-dff5-4d4a-8b79-88e796ce3738",
+      "Flags": 0,
       "Name": "metal_beam_stairs_a_64 (3)",
       "Position": "-204,226,136",
       "Rotation": "-0.5000001,-0.4999999,0.5000001,-0.4999999",
@@ -8588,6 +8673,7 @@
     },
     {
       "__guid": "fc821b1b-85f8-457d-85e1-905f0ed566fd",
+      "Flags": 0,
       "Name": "metal_beam_stairs_a_64",
       "Position": "-204,262,136",
       "Rotation": "-0.5,0.5,0.5,0.5",
@@ -8608,6 +8694,7 @@
     },
     {
       "__guid": "5df3c427-6c20-463d-8c77-cac17a9f62d0",
+      "Flags": 0,
       "Name": "leaves_scatter_crn_a1",
       "Position": "-249.0059,-118.1852,0.3142905",
       "Enabled": true,
@@ -8626,6 +8713,7 @@
     },
     {
       "__guid": "83f8dfe3-c8ec-40fd-8268-fab5700eaede",
+      "Flags": 0,
       "Name": "dirt_pile_01",
       "Position": "-208.0758,-93.59358,0.2573916",
       "Scale": "2,2,2",
@@ -8645,6 +8733,7 @@
     },
     {
       "__guid": "993da1d7-1304-4803-bc1d-8159cf9cb67c",
+      "Flags": 0,
       "Name": "Decal",
       "Position": "-112,-116,8",
       "Rotation": "0.2705978,-0.2705977,-0.6532815,0.6532815",
@@ -8667,6 +8756,7 @@
     },
     {
       "__guid": "8da63c91-5f74-4ea8-99af-2c5429e799e4",
+      "Flags": 0,
       "Name": "Decal (4)",
       "Position": "79.82262,-88,165.9021",
       "Rotation": "0.5074102,-0.5074102,-0.4924783,0.4924783",
@@ -8689,6 +8779,7 @@
     },
     {
       "__guid": "d2ccebe5-e3b2-42a2-b334-09a0392e5474",
+      "Flags": 0,
       "Name": "Decal (3)",
       "Position": "-40.98094,-88,146.3198",
       "Rotation": "0.7071068,-0.7071068,-0.0000001376788,0.0000001376788",
@@ -8711,6 +8802,7 @@
     },
     {
       "__guid": "9e47704b-dc5a-4e20-b16c-5e08a281fbcc",
+      "Flags": 0,
       "Name": "Decal (1)",
       "Position": "68,-120,75.99999",
       "Rotation": "0.7071068,-0.7071068,-0.0000001376788,0.0000001376788",
@@ -8733,6 +8825,7 @@
     },
     {
       "__guid": "c937373c-2b84-4b79-8bd0-2c573e233fd9",
+      "Flags": 0,
       "Name": "Decal (2)",
       "Position": "-68.00004,-120,9.911519",
       "Rotation": "0.7071068,-0.7071068,-0.0000001376788,0.0000001376788",
@@ -8755,6 +8848,7 @@
     },
     {
       "__guid": "6ebdeaa9-f5aa-49eb-9a9f-9bddf1a632a9",
+      "Flags": 0,
       "Name": "Decal",
       "Position": "-152,-120,52.00005",
       "Rotation": "0.7071068,-0.7071068,-0.0000001376788,0.0000001376788",
@@ -8777,6 +8871,7 @@
     },
     {
       "__guid": "1a0c6b18-81ab-486a-9d78-c0b7f0296fb9",
+      "Flags": 0,
       "Name": "Decal",
       "Position": "-183.226,408.364,1.265231",
       "Rotation": "0.09992316,0.69375,-0.1016825,0.7059652",
@@ -8799,6 +8894,7 @@
     },
     {
       "__guid": "6163981f-0268-4886-8275-a116db4f307e",
+      "Flags": 0,
       "Name": "dirt_pile_02",
       "Position": "-176,228,0.346022",
       "Scale": "3,3,1",
@@ -8818,6 +8914,7 @@
     },
     {
       "__guid": "25e9dd94-3d4a-4f4f-ac52-57eca3806a1a",
+      "Flags": 0,
       "Name": "dirt_pile_05",
       "Position": "6.219791,114.0304,0.0104045",
       "Scale": "5,5,1",
@@ -8838,6 +8935,7 @@
     },
     {
       "__guid": "ee963561-8f1d-4be9-baf0-fdc3606e3a7c",
+      "Flags": 0,
       "Name": "dirt_pile_04",
       "Position": "108,228,0.3379464",
       "Rotation": "0,0,0.6087614,0.7933534",
@@ -8858,6 +8956,7 @@
     },
     {
       "__guid": "6a31c209-a261-44cd-9628-0a716ac5a920",
+      "Flags": 0,
       "Name": "tyre_rim",
       "Position": "-114.4342,126.6038,3.185876",
       "Rotation": "0.7136146,0,0,0.7005385",
@@ -8877,6 +8976,7 @@
     },
     {
       "__guid": "708ccfe2-84f7-42eb-8124-436906ab0082",
+      "Flags": 0,
       "Name": "binbag_flat_a1",
       "Position": "-132.2241,131.2059,0.1218439",
       "Rotation": "0,0,0.5482103,0.8363405",
@@ -8896,6 +8996,7 @@
     },
     {
       "__guid": "ba79abb0-45e9-40ef-b3a2-ddc53a52d26d",
+      "Flags": 0,
       "Name": "binbag_flat_a2",
       "Position": "-231.841,363.6683,-0.07527795",
       "Rotation": "0,0,0.4133022,0.9105939",
@@ -8915,6 +9016,7 @@
     },
     {
       "__guid": "95b32db0-e210-48d7-a1bc-b55745b3cb0a",
+      "Flags": 0,
       "Name": "binbag_pile_a1",
       "Position": "-201.374,268.0938,0.4568887",
       "Enabled": true,
@@ -8933,6 +9035,7 @@
     },
     {
       "__guid": "8f6aa75a-9012-4d57-8b99-fdbfd234989d",
+      "Flags": 0,
       "Name": "binbag_pile_a2",
       "Position": "-177.256,-44.27303,0.9884105",
       "Rotation": "0,0,-0.3440801,0.9389403",
@@ -8952,6 +9055,7 @@
     },
     {
       "__guid": "12f3d7c4-5879-4b5d-ab4d-8d1072a18edf",
+      "Flags": 0,
       "Name": "wheely_bin",
       "Position": "-233.1978,344.1215,-0.000003267246",
       "Rotation": "0,0,0.4142099,0.9101814",
@@ -8973,6 +9077,7 @@
       "Children": [
         {
           "__guid": "42230a48-0eec-4020-b885-b56e0f4dbaba",
+          "Flags": 4,
           "Name": "bin",
           "Position": "0,0,0",
           "Enabled": true,
@@ -8981,6 +9086,7 @@
         },
         {
           "__guid": "97619f8a-e77b-4d68-b2be-5a405b25571d",
+          "Flags": 4,
           "Name": "lid",
           "Position": "-0.000001907349,-16,46",
           "Enabled": true,
@@ -8989,6 +9095,7 @@
         },
         {
           "__guid": "bce47424-4d9e-45f1-bac2-85be42241f3b",
+          "Flags": 4,
           "Name": "wheel_R",
           "Position": "12,-9.999989,3.999998",
           "Rotation": "0,1,0.000000000000007105427,-0.00000008742278",
@@ -8998,6 +9105,7 @@
         },
         {
           "__guid": "8154520e-5a23-41dc-882f-e6c9bbdba8a5",
+          "Flags": 4,
           "Name": "wheel_L",
           "Position": "-12.00001,-10,4",
           "Enabled": true,
@@ -9008,6 +9116,7 @@
     },
     {
       "__guid": "f6c0acab-c996-4b03-945b-0162615c23a1",
+      "Flags": 0,
       "Name": "binbag_a2",
       "Position": "-236.1831,345.9783,0.4568885",
       "Rotation": "0,0,0.0360857,0.9993488",
@@ -9028,6 +9137,7 @@
     },
     {
       "__guid": "436c7290-0468-4ba8-ab18-cc4ce80a70da",
+      "Flags": 0,
       "Name": "oil_drum_a",
       "Position": "20.34867,486.3261,0.04251567",
       "Enabled": true,
@@ -9046,6 +9156,7 @@
     },
     {
       "__guid": "35a958ac-770a-4e03-beeb-055296dde65c",
+      "Flags": 0,
       "Name": "dirt_pile_01 (1)",
       "Position": "108,428,0.02470797",
       "Rotation": "0,0,-0.258819,0.9659259",
@@ -9065,6 +9176,7 @@
     },
     {
       "__guid": "e5c7314c-19cd-4e70-8dbb-9a20cb38991b",
+      "Flags": 0,
       "Name": "dirt_pile_01",
       "Position": "-64,472,0.0246976",
       "Rotation": "0,0,-0.3826834,0.9238796",
@@ -9084,6 +9196,7 @@
     },
     {
       "__guid": "af079564-5129-472c-b9a8-7dc3a3431538",
+      "Flags": 0,
       "Name": "trash_pile_c_cigs_02",
       "Position": "-214.0074,500,0.1004637",
       "Rotation": "0,0,-0.7071068,0.7071068",
@@ -9103,6 +9216,7 @@
     },
     {
       "__guid": "4fcb047a-b12b-4fad-899a-eb5cc92b937c",
+      "Flags": 0,
       "Name": "trash_pile_c_05",
       "Position": "-166.0323,488.9725,0.05835579",
       "Enabled": true,
@@ -9121,6 +9235,7 @@
     },
     {
       "__guid": "a46a0cba-ceae-44e4-ae6c-a148359a633c",
+      "Flags": 0,
       "Name": "office_desk (1)",
       "Position": "-223.9998,120.0001,0.113265",
       "Rotation": "0,0,0.7071066,0.7071067",
@@ -9140,6 +9255,7 @@
     },
     {
       "__guid": "3bcea87e-d827-43e6-a9f9-0cd4cbf2761d",
+      "Flags": 0,
       "Name": "office_desk",
       "Position": "-223.9999,40.0001,0.113265",
       "Rotation": "0,0,0.7071066,0.7071067",
@@ -9159,6 +9275,7 @@
     },
     {
       "__guid": "4f62e947-a739-42f4-878c-c1dd2eae9baa",
+      "Flags": 0,
       "Name": "metal_wheely_bin",
       "Position": "-216.1366,193.8928,0.6349892",
       "Rotation": "0,0,-0.996968,0.07781085",
@@ -9186,6 +9303,7 @@
       "Children": [
         {
           "__guid": "80a6e73c-a12c-4f95-b543-d527d9a85790",
+          "Flags": 0,
           "Name": "Void",
           "Position": "0,0,0",
           "Enabled": true,
@@ -9210,6 +9328,7 @@
     },
     {
       "__guid": "85154bbe-44d8-4c31-b3f8-6c322b9f687d",
+      "Flags": 0,
       "Name": "Game (1)",
       "Position": "-190.6283,19.73162,2.000018",
       "Rotation": "0,0,-1,0.00000008940697",
@@ -9220,6 +9339,7 @@
     },
     {
       "__guid": "915b2863-6634-4293-b34b-045ff0cfd7ef",
+      "Flags": 0,
       "Name": "MP5 (1)",
       "Position": "-204,92,34.39145",
       "Rotation": "-0.4999999,-0.4999998,0.4999999,0.4999999",
@@ -9230,6 +9350,7 @@
     },
     {
       "__guid": "889fca9d-dd78-45a0-a742-087352915237",
+      "Flags": 0,
       "Name": "MP5",
       "Position": "-204,116,34.39145",
       "Rotation": "-0.4999999,-0.4999998,0.4999999,0.4999999",
@@ -9240,6 +9361,7 @@
     },
     {
       "__guid": "a273bbd5-952a-4f37-a93f-cea173c38397",
+      "Flags": 0,
       "Name": "MP5 Magazine (3)",
       "Position": "-211.4669,132,33.38082",
       "Rotation": "0.2705979,-0.6532816,0.6532817,-0.2705979",
@@ -9251,6 +9373,7 @@
     },
     {
       "__guid": "22b09129-1015-4b5a-8f7e-ee2991b90d7a",
+      "Flags": 0,
       "Name": "MP5 Magazine (2)",
       "Position": "-211.4669,136,33.38082",
       "Rotation": "0.2705979,-0.6532816,0.6532817,-0.2705979",
@@ -9262,6 +9385,7 @@
     },
     {
       "__guid": "f59f504f-2b8c-40da-8477-9eadb4c50dcf",
+      "Flags": 0,
       "Name": "MP5 Magazine (1)",
       "Position": "-211.4669,140,33.38082",
       "Rotation": "0.2705979,-0.6532816,0.6532817,-0.2705979",
@@ -9273,6 +9397,7 @@
     },
     {
       "__guid": "d102410b-e07e-4073-98dc-e440bdecf07c",
+      "Flags": 0,
       "Name": "MP5 Magazine (4)",
       "Position": "-211.4669,148,33.38082",
       "Rotation": "0.2705979,-0.6532816,0.6532817,-0.2705979",
@@ -9284,6 +9409,7 @@
     },
     {
       "__guid": "cec172cf-b51f-4bb3-bb05-9f59b4f01b6e",
+      "Flags": 0,
       "Name": "MP5 Magazine",
       "Position": "-211.4669,144,33.38082",
       "Rotation": "0.2705979,-0.6532816,0.6532817,-0.2705979",
@@ -9295,6 +9421,7 @@
     },
     {
       "__guid": "e4ed93d5-4c86-419d-b156-536866048064",
+      "Flags": 0,
       "Name": "USP (1)",
       "Position": "-208,56,31.47736",
       "Rotation": "-0.2476718,0.00000005255767,0.9688439,0.0000001874795",
@@ -9305,6 +9432,7 @@
     },
     {
       "__guid": "80bc5f9a-8d88-42f5-be21-8a23fabd5b55",
+      "Flags": 0,
       "Name": "USP (3)",
       "Position": "-208,68,31.47736",
       "Rotation": "-0.2476718,0.00000005255767,0.9688439,0.0000001874795",
@@ -9315,6 +9443,7 @@
     },
     {
       "__guid": "4cc18efd-337d-411d-ac59-68ac8e825367",
+      "Flags": 0,
       "Name": "USP (2)",
       "Position": "-208,64,31.47736",
       "Rotation": "-0.2476718,0.00000005255767,0.9688439,0.0000001874795",
@@ -9325,6 +9454,7 @@
     },
     {
       "__guid": "cd9d9de9-2e4f-4c5c-8bc1-a52acf875ebb",
+      "Flags": 0,
       "Name": "USP",
       "Position": "-208,60,31.47736",
       "Rotation": "-0.2476718,0.00000005255767,0.9688439,0.0000001874795",
@@ -9335,6 +9465,7 @@
     },
     {
       "__guid": "d5a4f033-71f5-41ea-ab46-ee34120ac486",
+      "Flags": 0,
       "Name": "USP Magazine (5)",
       "Position": "-208,32,35.11327",
       "Rotation": "0.5,-0.4999999,-0.5,0.5000001",
@@ -9346,6 +9477,7 @@
     },
     {
       "__guid": "86f1e2c8-74df-470f-aa36-e577f0069e69",
+      "Flags": 0,
       "Name": "USP Magazine (4)",
       "Position": "-208,36,35.11327",
       "Rotation": "0.5,-0.4999999,-0.5,0.5000001",
@@ -9357,6 +9489,7 @@
     },
     {
       "__guid": "43466629-5c29-48f1-9a60-af1c03465d43",
+      "Flags": 0,
       "Name": "USP Magazine (2)",
       "Position": "-208,40,35.11327",
       "Rotation": "0.5,-0.4999999,-0.5,0.5000001",
@@ -9368,6 +9501,7 @@
     },
     {
       "__guid": "db346a04-6b4d-4a81-bef8-c4ec185dfdac",
+      "Flags": 0,
       "Name": "USP Magazine (1)",
       "Position": "-208,44,35.11327",
       "Rotation": "0.5,-0.4999999,-0.5,0.5000001",
@@ -9379,6 +9513,7 @@
     },
     {
       "__guid": "1d00098d-fba8-4026-b78c-08d33ce6324d",
+      "Flags": 0,
       "Name": "USP Magazine (3)",
       "Position": "-208,48,35.11327",
       "Rotation": "0.5,-0.4999999,-0.5,0.5000001",
@@ -9390,6 +9525,7 @@
     },
     {
       "__guid": "7180f630-988c-4889-b7a7-7fc847e4ea3f",
+      "Flags": 0,
       "Name": "BouncingTarget",
       "Position": "329.52,351.1749,46.95666",
       "Enabled": true,
@@ -9411,6 +9547,7 @@
       "Children": [
         {
           "__guid": "cb762f17-97e6-4ab2-a269-948002825ace",
+          "Flags": 0,
           "Name": "Object",
           "Position": "0,0,0",
           "Enabled": true,
@@ -9419,6 +9556,7 @@
           "Children": [
             {
               "__guid": "89333e1a-823c-4ec8-8bb2-039ed637bcbb",
+              "Flags": 0,
               "Name": "Cube",
               "Position": "0,0,0",
               "Enabled": true,
@@ -9441,6 +9579,7 @@
     },
     {
       "__guid": "00a3117b-75fd-4c20-99f3-ab4d48e33b0a",
+      "Flags": 0,
       "Name": "FlipUpTarget",
       "Position": "329.52,176.6305,0",
       "Enabled": true,
@@ -9461,6 +9600,7 @@
       "Children": [
         {
           "__guid": "6b241e07-c1a1-46ce-b2a0-44e1703e88bb",
+          "Flags": 0,
           "Name": "Object",
           "Position": "0,0,0",
           "Rotation": "0,0.7071067,0,0.7071068",
@@ -9470,6 +9610,7 @@
           "Children": [
             {
               "__guid": "1d92ea21-306e-4c74-a505-5bd0bdeb626e",
+              "Flags": 0,
               "Name": "Box",
               "Position": "-1.519989,0,0.0000002717952",
               "Rotation": "-1,0.000000000000007105427,0.0000001788139,0.0000000948304",
@@ -9536,6 +9677,7 @@
             },
             {
               "__guid": "1310c52b-950f-42bb-b1a3-40bded7d7ecf",
+              "Flags": 0,
               "Name": "Cube",
               "Position": "0,0,0",
               "Scale": "0.1,0.1,0.1",
@@ -9559,6 +9701,7 @@
     },
     {
       "__guid": "93601502-1905-4385-b0fd-9b5b76a5caad",
+      "Flags": 0,
       "Name": "MovingTarget",
       "Position": "329.52,-20.73724,46.95666",
       "Enabled": true,
@@ -9579,6 +9722,7 @@
       "Children": [
         {
           "__guid": "452994a5-2da6-4163-8069-46235d05148f",
+          "Flags": 0,
           "Name": "Object",
           "Position": "0,0,0",
           "Enabled": true,
@@ -9587,6 +9731,7 @@
           "Children": [
             {
               "__guid": "0f984ee0-7a68-4abe-9203-3799feacba45",
+              "Flags": 0,
               "Name": "Cube",
               "Position": "0,0,0",
               "Enabled": true,
@@ -9609,6 +9754,7 @@
     },
     {
       "__guid": "dda8c8c1-92b9-4013-bce1-18448da618d6",
+      "Flags": 0,
       "Name": "Spot Light (3)",
       "Position": "137.0489,361.0815,7.164132",
       "Rotation": "-0.0009496585,-0.09843343,-0.00960042,0.9950969",
@@ -9634,6 +9780,7 @@
     },
     {
       "__guid": "7ff310b0-10e8-48c6-8b22-0c293987bec2",
+      "Flags": 0,
       "Name": "Spot Light (2)",
       "Position": "137.0489,-46.95033,7.164132",
       "Rotation": "-0.0009496585,-0.09843343,-0.00960042,0.9950969",
@@ -9659,6 +9806,7 @@
     },
     {
       "__guid": "67f6858b-63ed-453d-a977-f3cb82ee697b",
+      "Flags": 0,
       "Name": "Spot Light (1)",
       "Position": "137.0489,73.95201,7.164132",
       "Rotation": "-0.0009496585,-0.09843343,-0.00960042,0.9950969",
@@ -9684,6 +9832,7 @@
     },
     {
       "__guid": "f9adac76-4a9e-4593-abcd-3821d53b81b4",
+      "Flags": 0,
       "Name": "Spot Light",
       "Position": "137.0489,180.8218,7.164132",
       "Rotation": "-0.0009496585,-0.09843343,-0.00960042,0.9950969",
@@ -9709,6 +9858,7 @@
     },
     {
       "__guid": "257835ee-c458-4000-86df-d6a33d779d84",
+      "Flags": 0,
       "Name": "big_button",
       "Position": "-208,20,30.63177",
       "Rotation": "0,0,-1,0.0000001947072",
@@ -9730,24 +9880,25 @@
       "Children": [
         {
           "__guid": "2f92e084-3bd9-439c-8374-43b3ae4ad3b3",
+          "Flags": 4,
           "Name": "root",
-          "Position": "-0,0,0",
-          "Rotation": "0,0,0,-1",
+          "Position": "0,0,0",
           "Enabled": true,
           "NetworkMode": 2,
           "NetworkInterpolation": true
         },
         {
           "__guid": "84fd73df-3076-40d1-a975-14cad9c6dc1e",
+          "Flags": 1028,
           "Name": "button",
-          "Position": "-0,0,0",
-          "Rotation": "0,0,0,-1",
+          "Position": "0,0,0",
           "Enabled": true,
           "NetworkMode": 2,
           "NetworkInterpolation": true
         },
         {
           "__guid": "3922d245-2258-479f-812a-d3e5eff5aaef",
+          "Flags": 0,
           "Name": "button_press",
           "Position": "0,0,0",
           "Rotation": "0,0,0.0000004023314,-1",
@@ -9757,6 +9908,7 @@
           "Children": [
             {
               "__guid": "ff19451e-957f-423f-a387-e50fcc0590d1",
+              "Flags": 0,
               "Name": "button_press_grab",
               "Position": "0,0,9.571308",
               "Enabled": true,
@@ -9827,6 +9979,7 @@
             },
             {
               "__guid": "6052e817-c8d1-4d66-88bf-d080c1940b5c",
+              "Flags": 0,
               "Name": "button_press start",
               "Position": "0.00004577637,-0.000003814678,8.395203",
               "Rotation": "-0.00000000000004263256,-0.7071066,-0.00000000000001421085,0.7071068",
@@ -9836,6 +9989,7 @@
             },
             {
               "__guid": "2778535c-cb66-4aa5-9c16-00f113bef6a4",
+              "Flags": 0,
               "Name": "button_press end",
               "Position": "-0.00003051758,0.000003814685,6.414211",
               "Rotation": "0,0.7071067,0,0.7071068",
@@ -9871,7 +10025,7 @@
   },
   "Title": "shooting_range",
   "Description": "",
-  "LastSaved": "2024-05-08T14:30:00.1753453\u002B01:00",
+  "LastSaved": "2024-05-09T11:05:02.4444668\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [

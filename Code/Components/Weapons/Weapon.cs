@@ -282,11 +282,11 @@ public partial class Weapon : Interactable
 
 		var worldBullet = bullet.CreateInWorld( EjectionPort.Transform.Position, EjectionPort.Transform.Rotation );
 
-		var rb = worldBullet.Components.Get<Rigidbody>();
+		var rb = worldBullet.Components.Get<Rigidbody>( FindMode.EnabledInSelfAndDescendants );
 		if ( rb.IsValid() )
 		{
-			//rb.ApplyForce( EjectionPort.Transform.Rotation.Right * 1500000 );
-			//rb.ApplyForce( EjectionPort.Transform.Rotation.Up * Game.Random.Float( 100000, 200000 ) );
+			rb.ApplyForce( EjectionPort.Transform.Rotation.Right * 1500000 );
+			rb.ApplyForce( EjectionPort.Transform.Rotation.Up * Game.Random.Float( 100000, 200000 ) );
 		}
 	}
 

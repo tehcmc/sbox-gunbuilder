@@ -3,6 +3,7 @@
     "__guid": "a0b0686c-88bf-4071-991a-34ff6ab444c4",
     "Flags": 0,
     "Name": "usp",
+    "Tags": "weapon",
     "Enabled": true,
     "NetworkMode": 2,
     "NetworkInterpolation": true,
