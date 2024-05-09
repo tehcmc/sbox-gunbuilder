@@ -72,9 +72,12 @@
         "BulletCount": 0,
         "BulletPrefab": {
           "Caliber": "Nine",
-          "WorldModel": "models/weapons/sbox_ammo/9mm_bullet/9mm_bullet.vmdl",
           "SpentCasingBodygroup": {
             "Value": 1
+          },
+          "Prefab": {
+            "_type": "gameobject",
+            "prefab": "prefabs/interactables/ammo/bullet_9mm.prefab"
           }
         },
         "Bullets": [],
@@ -163,7 +166,6 @@
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
-    "facepunch.9mm_bullet",
     "facepunch.v_usp_magazine"
   ]
 }

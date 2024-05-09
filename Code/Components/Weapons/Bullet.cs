@@ -37,14 +37,14 @@ public partial record Bullet
 	[Property, Group( "Setup" )] public BulletCaliber Caliber { get; set; } = BulletCaliber.FiveFiveSix;
 
 	/// <summary>
-	/// The prefab to spawn if we want to instantiate a world version of this bullet.
-	/// </summary>
-	[Property, Group( "Setup" )] public Model WorldModel { get; set; }
-
-	/// <summary>
 	/// The bodygroup set to use on a spawned bullet when spawning a bullet in the world.
 	/// </summary>
 	[Property, Group( "Setup" )] public BodyGroupKeyValue SpentCasingBodygroup { get; set; }
+
+	/// <summary>
+	/// The prefab to spawn if we want to instantiate a world version of this bullet.
+	/// </summary>
+	[Property, Group( "Setup" )] public GameObject Prefab { get; set; }
 
 	/// <summary>
 	/// Creates a bullet component in the world (can be picked up)
@@ -54,29 +54,22 @@ public partial record Bullet
 	/// <returns></returns>
 	public BulletComponent CreateInWorld( Vector3 position, Rotation rotation = default )
 	{
-		var go = new GameObject();
+		var go = Prefab.Clone();
 		go.Transform.Position = position;
 		go.Transform.Rotation = rotation;
+		go.Enabled = true;
 
-		// Create the bullet
-		var comp = go.Components.Create<BulletComponent>();
+		// Get the bullet
+		var comp = go.Components.Get<BulletComponent>( FindMode.EnabledInSelfAndDescendants );
 		comp.Bullet = this;
 
-		// Create the model
-		var mdl = go.Components.Create<ModelRenderer>();
-		mdl.Model = WorldModel;
+		// Get the model
+		var mdl = go.Components.Get<ModelRenderer>( FindMode.EnabledInSelfAndDescendants );
 
 		if ( IsSpent )
 		{
 			mdl.SetBodyGroup( SpentCasingBodygroup.Index, SpentCasingBodygroup.Value );
 		}
-
-		// Create the model collider
-		var collider = go.Components.Create<ModelCollider>();
-		collider.Model = WorldModel;
-
-		// Create the rigidbody (so it can move)
-		go.Components.Create<Rigidbody>();
 
 		return comp;
 	}
