@@ -249,7 +249,13 @@ public partial class Weapon : Interactable
 		int count = 0;
 		foreach ( var tr in GetShootTrace() )
 		{
-			// TODO: Component.IDamageable
+			foreach ( var damageable in tr.GameObject.Root.Components.GetAll<IDamageable>( FindMode.EnabledInSelfAndDescendants ) )
+			{
+				damageable.OnDamage( new DamageInfo()
+				{
+					Damage = 25, Position = tr.EndPosition
+				} );
+			}
 
 			if ( tr.Hit )
 				CreateImpactEffects( tr.GameObject, tr.Surface, tr.EndPosition, tr.Normal );
@@ -287,6 +293,9 @@ public partial class Weapon : Interactable
 		{
 			rb.ApplyForce( EjectionPort.Transform.Rotation.Right * 1500000 );
 			rb.ApplyForce( EjectionPort.Transform.Rotation.Up * Game.Random.Float( 100000, 200000 ) );
+
+			//rb.AngularVelocity = EjectionPort.Transform.Rotation.Right * 10;
+			rb.AngularVelocity = worldBullet.Transform.Rotation.Forward * 10;
 		}
 	}
 
