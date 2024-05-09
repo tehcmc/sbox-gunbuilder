@@ -11,10 +11,6 @@
         "__type": "Weapon",
         "__guid": "a55f4947-1612-4f52-9bb0-7e954737d158",
         "BaseRecoilDecay": 3,
-        "BulletEjectPrefab": {
-          "_type": "gameobject",
-          "prefab": "prefabs/interactables/ammo/spent_9mm_shell.prefab"
-        },
         "BulletSize": 3,
         "Chamber": {
           "_type": "component",
@@ -1000,8 +996,7 @@
               "Middle": 1,
               "Ring": 1,
               "Pinky": 1
-            },
-            "PresetDebugging": false
+            }
           },
           {
             "__type": "Sandbox.SphereCollider",
@@ -1019,7 +1014,7 @@
         "Name": "mp5 Secondary Grab",
         "Position": "7.372532,-0.0001871884,6.105626",
         "Rotation": "-0.7071069,0,-0.00000009126961,0.7071071",
-        "Tags": "trigger",
+        "Tags": "trigger,secondary",
         "Enabled": true,
         "NetworkMode": 2,
         "NetworkInterpolation": true,
@@ -1047,7 +1042,6 @@
               "Ring": 1,
               "Pinky": 1
             },
-            "PresetDebugging": false,
             "PrimaryGrabPoint": {
               "_type": "component",
               "component_id": "0d7f26fd-4286-483e-8f7b-a28e2e6c0ecb",
@@ -1090,9 +1084,9 @@
           {
             "__type": "Sandbox.BoxCollider",
             "__guid": "6fb8e96a-fcc8-4c80-bd77-f7b8d6984853",
-            "Center": "-0.9,0,2.3",
+            "Center": "-0.9,0,1.9",
             "IsTrigger": true,
-            "Scale": "1,1,1",
+            "Scale": "2,2,2",
             "Static": false
           }
         ]
@@ -1192,8 +1186,7 @@
                   "Middle": 1,
                   "Ring": 1,
                   "Pinky": 1
-                },
-                "PresetDebugging": false
+                }
               },
               {
                 "__type": "PointInteractable",
@@ -1289,8 +1282,7 @@
                   "Middle": 1,
                   "Ring": 1,
                   "Pinky": 1
-                },
-                "PresetDebugging": false
+                }
               },
               {
                 "__type": "PointInteractable",

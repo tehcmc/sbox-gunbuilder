@@ -8,7 +8,7 @@ public partial class Interactable : BaseInteractable
 	/// A shorthand property to get the secondary grab point for this interactable.
 	/// We have to be holding a primary grab point to use this grab point.
 	/// </summary>
-	public GrabPoint SecondaryGrabPoint => heldGrabPoints.FirstOrDefault( x => x.IsSecondaryGrabPoint );
+	public IGrabbable SecondaryGrabPoint => heldGrabbables.FirstOrDefault( x => x.Tags.Has( "secondary" ) );
 
 	/// <summary>
 	/// The interactable's Rigidbody
@@ -23,16 +23,16 @@ public partial class Interactable : BaseInteractable
 	/// <summary>
 	/// Can we start interacting with this object?
 	/// </summary>
-	/// <param name="grabPoint"></param>
+	/// <param name="grabbable"></param>
 	/// <param name="hand"></param>
 	/// <returns></returns>
-	protected override bool CanInteract( GrabPoint grabPoint, Hand hand )
+	protected override bool CanInteract( IGrabbable grabbable, Hand hand )
 	{
 		// Are we close enough to this grab point to grab it?
 		// We could end up having stuff where we force grab items, but this system shouldn't be responsible for doing that.
-		if ( grabPoint.Transform.Position.Distance( hand.Transform.Position ) > 8f ) return false;
+		if ( grabbable.GameObject.Transform.Position.Distance( hand.Transform.Position ) > 8f ) return false;
 
-		return base.CanInteract( grabPoint, hand );
+		return base.CanInteract( grabbable, hand );
 	}
 
 	public void Attach( Attachable attachable, AttachmentPoint attachmentPoint )
@@ -65,28 +65,17 @@ public partial class Interactable : BaseInteractable
 	}
 
 	/// <summary>
-	/// Can we stop interacting with this object? Normally called when releasing the grip.
-	/// </summary>
-	/// <param name="grabPoint"></param>
-	/// <param name="hand"></param>
-	/// <returns></returns>
-	protected override bool CanStopInteract( GrabPoint grabPoint, Hand hand )
-	{
-		return base.CanStopInteract( grabPoint, hand );
-	}
-
-	/// <summary>
 	/// Called when we stop interacting with this object
 	/// </summary>
-	/// <param name="grabPoint"></param>
+	/// <param name="grabbable"></param>
 	/// <param name="hand"></param>
 	/// <returns></returns>
-	protected override void OnStopInteract( GrabPoint grabPoint, Hand hand )
+	protected override void OnStopInteract( IGrabbable grabbable, Hand hand )
 	{
-		base.OnStopInteract( grabPoint, hand );
+		base.OnStopInteract( grabbable, hand );
 
 		// If we're not holding this interactable anymore, turn its motion back on.
-		if ( heldGrabPoints.Count <= 0 )
+		if ( heldGrabbables.Count <= 0 )
 		{
 			Rigidbody.MotionEnabled = true;
 		}
@@ -95,21 +84,13 @@ public partial class Interactable : BaseInteractable
 	/// <summary>
 	/// Called when we start interactring with this opbject
 	/// </summary>
-	/// <param name="grabPoint"></param>
+	/// <param name="grabbable"></param>
 	/// <param name="hand"></param>
-	protected override void OnInteract( GrabPoint grabPoint, Hand hand )
+	protected override void OnInteract( IGrabbable grabbable, Hand hand )
 	{
-		base.OnInteract( grabPoint, hand );
+		base.OnInteract( grabbable, hand );
 
 		Rigidbody.MotionEnabled = false;
-	}
-
-	protected override void OnHeldUpdate()
-	{
-		base.OnHeldUpdate();
-
-		// Position the interactable how we want it.
-		PositionInteractable();
 	}
 
 	/// <summary>
@@ -119,15 +100,15 @@ public partial class Interactable : BaseInteractable
 	/// <returns></returns>
 	protected virtual Rotation GetHoldRotation()
 	{
-		var secondaryGrabPoint = heldGrabPoints.FirstOrDefault( x => x.IsSecondaryGrabPoint );
-		var targetRotation = PrimaryGrabPoint.HeldHand.GetHoldRotation( PrimaryGrabPoint );
+		var secondaryGrabPoint = heldGrabbables.FirstOrDefault( x => x.Tags.Has( "secondary" ) );
+		var targetRotation = PrimaryGrabPoint.Hand.GetHoldRotation( PrimaryGrabPoint );
 
 		// Are we holding from a secondary hold point as well?
 		if ( SecondaryGrabPoint.IsValid() )
 		{
-			var direction = (SecondaryGrabPoint.HeldHand.Transform.Position - PrimaryGrabPoint.HeldHand.Transform.Position).Normal;
+			var direction = (SecondaryGrabPoint.Hand.Transform.Position - PrimaryGrabPoint.Hand.Transform.Position).Normal;
 			// TODO: Take into account the real rotation of the secondary grab point, so you can tilt the interactable from there.
-			targetRotation = Rotation.LookAt( direction, secondaryGrabPoint.HeldHand.Transform.Rotation.Up );
+			targetRotation = Rotation.LookAt( direction, secondaryGrabPoint.Hand.Transform.Rotation.Up );
 		}
 
 		return targetRotation;
@@ -136,8 +117,8 @@ public partial class Interactable : BaseInteractable
 	protected void PositionInteractable()
 	{
 		var velocity = Rigidbody.Velocity;
-		var holdPos = PrimaryGrabPoint.HeldHand.GetHoldPosition( PrimaryGrabPoint );
-		var grabPointPos = PrimaryGrabPoint.Transform.Position;
+		var holdPos = PrimaryGrabPoint.Hand.GetHoldPosition( PrimaryGrabPoint );
+		var grabPointPos = PrimaryGrabPoint.GameObject.Transform.Position;
 
 		Vector3.SmoothDamp( Rigidbody.Transform.Position, holdPos + ( holdPos - grabPointPos ), ref velocity, CalcVelocityWeight(), Time.Delta );
 		Rigidbody.Velocity = velocity;
@@ -172,7 +153,6 @@ public partial class Interactable : BaseInteractable
 		if ( IsHeld )
 		{
 			PositionInteractable();
-			HeldUpdate();
 		}
 	}
 
@@ -181,7 +161,7 @@ public partial class Interactable : BaseInteractable
 	/// </summary>
 	internal void ClearAllInteractions()
 	{
-		var copy = new HashSet<GrabPoint>( heldGrabPoints );
+		var copy = new HashSet<IGrabbable>( heldGrabbables );
 		foreach ( var point in copy )
 		{
 			StopInteract( point );

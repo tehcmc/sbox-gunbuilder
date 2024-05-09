@@ -181,7 +181,7 @@ public partial class Weapon : Interactable
 	{
 		CurrentRecoilAmount = CurrentRecoilAmount.LerpTo( 0, Time.Delta * CalcRecoilDecay() );
 
-		if ( PrimaryGrabPoint?.HeldHand is { } hand )
+		if ( PrimaryGrabPoint?.Hand is { } hand )
 		{
 			if ( hand.IsTriggerDown() )
 			{

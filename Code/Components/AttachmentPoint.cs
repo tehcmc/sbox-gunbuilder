@@ -58,7 +58,7 @@ public partial class AttachmentPoint : Component, Component.ExecuteInEditor, Com
 		var attachableFwd = attachable.Transform.Rotation.Forward;
 		var thisFwd = Transform.Rotation.Forward;
 		var dot = attachableFwd.Dot( thisFwd );
-		if ( dot > 0.85f ) return true;
+		if ( dot > 0.8f ) return true;
 
 		return false;
 	}

@@ -191,14 +191,14 @@ public partial class Hand : Component, Component.ITriggerListener
 	}
 
 	// Not sure what purpose this'll really serve soon.
-	internal Vector3 GetHoldPosition( GrabPoint grabPoint )
+	internal Vector3 GetHoldPosition( IGrabbable grabPoint )
 	{
 		var src = ModelGameObject.Transform.Position;
 		return src;
 	}
 
 	// Not sure what purpose this'll really serve soon.
-	internal Rotation GetHoldRotation( GrabPoint grabPoint )
+	internal Rotation GetHoldRotation( IGrabbable grabPoint )
 	{
 		return ModelGameObject.Transform.Rotation;
 	}
