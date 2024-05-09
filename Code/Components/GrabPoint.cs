@@ -30,16 +30,6 @@ public partial class GrabPoint : Component, IGrabbable
 	/// <summary>
 	/// What's our grabbing input type?
 	/// </summary>
-	public enum GrabInputType
-	{
-		Grip,
-		Trigger,
-		Hover
-	}
-
-	/// <summary>
-	/// What's our grabbing input type?
-	/// </summary>
 	[Property] public GrabInputType GrabInput { get; set; } = GrabInputType.Grip;
 
 	/// <summary>

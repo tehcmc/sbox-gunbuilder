@@ -17,7 +17,7 @@ public partial class BaseInteractable : Component
 
 	protected HashSet<IGrabbable> heldGrabbables = new();
 
-	protected virtual IEnumerable<IGrabbable> AllGrabPoints => Components.GetAll<GrabPoint>( FindMode.EnabledInSelfAndDescendants );
+	public virtual IEnumerable<IGrabbable> AllGrabPoints => Components.GetAll<GrabPoint>( FindMode.EnabledInSelfAndDescendants );
 
 	/// <summary>
 	/// Gets you a hash set of the held grab points

@@ -3,6 +3,7 @@
     "__guid": "aca4a52c-39f4-4b69-aa30-58c78ce9c855",
     "Flags": 0,
     "Name": "mp5",
+    "Tags": "interactable,weapon",
     "Enabled": true,
     "NetworkMode": 2,
     "NetworkInterpolation": true,

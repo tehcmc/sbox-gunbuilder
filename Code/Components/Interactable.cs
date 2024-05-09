@@ -28,10 +28,6 @@ public partial class Interactable : BaseInteractable
 	/// <returns></returns>
 	protected override bool CanInteract( IGrabbable grabbable, Hand hand )
 	{
-		// Are we close enough to this grab point to grab it?
-		// We could end up having stuff where we force grab items, but this system shouldn't be responsible for doing that.
-		if ( grabbable.GameObject.Transform.Position.Distance( hand.Transform.Position ) > 8f ) return false;
-
 		return base.CanInteract( grabbable, hand );
 	}
 

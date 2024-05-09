@@ -3,7 +3,7 @@
     "__guid": "a0b0686c-88bf-4071-991a-34ff6ab444c4",
     "Flags": 0,
     "Name": "usp",
-    "Tags": "weapon",
+    "Tags": "weapon,interactable",
     "Enabled": true,
     "NetworkMode": 2,
     "NetworkInterpolation": true,
@@ -969,8 +969,7 @@
               "Middle": 1,
               "Ring": 1,
               "Pinky": 1
-            },
-            "PresetDebugging": false
+            }
           },
           {
             "__type": "Sandbox.SphereCollider",
@@ -1090,8 +1089,7 @@
                   "Middle": 1,
                   "Ring": 1,
                   "Pinky": 1
-                },
-                "PresetDebugging": false
+                }
               },
               {
                 "__type": "PointInteractable",

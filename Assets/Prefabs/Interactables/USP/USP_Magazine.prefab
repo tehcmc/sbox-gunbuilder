@@ -3,7 +3,7 @@
     "__guid": "0e5de69e-2f10-450a-86af-7209e2fddba7",
     "Flags": 0,
     "Name": "usp_magazine",
-    "Tags": "magazine",
+    "Tags": "magazine,interactable",
     "Enabled": true,
     "NetworkMode": 2,
     "NetworkInterpolation": true,
@@ -145,8 +145,7 @@
               "Middle": 1,
               "Ring": 1,
               "Pinky": 1
-            },
-            "PresetDebugging": false
+            }
           },
           {
             "__type": "Sandbox.SphereCollider",
