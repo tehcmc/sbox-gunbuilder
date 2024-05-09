@@ -1,9 +1,7 @@
 {
   "RootObject": {
     "__guid": "a4339880-82d8-419e-a4d1-3425ad0bc050",
-    "Name": "9mm Bullet",
-    "Position": "40.30875,4.878722,66.10013",
-    "Rotation": "0.0009143638,-0.1407643,-0.0006161518,0.9900426",
+    "Name": "bullet_9mm",
     "Tags": "magazine",
     "Enabled": true,
     "NetworkMode": 2,
@@ -54,7 +52,11 @@
         "__type": "BulletComponent",
         "__guid": "6cf9ba7b-d053-40c5-95c6-7749534255a3",
         "Bullet": {
-          "Caliber": "Nine"
+          "Caliber": "Nine",
+          "BulletModel": "models/weapons/sbox_ammo/9mm_bullet/9mm_bullet.vmdl",
+          "SpentCasingBodygroup": {
+            "Value": 1
+          }
         }
       }
     ],

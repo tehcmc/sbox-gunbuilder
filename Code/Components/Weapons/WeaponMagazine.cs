@@ -68,15 +68,16 @@ public sealed class WeaponMagazine : Component, IAmmoSource, Component.ITriggerL
 		get => Bullets.Count > 0;
 	}
 
+	[Property, Group( "Bullet Setup" )] public Bullet BulletPrefab { get; set; }
+
 	protected override void OnStart()
 	{
+		if ( BulletPrefab is null ) return;
+
 		// Push the bullet capacity into the gun
 		for ( int i = 0; i < DefaultBulletCapacity; i++ )
 		{
-			Push( new Bullet()
-			{
-				Caliber = Caliber
-			} );
+			Push( BulletPrefab with { IsSpent = false } );
 		}
 	}
 

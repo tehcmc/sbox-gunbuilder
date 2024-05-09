@@ -3,6 +3,7 @@
   "GameObjects": [
     {
       "__guid": "41021595-0d1f-4c86-9f74-2addcf6d1a40",
+      "Flags": 0,
       "Name": "Game",
       "Position": "19.58845,0,41.52672",
       "Enabled": true,
@@ -12,6 +13,7 @@
     },
     {
       "__guid": "f8c2be37-7076-4b3b-9392-ade8c6bee49f",
+      "Flags": 0,
       "Name": "Directional Light",
       "Position": "-188.4961,451.4536,224.1935",
       "Rotation": "0.1354347,0.2125834,-0.5199625,0.8161523",
@@ -33,6 +35,7 @@
     },
     {
       "__guid": "8229d308-5503-4149-b8e1-e04dd16e4700",
+      "Flags": 0,
       "Name": "Box",
       "Enabled": true,
       "NetworkMode": 2,
@@ -102,6 +105,7 @@
     },
     {
       "__guid": "0e28bdd0-678e-4079-9aac-67446d6dc61f",
+      "Flags": 0,
       "Name": "Box",
       "Position": "0,0,4.005005",
       "Enabled": true,
@@ -227,6 +231,7 @@
     },
     {
       "__guid": "fa53fc7b-2b30-4f54-9139-35b21d570fc7",
+      "Flags": 0,
       "Name": "Box (6)",
       "Position": "16,-48,58.52619",
       "Enabled": true,
@@ -364,6 +369,7 @@
     },
     {
       "__guid": "2921fb70-0bb6-4d46-a71b-4300f2c5a205",
+      "Flags": 0,
       "Name": "Box (5)",
       "Position": "16,48,58.52619",
       "Enabled": true,
@@ -501,6 +507,7 @@
     },
     {
       "__guid": "28656b31-9450-4209-86f8-29f8f86b5c31",
+      "Flags": 0,
       "Name": "Box",
       "Position": "48,0,58.52619",
       "Enabled": true,
@@ -638,6 +645,7 @@
     },
     {
       "__guid": "22e852c5-5156-4326-92c9-bf9685cdff22",
+      "Flags": 0,
       "Name": "Box (1)",
       "Position": "48,116.1848,58.52619",
       "Rotation": "0.6087614,0,0,0.7933534",
@@ -775,6 +783,7 @@
     },
     {
       "__guid": "8307f051-93fe-450d-b32a-340266c4e952",
+      "Flags": 0,
       "Name": "Box (2)",
       "Position": "323.2336,64.00002,31.99995",
       "Rotation": "0.5,-0.5,-0.5,0.5",
@@ -912,6 +921,7 @@
     },
     {
       "__guid": "b0f8f02f-8135-4075-a8a9-1b4193afee9e",
+      "Flags": 0,
       "Name": "Box (3)",
       "Position": "392,0,31.99995",
       "Rotation": "0.5,-0.5,-0.5,0.5",
@@ -1049,6 +1059,7 @@
     },
     {
       "__guid": "53126997-2aa3-4390-ac29-54941723a92a",
+      "Flags": 0,
       "Name": "Box (4)",
       "Position": "616,-64,31.99995",
       "Rotation": "0.5,-0.5,-0.5,0.5",
@@ -1186,8 +1197,10 @@
     },
     {
       "__guid": "aca4a52c-39f4-4b69-aa30-58c78ce9c855",
+      "Flags": 0,
       "Name": "MP5",
-      "Position": "38.44824,0.209504,66.60546",
+      "Position": "33.00752,-4.195513,66.99019",
+      "Rotation": "0.5,0.4999999,0.5,0.5000001",
       "Enabled": true,
       "NetworkMode": 2,
       "NetworkInterpolation": true,
@@ -1195,9 +1208,10 @@
     },
     {
       "__guid": "a0b0686c-88bf-4071-991a-34ff6ab444c4",
+      "Flags": 0,
       "Name": "USP",
       "Position": "22.40599,21.08761,69.86034",
-      "Rotation": "-0.5159411,-0.4910748,-0.4770435,-0.5148588",
+      "Rotation": "-0.0275048,0.01681775,-0.7021461,-0.7113025",
       "Enabled": true,
       "NetworkMode": 2,
       "NetworkInterpolation": true,
@@ -1205,6 +1219,7 @@
     },
     {
       "__guid": "40e762aa-d56d-479c-9a06-86bdeddd0890",
+      "Flags": 0,
       "Name": "Object",
       "Position": "38.08301,-13.50461,89.47496",
       "Scale": "0.05,0.05,0.05",
@@ -1278,7 +1293,32 @@
       ]
     },
     {
+      "__guid": "f2bfd77c-f97a-41f1-a7e7-4c33fb0e79de",
+      "Flags": 0,
+      "Name": "USP Magazine (2)",
+      "Position": "7.369332,25.72973,67.14941",
+      "Rotation": "0.09229589,0.7010576,0.7010573,0.09229603",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/usp/usp_magazine.prefab"
+    },
+    {
+      "__guid": "297262b4-8707-4aa1-b2db-e7c4ae4fd958",
+      "Flags": 0,
+      "Name": "USP Magazine (1)",
+      "Position": "13.60478,25.72973,67.14941",
+      "Rotation": "0.09229589,0.7010576,0.7010573,0.09229603",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/usp/usp_magazine.prefab"
+    },
+    {
       "__guid": "0e5de69e-2f10-450a-86af-7209e2fddba7",
+      "Flags": 0,
       "Name": "USP Magazine",
       "Position": "19.40038,25.72973,67.14941",
       "Rotation": "0.09229589,0.7010576,0.7010573,0.09229603",
@@ -1290,6 +1330,7 @@
     },
     {
       "__guid": "f9718452-b09d-48f9-81f9-23acdbbe088a",
+      "Flags": 0,
       "Name": "2D Skybox",
       "Position": "185.7367,44.1757,-141.2182",
       "Tags": "skybox",
@@ -1307,6 +1348,7 @@
     },
     {
       "__guid": "257ab571-c5d3-4e4e-bd9d-40a5822cc615",
+      "Flags": 0,
       "Name": "Envmap Probe",
       "Position": "-63.66519,-21.96673,97.83827",
       "Enabled": true,
@@ -1328,7 +1370,7 @@
           "Projection": "Box",
           "RenderDynamically": true,
           "TintColor": "1,1,1,1",
-          "UpdateStrategy": "OnEnabled",
+          "UpdateStrategy": "FrameInterval",
           "ZFar": 4096,
           "ZNear": 16
         }
@@ -1336,6 +1378,7 @@
     },
     {
       "__guid": "bc587d29-9ddc-461d-9d77-9f5168e4e0be",
+      "Flags": 0,
       "Name": "Cubemap Fog",
       "Position": "47.89931,-35.05224,105.3804",
       "Enabled": true,
@@ -1357,20 +1400,11 @@
       ]
     },
     {
-      "__guid": "a4339880-82d8-419e-a4d1-3425ad0bc050",
-      "Name": "9mm Bullet",
-      "Position": "40.30875,4.878722,66.10013",
-      "Rotation": "0.0009143638,-0.1407643,-0.0006161518,0.9900426",
-      "Tags": "magazine",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "NetworkInterpolation": true,
-      "__Prefab": "prefabs/interactables/ammo/bullet_9mm.prefab"
-    },
-    {
       "__guid": "7f78f562-a26e-4d73-9d35-e536e0f8a734",
+      "Flags": 0,
       "Name": "MP5 Magazine",
-      "Position": "49.4247,19.121,72.52621",
+      "Position": "35.65055,8.719552,72.52621",
+      "Rotation": "-0.4999999,0.5,-0.5,0.5000001",
       "Tags": "magazine",
       "Enabled": true,
       "NetworkMode": 2,
@@ -1401,7 +1435,7 @@
   },
   "Title": "testbed",
   "Description": "",
-  "LastSaved": "2024-05-07T17:11:00.9163329\u002B01:00",
+  "LastSaved": "2024-05-09T10:32:19.4442085\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": []

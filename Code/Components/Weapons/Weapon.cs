@@ -220,9 +220,9 @@ public partial class Weapon : Interactable
 
 	private Bullet GetBullet()
 	{
-		if ( Chamber?.Eject() is { } bullets )
+		if ( Chamber?.Eject() is { } bullet )
 		{
-			return bullets.FirstOrDefault();
+			return bullet;
 		}
 		return null;
 	}
@@ -241,6 +241,9 @@ public partial class Weapon : Interactable
 			return;
 		}
 
+		// Mark the bullet as spent.
+		bullet.IsSpent = true;
+
 		CurrentRecoilAmount += CalcRecoil();
 
 		int count = 0;
@@ -256,7 +259,7 @@ public partial class Weapon : Interactable
 			count++;
 		}
 
-		OnBulletEjected( null );
+		OnBulletEjected( bullet );
 
 		// If we succeed to shoot, let's feed another bullet into the chamber from the mag.
 		if ( !TryFeedFromMagazine() )
@@ -271,27 +274,29 @@ public partial class Weapon : Interactable
 
 	protected void OnBulletEjected( Bullet bullet )
 	{
-		var ejection = BulletEjectPrefab.Clone( new CloneConfig()
+		if ( bullet is null )
 		{
-			StartEnabled = true,
-			Transform = EjectionPort.Transform.World
-		} );
+			Log.Warning( "Tried to eject an invalid bullet?" );
+			return;
+		}
 
-		var rb = ejection.Components.Get<Rigidbody>();
+		var worldBullet = bullet.CreateInWorld( EjectionPort.Transform.Position, EjectionPort.Transform.Rotation );
+
+		var rb = worldBullet.Components.Get<Rigidbody>();
 		if ( rb.IsValid() )
 		{
-			rb.ApplyForce( EjectionPort.Transform.Rotation.Right * 1500000 );
-			rb.ApplyForce( EjectionPort.Transform.Rotation.Up * Game.Random.Float( 100000, 200000 ) );
+			//rb.ApplyForce( EjectionPort.Transform.Rotation.Right * 1500000 );
+			//rb.ApplyForce( EjectionPort.Transform.Rotation.Up * Game.Random.Float( 100000, 200000 ) );
 		}
 	}
 
 	internal bool TryEjectFromChamber()
 	{
-		var ejectedBullets = Chamber.Eject();
+		var ejectedBullet = Chamber.Eject();
 
-		if ( ejectedBullets is not null && ejectedBullets.Count() > 0 )
+		if ( ejectedBullet is not null )
 		{
-			OnBulletEjected( ejectedBullets.FirstOrDefault() );
+			OnBulletEjected( ejectedBullet );
 		}
 
 		return false;

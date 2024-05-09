@@ -1,6 +1,7 @@
 {
   "RootObject": {
     "__guid": "9ebb3276-10f7-4cf8-9755-b100c7e9c7ce",
+    "Flags": 0,
     "Name": "mp5_magazine",
     "Tags": "magazine",
     "Enabled": true,
@@ -36,6 +37,13 @@
         "AmmoBodygroup": 0,
         "BulletCapacity": 30,
         "BulletCount": 0,
+        "BulletPrefab": {
+          "Caliber": "Nine",
+          "WorldModel": "models/weapons/sbox_ammo/9mm_bullet/9mm_bullet.vmdl",
+          "SpentCasingBodygroup": {
+            "Value": 1
+          }
+        },
         "Bullets": [],
         "Caliber": "Nine",
         "DefaultBulletCapacity": 0,
@@ -83,6 +91,7 @@
     "Children": [
       {
         "__guid": "4094eb97-1b8a-46df-9323-eba48a294018",
+        "Flags": 0,
         "Name": "Model",
         "Enabled": true,
         "NetworkMode": 2,
@@ -101,6 +110,7 @@
       },
       {
         "__guid": "965f7275-e93b-42eb-b480-bbf8bff0ed82",
+        "Flags": 0,
         "Name": "Magazine Grab Point",
         "Position": "-0.1776,0,-0.8158381",
         "Tags": "trigger",
@@ -151,6 +161,7 @@
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
+    "facepunch.9mm_bullet",
     "facepunch.v_mp5_magazine"
   ]
 }

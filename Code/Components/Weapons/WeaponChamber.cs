@@ -39,12 +39,22 @@ public partial class WeaponChamber : Component, Component.ITriggerListener
 	/// Try to eject a bullet from the chamber.
 	/// </summary>
 	/// <returns></returns>
-	public IEnumerable<Bullet> Eject()
+	public Bullet Eject()
 	{
 		if ( Chamber.TryPop( out var bullet ) )
 		{
-			yield return bullet;
+			Log.Info( $"Ejected {bullet} from chamber" );
+			return bullet;
 		}
+		return null;
+	}
+
+	/// <summary>
+	/// Spend the first bullet in the weapon's chamber
+	/// </summary>
+	public void Spend()
+	{
+		if ( Chamber.FirstOrDefault() is { } bullet ) bullet.IsSpent = true;
 	}
 
 	/// <summary>
