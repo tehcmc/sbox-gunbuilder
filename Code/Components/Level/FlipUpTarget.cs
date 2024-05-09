@@ -1,7 +1,7 @@
 /// <summary>
 /// A flip up target. They'll ideally flip down when shot, then spring back up in a set time (by another system).
 /// </summary>
-public sealed class FlipUpTarget : Component
+public sealed class FlipUpTarget : Component, Component.IDamageable
 {
 	/// <summary>
 	/// The target in question.
@@ -31,7 +31,8 @@ public sealed class FlipUpTarget : Component
 			if ( triggered == value ) return;
 
 			triggered = value;
-
+			TimeSinceChanged = 0;
+			
 			if ( TriggerSound is not null )
 			{
 				Sound.Play( TriggerSound, Transform.Position );
@@ -39,10 +40,22 @@ public sealed class FlipUpTarget : Component
 		}
 	}
 
+	private TimeSince TimeSinceChanged = 1;
+
 	float SmoothPitch = 180;
 	protected override void OnUpdate()
 	{
 		SmoothPitch = SmoothPitch.Approach( Triggered ? 90 : 180, Time.Delta * Speed );
 		Target.Transform.LocalRotation = Rotation.From( SmoothPitch, 0, 0 );
+
+		if ( TimeSinceChanged > 1f && !Triggered ) Triggered = true;
+	}
+
+	void IDamageable.OnDamage( in DamageInfo damage )
+	{
+		if ( Triggered )
+		{
+			Triggered = false;
+		}
 	}
 }
