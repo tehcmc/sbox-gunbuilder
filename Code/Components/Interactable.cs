@@ -127,7 +127,7 @@ public partial class Interactable : BaseInteractable
 		{
 			var direction = (SecondaryGrabPoint.HeldHand.Transform.Position - PrimaryGrabPoint.HeldHand.Transform.Position).Normal;
 			// TODO: Take into account the real rotation of the secondary grab point, so you can tilt the interactable from there.
-			targetRotation = Rotation.LookAt( direction, Vector3.Up );
+			targetRotation = Rotation.LookAt( direction, secondaryGrabPoint.HeldHand.Transform.Rotation.Up );
 		}
 
 		return targetRotation;
