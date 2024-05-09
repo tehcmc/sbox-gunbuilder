@@ -38,7 +38,6 @@
       "Position": "0,0,200",
       "Rotation": "-0.2459842,0.5938582,0.2931525,0.7077327",
       "Tags": "light_directional,light",
-      "Enabled": true,
       "NetworkMode": 2,
       "NetworkInterpolation": true,
       "Components": [
@@ -2930,7 +2929,7 @@
               "0.25,0.25",
               "0.25,0.25",
               "0.25,0.25",
-              "0.1,0.1",
+              "0.04,0.02",
               "0.25,0.25",
               "0.25,0.25",
               "0.25,0.25",
@@ -2939,7 +2938,7 @@
               "0.25,0.25",
               "0.25,0.25",
               "0.25,0.25",
-              "0.1,0.1",
+              "0.04,0.02",
               "0.25,0.25",
               "0.25,0.25",
               "0.25,0.25",
@@ -3110,7 +3109,7 @@
               9,
               0,
               0,
-              7,
+              11,
               0,
               0,
               0,
@@ -3119,7 +3118,7 @@
               0,
               0,
               0,
-              7,
+              11,
               0,
               0,
               8,
@@ -3341,7 +3340,8 @@
               "materials/trimsheets/wood/plywood_trim_02.vmat",
               "models/walls/corrugated_wall_blend_a.vmat",
               "models/walls/corrugated_wall_bare_a.vmat",
-              "models/walls/corrugated_wall_a_transparent.vmat"
+              "models/walls/corrugated_wall_a_transparent.vmat",
+              "materials/wood/plywood_panels.vmat"
             ]
           },
           "SmoothingAngle": 40,
@@ -5296,77 +5296,6 @@
       ]
     },
     {
-      "__guid": "8868cb5b-5404-4a28-94cb-9ab1ba30e078",
-      "Flags": 0,
-      "Name": "industrial_strip_light (1)",
-      "Position": "-63.99997,448,183.9924",
-      "Rotation": "0,0.9999999,0,0",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "NetworkInterpolation": true,
-      "Components": [
-        {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "88ac7498-369b-471e-a836-d3670f7182cd",
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": "on",
-          "Model": "models/sbox_props/industrial_strip_light/industrial_strip_light.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        }
-      ],
-      "Children": [
-        {
-          "__guid": "bf283e74-6552-447f-804e-5039f29b546b",
-          "Flags": 0,
-          "Name": "Spot Light",
-          "Position": "0.004974365,0,7.997238",
-          "Rotation": "0,-0.7071018,0,0.7071019",
-          "Tags": "light_spot,light",
-          "Enabled": true,
-          "NetworkMode": 2,
-          "NetworkInterpolation": true,
-          "Components": [
-            {
-              "__type": "Sandbox.SpotLight",
-              "__guid": "5915df12-871d-43b5-98a1-330bd617e2bf",
-              "Attenuation": 0.33,
-              "ConeInner": 16.31,
-              "ConeOuter": 79.59,
-              "Cookie": "materials/effects/lightcookies/box.vtex",
-              "FogMode": "Enabled",
-              "FogStrength": 1,
-              "LightColor": "1,0.88659,0.64186,1",
-              "Radius": 1024,
-              "Shadows": true
-            }
-          ]
-        },
-        {
-          "__guid": "1c02c068-c080-4f3c-a051-0075deac1b55",
-          "Flags": 0,
-          "Name": "Point Light",
-          "Position": "0,0,9.497762",
-          "Tags": "light_point,light",
-          "Enabled": true,
-          "NetworkMode": 2,
-          "NetworkInterpolation": true,
-          "Components": [
-            {
-              "__type": "Sandbox.PointLight",
-              "__guid": "518aa3ff-0a1a-4248-81a5-c72bcc0e6533",
-              "Attenuation": 8.84,
-              "FogMode": "Enabled",
-              "FogStrength": 1,
-              "LightColor": "1,0.92171,0.53023,1",
-              "Radius": 64,
-              "Shadows": true
-            }
-          ]
-        }
-      ]
-    },
-    {
       "__guid": "2d1fdb3f-a6ca-4eaf-a4ee-317f58b8001d",
       "Flags": 0,
       "Name": "industrial_strip_light",
@@ -5444,6 +5373,7 @@
       "Position": "-280,78.66782,68.65121",
       "Rotation": "0,0.5,0,0.8660254",
       "Tags": "light_directional,light",
+      "Enabled": true,
       "NetworkMode": 2,
       "NetworkInterpolation": true,
       "Components": [
@@ -9330,8 +9260,8 @@
       "__guid": "85154bbe-44d8-4c31-b3f8-6c322b9f687d",
       "Flags": 0,
       "Name": "Game (1)",
-      "Position": "-190.6283,19.73162,2.000018",
-      "Rotation": "0,0,-1,0.00000008940697",
+      "Position": "-204,116,-0.00001656065",
+      "Rotation": "0,0,1,-0.00000004371139",
       "Enabled": true,
       "NetworkMode": 2,
       "NetworkInterpolation": true,
@@ -9512,6 +9442,65 @@
       "__Prefab": "prefabs/interactables/usp/usp_magazine.prefab"
     },
     {
+      "__guid": "5f8cca89-49c3-4846-bb96-a241f6458985",
+      "Flags": 0,
+      "Name": "USP Magazine (8)",
+      "Position": "114.7569,180.358,48.59415",
+      "Rotation": "0.5000002,-0.4999999,0.5,-0.4999999",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/usp/usp_magazine.prefab"
+    },
+    {
+      "__guid": "69fda44c-af2a-431c-b7a3-ae07b6a6923c",
+      "Flags": 0,
+      "Name": "USP Magazine (9)",
+      "Position": "121.2301,179.642,48.52517",
+      "Rotation": "0.5000002,-0.4999999,0.5,-0.4999999",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/usp/usp_magazine.prefab"
+    },
+    {
+      "__guid": "292de5d5-52ae-4069-9973-bd25b6e61cc4",
+      "Flags": 0,
+      "Name": "USP Magazine (6)",
+      "Position": "114.7569,184.7161,48.59415",
+      "Rotation": "0.5000002,-0.4999999,0.5,-0.4999999",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/usp/usp_magazine.prefab"
+    },
+    {
+      "__guid": "94297264-e283-43f8-b83a-02ffe8bb6c2e",
+      "Flags": 0,
+      "Name": "USP Magazine (7)",
+      "Position": "121.2301,184,48.52517",
+      "Rotation": "0.5000002,-0.4999999,0.5,-0.4999999",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/usp/usp_magazine.prefab"
+    },
+    {
+      "__guid": "eeaaeed4-509f-4938-a7f5-bed232ca7d17",
+      "Flags": 0,
+      "Name": "USP (5)",
+      "Position": "115.4307,192.0952,48.00884",
+      "Rotation": "0,0.258819,0,0.9659258",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/usp/usp.prefab"
+    },
+    {
       "__guid": "1d00098d-fba8-4026-b78c-08d33ce6324d",
       "Flags": 0,
       "Name": "USP Magazine (3)",
@@ -9603,7 +9592,7 @@
           "Flags": 0,
           "Name": "Object",
           "Position": "0,0,0",
-          "Rotation": "0,0.7071067,0,0.7071068",
+          "Rotation": "-0.000000000000003552714,0.7071067,-0.00000006181723,0.7071068",
           "Enabled": true,
           "NetworkMode": 2,
           "NetworkInterpolation": true,
@@ -9612,8 +9601,8 @@
               "__guid": "1d92ea21-306e-4c74-a505-5bd0bdeb626e",
               "Flags": 0,
               "Name": "Box",
-              "Position": "-1.519989,0,0.0000002717952",
-              "Rotation": "-1,0.000000000000007105427,0.0000001788139,0.0000000948304",
+              "Position": "-3.437074,0,-0.1559646",
+              "Rotation": "-0.9999999,0.000000000000007105398,0.0000001490111,0.0000000948304",
               "Enabled": true,
               "NetworkMode": 2,
               "NetworkInterpolation": true,
@@ -9672,26 +9661,6 @@
                   },
                   "SmoothingAngle": 40,
                   "Static": true
-                }
-              ]
-            },
-            {
-              "__guid": "1310c52b-950f-42bb-b1a3-40bded7d7ecf",
-              "Flags": 0,
-              "Name": "Cube",
-              "Position": "0,0,0",
-              "Scale": "0.1,0.1,0.1",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "Components": [
-                {
-                  "__type": "Sandbox.ModelRenderer",
-                  "__guid": "7e77e433-df02-40a0-9cab-9b7ade1aef94",
-                  "BodyGroups": 18446744073709551615,
-                  "Model": "models/dev/box.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
                 }
               ]
             }
@@ -9774,7 +9743,7 @@
           "FogStrength": 1,
           "LightColor": "0.91373,0.98039,1,1",
           "Radius": 500,
-          "Shadows": true
+          "Shadows": false
         }
       ]
     },
@@ -9800,7 +9769,7 @@
           "FogStrength": 1,
           "LightColor": "0.91373,0.98039,1,1",
           "Radius": 500,
-          "Shadows": true
+          "Shadows": false
         }
       ]
     },
@@ -9826,7 +9795,7 @@
           "FogStrength": 1,
           "LightColor": "0.91373,0.98039,1,1",
           "Radius": 500,
-          "Shadows": true
+          "Shadows": false
         }
       ]
     },
@@ -9852,7 +9821,7 @@
           "FogStrength": 1,
           "LightColor": "0.91373,0.98039,1,1",
           "Radius": 500,
-          "Shadows": true
+          "Shadows": false
         }
       ]
     },
@@ -10000,6 +9969,17 @@
           ]
         }
       ]
+    },
+    {
+      "__guid": "d782458b-5f8c-4316-a81b-068849c383f2",
+      "Flags": 0,
+      "Name": "USP (4)",
+      "Position": "116.3499,188.9473,47.49129",
+      "Rotation": "-0.000000007713394,0.2588191,0.00000002878684,0.9659259",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/usp/usp.prefab"
     }
   ],
   "SceneProperties": {
@@ -10025,7 +10005,7 @@
   },
   "Title": "shooting_range",
   "Description": "",
-  "LastSaved": "2024-05-09T11:05:02.4444668\u002B01:00",
+  "LastSaved": "2024-05-09T14:14:46.0187087\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [

@@ -12,10 +12,6 @@
         "__type": "Weapon",
         "__guid": "7a311c43-0ba7-4c3a-a814-3d50f162db14",
         "BaseRecoilDecay": 3,
-        "BulletEjectPrefab": {
-          "_type": "gameobject",
-          "prefab": "prefabs/interactables/ammo/spent_9mm_shell.prefab"
-        },
         "BulletSize": 3,
         "Chamber": {
           "_type": "component",
@@ -41,7 +37,7 @@
           "go": "a0b0686c-88bf-4071-991a-34ff6ab444c4",
           "component_type": "Rigidbody"
         },
-        "RPM": 200,
+        "RPM": 500,
         "ShootSound": "sounds/weapons/usp/usp_shoot.sound",
         "SlideReleaseSystem": {
           "_type": "component",
@@ -49,7 +45,7 @@
           "go": "e5cc5580-a883-46d6-86bb-cddb4512e17d",
           "component_type": "SlideReleaseSystem"
         },
-        "VerticalRecoil": "900.00,1800.00,1"
+        "VerticalRecoil": "400.00,1000.00,1"
       },
       {
         "__type": "Sandbox.Rigidbody",
