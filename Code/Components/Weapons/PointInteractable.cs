@@ -50,7 +50,7 @@ public partial class PointInteractable : BaseInteractable
 	/// <summary>
 	/// Quick accessor for the hand.
 	/// </summary>
-	public Hand Hand => PrimaryGrabPoint?.HeldHand;
+	public Hand Hand => PrimaryGrabPoint?.Hand;
 
 	/// <summary>
 	/// We store an initial state for the bone, in local space - so we can maintain it.
@@ -110,14 +110,15 @@ public partial class PointInteractable : BaseInteractable
 			InitialBoneLocalTransform = BoneGameObject.Transform.Local;
 		}
 
-		PrimaryGrabPoint.OnGrabEndEvent += OnGrabEnd;
+		if ( PrimaryGrabPoint is GrabPoint grabPoint )
+			grabPoint.OnGrabEndEvent += OnGrabEnd;
 	}
 
 	protected override void OnDestroy()
 	{
-		if ( PrimaryGrabPoint.IsValid() )
+		if ( PrimaryGrabPoint.IsValid() && PrimaryGrabPoint is GrabPoint grabPoint )
 		{
-			PrimaryGrabPoint.OnGrabEndEvent -= OnGrabEnd;
+			grabPoint.OnGrabEndEvent -= OnGrabEnd;
 		}
 	}
 
@@ -169,7 +170,7 @@ public partial class PointInteractable : BaseInteractable
 		CompletionValue = clamped;
 
 		// Move the primary grab point. This should always be the hand that's interacting with the interactable.
-		PrimaryGrabPoint.Transform.Position = Vector3.Lerp( Start.Transform.Position, End.Transform.Position, clamped );
+		PrimaryGrabPoint.GameObject.Transform.Position = Vector3.Lerp( Start.Transform.Position, End.Transform.Position, clamped );
 		// Move the bone!
 		BoneGameObject.Transform.Local = new Transform( CalcLocalPosition(), Rotation.Identity, 1 );
 

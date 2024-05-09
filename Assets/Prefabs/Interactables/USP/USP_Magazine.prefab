@@ -1,8 +1,9 @@
 {
   "RootObject": {
     "__guid": "0e5de69e-2f10-450a-86af-7209e2fddba7",
+    "Flags": 0,
     "Name": "usp_magazine",
-    "Tags": "magazine",
+    "Tags": "magazine,interactable",
     "Enabled": true,
     "NetworkMode": 2,
     "NetworkInterpolation": true,
@@ -69,6 +70,16 @@
         "AmmoBodygroup": 0,
         "BulletCapacity": 10,
         "BulletCount": 0,
+        "BulletPrefab": {
+          "Caliber": "Nine",
+          "SpentCasingBodygroup": {
+            "Value": 1
+          },
+          "Prefab": {
+            "_type": "gameobject",
+            "prefab": "prefabs/interactables/ammo/bullet_9mm.prefab"
+          }
+        },
         "Bullets": [],
         "Caliber": "Nine",
         "DefaultBulletCapacity": 10,
@@ -84,6 +95,7 @@
     "Children": [
       {
         "__guid": "96ff4590-9342-4ff4-8389-1c8e7dd025d8",
+        "Flags": 0,
         "Name": "Model",
         "Position": "0.03938294,0.00000001408443,0.000000004694812",
         "Enabled": true,
@@ -103,6 +115,7 @@
       },
       {
         "__guid": "148e4816-9036-4193-bdc4-633ccce89336",
+        "Flags": 0,
         "Name": "Magazine Grab Point",
         "Position": "0,-0.2585772,-2.12495",
         "Tags": "trigger",
@@ -132,8 +145,7 @@
               "Middle": 1,
               "Ring": 1,
               "Pinky": 1
-            },
-            "PresetDebugging": false
+            }
           },
           {
             "__type": "Sandbox.SphereCollider",

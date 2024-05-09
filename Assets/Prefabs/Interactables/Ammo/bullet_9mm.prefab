@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "__guid": "a4339880-82d8-419e-a4d1-3425ad0bc050",
+    "__guid": "5572b64d-cbca-4bf4-945c-64ca5573ff94",
     "Flags": 0,
     "Name": "bullet_9mm",
     "Tags": "magazine",
@@ -10,18 +10,18 @@
     "Components": [
       {
         "__type": "Interactable",
-        "__guid": "b390fe1e-24e9-4950-880d-ae57cf3e0fd3",
+        "__guid": "17282043-0c42-4cb3-b8a4-f6c45358ed58",
         "MassScale": 1,
         "Rigidbody": {
           "_type": "component",
-          "component_id": "68d1782f-bf43-4ca9-b778-186b4d0a201a",
-          "go": "a4339880-82d8-419e-a4d1-3425ad0bc050",
+          "component_id": "bb56211d-0aa1-420c-9618-d43570e48101",
+          "go": "5572b64d-cbca-4bf4-945c-64ca5573ff94",
           "component_type": "Rigidbody"
         }
       },
       {
         "__type": "Sandbox.Rigidbody",
-        "__guid": "68d1782f-bf43-4ca9-b778-186b4d0a201a",
+        "__guid": "bb56211d-0aa1-420c-9618-d43570e48101",
         "AngularDamping": 5,
         "Gravity": true,
         "LinearDamping": 4.5,
@@ -33,52 +33,45 @@
       },
       {
         "__type": "Attachable",
-        "__guid": "fb874461-0238-4221-a983-aa8194e6e7c3",
+        "__guid": "2c71aafc-88cb-4dd4-85df-8be86c3a21e9",
         "AttachSound": "sounds/weapons/m4a1/m4_magazine_in.sound",
         "DetachSound": "sounds/weapons/m4a1/m4_magazine_in.sound",
         "Interactable": {
           "_type": "component",
-          "component_id": "b390fe1e-24e9-4950-880d-ae57cf3e0fd3",
-          "go": "a4339880-82d8-419e-a4d1-3425ad0bc050",
+          "component_id": "17282043-0c42-4cb3-b8a4-f6c45358ed58",
+          "go": "5572b64d-cbca-4bf4-945c-64ca5573ff94",
           "component_type": "Interactable"
         },
         "Rigidbody": {
           "_type": "component",
-          "component_id": "68d1782f-bf43-4ca9-b778-186b4d0a201a",
-          "go": "a4339880-82d8-419e-a4d1-3425ad0bc050",
+          "component_id": "bb56211d-0aa1-420c-9618-d43570e48101",
+          "go": "5572b64d-cbca-4bf4-945c-64ca5573ff94",
           "component_type": "Rigidbody"
         }
       },
       {
         "__type": "BulletComponent",
-        "__guid": "6cf9ba7b-d053-40c5-95c6-7749534255a3",
+        "__guid": "8acbf2ed-58f2-45d5-b295-56f400f860d1",
         "Bullet": {
           "Caliber": "Nine",
-          "SpentCasing": {
-            "_type": "gameobject",
-            "prefab": "prefabs/interactables/ammo/spent_9mm_shell.prefab"
-          },
-          "UnspentCasing": {
-            "_type": "gameobject",
-            "prefab": "prefabs/interactables/ammo/bullet_9mm.prefab"
+          "SpentCasingBodygroup": {
+            "Value": 1
           }
         }
       }
     ],
     "Children": [
       {
-        "__guid": "f717711a-2ee5-4a0a-93c5-b2390aa7f830",
+        "__guid": "fd4c208f-4db8-40b9-84b9-b25f1d63d72b",
         "Flags": 0,
         "Name": "Model",
-        "Position": "1.998995,1.434895,0.2537762",
-        "Rotation": "-0.001974069,0.02005978,-0.09791604,0.9949902",
         "Enabled": true,
         "NetworkMode": 2,
         "NetworkInterpolation": true,
         "Components": [
           {
             "__type": "Sandbox.SkinnedModelRenderer",
-            "__guid": "1632579e-4d68-4c47-8ec0-75ff89a59587",
+            "__guid": "3ddb47da-5192-4b69-8ef8-8bd517a283f0",
             "BodyGroups": 1,
             "CreateBoneObjects": false,
             "Model": "models/weapons/sbox_ammo/9mm_bullet/9mm_bullet.vmdl",
@@ -87,7 +80,7 @@
           },
           {
             "__type": "Sandbox.BoxCollider",
-            "__guid": "916a3729-dbde-487c-87d8-849ba9dd8e4c",
+            "__guid": "0af1d6c2-3b17-4ba6-a600-ce4c2fee3619",
             "Center": "0,0,0",
             "IsTrigger": false,
             "Scale": "1,0.5,0.5",
@@ -96,10 +89,10 @@
         ]
       },
       {
-        "__guid": "291a99a3-ac47-4ca3-adca-9c3676a2d526",
+        "__guid": "8f1e56bb-ad3f-46e3-af7d-649c84fd6609",
         "Flags": 0,
         "Name": "Grab Point",
-        "Position": "-0.5497334,-0.05147595,0.02175736",
+        "Position": "-2.496097,-1.497055,-0.3909477",
         "Rotation": "-0.258819,-0.00000001449371,0,0.9659259",
         "Tags": "trigger",
         "Enabled": true,
@@ -108,18 +101,18 @@
         "Components": [
           {
             "__type": "GrabPoint",
-            "__guid": "31eced3d-0e65-46f8-b4b2-87e90ded973b",
+            "__guid": "d4701cf3-d199-4689-a981-43995d226a0d",
             "Collider": {
               "_type": "component",
-              "component_id": "ce56869c-5406-4394-b18a-fe5d3e5a87a4",
-              "go": "291a99a3-ac47-4ca3-adca-9c3676a2d526",
+              "component_id": "d8b5aade-c04c-44d5-b063-aa78abbe8977",
+              "go": "8f1e56bb-ad3f-46e3-af7d-649c84fd6609",
               "component_type": "SphereCollider"
             },
             "GrabInput": "Grip",
             "Interactable": {
               "_type": "component",
-              "component_id": "b390fe1e-24e9-4950-880d-ae57cf3e0fd3",
-              "go": "a4339880-82d8-419e-a4d1-3425ad0bc050",
+              "component_id": "17282043-0c42-4cb3-b8a4-f6c45358ed58",
+              "go": "5572b64d-cbca-4bf4-945c-64ca5573ff94",
               "component_type": "Interactable"
             },
             "Preset": {
@@ -133,8 +126,8 @@
           },
           {
             "__type": "Sandbox.SphereCollider",
-            "__guid": "ce56869c-5406-4394-b18a-fe5d3e5a87a4",
-            "Center": "2.8,0.6000001,1.4",
+            "__guid": "d8b5aade-c04c-44d5-b063-aa78abbe8977",
+            "Center": "0,0,0",
             "IsTrigger": true,
             "Radius": 1.5,
             "Static": false

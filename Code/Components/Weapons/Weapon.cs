@@ -109,9 +109,14 @@ public partial class Weapon : Interactable
 
 	public bool TryFeedFromMagazine()
 	{
+		var ejectedBullets = Chamber.Eject();
+
+		if ( ejectedBullets is not null )
+		{
+		// 	OnBulletEjected( ejectedBullets );
+		}
 
 		var magazine = Magazine;
-
 		// Feed the weapon's chamber from its current magazine.
 		if ( Chamber.Feed( magazine ) > 0 )
 		{
@@ -119,8 +124,6 @@ public partial class Weapon : Interactable
 		}
 
 		return false;
-		
-		
 	}
 
 	/// <summary>
@@ -178,7 +181,7 @@ public partial class Weapon : Interactable
 	{
 		CurrentRecoilAmount = CurrentRecoilAmount.LerpTo( 0, Time.Delta * CalcRecoilDecay() );
 
-		if ( PrimaryGrabPoint?.HeldHand is { } hand )
+		if ( PrimaryGrabPoint?.Hand is { } hand )
 		{
 			if ( hand.IsTriggerDown() )
 			{
@@ -217,9 +220,9 @@ public partial class Weapon : Interactable
 
 	private Bullet GetBullet()
 	{
-		if ( Chamber?.GetBullet() is { } bullet )
+		if ( Chamber?.Eject() is { } bullet )
 		{
-			return bullet.FirstOrDefault();
+			return bullet;
 		}
 		return null;
 	}
@@ -238,16 +241,21 @@ public partial class Weapon : Interactable
 			return;
 		}
 
+		// Mark the bullet as spent.
+		bullet.IsSpent = true;
 
-		bullet.IsFired = true;
-	
-			
 		CurrentRecoilAmount += CalcRecoil();
 
 		int count = 0;
 		foreach ( var tr in GetShootTrace() )
 		{
-			// TODO: Component.IDamageable
+			foreach ( var damageable in tr.GameObject.Root.Components.GetAll<IDamageable>( FindMode.EnabledInSelfAndDescendants ) )
+			{
+				damageable.OnDamage( new DamageInfo()
+				{
+					Damage = 25, Position = tr.EndPosition
+				} );
+			}
 
 			if ( tr.Hit )
 				CreateImpactEffects( tr.GameObject, tr.Surface, tr.EndPosition, tr.Normal );
@@ -257,8 +265,7 @@ public partial class Weapon : Interactable
 			count++;
 		}
 
-		TryEjectFromChamber();
-
+		OnBulletEjected( bullet );
 
 		// If we succeed to shoot, let's feed another bullet into the chamber from the mag.
 		if ( !TryFeedFromMagazine() )
@@ -268,63 +275,37 @@ public partial class Weapon : Interactable
 	}
 
 
-	[Property] public GameObject BulletPrefab { get; set; }
-	[Property] public GameObject SpentBulletPrefab { get; set; }
+	[Property] public GameObject BulletEjectPrefab { get; set; }
 	[Property] public GameObject EjectionPort { get; set; }
 
 	protected void OnBulletEjected( Bullet bullet )
 	{
-		GameObject ejection;
-		if(bullet.IsFired)
+		if ( bullet is null )
 		{
-		
-		
-			ejection = bullet.SpentCasing.Clone( new CloneConfig()
-			{
-				StartEnabled = true,
-				Transform = EjectionPort.Transform.World
-			} );
-		
+			Log.Warning( "Tried to eject an invalid bullet?" );
+			return;
 		}
-		else
-		{
-		
-			ejection = bullet.UnspentCasing.Clone( new CloneConfig()
-			{
-				StartEnabled = true,
-				Transform = EjectionPort.Transform.World
-			} );
-		}
-		
 
-		var rb = ejection.Components.Get<Rigidbody>();
+		var worldBullet = bullet.CreateInWorld( EjectionPort.Transform.Position, EjectionPort.Transform.Rotation );
+
+		var rb = worldBullet.Components.Get<Rigidbody>( FindMode.EnabledInSelfAndDescendants );
 		if ( rb.IsValid() )
 		{
 			rb.ApplyForce( EjectionPort.Transform.Rotation.Right * 1500000 );
 			rb.ApplyForce( EjectionPort.Transform.Rotation.Up * Game.Random.Float( 100000, 200000 ) );
+
+			//rb.AngularVelocity = EjectionPort.Transform.Rotation.Right * 10;
+			rb.AngularVelocity = worldBullet.Transform.Rotation.Forward * 10;
 		}
 	}
 
 	internal bool TryEjectFromChamber()
 	{
-		var bullet = GetBullet();
-		var ejectedBullets = Chamber.Eject();
-	
-		if ( ejectedBullets is not null && ejectedBullets.Any() )
+		var ejectedBullet = Chamber.Eject();
+
+		if ( ejectedBullet is not null )
 		{
-			if ( bullet is not null )
-			{
-
-				OnBulletEjected( bullet );
-				
-			}
-			else
-			{
-				// can possibly be chucked. idk what one though, perhaps bullet.
-				OnBulletEjected( ejectedBullets.FirstOrDefault() );
-			}
-
-			
+			OnBulletEjected( ejectedBullet );
 		}
 
 		return false;

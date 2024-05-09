@@ -35,26 +35,26 @@ public partial class WeaponChamber : Component, Component.ITriggerListener
 		get => Chamber.Count < ChamberCapacity;
 	}
 
-
-	public IEnumerable<Bullet> GetBullet()
-	{
-		if(Chamber.Any())
-		{
-			yield return Chamber.FirstOrDefault();
-		}
-	}
-
 	/// <summary>
 	/// Try to eject a bullet from the chamber.
 	/// </summary>
 	/// <returns></returns>
-	public IEnumerable<Bullet> Eject()
+	public Bullet Eject()
 	{
 		if ( Chamber.TryPop( out var bullet ) )
 		{
-			Log.Info( $"Popped {bullet} out of {this}" );
-			yield return bullet;
+			Log.Info( $"Ejected {bullet} from chamber" );
+			return bullet;
 		}
+		return null;
+	}
+
+	/// <summary>
+	/// Spend the first bullet in the weapon's chamber
+	/// </summary>
+	public void Spend()
+	{
+		if ( Chamber.FirstOrDefault() is { } bullet ) bullet.IsSpent = true;
 	}
 
 	/// <summary>
@@ -64,8 +64,8 @@ public partial class WeaponChamber : Component, Component.ITriggerListener
 	/// <returns>How many bullets we fed from this list</returns>
 	public int Feed( IAmmoSource src )
 	{
-		
 		if ( src is null ) return 0;
+
 		int count = 0;
 
 		while ( CanInsert )
@@ -84,8 +84,7 @@ public partial class WeaponChamber : Component, Component.ITriggerListener
 
 		return count;
 	}
-	/*
-	// I THINK (think) that this was causing issues because when ejecting unspent rounds they would immediately chamber into the gun and at the same time spawn a bullet prefab.
+
 	void ITriggerListener.OnTriggerEnter( Sandbox.Collider other )
 	{
 		if ( other.GameObject.Root.Components.Get<BulletComponent>() is { } bulletComponent )
@@ -108,5 +107,4 @@ public partial class WeaponChamber : Component, Component.ITriggerListener
 			}
 		}
 	}
-	*/
 }

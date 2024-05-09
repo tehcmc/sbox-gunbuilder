@@ -2,7 +2,7 @@
 /// A grab point. This has to be on an interactable somewhere. This'll be something like a handle on a gun.
 /// Or just a point where we can hold something.
 /// </summary>
-public partial class GrabPoint : Component
+public partial class GrabPoint : Component, IGrabbable
 {
 	[Property] public Action OnGrabStartEvent { get; set; }
 	[Property] public Action OnGrabEndEvent { get; set; }
@@ -27,18 +27,6 @@ public partial class GrabPoint : Component
 	/// </summary>
 	[Property, Title( "Hand Preset" )] public HandPreset Preset { get; set; } = HandPreset.GripWithoutIndexFinger;
 
-	[Property] public bool PresetDebugging { get; set; } = false;
-
-	/// <summary>
-	/// What's our grabbing input type?
-	/// </summary>
-	public enum GrabInputType
-	{
-		Grip,
-		Trigger,
-		Hover
-	}
-
 	/// <summary>
 	/// What's our grabbing input type?
 	/// </summary>
@@ -59,11 +47,6 @@ public partial class GrabPoint : Component
 	/// Make this a method at some point so we can control access.
 	/// </summary>
 	public Hand HeldHand { get; set; }
-
-	/// <summary>
-	/// Is this grab point being held by a player?
-	/// </summary>
-	public bool IsBeingHeld => HeldHand.IsValid();
 
 	public void OnStartGrabbing()
 	{
@@ -112,44 +95,5 @@ public partial class GrabPoint : Component
 	public virtual void UpdateHandPose( Hand hand )
 	{
 		hand.ApplyHandPreset( Preset );
-	}
-
-	SkinnedModelRenderer handGuide;
-	private void RecreateHandGuide()
-	{
-		handGuide?.GameObject?.Destroy();
-
-		var go = new GameObject();
-
-		var sm = go.Components.Create<SkinnedModelRenderer>();
-		sm.Model = Model.Load( "models/hands/alyx_hand_right.vmdl" );
-		handGuide = sm;
-
-		go.SetParent( this.GameObject, false );
-
-		sm.Set( "BasePose", 1 );
-		sm.Set( "bGrab", true );
-		sm.Set( "GrabMode", 1 );
-
-		if ( Preset is not null )
-		{
-			Preset.Apply( sm );
-		}
-	}
-
-	protected override void OnUpdate()
-	{
-		if ( Preset is not null && handGuide.IsValid() )
-		{
-			Preset.Apply( handGuide );
-		}
-	}
-
-	protected override void OnStart()
-	{
-		if ( PresetDebugging )
-		{
-			RecreateHandGuide();
-		}
 	}
 }

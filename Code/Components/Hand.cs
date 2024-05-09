@@ -1,4 +1,5 @@
 using Sandbox.VR;
+using System.Diagnostics;
 using System.Numerics;
 
 public partial class Hand : Component, Component.ITriggerListener
@@ -10,12 +11,12 @@ public partial class Hand : Component, Component.ITriggerListener
 	/// Which objects are we hovering our hand over right now?
 	/// This doesn't mean HOLDING, it means hovered.
 	/// </summary>
-	HashSet<GrabPoint> HoveredGrabPoints = new();
+	HashSet<IGrabbable> HoveredGrabPoints = new();
 
 	/// <summary>
 	/// The current grab point that this hand is holding. This means the grip is down, and we're actively holding an interactable.
 	/// </summary>
-	GrabPoint CurrentGrabPoint { get; set; }
+	IGrabbable CurrentGrabPoint { get; set; }
 
 	/// <summary>
 	/// The input deadzone, so holding ( flDeadzone * 100 ) percent of the grip down means we've got the grip / trigger down.
@@ -62,13 +63,13 @@ public partial class Hand : Component, Component.ITriggerListener
 		return HandSource == HandSources.Left ? Input.VR?.LeftHand : Input.VR?.RightHand;
 	}
 
-	public bool IsDown( GrabPoint.GrabInputType inputType )
+	public bool IsDown( GrabInputType inputType )
 	{
 		return inputType switch
 		{
-			GrabPoint.GrabInputType.Hover => true,
-			GrabPoint.GrabInputType.Grip => IsGripDown(),
-			GrabPoint.GrabInputType.Trigger => IsTriggerDown(),
+			GrabInputType.Hover => true,
+			GrabInputType.Grip => IsGripDown(),
+			GrabInputType.Trigger => IsTriggerDown(),
 			_ => false
 		};
 	}
@@ -125,11 +126,11 @@ public partial class Hand : Component, Component.ITriggerListener
 		Velocity = (newPosition - prevPosition);
 	}
 
-	protected GrabPoint GetPrioritizedGrabPoint()
+	protected IGrabbable GetPrioritizedGrabPoint()
 	{
 		if ( CurrentGrabPoint.IsValid() ) return CurrentGrabPoint;
-		var points = HoveredGrabPoints.OrderBy( x => x.Transform.Position.Distance( Transform.Position ) );
 
+		var points = HoveredGrabPoints.OrderBy( x => x.GameObject.Transform.Position.Distance( Transform.Position ) );
 		return points.FirstOrDefault();
 	}
 
@@ -140,28 +141,66 @@ public partial class Hand : Component, Component.ITriggerListener
 
 		if ( IsProxy ) return;
 
-		// Auto-detach for hover input type
-		if ( CurrentGrabPoint.IsValid() && CurrentGrabPoint.GrabInput == GrabPoint.GrabInputType.Hover )
+		if ( CurrentGrabPoint.IsValid() )
 		{
-			// Detach!
-			if ( CurrentGrabPoint.Transform.Position.Distance( Transform.Position ) > 3f )
+			// Auto-detach for hover input type
+			if ( CurrentGrabPoint is GrabPoint grabPoint && grabPoint.GrabInput == GrabInputType.Hover )
 			{
-				StopGrabbing();
-				return;
+				// Detach!
+				if ( grabPoint.Transform.Position.Distance( Transform.Position ) > 3f )
+				{
+					StopGrabbing();
+					return;
+				}
 			}
 		}
 
-		var point = GetPrioritizedGrabPoint();
-
-		if ( point.IsValid() && IsDown( point.GrabInput ) )
+		var grabbable = GetPrioritizedGrabPoint();
+		if ( grabbable.IsValid() && grabbable is GrabPoint point && IsDown( point.GrabInput ) )
 		{
-			if ( !point.IsValid() ) return;
 			StartGrabbing( point );
 		}
 		else
 		{
 			StopGrabbing();
 		}
+
+		if ( WantsToPoint )
+		{
+			UpdateRemotePickup();
+		}
+	}
+
+	public bool WantsToPoint => IsTriggerDown() && !IsHolding();
+
+	[Property] public SkinnedModelRenderer Model { get; set; }
+
+	void UpdateRemotePickup()
+	{
+		var att = Model.GetAttachment( "ui_pointer" ) ?? default;
+
+		var tr = Scene.Trace.Ray( att.Position, att.Position + att.Forward * 100000f )
+			.IgnoreGameObject( GameObject )
+			.Run();
+
+		Gizmo.Draw.Color = Color.Red;
+
+		if ( tr.Hit )
+		{
+			if ( tr.GameObject.Root.Components.Get<BaseInteractable>( FindMode.EnabledInSelfAndDescendants ) is { } interactable )
+			{
+				Gizmo.Draw.Color = Color.Green;
+
+				var grabPoint = interactable.AllGrabPoints.FirstOrDefault();
+
+				if ( IsDown( grabPoint.GrabInput ) && interactable.Interact( grabPoint, this ) )
+				{
+					CurrentGrabPoint = grabPoint;
+				}
+			}
+		}
+
+		Gizmo.Draw.Line( tr.StartPosition, tr.EndPosition );
 	}
 
 	/// <summary>
@@ -191,14 +230,14 @@ public partial class Hand : Component, Component.ITriggerListener
 	}
 
 	// Not sure what purpose this'll really serve soon.
-	internal Vector3 GetHoldPosition( GrabPoint grabPoint )
+	internal Vector3 GetHoldPosition( IGrabbable grabPoint )
 	{
 		var src = ModelGameObject.Transform.Position;
 		return src;
 	}
 
 	// Not sure what purpose this'll really serve soon.
-	internal Rotation GetHoldRotation( GrabPoint grabPoint )
+	internal Rotation GetHoldRotation( IGrabbable grabPoint )
 	{
 		return ModelGameObject.Transform.Rotation;
 	}
