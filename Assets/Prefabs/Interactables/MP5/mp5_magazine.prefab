@@ -49,7 +49,7 @@
         },
         "Bullets": [],
         "Caliber": "Nine",
-        "DefaultBulletCapacity": 0,
+        "DefaultBulletCapacity": 30,
         "IsInfiniteAmmo": false,
         "Renderer": {
           "_type": "component",

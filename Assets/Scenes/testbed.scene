@@ -1410,6 +1410,160 @@
       "NetworkMode": 2,
       "NetworkInterpolation": true,
       "__Prefab": "prefabs/interactables/mp5/mp5_magazine.prefab"
+    },
+    {
+      "__guid": "8c8b43d8-b53a-4c6d-baa5-92c87838b163",
+      "Flags": 0,
+      "Name": "bullet_9mm (13)",
+      "Position": "38.49597,14.97238,68.52621",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/ammo/bullet_9mm.prefab"
+    },
+    {
+      "__guid": "fc6f7cd7-5c9b-4e75-acbd-2487b5b8ff9d",
+      "Flags": 0,
+      "Name": "bullet_9mm (12)",
+      "Position": "38.49597,14.97238,68.52621",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/ammo/bullet_9mm.prefab"
+    },
+    {
+      "__guid": "5c248bcc-5022-42a6-93d3-e5cad7bc2e8c",
+      "Flags": 0,
+      "Name": "bullet_9mm (11)",
+      "Position": "38.49597,14.97238,68.52621",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/ammo/bullet_9mm.prefab"
+    },
+    {
+      "__guid": "491eca4c-79e2-4ee5-8390-e68000f2b199",
+      "Flags": 0,
+      "Name": "bullet_9mm (10)",
+      "Position": "38.49597,14.97238,68.52621",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/ammo/bullet_9mm.prefab"
+    },
+    {
+      "__guid": "42f3e3e4-9b93-43af-96bd-2b16695be063",
+      "Flags": 0,
+      "Name": "bullet_9mm (9)",
+      "Position": "38.49597,14.97238,68.52621",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/ammo/bullet_9mm.prefab"
+    },
+    {
+      "__guid": "8e825f31-0d7a-458a-a0a7-2418d04145f8",
+      "Flags": 0,
+      "Name": "bullet_9mm (8)",
+      "Position": "38.49597,14.97238,68.52621",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/ammo/bullet_9mm.prefab"
+    },
+    {
+      "__guid": "a958fe10-6bf7-4956-8a9a-b9c4fb840423",
+      "Flags": 0,
+      "Name": "bullet_9mm (7)",
+      "Position": "38.49597,14.97238,68.52621",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/ammo/bullet_9mm.prefab"
+    },
+    {
+      "__guid": "764532c7-c396-41e4-ae32-24f1f6532812",
+      "Flags": 0,
+      "Name": "bullet_9mm (6)",
+      "Position": "38.49597,14.97238,68.52621",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/ammo/bullet_9mm.prefab"
+    },
+    {
+      "__guid": "616628d3-451e-4da8-b815-c1f9f786262c",
+      "Flags": 0,
+      "Name": "bullet_9mm (5)",
+      "Position": "38.49597,14.97238,68.52621",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/ammo/bullet_9mm.prefab"
+    },
+    {
+      "__guid": "d8bfc783-903d-4930-9adb-79adb81d1a2a",
+      "Flags": 0,
+      "Name": "bullet_9mm (4)",
+      "Position": "38.49597,14.97238,68.52621",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/ammo/bullet_9mm.prefab"
+    },
+    {
+      "__guid": "37902ed9-25b1-4555-8eb5-8a96e20931c1",
+      "Flags": 0,
+      "Name": "bullet_9mm (3)",
+      "Position": "38.49597,14.97238,68.52621",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/ammo/bullet_9mm.prefab"
+    },
+    {
+      "__guid": "e8f74735-38d4-494b-b139-a8db037a5c89",
+      "Flags": 0,
+      "Name": "bullet_9mm (2)",
+      "Position": "38.49597,14.97238,68.52621",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/ammo/bullet_9mm.prefab"
+    },
+    {
+      "__guid": "3616160e-9fbf-45ff-b10a-cd4415b8d506",
+      "Flags": 0,
+      "Name": "bullet_9mm (1)",
+      "Position": "38.49597,14.97238,68.52621",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/ammo/bullet_9mm.prefab"
+    },
+    {
+      "__guid": "5572b64d-cbca-4bf4-945c-64ca5573ff94",
+      "Flags": 0,
+      "Name": "bullet_9mm",
+      "Position": "38.49597,16.66965,68.52621",
+      "Tags": "magazine",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/interactables/ammo/bullet_9mm.prefab"
     }
   ],
   "SceneProperties": {
@@ -1435,7 +1589,7 @@
   },
   "Title": "testbed",
   "Description": "",
-  "LastSaved": "2024-05-09T10:32:19.4442085\u002B01:00",
+  "LastSaved": "2024-05-09T10:53:34.537238\u002B01:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": []
