@@ -68,6 +68,12 @@ public partial record Bullet
 
 		if ( IsSpent )
 		{
+			var grabPoint = go.Components.Get<GrabPoint>( FindMode.EnabledInSelfAndDescendants );
+			if ( grabPoint.IsValid() )
+			{
+				grabPoint.GameObject.Destroy();
+			}
+
 			mdl.SetBodyGroup( SpentCasingBodygroup.Index, SpentCasingBodygroup.Value );
 		}
 
